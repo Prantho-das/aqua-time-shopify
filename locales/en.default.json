@@ -1,0 +1,17 @@
+{
+  "general": {
+    "accessibility": {
+      "close": "Close",
+      "skip_to_text": "Skip to content"
+    },
+    "meta": {
+      "tags": "tagged \"{{ tags }}\"",
+      "page": "Page {{ page }}"
+    }
+  },
+  "sections": {
+    "header": {
+      "order_now": "ORDER NOW - $1,495"
+    }
+  }
+}

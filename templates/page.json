@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "cta": {
+      "type": "cta-banner",
+      "settings": {
+        "heading": "Air to Water Generators"
+      }
+    }
+  },
+  "order": [
+    "cta"
+  ]
+}

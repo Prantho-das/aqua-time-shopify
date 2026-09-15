@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "cta": {
+      "type": "cta-banner",
+      "settings": {
+        "heading": "Ready to checkout your AWG Unit?"
+      }
+    }
+  },
+  "order": [
+    "cta"
+  ]
+}

@@ -1,0 +1,241 @@
+<section id="home" class="relative overflow-hidden min-h-[580px] lg:min-h-[680px] flex items-center pt-8 pb-16 sm:pt-10 sm:pb-20 lg:pt-14 lg:pb-28">
+  <div class="absolute inset-0 z-0">
+    {% if section.settings.image != blank %}
+      <img src="{{ section.settings.image | image_url: width: 2000 }}" alt="{{ section.settings.heading | escape }}" class="w-full h-full object-cover object-[75%_center] sm:object-center" fetchpriority="high" loading="eager">
+    {% else %}
+      <img src="{{ 'hero-banner-03.jpg' | asset_url }}" alt="Air to Water Generation Hero Banner" class="w-full h-full object-cover object-[75%_center] sm:object-center" fetchpriority="high" loading="eager">
+    {% endif %}
+    <div class="absolute inset-0 bg-white/95 sm:bg-transparent sm:bg-gradient-to-r sm:from-white/95 sm:via-white/85 sm:to-transparent sm:w-3/4 lg:w-3/5"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-center">
+      
+      <div class="lg:col-span-7 space-y-4 sm:space-y-5 reveal-init">
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="text-[10px] sm:text-[11px] font-extrabold tracking-widest text-brand-600 uppercase">{{ section.settings.badge_tag | default: 'ATMOSPHERIC WATER GENERATOR (AWG)' }}</span>
+          <span class="inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 text-emerald-800 px-2 py-0.5 rounded-full text-[10px] sm:text-[11px] font-bold">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            {{ section.settings.stock_tag | default: 'IN STOCK • SHIPS IMMEDIATELY' }}
+          </span>
+        </div>
+
+        <h1 class="font-heading text-3xl sm:text-5xl lg:text-[54px] font-extrabold text-[#0e1c36] tracking-tight leading-[1.14]">
+          {{ section.settings.heading_line1 | default: 'Generate Water' }}<br>
+          {{ section.settings.heading_line2 | default: 'From the Air in Your' }}<br>
+          <span id="hero-rotating-word" data-words="{{ section.settings.rotating_words | default: 'Home, Office, Kitchen, Shop, Cabin, Factory, Break Room' }}" class="text-brand-600 inline-block border-b-2 border-brand-400 pb-0.5">Home</span>.
+        </h1>
+
+        <p class="text-[#596780] text-xs sm:text-[15px] leading-relaxed max-w-xl font-normal">
+          {{ section.settings.description | default: 'Extract clean, pure, mineral-balanced drinking water directly from ambient air humidity. Zero groundwater depletion, no microplastics, and no plumbing required. Plug in and drink.' }}
+        </p>
+
+        <!-- Pricing Tag -->
+        <div class="inline-flex items-center gap-3 bg-white/90 backdrop-blur-xs border border-slate-200/80 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl shadow-xs">
+          <div class="flex items-baseline gap-2">
+            <span class="text-xl sm:text-2xl font-black text-[#0e1c36]">{{ section.settings.price | default: '$1,495' }}</span>
+            <span class="line-through text-slate-400 text-xs sm:text-sm font-semibold">{{ section.settings.compare_price | default: '$1,995' }}</span>
+          </div>
+          <span class="bg-emerald-600 text-white text-[10px] font-extrabold px-2 py-0.5 rounded uppercase tracking-wider">
+            {{ section.settings.save_tag | default: 'SAVE $500' }}
+          </span>
+          <span class="text-[11px] text-slate-500 hidden sm:inline">• {{ section.settings.shipping_note | default: 'Free Insured Shipping' }}</span>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-3 pt-1">
+          <button class="open-quote-modal w-full sm:w-auto text-center bg-brand-600 hover:bg-brand-700 text-white text-[12px] font-bold tracking-wider px-6 py-3.5 rounded-lg shadow-sm hover:shadow transition-all uppercase">
+            {{ section.settings.btn_primary_text | default: 'ORDER NOW ($1,495)' }}
+          </button>
+          {% if section.settings.phone_number != blank %}
+            <a href="tel:{{ section.settings.phone_number | replace: ' ', '' | replace: '(', '' | replace: ')', '' | replace: '-', '' }}" class="flex items-center justify-center gap-2 w-full sm:w-auto bg-white border border-slate-200 hover:border-brand-600 text-[#0e1c36] hover:text-brand-600 text-[12px] font-bold tracking-wider px-5 py-3.5 rounded-lg transition-all shadow-xs uppercase text-center">
+              {% render 'icon', name: 'phone-call', class: 'w-4 h-4 text-brand-600' %}
+              {{ section.settings.phone_number }}
+            </a>
+          {% endif %}
+          <a href="#how-it-works" class="group flex items-center justify-center gap-2 w-full sm:w-auto bg-white border border-brand-600 hover:bg-sky-50 text-brand-600 text-[12px] font-bold tracking-wider px-4 py-3.5 rounded-full transition-all uppercase shadow-xs text-center">
+            <span class="w-4 h-4 rounded-full border border-brand-600 flex items-center justify-center">
+              {% render 'icon', name: 'play', class: 'w-2 h-2 fill-brand-600 text-brand-600 ml-0.5' %}
+            </span>
+            {{ section.settings.btn_secondary_text | default: 'HOW IT WORKS' }}
+          </a>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-5 sm:pt-6 border-t border-slate-200/70">
+          {% for block in section.blocks %}
+            <div class="flex items-start gap-2.5" {{ block.shopify_attributes }}>
+              <div class="w-6 h-6 text-brand-600 shrink-0 mt-0.5">
+                {% render 'icon', name: block.settings.icon, class: 'w-5 h-5 text-brand-600' %}
+              </div>
+              <div>
+                <h4 class="font-bold text-[12px] text-[#0e1c36]">{{ block.settings.title }}</h4>
+                <p class="text-[10.5px] text-[#596780] leading-tight">{{ block.settings.description }}</p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+      </div>
+
+      <div class="hidden lg:block lg:col-span-5"></div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Hero Background Image"
+    },
+    {
+      "type": "text",
+      "id": "badge_tag",
+      "label": "Top Badge Tag",
+      "default": "ATMOSPHERIC WATER GENERATOR (AWG)"
+    },
+    {
+      "type": "text",
+      "id": "stock_tag",
+      "label": "Stock Status Tag",
+      "default": "IN STOCK • SHIPS IMMEDIATELY"
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading Line 1",
+      "default": "Generate Water"
+    },
+    {
+      "type": "text",
+      "id": "heading_line2",
+      "label": "Heading Line 2",
+      "default": "From the Air in Your"
+    },
+    {
+      "type": "text",
+      "id": "rotating_words",
+      "label": "Rotating Words (comma separated)",
+      "default": "Home, Office, Kitchen, Shop, Cabin, Factory, Break Room"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description Text",
+      "default": "Extract clean, pure, mineral-balanced drinking water directly from ambient air humidity. Zero groundwater depletion, no microplastics, and no plumbing required. Plug in and drink."
+    },
+    {
+      "type": "text",
+      "id": "price",
+      "label": "Promo Price",
+      "default": "$1,495"
+    },
+    {
+      "type": "text",
+      "id": "compare_price",
+      "label": "Compare Price",
+      "default": "$1,995"
+    },
+    {
+      "type": "text",
+      "id": "save_tag",
+      "label": "Savings Tag",
+      "default": "SAVE $500"
+    },
+    {
+      "type": "text",
+      "id": "shipping_note",
+      "label": "Shipping Note",
+      "default": "Free Insured Shipping"
+    },
+    {
+      "type": "text",
+      "id": "btn_primary_text",
+      "label": "Primary Button Text",
+      "default": "ORDER NOW ($1,495)"
+    },
+    {
+      "type": "text",
+      "id": "phone_number",
+      "label": "Phone Number",
+      "default": "(213) 335-2121"
+    },
+    {
+      "type": "text",
+      "id": "btn_secondary_text",
+      "label": "Secondary Button Text",
+      "default": "HOW IT WORKS"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Hero Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Lucide Icon Name",
+          "default": "droplets"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Feature Title",
+          "default": "30-95% Humidity"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Feature Subtitle",
+          "default": "Consistent generation in diverse climates"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "droplets",
+            "title": "30-95% Humidity",
+            "description": "Consistent generation in diverse climates"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "shield-check",
+            "title": "100% Pure",
+            "description": "UV-C sterilization & mineral enrichment"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "zap",
+            "title": "Plug & Produce",
+            "description": "No plumbing pipes or drain lines needed"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "badge-dollar-sign",
+            "title": "Save $1,200+/yr",
+            "description": "Eliminate 5-gal jug delivery & bottles"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

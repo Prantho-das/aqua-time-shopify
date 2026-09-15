@@ -1,0 +1,123 @@
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 transition-all">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-[72px]">
+      
+      <!-- Brand Logo -->
+      <a href="{{ routes.root_url }}" class="flex items-center gap-3 group" aria-label="{{ shop.name }}">
+        <div class="w-10 h-10 text-brand-600 group-hover:scale-105 transition-transform flex items-center justify-center">
+          {% render 'icon-logo' %}
+        </div>
+        <div class="flex flex-col leading-tight">
+          <span class="font-heading font-extrabold text-[17px] text-[#0e1c36] tracking-tight">{{ section.settings.logo_title | default: 'Air to Water' }}</span>
+          <span class="font-heading font-bold text-[14px] text-[#0e1c36] tracking-tight">{{ section.settings.logo_subtitle | default: 'Generators' }}</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center space-x-6 text-[12px] font-bold tracking-wider text-[#0e1c36]" aria-label="Main Navigation">
+        {% if section.settings.menu != blank %}
+          {% for link in linklists[section.settings.menu].links %}
+            <a href="{{ link.url }}" class="hover:text-brand-600 transition-colors py-2 uppercase {% if link.active %}text-brand-600 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2.5px] after:bg-brand-600{% endif %}">
+              {{ link.title }}
+            </a>
+          {% endfor %}
+        {% else %}
+          <a href="#home" class="text-brand-600 relative py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2.5px] after:bg-brand-600">HOME</a>
+          <a href="#how-it-works" class="hover:text-brand-600 transition-colors py-2 uppercase">HOW IT WORKS</a>
+          <a href="#what-is-awg" class="hover:text-brand-600 transition-colors py-2 uppercase">WHAT IS AWG?</a>
+          <a href="#applications" class="hover:text-brand-600 transition-colors py-2 uppercase">APPLICATIONS</a>
+          <a href="#why-awg" class="hover:text-brand-600 transition-colors py-2 uppercase">WHY AWG?</a>
+          <a href="#calculator" class="hover:text-brand-600 transition-colors py-2 uppercase">CALCULATOR</a>
+          <a href="#comparison" class="hover:text-brand-600 transition-colors py-2 uppercase">COMPARE</a>
+          <a href="#faq" class="hover:text-brand-600 transition-colors py-2 uppercase">FAQ</a>
+        {% endif %}
+      </nav>
+
+      <!-- CTA & Phone -->
+      <div class="hidden sm:flex items-center gap-3">
+        {% if section.settings.phone_number != blank %}
+          <a href="tel:{{ section.settings.phone_number | replace: ' ', '' | replace: '(', '' | replace: ')', '' | replace: '-', '' }}" class="text-xs font-bold text-[#0e1c36] hover:text-brand-600 transition-colors hidden xl:flex items-center gap-1.5">
+            {% render 'icon', name: 'phone', class: 'w-3.5 h-3.5 text-brand-600' %}
+            {{ section.settings.phone_number }}
+          </a>
+        {% endif %}
+        <button class="open-quote-modal bg-brand-600 hover:bg-brand-700 text-white text-[12px] font-bold tracking-wider px-5 py-2.5 rounded-lg shadow-sm hover:shadow transition-all uppercase" aria-haspopup="dialog">
+          {{ section.settings.cta_text | default: 'ORDER NOW - $1,495' }}
+        </button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="lg:hidden flex items-center">
+        <button id="mobile-menu-btn" class="p-2 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-slate-100 transition-colors" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+          {% render 'icon', name: 'menu', class: 'w-6 h-6' %}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-100 px-6 py-5 space-y-3">
+    {% if section.settings.menu != blank %}
+      {% for link in linklists[section.settings.menu].links %}
+        <a href="{{ link.url }}" class="block font-semibold text-slate-700 hover:text-brand-600">{{ link.title }}</a>
+      {% endfor %}
+    {% else %}
+      <a href="#home" class="block font-semibold text-brand-600">HOME</a>
+      <a href="#how-it-works" class="block font-semibold text-slate-700 hover:text-brand-600">HOW IT WORKS</a>
+      <a href="#what-is-awg" class="block font-semibold text-slate-700 hover:text-brand-600">WHAT IS AWG?</a>
+      <a href="#applications" class="block font-semibold text-slate-700 hover:text-brand-600">APPLICATIONS</a>
+      <a href="#why-awg" class="block font-semibold text-slate-700 hover:text-brand-600">WHY AWG?</a>
+      <a href="#calculator" class="block font-semibold text-slate-700 hover:text-brand-600">CALCULATOR</a>
+      <a href="#comparison" class="block font-semibold text-slate-700 hover:text-brand-600">COMPARE</a>
+      <a href="#faq" class="block font-semibold text-slate-700 hover:text-brand-600">FAQ</a>
+    {% endif %}
+    <div class="pt-2">
+      {% if section.settings.phone_number != blank %}
+        <a href="tel:{{ section.settings.phone_number | replace: ' ', '' | replace: '(', '' | replace: ')', '' | replace: '-', '' }}" class="flex items-center justify-center gap-2 text-xs font-bold text-slate-700 py-2 border rounded-lg mb-2">
+          {% render 'icon', name: 'phone', class: 'w-4 h-4 text-brand-600' %}
+          Call {{ section.settings.phone_number }}
+        </a>
+      {% endif %}
+      <button class="open-quote-modal w-full bg-brand-600 text-white font-bold py-3 rounded-lg text-xs uppercase tracking-wider" aria-haspopup="dialog">
+        {{ section.settings.cta_text | default: 'ORDER NOW - $1,495 ($500 OFF)' }}
+      </button>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "logo_title",
+      "label": "Logo Title",
+      "default": "Air to Water"
+    },
+    {
+      "type": "text",
+      "id": "logo_subtitle",
+      "label": "Logo Subtitle",
+      "default": "Generators"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Navigation Menu"
+    },
+    {
+      "type": "text",
+      "id": "phone_number",
+      "label": "Phone Number",
+      "default": "(213) 335-2121"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Button Text",
+      "default": "ORDER NOW - $1,495"
+    }
+  ]
+}
+{% endschema %}

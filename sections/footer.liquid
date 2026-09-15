@@ -1,0 +1,205 @@
+<footer id="contact" class="bg-[#081830] text-[#9bb0cb] text-[11.5px] pt-12 pb-8 border-t border-[#0e274d]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-12 gap-8 pb-10 border-b border-[#142c52]">
+      
+      <!-- Brand & About -->
+      <div class="lg:col-span-4 space-y-4">
+        <a href="{{ routes.root_url }}" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 text-[#38bdf8] group-hover:scale-105 transition-transform flex items-center justify-center">
+            {% render 'icon-logo' %}
+          </div>
+          <div class="flex flex-col leading-tight">
+            <span class="font-heading font-extrabold text-[16px] text-white tracking-tight">{{ section.settings.logo_title | default: 'Air to Water' }}</span>
+            <span class="font-heading font-bold text-[13px] text-white tracking-tight">{{ section.settings.logo_subtitle | default: 'Generators' }}</span>
+          </div>
+        </a>
+
+        <p class="text-[#9bb0cb] text-[11px] leading-relaxed max-w-xs font-normal">
+          {{ section.settings.about_text | default: 'Innovative atmospheric water generators producing clean, sustainable, and reliable drinking water directly from air humidity.' }}
+        </p>
+
+        <!-- Social Icons -->
+        <div class="flex items-center space-x-2 pt-1">
+          {% if section.settings.social_facebook_link != blank %}
+            <a href="{{ section.settings.social_facebook_link }}" target="_blank" rel="noopener" class="w-6 h-6 rounded-full border border-[#234575] hover:border-[#38bdf8] bg-[#0c203e] text-[#cbd5e1] hover:text-[#38bdf8] flex items-center justify-center text-[10px] transition-all" aria-label="Facebook">
+              <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5H18V0h-3.808C10.592 0 9 1.592 9 4.615V8z"/></svg>
+            </a>
+          {% endif %}
+          {% if section.settings.social_linkedin_link != blank %}
+            <a href="{{ section.settings.social_linkedin_link }}" target="_blank" rel="noopener" class="w-6 h-6 rounded-full border border-[#234575] hover:border-[#38bdf8] bg-[#0c203e] text-[#cbd5e1] hover:text-[#38bdf8] flex items-center justify-center text-[10px] transition-all" aria-label="LinkedIn">
+              <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg>
+            </a>
+          {% endif %}
+          {% if section.settings.social_discord_link != blank %}
+            <a href="{{ section.settings.social_discord_link }}" target="_blank" rel="noopener" class="w-6 h-6 rounded-full border border-[#234575] hover:border-[#38bdf8] bg-[#0c203e] text-[#cbd5e1] hover:text-[#38bdf8] flex items-center justify-center text-[10px] transition-all" aria-label="Discord">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Links Column 1: Products -->
+      <div class="lg:col-span-2 space-y-3">
+        <h4 class="font-heading font-bold text-[11px] uppercase tracking-wider text-white">{{ section.settings.col1_title | default: 'PRODUCTS' }}</h4>
+        <ul class="space-y-2 text-[11.5px]">
+          <li><a href="#what-is-awg" class="hover:text-[#38bdf8] transition-colors">Residential AWG</a></li>
+          <li><a href="#what-is-awg" class="hover:text-[#38bdf8] transition-colors">Commercial Unit</a></li>
+          <li><a href="#what-is-awg" class="hover:text-[#38bdf8] transition-colors">Emergency Mobile</a></li>
+          <li><a href="#what-is-awg" class="hover:text-[#38bdf8] transition-colors">HEPA Replacement</a></li>
+          <li><a href="#comparison" class="hover:text-[#38bdf8] transition-colors">Compare Models</a></li>
+        </ul>
+      </div>
+
+      <!-- Links Column 2: Technology -->
+      <div class="lg:col-span-2 space-y-3">
+        <h4 class="font-heading font-bold text-[11px] uppercase tracking-wider text-white">{{ section.settings.col2_title | default: 'TECHNOLOGY' }}</h4>
+        <ul class="space-y-2 text-[11.5px]">
+          <li><a href="#how-it-works" class="hover:text-[#38bdf8] transition-colors">How It Works</a></li>
+          <li><a href="#what-is-awg" class="hover:text-[#38bdf8] transition-colors">Atmospheric Moisture</a></li>
+          <li><a href="#why-awg" class="hover:text-[#38bdf8] transition-colors">UV-C Sterilization</a></li>
+          <li><a href="#calculator" class="hover:text-[#38bdf8] transition-colors">Cost Calculator</a></li>
+          <li><a href="#why-awg" class="hover:text-[#38bdf8] transition-colors">Sustainability</a></li>
+        </ul>
+      </div>
+
+      <!-- Links Column 3: Support -->
+      <div class="lg:col-span-2 space-y-3">
+        <h4 class="font-heading font-bold text-[11px] uppercase tracking-wider text-white">{{ section.settings.col3_title | default: 'SUPPORT' }}</h4>
+        <ul class="space-y-2 text-[11.5px]">
+          <li><a href="#faq" class="hover:text-[#38bdf8] transition-colors">FAQ</a></li>
+          <li><a href="#faq" class="hover:text-[#38bdf8] transition-colors">Warranty Info</a></li>
+          <li><a href="#faq" class="hover:text-[#38bdf8] transition-colors">Filter Maintenance</a></li>
+          <li><a href="#faq" class="hover:text-[#38bdf8] transition-colors">Shipping & Returns</a></li>
+          <li><a href="tel:{{ section.settings.phone | default: '2133352121' }}" class="hover:text-[#38bdf8] transition-colors">Customer Support</a></li>
+        </ul>
+      </div>
+
+      <!-- Links Column 4: Contact -->
+      <div class="lg:col-span-2 space-y-3">
+        <h4 class="font-heading font-bold text-[11px] uppercase tracking-wider text-white">{{ section.settings.col4_title | default: 'CONTACT' }}</h4>
+        <ul class="space-y-2.5 text-[11px]">
+          <li class="flex items-start gap-2">
+            {% render 'icon', name: 'map-pin', class: 'w-3.5 h-3.5 text-[#38bdf8] shrink-0 mt-0.5' %}
+            <span>{{ section.settings.address_line1 | default: '123 Water Street' }}</span>
+          </li>
+          <li class="flex items-start gap-2">
+            {% render 'icon', name: 'building', class: 'w-3.5 h-3.5 text-[#38bdf8] shrink-0 mt-0.5' %}
+            <span>{{ section.settings.address_line2 | default: 'Los Angeles, CA 90012' }}</span>
+          </li>
+          <li class="flex items-center gap-2">
+            {% render 'icon', name: 'phone', class: 'w-3.5 h-3.5 text-[#38bdf8] shrink-0' %}
+            <a href="tel:{{ section.settings.phone | replace: ' ', '' | replace: '(', '' | replace: ')', '' | replace: '-', '' }}" class="hover:text-white transition-colors">{{ section.settings.phone | default: '(213) 335-2121' }}</a>
+          </li>
+          <li class="flex items-center gap-2">
+            {% render 'icon', name: 'mail', class: 'w-3.5 h-3.5 text-[#38bdf8] shrink-0' %}
+            <a href="mailto:{{ section.settings.email | default: 'orders@airtowatergenerators.com' }}" class="hover:text-white transition-colors break-all">{{ section.settings.email | default: 'orders@airtowatergenerators.com' }}</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Copyright & Sublinks -->
+    <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#718aa8] gap-3">
+      <div>
+        © {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.
+      </div>
+      <div class="flex items-center space-x-3 text-[11px]">
+        <a href="#" class="hover:text-[#cbd5e1] transition-colors">Privacy Policy</a>
+        <span class="text-[#3b5980]">|</span>
+        <a href="#" class="hover:text-[#cbd5e1] transition-colors">Terms of Sale</a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "logo_title",
+      "label": "Logo Title",
+      "default": "Air to Water"
+    },
+    {
+      "type": "text",
+      "id": "logo_subtitle",
+      "label": "Logo Subtitle",
+      "default": "Generators"
+    },
+    {
+      "type": "textarea",
+      "id": "about_text",
+      "label": "About Summary",
+      "default": "Innovative atmospheric water generators producing clean, sustainable, and reliable drinking water directly from air humidity."
+    },
+    {
+      "type": "url",
+      "id": "social_facebook_link",
+      "label": "Facebook URL"
+    },
+    {
+      "type": "url",
+      "id": "social_linkedin_link",
+      "label": "LinkedIn URL"
+    },
+    {
+      "type": "url",
+      "id": "social_discord_link",
+      "label": "Discord / Community URL"
+    },
+    {
+      "type": "text",
+      "id": "col1_title",
+      "label": "Column 1 Title",
+      "default": "PRODUCTS"
+    },
+    {
+      "type": "text",
+      "id": "col2_title",
+      "label": "Column 2 Title",
+      "default": "TECHNOLOGY"
+    },
+    {
+      "type": "text",
+      "id": "col3_title",
+      "label": "Column 3 Title",
+      "default": "SUPPORT"
+    },
+    {
+      "type": "text",
+      "id": "col4_title",
+      "label": "Column 4 Title",
+      "default": "CONTACT"
+    },
+    {
+      "type": "text",
+      "id": "address_line1",
+      "label": "Address Line 1",
+      "default": "123 Water Street"
+    },
+    {
+      "type": "text",
+      "id": "address_line2",
+      "label": "Address Line 2",
+      "default": "Los Angeles, CA 90012"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone",
+      "default": "(213) 335-2121"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email",
+      "default": "orders@airtowatergenerators.com"
+    }
+  ]
+}
+{% endschema %}

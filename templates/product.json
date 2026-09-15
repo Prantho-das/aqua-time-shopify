@@ -1,0 +1,25 @@
+{
+  "sections": {
+    "main": {
+      "type": "hero-banner",
+      "settings": {
+        "badge_tag": "ATMOSPHERIC WATER GENERATOR",
+        "heading_line1": "Pure Hydration",
+        "heading_line2": "From Air Humidity"
+      }
+    },
+    "comparison": {
+      "type": "comparison-table",
+      "settings": {}
+    },
+    "faq": {
+      "type": "faq-accordion",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "comparison",
+    "faq"
+  ]
+}

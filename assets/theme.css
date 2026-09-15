@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
+/* ==========================================================================
+   Base CSS & Custom Properties
+   ========================================================================== */
+:root {
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+  
+  --color-brand-50: #f0f9ff;
+  --color-brand-100: #e0f2fe;
+  --color-brand-200: #bae6fd;
+  --color-brand-300: #7dd3fc;
+  --color-brand-400: #38bdf8;
+  --color-brand-500: #0096e6;
+  --color-brand-600: #0084d6;
+  --color-brand-700: #006bb0;
+  --color-brand-800: #035388;
+  --color-brand-900: #07436b;
+
+  --color-navy-800: #0f1d38;
+  --color-navy-900: #071120;
+  --color-navy-950: #040912;
+  --color-text-main: #0e1c36;
+  --color-text-muted: #596780;
+  
+  --color-ice-bg: #f2f8fd;
+  --color-ice-border: #e1eff8;
+  --color-footer-dark: #081830;
+}
+
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text-main);
+  background-color: #ffffff;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--color-brand-600);
+  color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-heading);
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+button, input, optgroup, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+button, [type='button'], [type='reset'], [type='submit'] {
+  -webkit-appearance: button;
+  background-color: transparent;
+  background-image: none;
+  cursor: pointer;
+}
+
+img, svg {
+  display: block;
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+/* ==========================================================================
+   Gradients & Backgrounds
+   ========================================================================== */
+.hero-gradient-bg {
+  background: linear-gradient(180deg, #edf6fd 0%, #e3f1fb 50%, #ffffff 100%);
+}
+
+.cta-banner-gradient {
+  background: linear-gradient(98deg, #071e3b 0%, #0b345b 40%, #0077c8 75%, #009be3 100%);
+}
+
+.trusted-card-bg {
+  background-color: var(--color-ice-bg);
+  border: 1px solid var(--color-ice-border);
+}
+
+/* ==========================================================================
+   Micro-animations & Transitions
+   ========================================================================== */
+@keyframes floatSubtle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float-subtle {
+  animation: floatSubtle 4.5s ease-in-out infinite;
+}
+
+@keyframes pulseSplash {
+  0%, 100% { opacity: 0.95; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.02); }
+}
+
+.animate-splash {
+  animation: pulseSplash 6s ease-in-out infinite;
+}
+
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 30px -10px rgba(0, 132, 214, 0.12);
+}
+
+/* Modal Transitions */
+.modal-backdrop {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.modal-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  transform: scale(0.95) translateY(15px);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-backdrop.active .modal-content {
+  transform: scale(1) translateY(0);
+}
+
+/* Scroll Reveal */
+.reveal-init {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.js-reveal .reveal-init {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.js-reveal .reveal-init.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Rotating word animation */
+#hero-rotating-word {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Range input styling */
+input[type=range] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background: var(--color-brand-600);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 132, 214, 0.4);
+}

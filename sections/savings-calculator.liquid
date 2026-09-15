@@ -1,0 +1,129 @@
+<section id="calculator" class="py-16 lg:py-24 bg-white relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="bg-[#f2f8fd] border border-[#e1eff8] rounded-2xl shadow-sm p-6 sm:p-10 reveal-init hover-lift">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <!-- Left Slider Controls -->
+        <div class="lg:col-span-7 space-y-6">
+          <div>
+            <span class="text-[11px] font-extrabold tracking-widest text-[#0084d6] uppercase">{{ section.settings.badge | default: 'SAVINGS CALCULATOR' }}</span>
+            <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-[#0e1c36] leading-tight mt-1">
+              {{ section.settings.heading_line1 | default: 'See How Much You Save' }}<br>
+              {{ section.settings.heading_line2 | default: 'With Atmospheric Water.' }}
+            </h2>
+            <p class="text-[#596780] text-sm mt-2">
+              {{ section.settings.description | default: 'Compare your current bottled water and delivery costs against AWG on-site generation at only ~$0.08 per gallon.' }}
+            </p>
+          </div>
+
+          <div class="space-y-5 bg-white p-5 sm:p-6 rounded-xl border border-slate-200/80">
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label for="daily-gallons" class="text-xs font-bold text-[#0e1c36] uppercase tracking-wider">Daily Water Usage (Gallons)</label>
+                <span id="daily-gallons-val" class="text-sm font-extrabold text-brand-600 bg-sky-50 px-2.5 py-0.5 rounded">5 Gal/day</span>
+              </div>
+              <input id="daily-gallons" type="range" min="1" max="25" value="5" step="1" class="w-full accent-brand-600 cursor-pointer h-2 bg-slate-200 rounded-lg">
+              <div class="flex justify-between text-[10px] text-slate-400 mt-1">
+                <span>1 Gal (Solo)</span>
+                <span>10 Gal (Family / Small Office)</span>
+                <span>25 Gal (Commercial)</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label for="cost-per-gallon" class="text-xs font-bold text-[#0e1c36] uppercase tracking-wider">Current Cost Per Gallon ($)</label>
+                <span id="cost-per-gallon-val" class="text-sm font-extrabold text-brand-600 bg-sky-50 px-2.5 py-0.5 rounded">$1.50 / Gal</span>
+              </div>
+              <input id="cost-per-gallon" type="range" min="0.5" max="3.5" value="1.50" step="0.25" class="w-full accent-brand-600 cursor-pointer h-2 bg-slate-200 rounded-lg">
+              <div class="flex justify-between text-[10px] text-slate-400 mt-1">
+                <span>$0.50 (Tap Filter)</span>
+                <span>$1.50 (5-Gal Delivery)</span>
+                <span>$3.50 (Single Bottles)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Summary Card -->
+        <div class="lg:col-span-5">
+          <div class="bg-white rounded-2xl border border-slate-200/90 shadow-md p-6 sm:p-7 space-y-5">
+            <div class="border-b border-slate-100 pb-4">
+              <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Estimated Annual Comparison</span>
+              <div class="grid grid-cols-2 gap-4 mt-3">
+                <div>
+                  <div class="text-[11px] text-slate-500 font-medium">Bottled Water Cost</div>
+                  <div id="calc-current-annual" class="font-heading text-xl font-bold text-rose-600 mt-0.5">$2,738 / yr</div>
+                </div>
+                <div>
+                  <div class="text-[11px] text-slate-500 font-medium">AWG Electric Cost</div>
+                  <div id="calc-awg-annual" class="font-heading text-xl font-bold text-slate-700 mt-0.5">$146 / yr</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-center">
+              <span class="text-[11px] font-bold text-emerald-700 uppercase tracking-wider">Your Estimated Net Savings</span>
+              <div id="calc-net-savings" class="font-heading text-3xl sm:text-4xl font-extrabold text-emerald-600 mt-1">
+                $2,592 / yr
+              </div>
+              <p id="calc-payback" class="text-[11px] text-emerald-700 mt-1 font-medium">
+                Machine pays for itself in ~7 months!
+              </p>
+            </div>
+
+            <button class="open-quote-modal w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-lg text-xs uppercase tracking-wider shadow hover:shadow-md transition-all">
+              {{ section.settings.btn_text | default: 'CLAIM YOUR AWG UNIT - $1,495' }}
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Savings Calculator",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "Badge",
+      "default": "SAVINGS CALCULATOR"
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading Line 1",
+      "default": "See How Much You Save"
+    },
+    {
+      "type": "text",
+      "id": "heading_line2",
+      "label": "Heading Line 2",
+      "default": "With Atmospheric Water."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Compare your current bottled water and delivery costs against AWG on-site generation at only ~$0.08 per gallon."
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text",
+      "default": "CLAIM YOUR AWG UNIT - $1,495"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Savings Calculator"
+    }
+  ]
+}
+{% endschema %}

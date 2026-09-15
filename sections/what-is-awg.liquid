@@ -1,0 +1,125 @@
+<section id="what-is-awg" class="relative overflow-hidden min-h-[580px] lg:min-h-[660px] flex items-center py-14 sm:py-16 lg:py-24">
+  <div class="absolute inset-0 z-0">
+    {% if section.settings.image != blank %}
+      <img src="{{ section.settings.image | image_url: width: 2000 }}" alt="{{ section.settings.heading_line1 | escape }}" class="w-full h-full object-cover object-[25%_center] sm:object-center" loading="lazy" decoding="async">
+    {% else %}
+      <img src="{{ 'banner-02.jpg' | asset_url }}" alt="Atmospheric Water Generator Technology" class="w-full h-full object-cover object-[25%_center] sm:object-center" loading="lazy" decoding="async">
+    {% endif %}
+    <div class="absolute inset-0 bg-white/95 sm:bg-transparent sm:bg-gradient-to-l sm:from-white/95 sm:via-white/85 sm:to-transparent sm:w-3/4 lg:w-3/5 sm:ml-auto"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      
+      <div class="hidden lg:block lg:col-span-6"></div>
+
+      <div class="lg:col-span-6 space-y-4 lg:space-y-5 reveal-init delay-200">
+        <span class="text-[10px] sm:text-[11px] font-extrabold tracking-widest text-[#0084d6] uppercase">{{ section.settings.badge | default: 'WHAT IS AN AWG?' }}</span>
+
+        <h2 class="font-heading text-2xl sm:text-[36px] font-extrabold text-[#0e1c36] leading-[1.18] tracking-tight">
+          {{ section.settings.heading_line1 | default: 'The Atmosphere Holds' }}<br>
+          {{ section.settings.heading_line2 | default: '3.1 Quadrillion Gallons.' }}<br>
+          <span class="text-[#0084d6]">{{ section.settings.heading_highlight | default: 'Tap Into It.' }}</span>
+        </h2>
+
+        <p class="text-[#596780] text-xs sm:text-sm leading-relaxed max-w-lg">
+          {{ section.settings.description | default: 'An Atmospheric Water Generator (AWG) captures the humidity naturally present in ambient air and converts it into pure, medical-grade drinking water. No dependency on aging municipal infrastructure, groundwater contamination, or plastic deliveries.' }}
+        </p>
+
+        <ul class="space-y-2 sm:space-y-2.5 pt-1">
+          {% for block in section.blocks %}
+            <li class="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-[13px] font-medium text-[#0e1c36]" {{ block.shopify_attributes }}>
+              <svg class="w-4 h-4 text-[#0084d6] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+              <span>{{ block.settings.text }}</span>
+            </li>
+          {% endfor %}
+        </ul>
+
+        <div class="pt-2">
+          <button class="open-quote-modal w-full sm:w-auto text-center inline-block bg-[#0084d6] hover:bg-[#006bb0] text-white text-[12px] font-bold tracking-wider px-7 py-3.5 sm:py-3 rounded-lg shadow-sm hover:shadow transition-all uppercase">
+            {{ section.settings.btn_text | default: 'ORDER YOUR UNIT - $1,495' }}
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "What Is AWG",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "Badge",
+      "default": "WHAT IS AN AWG?"
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading Line 1",
+      "default": "The Atmosphere Holds"
+    },
+    {
+      "type": "text",
+      "id": "heading_line2",
+      "label": "Heading Line 2",
+      "default": "3.1 Quadrillion Gallons."
+    },
+    {
+      "type": "text",
+      "id": "heading_highlight",
+      "label": "Heading Highlight",
+      "default": "Tap Into It."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "An Atmospheric Water Generator (AWG) captures the humidity naturally present in ambient air and converts it into pure, medical-grade drinking water. No dependency on aging municipal infrastructure, groundwater contamination, or plastic deliveries."
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text",
+      "default": "ORDER YOUR UNIT - $1,495"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Feature Point",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Taps into 3.1 quadrillion gallons of atmospheric moisture"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "What Is AWG",
+      "blocks": [
+        { "type": "point", "settings": { "text": "Taps into 3.1 quadrillion gallons of atmospheric moisture" } },
+        { "type": "point", "settings": { "text": "Effective across 30% to 95% relative humidity" } },
+        { "type": "point", "settings": { "text": "Zero dependence on municipal water grids or wells" } },
+        { "type": "point", "settings": { "text": "Completely eliminates microplastics, lead, chlorine, and PFAS" } },
+        { "type": "point", "settings": { "text": "Continuous remineralization for optimal pH balance (7.2 - 7.6)" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
