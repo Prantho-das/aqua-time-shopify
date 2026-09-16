@@ -1,26 +1,27 @@
-<section id="faq" class="py-16 lg:py-24 bg-white relative">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="faq" class="section-spacing bg-white">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <div class="text-left mb-10 reveal-init">
-      <span class="text-[11px] font-extrabold tracking-widest text-brand-600 uppercase">{{ section.settings.badge | default: 'FREQUENTLY ASKED QUESTIONS' }}</span>
-      <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-[#0e1c36] leading-tight mt-1">
-        {{ section.settings.heading | default: 'Everything You Need to Know.' }}
+    <div class="mb-10">
+      <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#173b57]">
+        {{ section.settings.heading | default: 'Frequently asked questions' }}
       </h2>
-      <p class="text-[#596780] text-sm mt-2">
-        {{ section.settings.description | default: 'Clear answers about operation, climate requirements, filtration, and warranties.' }}
-      </p>
+      {% if section.settings.description != blank %}
+        <p class="text-[#4a6177] text-[15px] mt-3 leading-relaxed">
+          {{ section.settings.description }}
+        </p>
+      {% endif %}
     </div>
 
-    <div class="space-y-3 reveal-init delay-100">
+    <div class="space-y-2">
       {% for block in section.blocks %}
-        <div class="faq-item border border-slate-200 rounded-xl overflow-hidden transition-all bg-white hover:border-brand-300" {{ block.shopify_attributes }}>
-          <button class="faq-toggle w-full flex items-center justify-between p-4 sm:p-5 text-left font-heading font-bold text-sm sm:text-[15px] text-[#0e1c36]" aria-expanded="false" aria-controls="faq-content-{{ forloop.index }}">
-            <span>{{ forloop.index }}. {{ block.settings.question }}</span>
-            <span class="faq-icon transition-transform duration-200 text-slate-400">
+        <div class="faq-item border border-[#e2f0f9] rounded-xl overflow-hidden bg-white hover:border-[#d9f1fc] transition-colors" {{ block.shopify_attributes }}>
+          <button class="faq-toggle w-full flex items-center justify-between p-4 sm:p-5 text-left font-heading font-semibold text-[15px] text-[#173b57]" aria-expanded="false" aria-controls="faq-content-{{ forloop.index }}">
+            <span>{{ block.settings.question }}</span>
+            <span class="faq-icon transition-transform duration-200 text-[#088ae3] shrink-0 ml-3">
               {% render 'icon', name: 'chevron-down', class: 'w-4 h-4' %}
             </span>
           </button>
-          <div id="faq-content-{{ forloop.index }}" class="faq-content hidden px-5 pb-5 text-xs sm:text-[13px] text-[#596780] leading-relaxed border-t border-slate-100 pt-3">
+          <div id="faq-content-{{ forloop.index }}" class="faq-content hidden px-5 pb-5 text-sm text-[#4a6177] leading-relaxed border-t border-[#e2f0f9] pt-3">
             {{ block.settings.answer }}
           </div>
         </div>
@@ -34,42 +35,16 @@
 {
   "name": "FAQ Accordion",
   "settings": [
-    {
-      "type": "text",
-      "id": "badge",
-      "label": "Badge",
-      "default": "FREQUENTLY ASKED QUESTIONS"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Everything You Need to Know."
-    },
-    {
-      "type": "textarea",
-      "id": "description",
-      "label": "Description",
-      "default": "Clear answers about operation, climate requirements, filtration, and warranties."
-    }
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Frequently asked questions" },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "Everything you need to know about generating pure drinking water from ambient air." }
   ],
   "blocks": [
     {
       "type": "faq_item",
       "name": "FAQ Item",
       "settings": [
-        {
-          "type": "text",
-          "id": "question",
-          "label": "Question",
-          "default": "How much water does an AWG generate each day?"
-        },
-        {
-          "type": "textarea",
-          "id": "answer",
-          "label": "Answer",
-          "default": "Output depends on ambient humidity and temperature. Under average indoor conditions (50-70% relative humidity, 70-85°F), the residential countertop/freestanding unit produces between 4 to 8 gallons (15 to 30 liters) of pure water daily—plenty for a family or office break room."
-        }
+        { "type": "text", "id": "question", "label": "Question", "default": "How much water will I get?" },
+        { "type": "textarea", "id": "answer", "label": "Answer", "default": "Up to 5.5 gal/day depending on your climate. Most owners pour 1 to 3 pitchers." }
       ]
     }
   ],
@@ -77,62 +52,14 @@
     {
       "name": "FAQ Accordion",
       "blocks": [
-        {
-          "type": "faq_item",
-          "settings": {
-            "question": "How much water does an AWG generate each day?",
-            "answer": "Output depends on ambient humidity and temperature. Under average indoor conditions (50-70% relative humidity, 70-85°F), the residential countertop/freestanding unit produces between 4 to 8 gallons (15 to 30 liters) of pure water daily—plenty for a family or office break room."
-          }
-        },
-        {
-          "type": "faq_item",
-          "settings": {
-            "question": "What relative humidity level is required for operation?",
-            "answer": "Our systems operate effectively between 30% and 95% relative humidity. In very dry desert conditions (below 25-30% humidity), output decreases, while in typical humid climates and coastal areas, production runs at maximum peak efficiency."
-          }
-        },
-        {
-          "type": "faq_item",
-          "settings": {
-            "question": "How loud is the unit during active condensation?",
-            "answer": "Sound levels range between 42 and 48 dB during active cooling, similar to a quiet household refrigerator or premium air purifier. Once the internal holding tank is full, the unit automatically switches into silent standby mode."
-          }
-        },
-        {
-          "type": "faq_item",
-          "settings": {
-            "question": "How much electricity does it consume?",
-            "answer": "The unit operates on standard 110V/120V household outlets (consuming ~350-450W during active condensation). Average cost of electrical power per gallon produced is approximately $0.08 to $0.12—a 90%+ discount compared to purchasing bottled water."
-          }
-        },
-        {
-          "type": "faq_item",
-          "settings": {
-            "question": "Does the machine generate heat in the room?",
-            "answer": "Like any refrigeration system, the compressor exhausts mildly warm air from the back vents while extracting moisture. In rooms with ordinary ventilation or air conditioning, temperature variation is barely noticeable."
-          }
-        },
-        {
-          "type": "faq_item",
-          "settings": {
-            "question": "How often do filters need to be changed?",
-            "answer": "The external HEPA air mesh is easily rinsed under a faucet every 2-3 months. Internal carbon block and remineralization cartridges last 6 to 12 months, and the UV-C LED sterilization lamp is rated for 30,000+ operating hours."
-          }
-        },
-        {
-          "type": "faq_item",
-          "settings": {
-            "question": "What is the warranty and return policy?",
-            "answer": "Every unit includes a comprehensive 1-Year Manufacturer Warranty covering parts and labor, plus a 30-Day In-Home Satisfaction Guarantee. If you are not completely satisfied with water purity and performance, contact us for an easy return."
-          }
-        },
-        {
-          "type": "faq_item",
-          "settings": {
-            "question": "How does AWG water taste compared to bottled water?",
-            "answer": "Exceptionally crisp, sweet, and pure. Unlike distilled or reverse osmosis water which tastes flat and acidic, our remineralization cartridge infuses natural calcium and magnesium ions to yield an ideal alkaline pH of 7.2 to 7.6."
-          }
-        }
+        { "type": "faq_item", "settings": { "question": "How much water will I get?", "answer": "Up to 5.5 gal/day depending on your climate. Most owners pour 1 to 3 pitchers." } },
+        { "type": "faq_item", "settings": { "question": "How loud is it?", "answer": "You'll hear it in the room, not the next room. Many owners run it overnight." } },
+        { "type": "faq_item", "settings": { "question": "What does it cost to run?", "answer": "≈5 to 9 kWh per gallon plus filters. Your rate sets the price; see the math above." } },
+        { "type": "faq_item", "settings": { "question": "Does it heat the room?", "answer": "It vents warm air like a large dehumidifier. Summer: run overnight. Winter: free heat." } },
+        { "type": "faq_item", "settings": { "question": "What are the filters?", "answer": "Two, swapped every 3 months, under 2 minutes, no tools. $99 per 6-month box." } },
+        { "type": "faq_item", "settings": { "question": "What if it breaks?", "answer": "1-year warranty, real phone support: (213) 335-2121. Terms on the product page." } },
+        { "type": "faq_item", "settings": { "question": "Can I return it?", "answer": "30-day money-back guarantee from the day it arrives." } },
+        { "type": "faq_item", "settings": { "question": "What does it taste like?", "answer": "Alkaline, mineralized. 93% of surveyed owners rate the taste good or excellent." } }
       ]
     }
   ]

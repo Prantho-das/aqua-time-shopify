@@ -1,83 +1,180 @@
-<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 transition-all">
+{%- liquid
+  assign main_menu_handle = section.settings.menu | default: 'main-menu'
+  assign main_menu = linklists[main_menu_handle]
+-%}
+
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-[#e2f0f9] transition-all">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-[72px]">
       
       <!-- Brand Logo -->
       <a href="{{ routes.root_url }}" class="flex items-center gap-3 group" aria-label="{{ shop.name }}">
-        <div class="w-10 h-10 text-brand-600 group-hover:scale-105 transition-transform flex items-center justify-center">
+        <div class="w-10 h-10 text-[#088ae3] group-hover:scale-105 transition-transform flex items-center justify-center">
           {% render 'icon-logo' %}
         </div>
         <div class="flex flex-col leading-tight">
-          <span class="font-heading font-extrabold text-[17px] text-[#0e1c36] tracking-tight">{{ section.settings.logo_title | default: 'Air to Water' }}</span>
-          <span class="font-heading font-bold text-[14px] text-[#0e1c36] tracking-tight">{{ section.settings.logo_subtitle | default: 'Generators' }}</span>
+          <span class="font-heading font-extrabold text-[17px] text-[#173b57] tracking-tight">{{ section.settings.logo_title | default: 'Air to Water' }}</span>
+          <span class="font-heading font-bold text-[13px] text-[#088ae3] tracking-tight">{{ section.settings.logo_subtitle | default: 'Generators' }}</span>
         </div>
       </a>
 
-      <!-- Desktop Navigation -->
-      <nav class="hidden lg:flex items-center space-x-6 text-[12px] font-bold tracking-wider text-[#0e1c36]" aria-label="Main Navigation">
-        {% if section.settings.menu != blank %}
-          {% for link in linklists[section.settings.menu].links %}
-            <a href="{{ link.url }}" class="hover:text-brand-600 transition-colors py-2 uppercase {% if link.active %}text-brand-600 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2.5px] after:bg-brand-600{% endif %}">
-              {{ link.title }}
-            </a>
+      <!-- Desktop Dynamic Navigation -->
+      <nav class="hidden lg:flex items-center space-x-6 text-[13px] font-semibold text-[#173b57]" aria-label="Main Navigation">
+        {% if main_menu.links.size > 0 %}
+          {% for link in main_menu.links %}
+            {% if link.links != blank %}
+              <!-- Dropdown Menu Item -->
+              <div class="relative group py-2">
+                <a href="{{ link.url }}" class="inline-flex items-center gap-1 hover:text-[#088ae3] transition-colors py-2 {% if link.child_active or link.active %}text-[#088ae3] font-bold{% endif %}">
+                  {{ link.title }}
+                  {% render 'icon', name: 'chevron-down', class: 'w-3.5 h-3.5 text-[#4a6177] group-hover:rotate-180 transition-transform' %}
+                </a>
+                <div class="absolute left-0 top-full pt-2 w-64 hidden group-hover:block transition-all z-50">
+                  <div class="bg-white rounded-2xl shadow-xl border border-[#e2f0f9] p-2 space-y-1">
+                    {% for childlink in link.links %}
+                      {% if childlink.links != blank %}
+                        <div class="px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-[#4a6177] border-b border-[#e2f0f9]">
+                          {{ childlink.title }}
+                        </div>
+                        {% for grandchildlink in childlink.links %}
+                          <a href="{{ grandchildlink.url }}" class="block px-3 py-2 rounded-xl hover:bg-[#eff9fd] text-[#173b57] hover:text-[#088ae3] text-xs font-semibold transition-colors {% if grandchildlink.active %}bg-[#eff9fd] text-[#088ae3]{% endif %}">
+                            {{ grandchildlink.title }}
+                          </a>
+                        {% endfor %}
+                      {% else %}
+                        <a href="{{ childlink.url }}" class="block px-3 py-2 rounded-xl hover:bg-[#eff9fd] text-[#173b57] hover:text-[#088ae3] text-xs font-semibold transition-colors {% if childlink.active %}bg-[#eff9fd] text-[#088ae3]{% endif %}">
+                          {{ childlink.title }}
+                        </a>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+            {% else %}
+              <!-- Single Link Item -->
+              <a href="{{ link.url }}" class="hover:text-[#088ae3] transition-colors py-2 {% if link.active %}text-[#088ae3] font-bold relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#088ae3]{% endif %}">
+                {{ link.title }}
+              </a>
+            {% endif %}
           {% endfor %}
         {% else %}
-          <a href="{{ routes.root_url }}" class="text-brand-600 relative py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2.5px] after:bg-brand-600">HOME</a>
-          <a href="/pages/how-it-works" class="hover:text-brand-600 transition-colors py-2 uppercase">HOW IT WORKS</a>
-          <a href="/pages/water-quality" class="hover:text-brand-600 transition-colors py-2 uppercase">WATER QUALITY</a>
-          <a href="/products/hydrocell-standup" class="hover:text-brand-600 transition-colors py-2 uppercase">HYDROCELL™</a>
-          <a href="/products/filter-replacement-kits" class="hover:text-brand-600 transition-colors py-2 uppercase">FILTER KITS</a>
-          <a href="/pages/lab-report" class="hover:text-brand-600 transition-colors py-2 uppercase">LAB REPORT</a>
-          <a href="/pages/contact" class="hover:text-brand-600 transition-colors py-2 uppercase">CONTACT</a>
+          <!-- Fallback Navigation if menu is empty -->
+          <a href="{{ routes.root_url }}" class="hover:text-[#088ae3] transition-colors py-2">Home</a>
+          <a href="/pages/how-it-works" class="hover:text-[#088ae3] transition-colors py-2">How It Works</a>
+          <a href="/pages/water-from-air" class="hover:text-[#088ae3] transition-colors py-2">Water from Air</a>
+          <a href="/pages/water-quality" class="hover:text-[#088ae3] transition-colors py-2">Water Quality</a>
+          
+          <div class="relative group py-2">
+            <button class="inline-flex items-center gap-1 hover:text-[#088ae3] font-semibold focus:outline-none">
+              Products
+              {% render 'icon', name: 'chevron-down', class: 'w-3.5 h-3.5 text-[#4a6177] group-hover:rotate-180 transition-transform' %}
+            </button>
+            <div class="absolute left-0 top-full pt-2 w-60 hidden group-hover:block transition-all z-50">
+              <div class="bg-white rounded-xl shadow-xl border border-[#e2f0f9] p-2 space-y-1">
+                <a href="/products/hydrocell-standup" class="block px-3 py-2 rounded-lg hover:bg-[#eff9fd] text-[#173b57] hover:text-[#088ae3] text-xs font-semibold transition-colors">
+                  HydroCell™ Standup
+                </a>
+                <a href="/products/filter-replacement-kits" class="block px-3 py-2 rounded-lg hover:bg-[#eff9fd] text-[#173b57] hover:text-[#088ae3] text-xs font-semibold transition-colors">
+                  Filter Replacement Kits
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative group py-2">
+            <button class="inline-flex items-center gap-1 hover:text-[#088ae3] font-semibold focus:outline-none">
+              Resources
+              {% render 'icon', name: 'chevron-down', class: 'w-3.5 h-3.5 text-[#4a6177] group-hover:rotate-180 transition-transform' %}
+            </button>
+            <div class="absolute left-0 top-full pt-2 w-56 hidden group-hover:block transition-all z-50">
+              <div class="bg-white rounded-xl shadow-xl border border-[#e2f0f9] p-2 space-y-1">
+                <a href="/pages/lab-report" class="block px-3 py-2 rounded-lg hover:bg-[#eff9fd] text-[#173b57] hover:text-[#088ae3] text-xs font-semibold transition-colors">
+                  Lab Report
+                </a>
+                <a href="/#faq" class="block px-3 py-2 rounded-lg hover:bg-[#eff9fd] text-[#173b57] hover:text-[#088ae3] text-xs font-semibold transition-colors">
+                  Help Center & FAQs
+                </a>
+                <a href="/#why-awg" class="block px-3 py-2 rounded-lg hover:bg-[#eff9fd] text-[#173b57] hover:text-[#088ae3] text-xs font-semibold transition-colors">
+                  Why AWG
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <a href="/pages/contact" class="hover:text-[#088ae3] transition-colors py-2">Contact</a>
         {% endif %}
       </nav>
 
       <!-- CTA & Phone -->
-      <div class="hidden sm:flex items-center gap-3">
+      <div class="hidden sm:flex items-center gap-4">
         {% if section.settings.phone_number != blank %}
-          <a href="tel:{{ section.settings.phone_number | replace: ' ', '' | replace: '(', '' | replace: ')', '' | replace: '-', '' }}" class="text-xs font-bold text-[#0e1c36] hover:text-brand-600 transition-colors hidden xl:flex items-center gap-1.5">
-            {% render 'icon', name: 'phone', class: 'w-3.5 h-3.5 text-brand-600' %}
+          <a href="tel:{{ section.settings.phone_number | replace: ' ', '' | replace: '(', '' | replace: ')', '' | replace: '-', '' }}" class="text-xs font-bold text-[#173b57] hover:text-[#088ae3] transition-colors hidden xl:flex items-center gap-1.5">
+            {% render 'icon', name: 'phone', class: 'w-3.5 h-3.5 text-[#088ae3]' %}
             {{ section.settings.phone_number }}
           </a>
         {% endif %}
-        <button class="open-quote-modal bg-brand-600 hover:bg-brand-700 text-white text-[12px] font-bold tracking-wider px-5 py-2.5 rounded-lg shadow-sm hover:shadow transition-all uppercase" aria-haspopup="dialog">
-          {{ section.settings.cta_text | default: 'ORDER NOW - $1,495' }}
+        <button class="open-quote-modal btn-primary py-2.5 px-4 text-xs font-bold" aria-haspopup="dialog">
+          {{ section.settings.cta_text | default: 'Order now — $1,495' }}
         </button>
       </div>
 
       <!-- Mobile Menu Button -->
       <div class="lg:hidden flex items-center">
-        <button id="mobile-menu-btn" class="p-2 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-slate-100 transition-colors" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+        <button id="mobile-menu-btn" class="p-2 rounded-lg text-[#173b57] hover:text-[#088ae3] hover:bg-[#eff9fd] transition-colors" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
           {% render 'icon', name: 'menu', class: 'w-6 h-6' %}
         </button>
       </div>
     </div>
   </div>
 
-  <!-- Mobile Dropdown Menu -->
-  <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-100 px-6 py-5 space-y-3">
-    {% if section.settings.menu != blank %}
-      {% for link in linklists[section.settings.menu].links %}
-        <a href="{{ link.url }}" class="block font-semibold text-slate-700 hover:text-brand-600">{{ link.title }}</a>
+  <!-- Mobile Dynamic Dropdown Menu -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-[#e2f0f9] px-6 py-5 space-y-3">
+    {% if main_menu.links.size > 0 %}
+      {% for link in main_menu.links %}
+        {% if link.links != blank %}
+          <div class="py-1 border-b border-[#e2f0f9]/60 space-y-1">
+            <span class="block text-xs font-bold text-[#173b57] uppercase tracking-wide">{{ link.title }}</span>
+            <div class="pl-2 space-y-1 pt-1">
+              {% for childlink in link.links %}
+                <a href="{{ childlink.url }}" class="block font-semibold text-xs text-[#4a6177] hover:text-[#088ae3] py-1">
+                  {{ childlink.title }}
+                </a>
+              {% endfor %}
+            </div>
+          </div>
+        {% else %}
+          <a href="{{ link.url }}" class="block font-semibold text-sm text-[#173b57] hover:text-[#088ae3] {% if link.active %}text-[#088ae3]{% endif %}">
+            {{ link.title }}
+          </a>
+        {% endif %}
       {% endfor %}
     {% else %}
-      <a href="{{ routes.root_url }}" class="block font-semibold text-brand-600">HOME</a>
-      <a href="/pages/how-it-works" class="block font-semibold text-slate-700 hover:text-brand-600">HOW IT WORKS</a>
-      <a href="/pages/water-quality" class="block font-semibold text-slate-700 hover:text-brand-600">WATER QUALITY</a>
-      <a href="/products/hydrocell-standup" class="block font-semibold text-slate-700 hover:text-brand-600">HYDROCELL™</a>
-      <a href="/products/filter-replacement-kits" class="block font-semibold text-slate-700 hover:text-brand-600">FILTER KITS</a>
-      <a href="/pages/lab-report" class="block font-semibold text-slate-700 hover:text-brand-600">LAB REPORT</a>
-      <a href="/pages/contact" class="block font-semibold text-slate-700 hover:text-brand-600">CONTACT</a>
+      <a href="{{ routes.root_url }}" class="block font-semibold text-[#088ae3]">Home</a>
+      <a href="/pages/how-it-works" class="block font-semibold text-[#173b57] hover:text-[#088ae3]">How It Works</a>
+      <a href="/pages/water-from-air" class="block font-semibold text-[#173b57] hover:text-[#088ae3]">Water from Air</a>
+      <a href="/pages/water-quality" class="block font-semibold text-[#173b57] hover:text-[#088ae3]">Water Quality</a>
+      <div class="pt-1 pb-1 border-y border-[#e2f0f9] space-y-2">
+        <span class="text-[10px] font-extrabold uppercase text-[#4a6177] tracking-wider">Products</span>
+        <a href="/products/hydrocell-standup" class="block font-semibold text-[#173b57] hover:text-[#088ae3] pl-2">HydroCell™ Standup</a>
+        <a href="/products/filter-replacement-kits" class="block font-semibold text-[#173b57] hover:text-[#088ae3] pl-2">Filter Replacement Kits</a>
+      </div>
+      <div class="pt-1 pb-1 border-b border-[#e2f0f9] space-y-2">
+        <span class="text-[10px] font-extrabold uppercase text-[#4a6177] tracking-wider">Resources</span>
+        <a href="/pages/lab-report" class="block font-semibold text-[#173b57] hover:text-[#088ae3] pl-2">Lab Report</a>
+        <a href="/#faq" class="block font-semibold text-[#173b57] hover:text-[#088ae3] pl-2">Help Center & FAQs</a>
+      </div>
+      <a href="/pages/contact" class="block font-semibold text-[#173b57] hover:text-[#088ae3]">Contact</a>
     {% endif %}
-    <div class="pt-2">
+    
+    <div class="pt-3">
       {% if section.settings.phone_number != blank %}
-        <a href="tel:{{ section.settings.phone_number | replace: ' ', '' | replace: '(', '' | replace: ')', '' | replace: '-', '' }}" class="flex items-center justify-center gap-2 text-xs font-bold text-slate-700 py-2 border rounded-lg mb-2">
-          {% render 'icon', name: 'phone', class: 'w-4 h-4 text-brand-600' %}
+        <a href="tel:{{ section.settings.phone_number | replace: ' ', '' | replace: '(', '' | replace: ')', '' | replace: '-', '' }}" class="flex items-center justify-center gap-2 text-xs font-bold text-[#173b57] py-2.5 border border-[#e2f0f9] rounded-xl mb-2.5">
+          {% render 'icon', name: 'phone', class: 'w-4 h-4 text-[#088ae3]' %}
           Call {{ section.settings.phone_number }}
         </a>
       {% endif %}
-      <button class="open-quote-modal w-full bg-brand-600 text-white font-bold py-3 rounded-lg text-xs uppercase tracking-wider" aria-haspopup="dialog">
-        {{ section.settings.cta_text | default: 'ORDER NOW - $1,495 ($500 OFF)' }}
+      <button class="open-quote-modal w-full btn-primary py-3 rounded-xl text-xs uppercase tracking-wider" aria-haspopup="dialog">
+        {{ section.settings.cta_text | default: 'Order now — $1,495' }}
       </button>
     </div>
   </div>
@@ -102,7 +199,8 @@
     {
       "type": "link_list",
       "id": "menu",
-      "label": "Navigation Menu"
+      "label": "Navigation Menu",
+      "default": "main-menu"
     },
     {
       "type": "text",
@@ -114,7 +212,7 @@
       "type": "text",
       "id": "cta_text",
       "label": "CTA Button Text",
-      "default": "ORDER NOW - $1,495"
+      "default": "Order now — $1,495"
     }
   ]
 }

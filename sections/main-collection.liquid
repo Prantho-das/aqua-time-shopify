@@ -1,0 +1,135 @@
+<section class="py-16 sm:py-20 lg:py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold tracking-widest text-[#088ae3] bg-[#eff9fd] uppercase mb-3">
+        Atmospheric Water Systems
+      </span>
+      <h1 class="font-heading text-3xl sm:text-5xl font-extrabold text-[#0e1c36] tracking-tight">
+        {{ collection.title | default: 'All Products' }}
+      </h1>
+      <p class="mt-4 text-sm sm:text-base text-[#4a6177] leading-relaxed">
+        {{ collection.description | default: 'Generate mineral-balanced, pure drinking water directly from air humidity. No municipal line or plastic bottles needed.' }}
+      </p>
+    </div>
+
+    <!-- Collection Products Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- HydroCell Standup Product Card -->
+      <div class="bg-[#f8fcfd] rounded-2xl border border-[#d9f1fc] overflow-hidden hover:border-[#088ae3] hover:shadow-lg transition-all group flex flex-col justify-between">
+        <div>
+          <div class="p-8 bg-white border-b border-[#d9f1fc] flex items-center justify-center relative aspect-[4/3]">
+            <span class="absolute top-4 left-4 bg-[#088ae3] text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
+              SAVE $500 NOW
+            </span>
+            <img src="{{ 'chatgpt-image.jpg' | asset_url }}" alt="HydroCell Standup" class="max-h-48 object-contain group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-6 space-y-3">
+            <div class="flex justify-between items-baseline">
+              <h2 class="font-heading font-bold text-xl text-[#0e1c36]">HydroCell™ STANDUP</h2>
+              <div class="text-right">
+                <span class="font-heading font-black text-lg text-[#0e1c36]">$1,495</span>
+                <span class="text-xs text-slate-400 line-through ml-1">$1,995</span>
+              </div>
+            </div>
+            <p class="text-xs text-[#4a6177] leading-relaxed">
+              Generates up to 20L (5.28 gal)/day pure water with 19L internal storage and hot & cold dispense.
+            </p>
+            <div class="flex flex-wrap gap-2 pt-1 text-[11px] font-bold text-slate-600">
+              <span class="bg-white border border-[#d9f1fc] px-2.5 py-1 rounded-md">20L/Day Output</span>
+              <span class="bg-white border border-[#d9f1fc] px-2.5 py-1 rounded-md">19L Storage</span>
+              <span class="bg-white border border-[#d9f1fc] px-2.5 py-1 rounded-md">8-Stage Purifier</span>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 pt-0">
+          <a href="/products/hydrocell-standup" class="block w-full text-center bg-[#088ae3] hover:bg-[#0776c4] text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider transition-all">
+            BUY NOW ($1,495)
+          </a>
+        </div>
+      </div>
+
+      <!-- Filter Kits Product Card -->
+      <div class="bg-[#f8fcfd] rounded-2xl border border-[#d9f1fc] overflow-hidden hover:border-[#088ae3] hover:shadow-lg transition-all group flex flex-col justify-between">
+        <div>
+          <div class="p-8 bg-white border-b border-[#d9f1fc] flex items-center justify-center relative aspect-[4/3]">
+            <span class="absolute top-4 left-4 bg-emerald-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
+              OEM REFILL
+            </span>
+            <div class="w-24 h-24 rounded-2xl bg-[#eff9fd] flex items-center justify-center text-[#088ae3] group-hover:scale-105 transition-transform">
+              <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+          </div>
+          <div class="p-6 space-y-3">
+            <div class="flex justify-between items-baseline">
+              <h2 class="font-heading font-bold text-xl text-[#0e1c36]">Filter Replacement Kits</h2>
+              <span class="font-heading font-black text-lg text-[#0e1c36]">$100</span>
+            </div>
+            <p class="text-xs text-[#4a6177] leading-relaxed">
+              Pre-bundled cartridges for Month 6, 12, 18, and 24 routine refresh. 2-minute tool-free swap.
+            </p>
+            <div class="flex flex-wrap gap-2 pt-1 text-[11px] font-bold text-slate-600">
+              <span class="bg-white border border-[#d9f1fc] px-2.5 py-1 rounded-md">24-Month Cycle</span>
+              <span class="bg-white border border-[#d9f1fc] px-2.5 py-1 rounded-md">Free Shipping</span>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 pt-0">
+          <a href="/products/filter-replacement-kits" class="block w-full text-center bg-[#088ae3] hover:bg-[#0776c4] text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider transition-all">
+            ORDER KIT ($100)
+          </a>
+        </div>
+      </div>
+
+      <!-- Commercial Skid Card -->
+      <div class="bg-[#f8fcfd] rounded-2xl border border-[#d9f1fc] overflow-hidden hover:border-[#088ae3] hover:shadow-lg transition-all group flex flex-col justify-between">
+        <div>
+          <div class="p-8 bg-white border-b border-[#d9f1fc] flex items-center justify-center relative aspect-[4/3]">
+            <span class="absolute top-4 left-4 bg-purple-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
+              ENTERPRISE & OFF-GRID
+            </span>
+            <div class="w-24 h-24 rounded-2xl bg-purple-50 flex items-center justify-center text-purple-600 group-hover:scale-105 transition-transform">
+              <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+              </svg>
+            </div>
+          </div>
+          <div class="p-6 space-y-3">
+            <div class="flex justify-between items-baseline">
+              <h2 class="font-heading font-bold text-xl text-[#0e1c36]">Commercial & Custom Units</h2>
+              <span class="font-heading font-bold text-xs text-[#088ae3] uppercase">Inquire</span>
+            </div>
+            <p class="text-xs text-[#4a6177] leading-relaxed">
+              Industrial high-capacity continuous generators designed for construction, hospitality, and disaster response.
+            </p>
+            <div class="flex flex-wrap gap-2 pt-1 text-[11px] font-bold text-slate-600">
+              <span class="bg-white border border-[#d9f1fc] px-2.5 py-1 rounded-md">50–500+ Gal/Day</span>
+              <span class="bg-white border border-[#d9f1fc] px-2.5 py-1 rounded-md">Grid / Solar</span>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 pt-0">
+          <a href="/pages/contact" class="block w-full text-center border border-[#088ae3] text-[#088ae3] hover:bg-[#f0f9ff] font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider transition-all">
+            TALK TO AN EXPERT
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main Collection",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Main Collection"
+    }
+  ]
+}
+{% endschema %}

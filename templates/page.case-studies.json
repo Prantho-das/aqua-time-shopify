@@ -1,0 +1,39 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+
+{
+  "sections": {
+    "case_studies": {
+      "type": "case-studies-list",
+      "settings": {
+        "heading": "Water From Air in the Real World",
+        "subheading": "Atmospheric water generation is not just a laboratory concept. Systems are being deployed for residential, commercial, institutional, and emergency environments."
+      }
+    },
+    "comparison": {
+      "type": "comparison-table",
+      "settings": {}
+    },
+    "faq": {
+      "type": "faq-accordion",
+      "settings": {}
+    },
+    "cta": {
+      "type": "cta-banner",
+      "settings": {}
+    }
+  },
+  "order": [
+    "case_studies",
+    "comparison",
+    "faq",
+    "cta"
+  ]
+}

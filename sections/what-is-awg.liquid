@@ -1,47 +1,85 @@
-<section id="what-is-awg" class="relative overflow-hidden min-h-[580px] lg:min-h-[660px] flex items-center py-14 sm:py-16 lg:py-24">
+<section id="what-is-awg" class="relative overflow-hidden min-h-[680px] lg:min-h-[760px] flex items-center py-16 sm:py-20 lg:py-24">
+  
   <div class="absolute inset-0 z-0">
     {% if section.settings.image != blank %}
-      <img src="{{ section.settings.image | image_url: width: 2000 }}" alt="{{ section.settings.heading_line1 | escape }}" class="w-full h-full object-cover object-[25%_center] sm:object-center" loading="lazy" decoding="async">
+      <img src="{{ section.settings.image | image_url: width: 2400 }}" alt="{{ section.settings.heading | escape }}" class="w-full h-full object-cover object-left lg:object-center" loading="lazy">
     {% else %}
-      <img src="{{ 'banner-02.jpg' | asset_url }}" alt="Atmospheric Water Generator Technology" class="w-full h-full object-cover object-[25%_center] sm:object-center" loading="lazy" decoding="async">
+      <img src="{{ 'banner-02.jpg' | asset_url }}" alt="Atmospheric water generator in clean mountain environment" class="w-full h-full object-cover object-left lg:object-center" loading="lazy">
     {% endif %}
-    <div class="absolute inset-0 bg-white/95 sm:bg-transparent sm:bg-gradient-to-l sm:from-white/95 sm:via-white/85 sm:to-transparent sm:w-3/4 lg:w-3/5 sm:ml-auto"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/20 lg:from-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent lg:hidden"></div>
   </div>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+  <div class="container relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
       
-      <div class="hidden lg:block lg:col-span-6"></div>
+      <!-- Left side spacer to keep machine visible -->
+      <div class="hidden lg:block lg:col-span-5"></div>
 
-      <div class="lg:col-span-6 space-y-4 lg:space-y-5 reveal-init delay-200">
-        <span class="text-[10px] sm:text-[11px] font-extrabold tracking-widest text-[#0084d6] uppercase">{{ section.settings.badge | default: 'WHAT IS AN AWG?' }}</span>
+      <!-- Right side: Content Glass Card -->
+      <div class="lg:col-span-7 lg:ml-auto w-full max-w-2xl">
+        <div class="bg-white/95 backdrop-blur-xl rounded-3xl p-7 sm:p-10 lg:p-11 border border-white/80 shadow-2xl space-y-6">
 
-        <h2 class="font-heading text-2xl sm:text-[36px] font-extrabold text-[#0e1c36] leading-[1.18] tracking-tight">
-          {{ section.settings.heading_line1 | default: 'The Atmosphere Holds' }}<br>
-          {{ section.settings.heading_line2 | default: '3.1 Quadrillion Gallons.' }}<br>
-          <span class="text-[#0084d6]">{{ section.settings.heading_highlight | default: 'Tap Into It.' }}</span>
-        </h2>
+          <div class="space-y-2">
+            <span class="inline-block text-xs font-bold tracking-wider uppercase text-[#088ae3] bg-[#088ae3]/10 px-3 py-1 rounded-full">
+              Technology Overview
+            </span>
+            <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#173b57] tracking-tight leading-tight">
+              {{ section.settings.heading | default: 'What is an atmospheric water generator?' }}
+            </h2>
+          </div>
 
-        <p class="text-[#596780] text-xs sm:text-sm leading-relaxed max-w-lg">
-          {{ section.settings.description | default: 'An Atmospheric Water Generator (AWG) captures the humidity naturally present in ambient air and converts it into pure, medical-grade drinking water. No dependency on aging municipal infrastructure, groundwater contamination, or plastic deliveries.' }}
-        </p>
+          <p class="text-[15px] text-[#4a6177] leading-relaxed">
+            {{ section.settings.paragraph_1 | default: 'An atmospheric water generator (AWG) captures ambient humidity from surrounding air, condenses it into pure liquid water, and filters it through multi-stage purification — creating continuous fresh drinking water right where you need it.' }}
+          </p>
 
-        <ul class="space-y-2 sm:space-y-2.5 pt-1">
-          {% for block in section.blocks %}
-            <li class="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-[13px] font-medium text-[#0e1c36]" {{ block.shopify_attributes }}>
-              <svg class="w-4 h-4 text-[#0084d6] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="m9 12 2 2 4-4"/>
-              </svg>
-              <span>{{ block.settings.text }}</span>
-            </li>
-          {% endfor %}
-        </ul>
+          <!-- 3 Feature Points -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div class="p-3.5 rounded-xl bg-[#f8fcfd] border border-[#e2f0f9] space-y-1">
+              <div class="w-7 h-7 rounded-lg bg-[#088ae3]/10 text-[#088ae3] flex items-center justify-center">
+                {% render 'icon', name: 'droplets', class: 'w-4 h-4' %}
+              </div>
+              <h4 class="font-heading font-bold text-xs text-[#173b57]">Pulls From Air</h4>
+              <p class="text-[11px] text-[#4a6177] leading-normal">Condenses moisture from 30–95% ambient humidity</p>
+            </div>
 
-        <div class="pt-2">
-          <button class="open-quote-modal w-full sm:w-auto text-center inline-block bg-[#0084d6] hover:bg-[#006bb0] text-white text-[12px] font-bold tracking-wider px-7 py-3.5 sm:py-3 rounded-lg shadow-sm hover:shadow transition-all uppercase">
-            {{ section.settings.btn_text | default: 'ORDER YOUR UNIT - $1,495' }}
-          </button>
+            <div class="p-3.5 rounded-xl bg-[#f8fcfd] border border-[#e2f0f9] space-y-1">
+              <div class="w-7 h-7 rounded-lg bg-[#088ae3]/10 text-[#088ae3] flex items-center justify-center">
+                {% render 'icon', name: 'shield-check', class: 'w-4 h-4' %}
+              </div>
+              <h4 class="font-heading font-bold text-xs text-[#173b57]">Multi-Stage Pure</h4>
+              <p class="text-[11px] text-[#4a6177] leading-normal">HEPA, carbon, UV-C & alkaline mineral enrichment</p>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-[#f8fcfd] border border-[#e2f0f9] space-y-1">
+              <div class="w-7 h-7 rounded-lg bg-[#088ae3]/10 text-[#088ae3] flex items-center justify-center">
+                {% render 'icon', name: 'zap', class: 'w-4 h-4' %}
+              </div>
+              <h4 class="font-heading font-bold text-xs text-[#173b57]">Zero Plumbing</h4>
+              <p class="text-[11px] text-[#4a6177] leading-normal">Plug into standard outlet — no pipes or bottles</p>
+            </div>
+          </div>
+
+          <!-- EPA Note Callout -->
+          <div class="p-4 rounded-xl bg-[#088ae3]/5 border border-[#088ae3]/15 flex items-start gap-3">
+            <div class="w-7 h-7 rounded-lg bg-[#088ae3] text-white flex items-center justify-center shrink-0 mt-0.5">
+              {% render 'icon', name: 'check', class: 'w-4 h-4' %}
+            </div>
+            <p class="text-xs text-[#2a455e] leading-relaxed">
+              <strong class="font-semibold text-[#173b57]">EPA Verified:</strong> {{ section.settings.epa_note | default: 'EPA research validates condensation-based AWG technology as a reliable method to produce water directly from atmospheric vapor without municipal grid connections.' }}
+            </p>
+          </div>
+
+          <!-- CTA Row -->
+          <div class="flex flex-wrap items-center gap-4 pt-1">
+            <a href="{{ section.settings.cta_link | default: '#how-it-works' }}" class="btn-primary">
+              {{ section.settings.cta_text | default: 'Learn how water from air works' }}
+            </a>
+            <span class="text-xs font-medium text-[#64748b]">
+              Up to 5.5 gal/day · Standard 110V plug
+            </span>
+          </div>
+
         </div>
       </div>
 
@@ -53,73 +91,13 @@
 {
   "name": "What Is AWG",
   "settings": [
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Background Image"
-    },
-    {
-      "type": "text",
-      "id": "badge",
-      "label": "Badge",
-      "default": "WHAT IS AN AWG?"
-    },
-    {
-      "type": "text",
-      "id": "heading_line1",
-      "label": "Heading Line 1",
-      "default": "The Atmosphere Holds"
-    },
-    {
-      "type": "text",
-      "id": "heading_line2",
-      "label": "Heading Line 2",
-      "default": "3.1 Quadrillion Gallons."
-    },
-    {
-      "type": "text",
-      "id": "heading_highlight",
-      "label": "Heading Highlight",
-      "default": "Tap Into It."
-    },
-    {
-      "type": "textarea",
-      "id": "description",
-      "label": "Description",
-      "default": "An Atmospheric Water Generator (AWG) captures the humidity naturally present in ambient air and converts it into pure, medical-grade drinking water. No dependency on aging municipal infrastructure, groundwater contamination, or plastic deliveries."
-    },
-    {
-      "type": "text",
-      "id": "btn_text",
-      "label": "Button Text",
-      "default": "ORDER YOUR UNIT - $1,495"
-    }
+    { "type": "image_picker", "id": "image", "label": "Background Image" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What is an atmospheric water generator?" },
+    { "type": "textarea", "id": "paragraph_1", "label": "Paragraph 1", "default": "An atmospheric water generator (AWG) captures ambient humidity from surrounding air, condenses it into pure liquid water, and filters it through multi-stage purification — creating continuous fresh drinking water right where you need it." },
+    { "type": "textarea", "id": "epa_note", "label": "EPA Note", "default": "EPA research validates condensation-based AWG technology as a reliable method to produce water directly from atmospheric vapor without municipal grid connections." },
+    { "type": "text", "id": "cta_text", "label": "CTA Button Text", "default": "Learn how water from air works" },
+    { "type": "url", "id": "cta_link", "label": "CTA Link" }
   ],
-  "blocks": [
-    {
-      "type": "point",
-      "name": "Feature Point",
-      "settings": [
-        {
-          "type": "text",
-          "id": "text",
-          "label": "Text",
-          "default": "Taps into 3.1 quadrillion gallons of atmospheric moisture"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "What Is AWG",
-      "blocks": [
-        { "type": "point", "settings": { "text": "Taps into 3.1 quadrillion gallons of atmospheric moisture" } },
-        { "type": "point", "settings": { "text": "Effective across 30% to 95% relative humidity" } },
-        { "type": "point", "settings": { "text": "Zero dependence on municipal water grids or wells" } },
-        { "type": "point", "settings": { "text": "Completely eliminates microplastics, lead, chlorine, and PFAS" } },
-        { "type": "point", "settings": { "text": "Continuous remineralization for optimal pH balance (7.2 - 7.6)" } }
-      ]
-    }
-  ]
+  "presets": [{ "name": "What Is AWG" }]
 }
 {% endschema %}

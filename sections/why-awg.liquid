@@ -1,41 +1,39 @@
-<section id="why-awg" class="py-16 bg-[#f8fbfe] border-y border-slate-100 relative">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="why-awg" class="section-spacing bg-[#f8fcfd] border-y border-[#e2f0f9]">
+  <div class="container">
     
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 reveal-init">
-      <div>
-        <span class="text-[11px] font-extrabold tracking-widest text-brand-600 uppercase">{{ section.settings.badge | default: 'WHY AWG TECHNOLOGY?' }}</span>
-        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-[#0e1c36] leading-tight mt-1">
-          {{ section.settings.heading | default: 'Proven Resilience & Sustainability' }}
-        </h2>
-        <p class="text-[#596780] text-sm mt-2 max-w-xl">
-          {{ section.settings.description | default: 'Discover why homeowners, enterprises, and remote facilities are transitioning to atmospheric water generators for unconditional water security.' }}
-        </p>
-      </div>
-      <div class="mt-4 md:mt-0 flex gap-2">
-        <span class="inline-flex items-center gap-1.5 bg-white border border-slate-200 text-[#0e1c36] text-xs font-semibold px-3 py-1.5 rounded-full shadow-xs">
-          {% render 'icon', name: 'check-circle-2', class: 'w-3.5 h-3.5 text-brand-600' %} {{ section.settings.pill_badge | default: 'Pure Alkaline Hydration' }}
-        </span>
+    <div class="max-w-2xl mb-10">
+      <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#173b57]">
+        {{ section.settings.heading | default: 'Why atmospheric water generation?' }}
+      </h2>
+
+      <h3 class="font-heading text-lg font-semibold text-[#088ae3] mt-2">
+        {{ section.settings.subheading | default: 'A different way to think about where water comes from' }}
+      </h3>
+
+      <div class="space-y-2 text-[15px] text-[#4a6177] leading-relaxed mt-3 max-w-xl">
+        <p>{{ section.settings.paragraph_1 | default: 'Most water systems begin with a remote source. Water may travel through wells, treatment plants, pipelines, trucks, bottles, storage tanks, or distribution infrastructure before reaching the people who use it.' }}</p>
+        <p>{{ section.settings.paragraph_2 | default: 'Atmospheric water generation introduces another possibility: produce water closer to the point of use by utilizing moisture already present in the surrounding air.' }}</p>
       </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal-init delay-100">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       {% for block in section.blocks %}
-        <div class="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover-lift group" {{ block.shopify_attributes }}>
-          <div class="h-56 overflow-hidden relative">
+        <div class="app-card group" {{ block.shopify_attributes }}>
+          <div class="h-48 overflow-hidden relative bg-slate-100">
             {% if block.settings.image != blank %}
-              <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.title | escape }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
+              <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.title | escape }}" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500" loading="lazy">
             {% elsif block.settings.asset_image != blank %}
-              <img src="{{ block.settings.asset_image | asset_url }}" alt="{{ block.settings.title | escape }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
-            {% else %}
-              <img src="{{ 'office-02.jpg' | asset_url }}" alt="{{ block.settings.title | escape }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
+              <img src="{{ block.settings.asset_image | asset_url }}" alt="{{ block.settings.title | escape }}" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500" loading="lazy">
             {% endif %}
-            <span class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-xs text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
-              {{ block.settings.tag }}
-            </span>
           </div>
-          <div class="p-5">
-            <h4 class="font-heading font-bold text-[15px] text-[#0e1c36]">{{ block.settings.title }}</h4>
-            <p class="text-[#596780] text-xs mt-1.5 leading-relaxed">{{ block.settings.description }}</p>
+
+          <div class="p-6 space-y-2">
+            <h3 class="font-heading font-bold text-lg text-[#173b57] group-hover:text-[#088ae3] transition-colors">
+              {{ block.settings.title }}
+            </h3>
+            <p class="text-sm text-[#4a6177] leading-relaxed">
+              {{ block.settings.description }}
+            </p>
           </div>
         </div>
       {% endfor %}
@@ -48,65 +46,20 @@
 {
   "name": "Why AWG",
   "settings": [
-    {
-      "type": "text",
-      "id": "badge",
-      "label": "Badge",
-      "default": "WHY AWG TECHNOLOGY?"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Proven Resilience & Sustainability"
-    },
-    {
-      "type": "textarea",
-      "id": "description",
-      "label": "Description",
-      "default": "Discover why homeowners, enterprises, and remote facilities are transitioning to atmospheric water generators for unconditional water security."
-    },
-    {
-      "type": "text",
-      "id": "pill_badge",
-      "label": "Pill Badge Text",
-      "default": "Pure Alkaline Hydration"
-    }
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Why atmospheric water generation?" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "A different way to think about where water comes from" },
+    { "type": "textarea", "id": "paragraph_1", "label": "Paragraph 1", "default": "Most water systems begin with a remote source. Water may travel through wells, treatment plants, pipelines, trucks, bottles, storage tanks, or distribution infrastructure before reaching the people who use it." },
+    { "type": "textarea", "id": "paragraph_2", "label": "Paragraph 2", "default": "Atmospheric water generation introduces another possibility: produce water closer to the point of use by utilizing moisture already present in the surrounding air." }
   ],
   "blocks": [
     {
       "type": "feature_card",
       "name": "Feature Card",
       "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Custom Image"
-        },
-        {
-          "type": "text",
-          "id": "asset_image",
-          "label": "Asset Image Filename (Fallback)",
-          "default": "office-02.jpg"
-        },
-        {
-          "type": "text",
-          "id": "tag",
-          "label": "Badge Tag",
-          "default": "ON-SITE PRODUCTION"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title",
-          "default": "Zero Supply Chain Reliance"
-        },
-        {
-          "type": "textarea",
-          "id": "description",
-          "label": "Description",
-          "default": "Produce your own water continuously. Never worry about grocery store shortages, delivery delays, boil alerts, or supply interruptions."
-        }
+        { "type": "image_picker", "id": "image", "label": "Custom Image" },
+        { "type": "text", "id": "asset_image", "label": "Asset Image Filename", "default": "office-02.jpg" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Produce water on-site" },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "Reduce dependence on transporting every gallon of water from somewhere else." }
       ]
     }
   ],
@@ -114,33 +67,9 @@
     {
       "name": "Why AWG",
       "blocks": [
-        {
-          "type": "feature_card",
-          "settings": {
-            "asset_image": "office-02.jpg",
-            "tag": "ON-SITE PRODUCTION",
-            "title": "Zero Supply Chain Reliance",
-            "description": "Produce your own water continuously. Never worry about grocery store shortages, delivery delays, boil alerts, or supply interruptions."
-          }
-        },
-        {
-          "type": "feature_card",
-          "settings": {
-            "asset_image": "emergency-response-02.jpg",
-            "tag": "WATER RESILIENCE",
-            "title": "Emergency Climate Readiness",
-            "description": "Plug into standard 110V power, solar banks, or portable backup generators. Keep pure drinking water available through any natural disaster."
-          }
-        },
-        {
-          "type": "feature_card",
-          "settings": {
-            "asset_image": "environment-01.jpg",
-            "tag": "PLASTIC-FREE PLANET",
-            "title": "Eliminate 4,000+ Bottles / Year",
-            "description": "Stop ingesting microplastics leached from plastic jugs. Each AWG prevents thousands of single-use plastic bottles from entering our oceans."
-          }
-        }
+        { "type": "feature_card", "settings": { "asset_image": "office-02.jpg", "title": "Produce water on-site", "description": "Reduce dependence on transporting every gallon of water from somewhere else." } },
+        { "type": "feature_card", "settings": { "asset_image": "emergency-response-02.jpg", "title": "Build water resilience", "description": "Add another potential water source where interruptions, shortages, or remote locations make water availability more difficult." } },
+        { "type": "feature_card", "settings": { "asset_image": "environment-01.jpg", "title": "Reduce bottled water dependence", "description": "For appropriate applications, on-site generation may help decrease dependence on recurring bottled-water purchases and deliveries." } }
       ]
     }
   ]
