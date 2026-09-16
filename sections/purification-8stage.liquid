@@ -1,0 +1,162 @@
+<section id="purification-process" class="py-16 sm:py-20 lg:py-24 bg-[#f8fcfd] border-y border-[#e1eff8]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold tracking-widest text-[#0084d6] bg-[#e0f2fe] uppercase mb-3">
+        {{ section.settings.badge | default: 'Eight Stages Between Air to Glass' }}
+      </span>
+      <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-[#0e1c36] tracking-tight">
+        {{ section.settings.heading | default: 'From Air To Glass: The Purification Process' }}
+      </h2>
+      <p class="mt-4 text-sm sm:text-base text-[#596780] leading-relaxed">
+        {{ section.settings.description | default: 'Every drop produced by our Atmospheric Water Generators undergoes an advanced 8-stage physical, molecular, and ultraviolet purification cycle for ultra-clean, mineralized alkaline water.' }}
+      </p>
+    </div>
+
+    <!-- 8 Stages Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {%- assign default_stages = "01|Air Filter|Traps dust, pollen, and large atmospheric particulates before moisture collection.|wind,02|Softening Filter|Removes excess calcium and magnesium to prevent internal scaling and optimize taste.|sparkles,03|Sediment Filter|Multi-layer physical micro-filtration that removes particles down to 5 microns.|filter,04|Ultrafiltration Membrane|Medical-grade membrane barrier blocking sub-micron particulates down to 0.01 micron.|shield-check,05|Pre-Carbon Filter|High-density activated carbon block absorbs chlorine, pesticides, odors, and VOCs.|activity,06|Electropositive Membrane|Advanced charged nanofiber matrix trapping viruses, bacteria, and trace pharmaceuticals.|zap,07|LED-UV (Lower Tank)|Continuous germicidal UV sterilization preventing microbial growth in lower reservoir.|sun,08|LED-UV (Upper Tank)|Final sterilization barrier ensuring pristine, fresh water at the moment of dispense.|droplets" | split: "," -%}
+
+      {% if section.blocks.size > 0 %}
+        {% for block in section.blocks %}
+          <div class="bg-white rounded-2xl p-6 border border-[#e1eff8] shadow-sm hover:shadow-md hover:border-[#0084d6] transition-all group flex flex-col justify-between" {{ block.shopify_attributes }}>
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="font-heading font-black text-2xl text-[#0084d6]/30 group-hover:text-[#0084d6] transition-colors">
+                  {{ block.settings.stage_number }}
+                </span>
+                <div class="w-10 h-10 rounded-xl bg-[#f0f9ff] group-hover:bg-[#0084d6] text-[#0084d6] group-hover:text-white transition-colors flex items-center justify-center">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <circle cx="12" cy="12" r="9"/>
+                    <path d="M12 8v8m-4-4h8"/>
+                  </svg>
+                </div>
+              </div>
+              <h3 class="font-heading text-lg font-bold text-[#0e1c36] mb-2 group-hover:text-[#0084d6] transition-colors">
+                {{ block.settings.title }}
+              </h3>
+              <p class="text-xs sm:text-sm text-[#596780] leading-relaxed">
+                {{ block.settings.description }}
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-bold text-[#0084d6]">
+              <span>Stage {{ block.settings.stage_number }} Target:</span>
+              <span class="text-[#0e1c36] font-medium">{{ block.settings.target }}</span>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        {% for item in default_stages %}
+          {% assign parts = item | split: "|" %}
+          <div class="bg-white rounded-2xl p-6 border border-[#e1eff8] shadow-sm hover:shadow-md hover:border-[#0084d6] transition-all group flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="font-heading font-black text-2xl text-[#0084d6]/30 group-hover:text-[#0084d6] transition-colors">
+                  {{ parts[0] }}
+                </span>
+                <div class="w-10 h-10 rounded-xl bg-[#f0f9ff] group-hover:bg-[#0084d6] text-[#0084d6] group-hover:text-white transition-colors flex items-center justify-center">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                  </svg>
+                </div>
+              </div>
+              <h3 class="font-heading text-base font-bold text-[#0e1c36] mb-2 group-hover:text-[#0084d6] transition-colors">
+                {{ parts[1] }}
+              </h3>
+              <p class="text-xs sm:text-sm text-[#596780] leading-relaxed">
+                {{ parts[2] }}
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-bold text-[#0084d6]">
+              <span>Stage {{ parts[0] }} Verification:</span>
+              <span class="text-[#0e1c36] font-medium">100% Certified</span>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    <!-- Summary Box -->
+    <div class="mt-12 bg-white rounded-2xl p-6 sm:p-8 border border-[#e1eff8] shadow-sm flex flex-col lg:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-[#e0f2fe] text-[#0084d6] shrink-0 flex items-center justify-center font-bold text-xl">
+          ✓
+        </div>
+        <div>
+          <h4 class="font-heading text-base font-bold text-[#0e1c36]">EPA Assessment & Testing Standard</h4>
+          <p class="text-xs sm:text-sm text-[#596780]">The EPA's assessment of AWGs documents systems using combinations of air filtration, condensation, carbon, UV, and mineralization.</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 shrink-0 w-full sm:w-auto">
+        <a href="/pages/water-quality" class="w-full sm:w-auto text-center px-5 py-2.5 rounded-lg border border-[#0084d6] text-[#0084d6] hover:bg-[#f0f9ff] text-xs font-bold transition-all">
+          VIEW LAB REPORTS
+        </a>
+        <button class="open-quote-modal w-full sm:w-auto text-center px-5 py-2.5 rounded-lg bg-[#0084d6] text-white hover:bg-[#006bb0] text-xs font-bold transition-all">
+          ORDER HYDROCELL™
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Purification 8-Stage",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "Badge Text",
+      "default": "Eight Stages Between Air to Glass"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "From Air To Glass: The Purification Process"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Every drop produced by our Atmospheric Water Generators undergoes an advanced 8-stage physical, molecular, and ultraviolet purification cycle for ultra-clean, mineralized alkaline water."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stage",
+      "name": "Purification Stage",
+      "settings": [
+        {
+          "type": "text",
+          "id": "stage_number",
+          "label": "Stage Number",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Stage Title",
+          "default": "Air Filter"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Traps dust, pollen, and large particulates before moisture extraction."
+        },
+        {
+          "type": "text",
+          "id": "target",
+          "label": "Target Contaminant",
+          "default": "Dust & Particulates"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Purification 8-Stage"
+    }
+  ]
+}
+{% endschema %}

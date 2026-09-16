@@ -22,14 +22,13 @@
             </a>
           {% endfor %}
         {% else %}
-          <a href="#home" class="text-brand-600 relative py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2.5px] after:bg-brand-600">HOME</a>
-          <a href="#how-it-works" class="hover:text-brand-600 transition-colors py-2 uppercase">HOW IT WORKS</a>
-          <a href="#what-is-awg" class="hover:text-brand-600 transition-colors py-2 uppercase">WHAT IS AWG?</a>
-          <a href="#applications" class="hover:text-brand-600 transition-colors py-2 uppercase">APPLICATIONS</a>
-          <a href="#why-awg" class="hover:text-brand-600 transition-colors py-2 uppercase">WHY AWG?</a>
-          <a href="#calculator" class="hover:text-brand-600 transition-colors py-2 uppercase">CALCULATOR</a>
-          <a href="#comparison" class="hover:text-brand-600 transition-colors py-2 uppercase">COMPARE</a>
-          <a href="#faq" class="hover:text-brand-600 transition-colors py-2 uppercase">FAQ</a>
+          <a href="{{ routes.root_url }}" class="text-brand-600 relative py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2.5px] after:bg-brand-600">HOME</a>
+          <a href="/pages/how-it-works" class="hover:text-brand-600 transition-colors py-2 uppercase">HOW IT WORKS</a>
+          <a href="/pages/water-quality" class="hover:text-brand-600 transition-colors py-2 uppercase">WATER QUALITY</a>
+          <a href="/products/hydrocell-standup" class="hover:text-brand-600 transition-colors py-2 uppercase">HYDROCELL™</a>
+          <a href="/products/filter-replacement-kits" class="hover:text-brand-600 transition-colors py-2 uppercase">FILTER KITS</a>
+          <a href="/pages/lab-report" class="hover:text-brand-600 transition-colors py-2 uppercase">LAB REPORT</a>
+          <a href="/pages/contact" class="hover:text-brand-600 transition-colors py-2 uppercase">CONTACT</a>
         {% endif %}
       </nav>
 
@@ -62,14 +61,13 @@
         <a href="{{ link.url }}" class="block font-semibold text-slate-700 hover:text-brand-600">{{ link.title }}</a>
       {% endfor %}
     {% else %}
-      <a href="#home" class="block font-semibold text-brand-600">HOME</a>
-      <a href="#how-it-works" class="block font-semibold text-slate-700 hover:text-brand-600">HOW IT WORKS</a>
-      <a href="#what-is-awg" class="block font-semibold text-slate-700 hover:text-brand-600">WHAT IS AWG?</a>
-      <a href="#applications" class="block font-semibold text-slate-700 hover:text-brand-600">APPLICATIONS</a>
-      <a href="#why-awg" class="block font-semibold text-slate-700 hover:text-brand-600">WHY AWG?</a>
-      <a href="#calculator" class="block font-semibold text-slate-700 hover:text-brand-600">CALCULATOR</a>
-      <a href="#comparison" class="block font-semibold text-slate-700 hover:text-brand-600">COMPARE</a>
-      <a href="#faq" class="block font-semibold text-slate-700 hover:text-brand-600">FAQ</a>
+      <a href="{{ routes.root_url }}" class="block font-semibold text-brand-600">HOME</a>
+      <a href="/pages/how-it-works" class="block font-semibold text-slate-700 hover:text-brand-600">HOW IT WORKS</a>
+      <a href="/pages/water-quality" class="block font-semibold text-slate-700 hover:text-brand-600">WATER QUALITY</a>
+      <a href="/products/hydrocell-standup" class="block font-semibold text-slate-700 hover:text-brand-600">HYDROCELL™</a>
+      <a href="/products/filter-replacement-kits" class="block font-semibold text-slate-700 hover:text-brand-600">FILTER KITS</a>
+      <a href="/pages/lab-report" class="block font-semibold text-slate-700 hover:text-brand-600">LAB REPORT</a>
+      <a href="/pages/contact" class="block font-semibold text-slate-700 hover:text-brand-600">CONTACT</a>
     {% endif %}
     <div class="pt-2">
       {% if section.settings.phone_number != blank %}

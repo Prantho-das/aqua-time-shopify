@@ -1,0 +1,36 @@
+{
+  "sections": {
+    "main": {
+      "type": "product-hydrocell",
+      "settings": {}
+    },
+    "purification": {
+      "type": "purification-8stage",
+      "settings": {}
+    },
+    "climate_chart": {
+      "type": "climate-production-chart",
+      "settings": {}
+    },
+    "comparison": {
+      "type": "comparison-table",
+      "settings": {}
+    },
+    "faq": {
+      "type": "faq-accordion",
+      "settings": {}
+    },
+    "cta": {
+      "type": "cta-banner",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "purification",
+    "climate_chart",
+    "comparison",
+    "faq",
+    "cta"
+  ]
+}

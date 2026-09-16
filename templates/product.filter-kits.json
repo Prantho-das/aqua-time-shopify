@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "main": {
+      "type": "product-filter-kit",
+      "settings": {}
+    },
+    "purification": {
+      "type": "purification-8stage",
+      "settings": {}
+    },
+    "faq": {
+      "type": "faq-accordion",
+      "settings": {}
+    },
+    "cta": {
+      "type": "cta-banner",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "purification",
+    "faq",
+    "cta"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "contact": {
+      "type": "contact-expert",
+      "settings": {}
+    },
+    "faq": {
+      "type": "faq-accordion",
+      "settings": {}
+    }
+  },
+  "order": [
+    "contact",
+    "faq"
+  ]
+}

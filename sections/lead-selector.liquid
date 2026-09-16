@@ -1,0 +1,163 @@
+<section id="system-selector" class="py-16 sm:py-20 lg:py-24 bg-[#f8fcfd] border-t border-[#e1eff8]">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center mb-12">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold tracking-widest text-[#0084d6] bg-[#e0f2fe] uppercase mb-3">
+        {{ section.settings.badge | default: 'System Selector & Recommendation' }}
+      </span>
+      <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-[#0e1c36] tracking-tight">
+        {{ section.settings.heading | default: 'How Much Water Do You Need?' }}
+      </h2>
+      <p class="mt-4 text-sm sm:text-base text-[#596780] leading-relaxed">
+        {{ section.settings.description | default: 'The best atmospheric water generator depends on your environment, humidity, daily consumption, and intended use. Answer 4 quick questions to find your optimal setup.' }}
+      </p>
+    </div>
+
+    <!-- Quiz Card -->
+    <div class="bg-white rounded-3xl border border-[#e1eff8] p-6 sm:p-10 shadow-sm">
+      <form id="selector-form" class="space-y-8" onsubmit="event.preventDefault(); return false;">
+        
+        <!-- Step 1: Location -->
+        <div>
+          <label class="block font-heading font-bold text-base text-[#0e1c36] mb-3">
+            1. Where will the system operate?
+          </label>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <label class="selector-option cursor-pointer">
+              <input type="radio" name="location" value="home" checked class="sr-only peer">
+              <div class="p-4 rounded-xl border border-[#e1eff8] peer-checked:border-[#0084d6] peer-checked:bg-[#f0f9ff] text-center transition-all hover:bg-slate-50">
+                <span class="block text-xl mb-1">🏠</span>
+                <span class="font-bold text-xs text-[#0e1c36]">Home / Kitchen</span>
+              </div>
+            </label>
+            <label class="selector-option cursor-pointer">
+              <input type="radio" name="location" value="office" class="sr-only peer">
+              <div class="p-4 rounded-xl border border-[#e1eff8] peer-checked:border-[#0084d6] peer-checked:bg-[#f0f9ff] text-center transition-all hover:bg-slate-50">
+                <span class="block text-xl mb-1">🏢</span>
+                <span class="font-bold text-xs text-[#0e1c36]">Office / Workplace</span>
+              </div>
+            </label>
+            <label class="selector-option cursor-pointer">
+              <input type="radio" name="location" value="industrial" class="sr-only peer">
+              <div class="p-4 rounded-xl border border-[#e1eff8] peer-checked:border-[#0084d6] peer-checked:bg-[#f0f9ff] text-center transition-all hover:bg-slate-50">
+                <span class="block text-xl mb-1">🏭</span>
+                <span class="font-bold text-xs text-[#0e1c36]">Industrial Facility</span>
+              </div>
+            </label>
+            <label class="selector-option cursor-pointer">
+              <input type="radio" name="location" value="offgrid" class="sr-only peer">
+              <div class="p-4 rounded-xl border border-[#e1eff8] peer-checked:border-[#0084d6] peer-checked:bg-[#f0f9ff] text-center transition-all hover:bg-slate-50">
+                <span class="block text-xl mb-1">🏕️</span>
+                <span class="font-bold text-xs text-[#0e1c36]">Off-Grid / Remote</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Step 2: Demand -->
+        <div>
+          <label class="block font-heading font-bold text-base text-[#0e1c36] mb-3">
+            2. Estimated daily water demand?
+          </label>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <label class="selector-option cursor-pointer">
+              <input type="radio" name="demand" value="1-5" checked class="sr-only peer">
+              <div class="p-4 rounded-xl border border-[#e1eff8] peer-checked:border-[#0084d6] peer-checked:bg-[#f0f9ff] text-center transition-all hover:bg-slate-50">
+                <span class="font-heading font-black text-base text-[#0084d6] block">1–5 Gal</span>
+                <span class="text-[11px] text-[#596780]">Daily Family / Small Team</span>
+              </div>
+            </label>
+            <label class="selector-option cursor-pointer">
+              <input type="radio" name="demand" value="5-20" class="sr-only peer">
+              <div class="p-4 rounded-xl border border-[#e1eff8] peer-checked:border-[#0084d6] peer-checked:bg-[#f0f9ff] text-center transition-all hover:bg-slate-50">
+                <span class="font-heading font-black text-base text-[#0084d6] block">5–20 Gal</span>
+                <span class="text-[11px] text-[#596780]">Medium Office</span>
+              </div>
+            </label>
+            <label class="selector-option cursor-pointer">
+              <input type="radio" name="demand" value="20-100" class="sr-only peer">
+              <div class="p-4 rounded-xl border border-[#e1eff8] peer-checked:border-[#0084d6] peer-checked:bg-[#f0f9ff] text-center transition-all hover:bg-slate-50">
+                <span class="font-heading font-black text-base text-[#0084d6] block">20–100 Gal</span>
+                <span class="text-[11px] text-[#596780]">Commercial / Campus</span>
+              </div>
+            </label>
+            <label class="selector-option cursor-pointer">
+              <input type="radio" name="demand" value="100+" class="sr-only peer">
+              <div class="p-4 rounded-xl border border-[#e1eff8] peer-checked:border-[#0084d6] peer-checked:bg-[#f0f9ff] text-center transition-all hover:bg-slate-50">
+                <span class="font-heading font-black text-base text-[#0084d6] block">100+ Gal</span>
+                <span class="text-[11px] text-[#596780]">Industrial Scale</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Recommendation Banner Result -->
+        <div id="recommendation-result" class="p-6 rounded-2xl bg-[#f0f9ff] border border-[#0084d6]/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            <span class="text-[11px] font-bold text-[#0084d6] uppercase tracking-wider block">Recommended Solution</span>
+            <h4 id="rec-title" class="font-heading font-bold text-xl text-[#0e1c36]">HydroCell™ STANDUP (Single Unit)</h4>
+            <p id="rec-desc" class="text-xs text-[#596780] mt-1">Generates up to 5.5 Gal/day. Perfectly sized for your requirements with hot/cold instant dispense.</p>
+          </div>
+          <button class="open-quote-modal shrink-0 px-6 py-3 rounded-xl bg-[#0084d6] hover:bg-[#006bb0] text-white text-xs font-bold uppercase tracking-wider shadow">
+            GET SYSTEM QUOTE
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const demandInputs = document.querySelectorAll('input[name="demand"]');
+    const recTitle = document.getElementById('rec-title');
+    const recDesc = document.getElementById('rec-desc');
+
+    demandInputs.forEach(input => {
+      input.addEventListener('change', function() {
+        if (this.value === '1-5') {
+          recTitle.textContent = 'HydroCell™ STANDUP (Single Unit)';
+          recDesc.textContent = 'Generates up to 5.5 Gal (20L)/day. Compact, zero-plumbing, hot/cold pure alkaline water.';
+        } else if (this.value === '5-20') {
+          recTitle.textContent = 'HydroCell™ Multi-Unit Cluster (2-4 Units)';
+          recDesc.textContent = 'Scalable modular setup delivering 10–20 Gal/day for active office floors and teams.';
+        } else {
+          recTitle.textContent = 'Commercial & Industrial AWG Skid System';
+          recDesc.textContent = 'Heavy-duty continuous production skids capable of 50–500+ gallons daily for high-demand facilities.';
+        }
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Lead Selector",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "Badge",
+      "default": "System Selector & Recommendation"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "How Much Water Do You Need?"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "The best atmospheric water generator depends on your environment, humidity, daily consumption, and intended use. Answer 4 quick questions to find your optimal setup."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lead Selector"
+    }
+  ]
+}
+{% endschema %}

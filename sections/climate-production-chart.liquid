@@ -1,0 +1,202 @@
+<section id="climate-production" class="py-16 sm:py-20 lg:py-24 bg-white border-t border-[#e1eff8]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      
+      <div class="lg:col-span-6 space-y-6">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold tracking-widest text-[#0084d6] bg-[#e0f2fe] uppercase">
+          {{ section.settings.badge | default: "How Much Water You'll Get" }}
+        </span>
+
+        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-[#0e1c36] tracking-tight leading-tight">
+          {{ section.settings.heading | default: 'Warmer, More Humid Air Can Produce More Water.' }}
+        </h2>
+
+        <p class="text-sm sm:text-base text-[#596780] leading-relaxed">
+          {{ section.settings.description | default: 'Water output depends directly on ambient temperature and relative humidity. In warmer, more humid conditions, HydroCell™ captures more water vapor and maximizes daily output—up to 5.5 gallons (20 Liters) per day.' }}
+        </p>
+
+        <!-- Climate Slider Simulator -->
+        <div class="bg-[#f8fcfd] rounded-2xl p-6 border border-[#e1eff8] space-y-5">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#0e1c36]">Live Production Estimator</span>
+            <span class="text-[11px] font-bold text-[#0084d6] bg-white px-2.5 py-1 rounded-md border border-[#e1eff8]">AWG Core Model</span>
+          </div>
+
+          <!-- Humidity Slider -->
+          <div>
+            <div class="flex justify-between text-xs font-bold text-[#0e1c36] mb-1.5">
+              <span>Relative Humidity:</span>
+              <span id="display-rh" class="text-[#0084d6] font-extrabold">75% RH</span>
+            </div>
+            <input type="range" id="input-rh" min="30" max="95" value="75" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#0084d6]">
+            <div class="flex justify-between text-[10px] text-slate-400 mt-1">
+              <span>30% (Dry)</span>
+              <span>60% (Moderate)</span>
+              <span>95% (Humid)</span>
+            </div>
+          </div>
+
+          <!-- Temperature Slider -->
+          <div>
+            <div class="flex justify-between text-xs font-bold text-[#0e1c36] mb-1.5">
+              <span>Ambient Temp:</span>
+              <span id="display-temp" class="text-[#0084d6] font-extrabold">82°F (28°C)</span>
+            </div>
+            <input type="range" id="input-temp" min="60" max="105" value="82" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#0084d6]">
+            <div class="flex justify-between text-[10px] text-slate-400 mt-1">
+              <span>60°F (Cool)</span>
+              <span>80°F (Comfort)</span>
+              <span>105°F (Warm)</span>
+            </div>
+          </div>
+
+          <!-- Result Card -->
+          <div class="bg-white rounded-xl p-4 border border-[#0084d6]/30 flex items-center justify-between shadow-sm">
+            <div>
+              <span class="text-[11px] font-bold text-[#596780] block">Estimated Daily Generation</span>
+              <span id="calc-gallons" class="font-heading font-black text-2xl text-[#0084d6]">4.8 Gallons</span>
+              <span id="calc-liters" class="text-xs text-slate-500 block font-medium">≈ 18.2 Liters / 36 Standard Glasses</span>
+            </div>
+            <div class="w-12 h-12 rounded-xl bg-[#e0f2fe] flex items-center justify-center text-[#0084d6] font-bold text-xl shrink-0">
+              💧
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-3 pt-2">
+          <button class="open-quote-modal px-6 py-3 rounded-lg bg-[#0084d6] hover:bg-[#006bb0] text-white text-xs font-bold tracking-wider uppercase transition-all">
+            ORDER HYDROCELL™ ($1,495)
+          </button>
+          <a href="/pages/lab-report" class="px-6 py-3 rounded-lg border border-[#0084d6] text-[#0084d6] hover:bg-[#f0f9ff] text-xs font-bold tracking-wider uppercase transition-all">
+            SEE LAB REPORTS
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: Production Matrix Table -->
+      <div class="lg:col-span-6">
+        <div class="bg-white rounded-2xl border border-[#e1eff8] overflow-hidden shadow-sm">
+          <div class="bg-[#0e1c36] text-white p-5">
+            <h3 class="font-heading font-bold text-base">Climate & Production Reference Grid</h3>
+            <p class="text-xs text-slate-300 mt-0.5">Tested output ranges across standard temperature and humidity envelopes</p>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs text-left border-collapse">
+              <thead>
+                <tr class="bg-[#f8fcfd] border-b border-[#e1eff8] text-[#0e1c36] font-bold">
+                  <th class="p-3.5">Environment</th>
+                  <th class="p-3.5">Temp (°F/°C)</th>
+                  <th class="p-3.5">Humidity</th>
+                  <th class="p-3.5 text-right">Daily Yield</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-[#e1eff8] text-[#596780]">
+                <tr class="hover:bg-[#f0f9ff]/60 transition-colors">
+                  <td class="p-3.5 font-bold text-[#0e1c36]">Coastal / Summer</td>
+                  <td class="p-3.5">86°F (30°C)</td>
+                  <td class="p-3.5 font-medium text-[#0084d6]">80% RH</td>
+                  <td class="p-3.5 text-right font-bold text-emerald-600">5.28 Gal (20.0 L)</td>
+                </tr>
+                <tr class="hover:bg-[#f0f9ff]/60 transition-colors">
+                  <td class="p-3.5 font-bold text-[#0e1c36]">Moderate Indoor</td>
+                  <td class="p-3.5">77°F (25°C)</td>
+                  <td class="p-3.5 font-medium text-[#0084d6]">60% RH</td>
+                  <td class="p-3.5 text-right font-bold text-[#0e1c36]">3.80 Gal (14.4 L)</td>
+                </tr>
+                <tr class="hover:bg-[#f0f9ff]/60 transition-colors">
+                  <td class="p-3.5 font-bold text-[#0e1c36]">Spring / Autumn</td>
+                  <td class="p-3.5">70°F (21°C)</td>
+                  <td class="p-3.5 font-medium text-[#0084d6]">50% RH</td>
+                  <td class="p-3.5 text-right font-bold text-[#0e1c36]">2.65 Gal (10.0 L)</td>
+                </tr>
+                <tr class="hover:bg-[#f0f9ff]/60 transition-colors">
+                  <td class="p-3.5 font-bold text-[#0e1c36]">Dry / Winter AC</td>
+                  <td class="p-3.5">65°F (18°C)</td>
+                  <td class="p-3.5 font-medium text-[#0084d6]">35% RH</td>
+                  <td class="p-3.5 text-right font-bold text-slate-500">1.40 Gal (5.3 L)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="p-4 bg-[#f8fcfd] border-t border-[#e1eff8] text-[11px] text-[#596780] flex items-center justify-between">
+            <span>*Based on continuous operation @ 110V/60Hz</span>
+            <span class="font-bold text-[#0084d6]">19L Built-in Tank</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const rhSlider = document.getElementById('input-rh');
+    const tempSlider = document.getElementById('input-temp');
+    const displayRh = document.getElementById('display-rh');
+    const displayTemp = document.getElementById('display-temp');
+    const calcGallons = document.getElementById('calc-gallons');
+    const calcLiters = document.getElementById('calc-liters');
+
+    function updateProduction() {
+      if (!rhSlider || !tempSlider) return;
+      const rh = parseFloat(rhSlider.value);
+      const temp = parseFloat(tempSlider.value);
+
+      displayRh.textContent = rh + '% RH';
+      displayTemp.textContent = temp + '°F (' + Math.round((temp - 32) * 5 / 9) + '°C)';
+
+      // Base formula scaling to max ~5.5 gal at 95% RH, 95°F
+      const rhFactor = (rh - 25) / 70; // 0 to 1
+      const tempFactor = (temp - 55) / 45; // 0 to 1
+      let gallons = Math.max(0.8, 5.5 * Math.max(0.1, rhFactor * 0.7 + tempFactor * 0.3));
+      if (gallons > 5.5) gallons = 5.5;
+
+      const liters = (gallons * 3.78541).toFixed(1);
+      const galFixed = gallons.toFixed(1);
+      const glasses = Math.round(liters * 2);
+
+      calcGallons.textContent = galFixed + ' Gallons/Day';
+      calcLiters.textContent = '≈ ' + liters + ' Liters / ' + glasses + ' Glasses';
+    }
+
+    if (rhSlider && tempSlider) {
+      rhSlider.addEventListener('input', updateProduction);
+      tempSlider.addEventListener('input', updateProduction);
+      updateProduction();
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Climate Production Chart",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "Badge",
+      "default": "How Much Water You'll Get"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Warmer, More Humid Air Can Produce More Water."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Water output depends directly on ambient temperature and relative humidity. In warmer, more humid conditions, HydroCell™ captures more water vapor and maximizes daily output—up to 5.5 gallons (20 Liters) per day."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Climate Production Chart"
+    }
+  ]
+}
+{% endschema %}

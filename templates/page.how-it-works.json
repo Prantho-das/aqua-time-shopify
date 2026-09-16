@@ -1,0 +1,37 @@
+{
+  "sections": {
+    "hero": {
+      "type": "how-it-works",
+      "settings": {
+        "badge": "ATMOSPHERIC WATER MACHINE",
+        "heading_line1": "From Air",
+        "heading_line2": "to Water.",
+        "heading_highlight": "Pure & Simple.",
+        "description": "Air to Water Generators pull moisture from the air, turn it into water, then filter and treat it for everyday use. The result is a fresh water source produced right where you need it—without bottles, deliveries, or a traditional water line."
+      }
+    },
+    "purification": {
+      "type": "purification-8stage",
+      "settings": {}
+    },
+    "climate_chart": {
+      "type": "climate-production-chart",
+      "settings": {}
+    },
+    "lead_selector": {
+      "type": "lead-selector",
+      "settings": {}
+    },
+    "cta": {
+      "type": "cta-banner",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "purification",
+    "climate_chart",
+    "lead_selector",
+    "cta"
+  ]
+}

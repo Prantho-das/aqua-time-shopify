@@ -43,35 +43,33 @@
       <div class="lg:col-span-2 space-y-3">
         <h4 class="font-heading font-bold text-[11px] uppercase tracking-wider text-white">{{ section.settings.col1_title | default: 'PRODUCTS' }}</h4>
         <ul class="space-y-2 text-[11.5px]">
-          <li><a href="#what-is-awg" class="hover:text-[#38bdf8] transition-colors">Residential AWG</a></li>
-          <li><a href="#what-is-awg" class="hover:text-[#38bdf8] transition-colors">Commercial Unit</a></li>
-          <li><a href="#what-is-awg" class="hover:text-[#38bdf8] transition-colors">Emergency Mobile</a></li>
-          <li><a href="#what-is-awg" class="hover:text-[#38bdf8] transition-colors">HEPA Replacement</a></li>
-          <li><a href="#comparison" class="hover:text-[#38bdf8] transition-colors">Compare Models</a></li>
+          <li><a href="/products/hydrocell-standup" class="hover:text-[#38bdf8] transition-colors">HydroCell™ STANDUP</a></li>
+          <li><a href="/products/filter-replacement-kits" class="hover:text-[#38bdf8] transition-colors">Filter Replacement Kits</a></li>
+          <li><a href="/pages/how-it-works#system-selector" class="hover:text-[#38bdf8] transition-colors">Commercial Units</a></li>
+          <li><a href="/pages/how-it-works#system-selector" class="hover:text-[#38bdf8] transition-colors">Emergency & Mobile</a></li>
         </ul>
       </div>
 
-      <!-- Links Column 2: Technology -->
+      <!-- Links Column 2: Technology & Quality -->
       <div class="lg:col-span-2 space-y-3">
         <h4 class="font-heading font-bold text-[11px] uppercase tracking-wider text-white">{{ section.settings.col2_title | default: 'TECHNOLOGY' }}</h4>
         <ul class="space-y-2 text-[11.5px]">
-          <li><a href="#how-it-works" class="hover:text-[#38bdf8] transition-colors">How It Works</a></li>
-          <li><a href="#what-is-awg" class="hover:text-[#38bdf8] transition-colors">Atmospheric Moisture</a></li>
-          <li><a href="#why-awg" class="hover:text-[#38bdf8] transition-colors">UV-C Sterilization</a></li>
-          <li><a href="#calculator" class="hover:text-[#38bdf8] transition-colors">Cost Calculator</a></li>
-          <li><a href="#why-awg" class="hover:text-[#38bdf8] transition-colors">Sustainability</a></li>
+          <li><a href="/pages/how-it-works" class="hover:text-[#38bdf8] transition-colors">How It Works</a></li>
+          <li><a href="/pages/how-it-works#purification-process" class="hover:text-[#38bdf8] transition-colors">8-Stage Purification</a></li>
+          <li><a href="/pages/water-quality" class="hover:text-[#38bdf8] transition-colors">Water Quality & PFAS</a></li>
+          <li><a href="/pages/lab-report" class="hover:text-[#38bdf8] transition-colors">Lab Reports</a></li>
+          <li><a href="https://watergen.com/case-studies/" target="_blank" rel="noopener" class="hover:text-[#38bdf8] transition-colors">Case Studies ↗</a></li>
         </ul>
       </div>
 
-      <!-- Links Column 3: Support -->
+      <!-- Links Column 3: Resources & Support -->
       <div class="lg:col-span-2 space-y-3">
-        <h4 class="font-heading font-bold text-[11px] uppercase tracking-wider text-white">{{ section.settings.col3_title | default: 'SUPPORT' }}</h4>
+        <h4 class="font-heading font-bold text-[11px] uppercase tracking-wider text-white">{{ section.settings.col3_title | default: 'RESOURCES' }}</h4>
         <ul class="space-y-2 text-[11.5px]">
-          <li><a href="#faq" class="hover:text-[#38bdf8] transition-colors">FAQ</a></li>
-          <li><a href="#faq" class="hover:text-[#38bdf8] transition-colors">Warranty Info</a></li>
-          <li><a href="#faq" class="hover:text-[#38bdf8] transition-colors">Filter Maintenance</a></li>
-          <li><a href="#faq" class="hover:text-[#38bdf8] transition-colors">Shipping & Returns</a></li>
-          <li><a href="tel:{{ section.settings.phone | default: '2133352121' }}" class="hover:text-[#38bdf8] transition-colors">Customer Support</a></li>
+          <li><a href="/#faq-accordion" class="hover:text-[#38bdf8] transition-colors">Help Center & FAQ</a></li>
+          <li><a href="/products/hydrocell-standup#specifications" class="hover:text-[#38bdf8] transition-colors">1-Year Warranty</a></li>
+          <li><a href="/products/filter-replacement-kits" class="hover:text-[#38bdf8] transition-colors">Filter Schedule</a></li>
+          <li><a href="/pages/contact" class="hover:text-[#38bdf8] transition-colors">Financing Inquiries</a></li>
         </ul>
       </div>
 
@@ -81,11 +79,11 @@
         <ul class="space-y-2.5 text-[11px]">
           <li class="flex items-start gap-2">
             {% render 'icon', name: 'map-pin', class: 'w-3.5 h-3.5 text-[#38bdf8] shrink-0 mt-0.5' %}
-            <span>{{ section.settings.address_line1 | default: '123 Water Street' }}</span>
+            <span>{{ section.settings.address_line1 | default: 'Air to Water Generators' }}</span>
           </li>
           <li class="flex items-start gap-2">
             {% render 'icon', name: 'building', class: 'w-3.5 h-3.5 text-[#38bdf8] shrink-0 mt-0.5' %}
-            <span>{{ section.settings.address_line2 | default: 'Los Angeles, CA 90012' }}</span>
+            <span>{{ section.settings.address_line2 | default: 'Houston, TX, USA' }}</span>
           </li>
           <li class="flex items-center gap-2">
             {% render 'icon', name: 'phone', class: 'w-3.5 h-3.5 text-[#38bdf8] shrink-0' %}
@@ -93,7 +91,7 @@
           </li>
           <li class="flex items-center gap-2">
             {% render 'icon', name: 'mail', class: 'w-3.5 h-3.5 text-[#38bdf8] shrink-0' %}
-            <a href="mailto:{{ section.settings.email | default: 'orders@airtowatergenerators.com' }}" class="hover:text-white transition-colors break-all">{{ section.settings.email | default: 'orders@airtowatergenerators.com' }}</a>
+            <a href="mailto:{{ section.settings.email | default: 'contactus@watergen.com' }}" class="hover:text-white transition-colors break-all">{{ section.settings.email | default: 'contactus@watergen.com' }}</a>
           </li>
         </ul>
       </div>
@@ -103,12 +101,12 @@
     <!-- Copyright & Sublinks -->
     <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#718aa8] gap-3">
       <div>
-        © {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.
+        © {{ 'now' | date: '%Y' }} Air to Water Generators. All rights reserved.
       </div>
       <div class="flex items-center space-x-3 text-[11px]">
-        <a href="#" class="hover:text-[#cbd5e1] transition-colors">Privacy Policy</a>
+        <a href="/pages/privacy-policy" class="hover:text-[#cbd5e1] transition-colors">Privacy Policy</a>
         <span class="text-[#3b5980]">|</span>
-        <a href="#" class="hover:text-[#cbd5e1] transition-colors">Terms of Sale</a>
+        <a href="/pages/terms" class="hover:text-[#cbd5e1] transition-colors">Terms & Conditions</a>
       </div>
     </div>
 

@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "reports": {
+      "type": "lab-reports",
+      "settings": {}
+    },
+    "tabs": {
+      "type": "water-quality-tabs",
+      "settings": {}
+    },
+    "faq": {
+      "type": "faq-accordion",
+      "settings": {}
+    },
+    "cta": {
+      "type": "cta-banner",
+      "settings": {}
+    }
+  },
+  "order": [
+    "reports",
+    "tabs",
+    "faq",
+    "cta"
+  ]
+}

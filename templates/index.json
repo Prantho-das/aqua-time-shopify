@@ -438,6 +438,14 @@
         "description": "Clear answers about operation, climate requirements, filtration, and warranties."
       }
     },
+    "purification_8stage": {
+      "type": "purification-8stage",
+      "settings": {}
+    },
+    "lead_selector": {
+      "type": "lead-selector",
+      "settings": {}
+    },
     "cta_banner": {
       "type": "cta-banner",
       "settings": {
@@ -457,8 +465,10 @@
     "stats_counter",
     "applications_grid",
     "why_awg",
+    "purification_8stage",
     "savings_calculator",
     "comparison_table",
+    "lead_selector",
     "faq_accordion",
     "cta_banner"
   ]
