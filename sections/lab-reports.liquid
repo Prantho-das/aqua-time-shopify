@@ -1,115 +1,221 @@
-<section id="lab-reports" class="py-16 sm:py-20 lg:py-24 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-3xl mx-auto mb-14">
-      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold tracking-widest text-[#0084d6] bg-[#e0f2fe] uppercase mb-3">
-        Third-Party Certified Transparency
+<div class="lab-reports-page bg-white">
+  
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-b from-[#eff9fd] via-[#f8fcfd] to-white pt-20 pb-12 sm:pt-28 sm:pb-16 text-center border-b border-[#d9f1fc]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#088ae3] bg-[#eff9fd] border border-[#d9f1fc] px-4 py-1.5 rounded-full mb-4 shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-[#088ae3] animate-pulse"></span>
+        Third-Party Certified Testing
       </span>
-      <h1 class="font-heading text-3xl sm:text-5xl font-extrabold text-[#0e1c36] tracking-tight">
-        What the Lab Reports Say
+      <h1 class="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#173b57] tracking-tight leading-[1.08]">
+        {{ section.settings.heading | default: 'What the lab reports say.' }}
       </h1>
-      <p class="mt-4 text-sm sm:text-base text-[#596780] leading-relaxed">
-        In the HydroCell™ water samples tested by independent, ISO-accredited drinking water laboratories, targeted contaminants returned as <strong class="text-[#0e1c36]">NOT DETECTED</strong>.
+      <p class="mt-4 sm:mt-5 text-[15px] sm:text-lg text-[#4a6177] leading-relaxed max-w-2xl mx-auto">
+        {{ section.settings.subheading | default: 'In water samples tested by independent, ISO/IEC 17025 accredited drinking water laboratories, targeted contaminants returned as Not Detected.' }}
       </p>
     </div>
+  </section>
 
-    <!-- Key Metrics Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-      <div class="bg-[#f8fcfd] rounded-2xl p-6 border border-[#e1eff8] text-center">
-        <span class="text-xs font-extrabold text-[#0084d6] uppercase tracking-wider block mb-1">Independent Labs</span>
-        <span class="font-heading font-black text-3xl text-[#0e1c36] block">SimpleLab & Pace</span>
-        <p class="text-xs text-[#596780] mt-2">Accredited testing by Microbac, Pace Analytical, and EMSL Analytical.</p>
-      </div>
-
-      <div class="bg-[#f8fcfd] rounded-2xl p-6 border border-[#e1eff8] text-center">
-        <span class="text-xs font-extrabold text-emerald-600 uppercase tracking-wider block mb-1">Contaminants Screened</span>
-        <span class="font-heading font-black text-3xl text-emerald-600 block">100+ Analytes</span>
-        <p class="text-xs text-[#596780] mt-2">Zero detectable PFAS, microplastics, arsenic, nitrates, or heavy metals.</p>
-      </div>
-
-      <div class="bg-[#f8fcfd] rounded-2xl p-6 border border-[#e1eff8] text-center">
-        <span class="text-xs font-extrabold text-[#0084d6] uppercase tracking-wider block mb-1">Taste & Minerals</span>
-        <span class="font-heading font-black text-3xl text-[#0e1c36] block">pH 6.5 – 8.5</span>
-        <p class="text-xs text-[#596780] mt-2">Naturally alkaline, mineralized, crisp taste rated excellent by 93% of owners.</p>
-      </div>
-    </div>
-
-    <!-- Lab Test Results Table -->
-    <div class="bg-white rounded-2xl border border-[#e1eff8] overflow-hidden shadow-sm mb-12">
-      <div class="bg-[#0e1c36] text-white p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div>
-          <h2 class="font-heading font-bold text-lg">Tested Analytes Summary & Comparison</h2>
-          <span class="text-xs text-slate-300">Methodology: EPA 537.1 / EPA 200.8 / SM 4500-NO3 / FTIR</span>
+  <!-- Key Metrics 3-Card Grid matching Spout & Aqua Time -->
+  <section class="py-12 sm:py-16 bg-[#f8fcfd]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <div class="bg-white rounded-3xl p-7 border border-[#d9f1fc] shadow-sm text-center space-y-2.5 hover:shadow-md hover:border-[#088ae3]/40 transition-all">
+          <div class="w-10 h-10 mx-auto rounded-2xl bg-[#eff9fd] text-[#088ae3] flex items-center justify-center font-bold">
+            {% render 'icon', name: 'shield-check', class: 'w-5 h-5' %}
+          </div>
+          <span class="text-xs font-bold text-[#088ae3] uppercase tracking-wider block">Accredited Labs</span>
+          <span class="font-heading font-extrabold text-2xl text-[#173b57] block">SimpleLab & Pace</span>
+          <p class="text-xs text-[#4a6177] leading-relaxed">
+            Independent blind sample testing via Microbac, Pace Analytical & EMSL ISO 17025 facilities.
+          </p>
         </div>
-        <span class="bg-[#0084d6] text-white text-[11px] font-bold px-3 py-1 rounded-md w-fit">
-          VERIFIED ISO/IEC 17025
-        </span>
+
+        <div class="bg-white rounded-3xl p-7 border border-[#d9f1fc] shadow-sm text-center space-y-2.5 hover:shadow-md hover:border-[#088ae3]/40 transition-all">
+          <div class="w-10 h-10 mx-auto rounded-2xl bg-[#eff9fd] text-[#088ae3] flex items-center justify-center font-bold">
+            {% render 'icon', name: 'check-circle', class: 'w-5 h-5' %}
+          </div>
+          <span class="text-xs font-bold text-[#088ae3] uppercase tracking-wider block">Contaminants Screened</span>
+          <span class="font-heading font-extrabold text-2xl text-[#173b57] block">100+ Analytes</span>
+          <p class="text-xs text-[#4a6177] leading-relaxed">
+            Zero detectable PFAS forever chemicals, microplastics, lead, arsenic, or nitrates.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-3xl p-7 border border-[#d9f1fc] shadow-sm text-center space-y-2.5 hover:shadow-md hover:border-[#088ae3]/40 transition-all">
+          <div class="w-10 h-10 mx-auto rounded-2xl bg-[#eff9fd] text-[#088ae3] flex items-center justify-center font-bold">
+            {% render 'icon', name: 'sparkles', class: 'w-5 h-5' %}
+          </div>
+          <span class="text-xs font-bold text-[#088ae3] uppercase tracking-wider block">Mineralization & Taste</span>
+          <span class="font-heading font-extrabold text-2xl text-[#173b57] block">7.4 pH Balanced</span>
+          <p class="text-xs text-[#4a6177] leading-relaxed">
+            Enriched with vital calcium & magnesium minerals for smooth alkaline taste.
+          </p>
+        </div>
       </div>
 
-      <div class="overflow-x-auto">
-        <table class="w-full text-xs sm:text-sm text-left border-collapse">
-          <thead>
-            <tr class="bg-[#f8fcfd] border-b border-[#e1eff8] text-[#0e1c36] font-bold">
-              <th class="p-4">Analyte / Compound</th>
-              <th class="p-4">EPA Limit</th>
-              <th class="p-4">Typical Municipal Tap</th>
-              <th class="p-4 text-right">HydroCell™ Result</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-[#e1eff8] text-[#596780]">
-            <tr class="hover:bg-[#f0f9ff]/50">
-              <td class="p-4 font-bold text-[#0e1c36]">PFAS (PFOA & PFOS Forever Chemicals)</td>
-              <td class="p-4">4.0 ng/L</td>
-              <td class="p-4 text-rose-600 font-semibold">25.0 ng/L (Detected)</td>
-              <td class="p-4 text-right font-bold text-emerald-600 bg-emerald-50/50">NOT DETECTED (<0.5)</td>
-            </tr>
-            <tr class="hover:bg-[#f0f9ff]/50">
-              <td class="p-4 font-bold text-[#0e1c36]">Arsenic (Total Inorganic)</td>
-              <td class="p-4">10 µg/L</td>
-              <td class="p-4 text-rose-600 font-semibold">7.5 µg/L (Detected)</td>
-              <td class="p-4 text-right font-bold text-emerald-600 bg-emerald-50/50">NOT DETECTED (<0.2)</td>
-            </tr>
-            <tr class="hover:bg-[#f0f9ff]/50">
-              <td class="p-4 font-bold text-[#0e1c36]">Nitrates (NO3-N)</td>
-              <td class="p-4">10 mg/L</td>
-              <td class="p-4 text-rose-600 font-semibold">0.73 mg/L (Detected)</td>
-              <td class="p-4 text-right font-bold text-emerald-600 bg-emerald-50/50">NOT DETECTED (<0.05)</td>
-            </tr>
-            <tr class="hover:bg-[#f0f9ff]/50">
-              <td class="p-4 font-bold text-[#0e1c36]">Microplastics (>0.01 micron)</td>
-              <td class="p-4">N/A</td>
-              <td class="p-4 text-rose-600 font-semibold">325 particles/L</td>
-              <td class="p-4 text-right font-bold text-emerald-600 bg-emerald-50/50">NOT DETECTED (0)</td>
-            </tr>
-            <tr class="hover:bg-[#f0f9ff]/50">
-              <td class="p-4 font-bold text-[#0e1c36]">Lead & Copper</td>
-              <td class="p-4">15 µg/L</td>
-              <td class="p-4 text-amber-600 font-semibold">Variable (Pipe leach)</td>
-              <td class="p-4 text-right font-bold text-emerald-600 bg-emerald-50/50">NOT DETECTED (<0.1)</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+      <!-- Main Comparison & Testing Table -->
+      <div class="bg-white rounded-3xl border border-[#d9f1fc] overflow-hidden shadow-sm mb-16">
+        
+        <!-- Table Header Banner -->
+        <div class="bg-gradient-to-r from-[#173b57] to-[#1e486d] text-white p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#173b57]">
+          <div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-[#43a5ff] block mb-1">Standardized Protocol</span>
+            <h2 class="font-heading font-bold text-xl sm:text-2xl text-white">
+              Analyte Testing Matrix & EPA Benchmark
+            </h2>
+            <p class="text-xs sm:text-sm text-[#d9f1fc]/80 mt-1">
+              Methodologies: EPA 537.1 (PFAS), EPA 200.8 (Heavy Metals), SM 4500 (Nitrates), FTIR (Microplastics)
+            </p>
+          </div>
+          <div class="inline-flex items-center gap-2 bg-[#088ae3] text-white text-xs font-bold px-4 py-2 rounded-xl shrink-0 shadow-sm border border-white/20">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span>ISO/IEC 17025 Verified</span>
+          </div>
+        </div>
 
-    <!-- Note & Transparency Section -->
-    <div class="bg-[#f8fcfd] rounded-2xl p-6 sm:p-8 border border-[#e1eff8] max-w-4xl mx-auto text-center space-y-4">
-      <h3 class="font-heading text-lg font-bold text-[#0e1c36]">A Note About These Results</h3>
-      <p class="text-xs sm:text-sm text-[#596780] leading-relaxed">
-        These findings reflect individual water samples tested under controlled conditions by SimpleLab and accredited partners. Water quality can vary based on your environment, filter condition, and routine maintenance schedule. We recommend an annual third-party test to confirm ongoing pristine performance.
-      </p>
-      <div class="pt-2">
-        <a href="/pages/contact" class="inline-flex items-center gap-1 text-xs font-bold text-[#0084d6] hover:underline">
-          Have a question about a specific test result? Contact our water quality team →
-        </a>
+        <div class="overflow-x-auto">
+          <table class="w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-[#f8fcfd] border-b border-[#d9f1fc] text-[#173b57] font-bold">
+                <th class="p-4 sm:p-5">Analyte / Target Compound</th>
+                <th class="p-4 sm:p-5">EPA Health Standard</th>
+                <th class="p-4 sm:p-5">Typical US Tap Average</th>
+                <th class="p-4 sm:p-5 text-right">HydroCell™ Result</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#d9f1fc] text-[#4a6177]">
+              
+              <tr class="hover:bg-[#eff9fd]/50 transition-colors">
+                <td class="p-4 sm:p-5 font-bold text-[#173b57]">
+                  <div class="text-sm">PFAS (PFOA & PFOS Forever Chemicals)</div>
+                  <span class="text-[11px] font-normal text-[#4a6177]">Industrial surfactants & Teflon runoff</span>
+                </td>
+                <td class="p-4 sm:p-5 font-medium">4.0 ng/L</td>
+                <td class="p-4 sm:p-5 text-[#173b57] font-medium">25.0 ng/L (Detected)</td>
+                <td class="p-4 sm:p-5 text-right">
+                  <span class="inline-block bg-[#eff9fd] text-[#088ae3] border border-[#d9f1fc] px-3.5 py-1 rounded-full font-bold text-xs tracking-wide">
+                    NOT DETECTED (&lt;0.5)
+                  </span>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-[#eff9fd]/50 transition-colors">
+                <td class="p-4 sm:p-5 font-bold text-[#173b57]">
+                  <div class="text-sm">Arsenic (Total Inorganic)</div>
+                  <span class="text-[11px] font-normal text-[#4a6177]">Groundwater & bedrock leaching</span>
+                </td>
+                <td class="p-4 sm:p-5 font-medium">10 µg/L</td>
+                <td class="p-4 sm:p-5 text-[#173b57] font-medium">7.5 µg/L (Detected)</td>
+                <td class="p-4 sm:p-5 text-right">
+                  <span class="inline-block bg-[#eff9fd] text-[#088ae3] border border-[#d9f1fc] px-3.5 py-1 rounded-full font-bold text-xs tracking-wide">
+                    NOT DETECTED (&lt;0.2)
+                  </span>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-[#eff9fd]/50 transition-colors">
+                <td class="p-4 sm:p-5 font-bold text-[#173b57]">
+                  <div class="text-sm">Lead & Heavy Metals (Pb/Cu)</div>
+                  <span class="text-[11px] font-normal text-[#4a6177]">Aging municipal delivery piping</span>
+                </td>
+                <td class="p-4 sm:p-5 font-medium">15 µg/L</td>
+                <td class="p-4 sm:p-5 text-[#173b57] font-medium">Variable (Pipe Dependent)</td>
+                <td class="p-4 sm:p-5 text-right">
+                  <span class="inline-block bg-[#eff9fd] text-[#088ae3] border border-[#d9f1fc] px-3.5 py-1 rounded-full font-bold text-xs tracking-wide">
+                    NOT DETECTED (&lt;0.1)
+                  </span>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-[#eff9fd]/50 transition-colors">
+                <td class="p-4 sm:p-5 font-bold text-[#173b57]">
+                  <div class="text-sm">Nitrates (NO3-N)</div>
+                  <span class="text-[11px] font-normal text-[#4a6177]">Agricultural fertilizer & rural runoff</span>
+                </td>
+                <td class="p-4 sm:p-5 font-medium">10 mg/L</td>
+                <td class="p-4 sm:p-5 text-[#173b57] font-medium">0.73 mg/L (Detected)</td>
+                <td class="p-4 sm:p-5 text-right">
+                  <span class="inline-block bg-[#eff9fd] text-[#088ae3] border border-[#d9f1fc] px-3.5 py-1 rounded-full font-bold text-xs tracking-wide">
+                    NOT DETECTED (&lt;0.05)
+                  </span>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-[#eff9fd]/50 transition-colors">
+                <td class="p-4 sm:p-5 font-bold text-[#173b57]">
+                  <div class="text-sm">Microplastics (&gt;0.01 µm)</div>
+                  <span class="text-[11px] font-normal text-[#4a6177]">Single-use plastic bottle packaging shedding</span>
+                </td>
+                <td class="p-4 sm:p-5 font-medium">0.0 (Advisory)</td>
+                <td class="p-4 sm:p-5 text-[#173b57] font-medium">325 particles/L (Bottled)</td>
+                <td class="p-4 sm:p-5 text-right">
+                  <span class="inline-block bg-[#eff9fd] text-[#088ae3] border border-[#d9f1fc] px-3.5 py-1 rounded-full font-bold text-xs tracking-wide">
+                    NOT DETECTED (0)
+                  </span>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-[#eff9fd]/50 transition-colors">
+                <td class="p-4 sm:p-5 font-bold text-[#173b57]">
+                  <div class="text-sm">Chlorine, Chloramines & VOCs</div>
+                  <span class="text-[11px] font-normal text-[#4a6177]">Municipal chemical disinfectant byproducts</span>
+                </td>
+                <td class="p-4 sm:p-5 font-medium">4.0 mg/L</td>
+                <td class="p-4 sm:p-5 text-[#173b57] font-medium">1.8 mg/L (Detected)</td>
+                <td class="p-4 sm:p-5 text-right">
+                  <span class="inline-block bg-[#eff9fd] text-[#088ae3] border border-[#d9f1fc] px-3.5 py-1 rounded-full font-bold text-xs tracking-wide">
+                    NOT DETECTED (0)
+                  </span>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
       </div>
+
+      <!-- Spout-style Transparency & Methodology Callout -->
+      <div class="bg-white rounded-3xl p-8 sm:p-10 border border-[#d9f1fc] shadow-sm max-w-4xl mx-auto space-y-4 text-center">
+        <h3 class="font-heading text-xl sm:text-2xl font-bold text-[#173b57]">
+          Scientific Integrity & Certified Methodology
+        </h3>
+        <p class="text-xs sm:text-sm text-[#4a6177] leading-relaxed max-w-2xl mx-auto">
+          Samples were extracted from air across varying humidity conditions and analyzed directly by accredited laboratory partners using high-resolution liquid chromatography, mass spectrometry, and inductively coupled plasma mass spectrometry (ICP-MS).
+        </p>
+        <div class="pt-2 flex flex-wrap items-center justify-center gap-4">
+          <a href="/pages/contact" class="btn-primary py-2.5 px-6 text-xs font-bold">
+            Request Full Lab PDF
+          </a>
+          <a href="/pages/how-it-works" class="text-xs font-bold text-[#088ae3] hover:text-[#0776c4] flex items-center gap-1.5 py-2">
+            Explore 8-Stage Purification Process →
+          </a>
+        </div>
+      </div>
+
     </div>
-  </div>
-</section>
+  </section>
+
+</div>
 
 {% schema %}
 {
   "name": "Lab Reports",
-  "settings": [],
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What the lab reports say."
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "In water samples tested by independent, ISO/IEC 17025 accredited drinking water laboratories, targeted contaminants returned as Not Detected."
+    }
+  ],
   "presets": [
     {
       "name": "Lab Reports"

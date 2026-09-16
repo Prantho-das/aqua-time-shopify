@@ -1,121 +1,149 @@
-<section id="home" class="relative overflow-hidden min-h-[580px] lg:min-h-[680px] flex items-center pt-8 pb-16 sm:pt-10 sm:pb-20 lg:pt-14 lg:pb-28">
-  <div class="absolute inset-0 z-0">
-    {% if section.settings.image != blank %}
-      <img src="{{ section.settings.image | image_url: width: 2000 }}" alt="{{ section.settings.heading | escape }}" class="w-full h-full object-cover object-[75%_center] sm:object-center" fetchpriority="high" loading="eager">
-    {% else %}
-      <img src="{{ 'hero-banner-03.jpg' | asset_url }}" alt="Air to Water Generation Hero Banner" class="w-full h-full object-cover object-[75%_center] sm:object-center" fetchpriority="high" loading="eager">
-    {% endif %}
-    <div class="absolute inset-0 bg-white/95 sm:bg-transparent sm:bg-gradient-to-r sm:from-white/95 sm:via-white/85 sm:to-transparent sm:w-3/4 lg:w-3/5"></div>
+<section id="home" class="relative overflow-hidden min-h-[640px] lg:min-h-[740px] flex items-center pt-10 pb-16 sm:pt-16 sm:pb-24 lg:pt-20 lg:pb-28">
+  
+  <div class="absolute inset-0 z-0" id="hero-bg-slider">
+    <div class="hero-slide absolute inset-0 transition-opacity duration-[1200ms] ease-in-out opacity-100">
+      <img src="{{ 'hero-banner-03.jpg' | asset_url }}" alt="Atmospheric Water Generator" class="w-full h-full object-cover object-[75%_center] sm:object-center" fetchpriority="high" loading="eager">
+    </div>
+    <div class="hero-slide absolute inset-0 transition-opacity duration-[1200ms] ease-in-out opacity-0 pointer-events-none">
+      <img src="{{ 'hero-banner-01.jpg' | asset_url }}" alt="Air to Water Technology" class="w-full h-full object-cover object-[75%_center] sm:object-center" loading="lazy">
+    </div>
+    <div class="hero-slide absolute inset-0 transition-opacity duration-[1200ms] ease-in-out opacity-0 pointer-events-none">
+      <img src="{{ 'hero-banner-02.jpg' | asset_url }}" alt="Clean Water Generation" class="w-full h-full object-cover object-[75%_center] sm:object-center" loading="lazy">
+    </div>
+    
+    <div class="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/20 sm:w-[85%] lg:w-[65%] pointer-events-none"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-white/50 via-transparent to-transparent pointer-events-none"></div>
   </div>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-center">
+  <div class="container relative z-10 w-full">
+    <div class="max-w-2xl space-y-5">
       
-      <div class="lg:col-span-7 space-y-4 sm:space-y-5 reveal-init">
-        <div class="flex flex-wrap items-center gap-2">
-          <span class="text-[10px] sm:text-[11px] font-extrabold tracking-widest text-brand-600 uppercase">{{ section.settings.badge_tag | default: 'ATMOSPHERIC WATER GENERATOR (AWG)' }}</span>
-          <span class="inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 text-emerald-800 px-2 py-0.5 rounded-full text-[10px] sm:text-[11px] font-bold">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-            {{ section.settings.stock_tag | default: 'IN STOCK • SHIPS IMMEDIATELY' }}
-          </span>
-        </div>
-
-        <h1 class="font-heading text-3xl sm:text-5xl lg:text-[54px] font-extrabold text-[#0e1c36] tracking-tight leading-[1.14]">
-          {{ section.settings.heading_line1 | default: 'Generate Water' }}<br>
-          {{ section.settings.heading_line2 | default: 'From the Air in Your' }}<br>
-          <span id="hero-rotating-word" data-words="{{ section.settings.rotating_words | default: 'Home, Office, Kitchen, Shop, Cabin, Factory, Break Room' }}" class="text-brand-600 inline-block border-b-2 border-brand-400 pb-0.5">Home</span>.
-        </h1>
-
-        <p class="text-[#596780] text-xs sm:text-[15px] leading-relaxed max-w-xl font-normal">
-          {{ section.settings.description | default: 'Extract clean, pure, mineral-balanced drinking water directly from ambient air humidity. Zero groundwater depletion, no microplastics, and no plumbing required. Plug in and drink.' }}
-        </p>
-
-        <!-- Pricing Tag -->
-        <div class="inline-flex items-center gap-3 bg-white/90 backdrop-blur-xs border border-slate-200/80 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl shadow-xs">
-          <div class="flex items-baseline gap-2">
-            <span class="text-xl sm:text-2xl font-black text-[#0e1c36]">{{ section.settings.price | default: '$1,495' }}</span>
-            <span class="line-through text-slate-400 text-xs sm:text-sm font-semibold">{{ section.settings.compare_price | default: '$1,995' }}</span>
-          </div>
-          <span class="bg-emerald-600 text-white text-[10px] font-extrabold px-2 py-0.5 rounded uppercase tracking-wider">
-            {{ section.settings.save_tag | default: 'SAVE $500' }}
-          </span>
-          <span class="text-[11px] text-slate-500 hidden sm:inline">• {{ section.settings.shipping_note | default: 'Free Insured Shipping' }}</span>
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-3 pt-1">
-          <button class="open-quote-modal w-full sm:w-auto text-center bg-brand-600 hover:bg-brand-700 text-white text-[12px] font-bold tracking-wider px-6 py-3.5 rounded-lg shadow-sm hover:shadow transition-all uppercase">
-            {{ section.settings.btn_primary_text | default: 'ORDER NOW ($1,495)' }}
-          </button>
-          {% if section.settings.phone_number != blank %}
-            <a href="tel:{{ section.settings.phone_number | replace: ' ', '' | replace: '(', '' | replace: ')', '' | replace: '-', '' }}" class="flex items-center justify-center gap-2 w-full sm:w-auto bg-white border border-slate-200 hover:border-brand-600 text-[#0e1c36] hover:text-brand-600 text-[12px] font-bold tracking-wider px-5 py-3.5 rounded-lg transition-all shadow-xs uppercase text-center">
-              {% render 'icon', name: 'phone-call', class: 'w-4 h-4 text-brand-600' %}
-              {{ section.settings.phone_number }}
-            </a>
-          {% endif %}
-          <a href="#how-it-works" class="group flex items-center justify-center gap-2 w-full sm:w-auto bg-white border border-brand-600 hover:bg-sky-50 text-brand-600 text-[12px] font-bold tracking-wider px-4 py-3.5 rounded-full transition-all uppercase shadow-xs text-center">
-            <span class="w-4 h-4 rounded-full border border-brand-600 flex items-center justify-center">
-              {% render 'icon', name: 'play', class: 'w-2 h-2 fill-brand-600 text-brand-600 ml-0.5' %}
-            </span>
-            {{ section.settings.btn_secondary_text | default: 'HOW IT WORKS' }}
-          </a>
-        </div>
-
-        <!-- Features Grid -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-5 sm:pt-6 border-t border-slate-200/70">
-          {% for block in section.blocks %}
-            <div class="flex items-start gap-2.5" {{ block.shopify_attributes }}>
-              <div class="w-6 h-6 text-brand-600 shrink-0 mt-0.5">
-                {% render 'icon', name: block.settings.icon, class: 'w-5 h-5 text-brand-600' %}
-              </div>
-              <div>
-                <h4 class="font-bold text-[12px] text-[#0e1c36]">{{ block.settings.title }}</h4>
-                <p class="text-[10.5px] text-[#596780] leading-tight">{{ block.settings.description }}</p>
-              </div>
-            </div>
-          {% endfor %}
-        </div>
-
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-sm border border-[#e2f0f9]">
+        <span class="text-[11px] font-bold tracking-wide text-[#088ae3]">{{ section.settings.badge_tag | default: 'Atmospheric Water Machine' }}</span>
+        <span class="w-1 h-1 rounded-full bg-slate-300"></span>
+        <span class="inline-flex items-center gap-1.5 text-emerald-700 text-[11px] font-semibold">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          {{ section.settings.stock_tag | default: 'In stock · Ships immediately' }}
+        </span>
       </div>
 
-      <div class="hidden lg:block lg:col-span-5"></div>
+      <h1 class="font-heading text-[2rem] sm:text-[2.75rem] lg:text-[3.25rem] font-extrabold text-[#173b57] leading-[1.1]">
+        <span class="block text-[#4a6177] text-base sm:text-xl font-semibold mb-1 tracking-normal font-heading">{{ section.settings.pre_heading | default: 'Air to Water Generators' }}</span>
+        {{ section.settings.heading_line1 | default: 'Generate Water From the Air in Your' }}
+        <span id="hero-rotating-word" data-words="{{ section.settings.rotating_words | default: 'Home, Office, Kitchen, Shop, Cabin, Factory, Break Room' }}" class="text-[#088ae3]">Home</span>.
+      </h1>
+
+      <div class="max-w-lg space-y-1">
+        <p class="text-[#173b57] text-[15px] sm:text-base font-semibold">
+          {{ section.settings.tagline | default: 'No plumbing. No plastic bottles. No problem.' }}
+        </p>
+        <p class="text-[#088ae3] text-sm font-semibold">
+          {{ section.settings.sub_tagline | default: 'Up to 5.5 gallons a day from the air' }}
+        </p>
+      </div>
+
+      <div class="inline-flex flex-wrap items-center gap-3 bg-white border border-[#e2f0f9] px-4 py-2.5 rounded-xl">
+        <div class="flex items-baseline gap-2">
+          <span class="text-2xl font-extrabold text-[#173b57] font-heading">{{ section.settings.price | default: '$1,495' }}</span>
+          <span class="line-through text-slate-400 text-sm font-medium">{{ section.settings.compare_price | default: '$1,995' }}</span>
+        </div>
+        <span class="bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide">
+          {{ section.settings.save_tag | default: '$500 off' }}
+        </span>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
+        <button class="open-quote-modal btn-primary">
+          {{ section.settings.btn_primary_text | default: 'Order your generator' }}
+        </button>
+        
+        <a href="/pages/contact" class="btn-secondary">
+          {% render 'icon', name: 'phone-call', class: 'w-4 h-4 text-[#088ae3]' %}
+          {{ section.settings.btn_secondary_text | default: 'Talk to an expert' }}
+        </a>
+
+        <a href="/pages/lab-report" class="text-[#4a6177] hover:text-[#088ae3] text-[13px] font-semibold px-2 py-3 transition-colors">
+          {{ section.settings.btn_tertiary_text | default: 'Read lab report' }}
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-5 border-t border-[#e2f0f9]">
+        {% for block in section.blocks %}
+          <div class="flex items-start gap-2" {{ block.shopify_attributes }}>
+            <div class="w-5 h-5 text-[#088ae3] shrink-0 mt-0.5">
+              {% render 'icon', name: block.settings.icon, class: 'w-5 h-5 text-[#088ae3]' %}
+            </div>
+            <div>
+              <div class="font-semibold text-xs text-[#173b57]">{{ block.settings.title }}</div>
+              <div class="text-[11px] text-[#4a6177] leading-snug">{{ block.settings.description }}</div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
 
     </div>
   </div>
+
+  <div class="absolute bottom-6 right-8 z-20 hidden sm:flex items-center gap-2 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/60" id="hero-slider-dots">
+    <button class="w-2 h-2 rounded-full bg-[#088ae3] transition-all hero-dot active" data-slide="0" aria-label="Slide 1"></button>
+    <button class="w-2 h-2 rounded-full bg-slate-300 hover:bg-[#088ae3] transition-all hero-dot" data-slide="1" aria-label="Slide 2"></button>
+    <button class="w-2 h-2 rounded-full bg-slate-300 hover:bg-[#088ae3] transition-all hero-dot" data-slide="2" aria-label="Slide 3"></button>
+  </div>
 </section>
+
+<script>
+  (function() {
+    var slides = document.querySelectorAll('#hero-bg-slider .hero-slide');
+    var dots = document.querySelectorAll('#hero-slider-dots .hero-dot');
+    if (!slides.length) return;
+    var current = 0, timer;
+    function go(i) {
+      slides.forEach(function(s, idx) {
+        s.style.opacity = idx === i ? '1' : '0';
+        s.style.pointerEvents = idx === i ? 'auto' : 'none';
+      });
+      dots.forEach(function(d, idx) {
+        d.style.background = idx === i ? '#088ae3' : '#cbd5e1';
+        d.style.width = idx === i ? '16px' : '8px';
+      });
+      current = i;
+    }
+    function next() { go((current + 1) % slides.length); }
+    function start() { timer = setInterval(next, 5500); }
+    dots.forEach(function(d, idx) {
+      d.addEventListener('click', function() { clearInterval(timer); go(idx); start(); });
+    });
+    start();
+  })();
+</script>
 
 {% schema %}
 {
   "name": "Hero Banner",
   "settings": [
     {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Hero Background Image"
-    },
-    {
       "type": "text",
       "id": "badge_tag",
       "label": "Top Badge Tag",
-      "default": "ATMOSPHERIC WATER GENERATOR (AWG)"
+      "default": "Atmospheric Water Machine"
     },
     {
       "type": "text",
       "id": "stock_tag",
       "label": "Stock Status Tag",
-      "default": "IN STOCK • SHIPS IMMEDIATELY"
+      "default": "In stock · Ships immediately"
+    },
+    {
+      "type": "text",
+      "id": "pre_heading",
+      "label": "Pre Heading",
+      "default": "Air to Water Generators"
     },
     {
       "type": "text",
       "id": "heading_line1",
-      "label": "Heading Line 1",
-      "default": "Generate Water"
-    },
-    {
-      "type": "text",
-      "id": "heading_line2",
-      "label": "Heading Line 2",
-      "default": "From the Air in Your"
+      "label": "Heading Main",
+      "default": "Generate Water From the Air in Your"
     },
     {
       "type": "text",
@@ -124,10 +152,16 @@
       "default": "Home, Office, Kitchen, Shop, Cabin, Factory, Break Room"
     },
     {
-      "type": "textarea",
-      "id": "description",
-      "label": "Description Text",
-      "default": "Extract clean, pure, mineral-balanced drinking water directly from ambient air humidity. Zero groundwater depletion, no microplastics, and no plumbing required. Plug in and drink."
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "No plumbing. No plastic bottles. No problem."
+    },
+    {
+      "type": "text",
+      "id": "sub_tagline",
+      "label": "Sub Tagline",
+      "default": "Up to 5.5 gallons a day from the air"
     },
     {
       "type": "text",
@@ -145,31 +179,31 @@
       "type": "text",
       "id": "save_tag",
       "label": "Savings Tag",
-      "default": "SAVE $500"
+      "default": "$500 off"
     },
     {
       "type": "text",
       "id": "shipping_note",
       "label": "Shipping Note",
-      "default": "Free Insured Shipping"
+      "default": "Ships immediately"
     },
     {
       "type": "text",
       "id": "btn_primary_text",
       "label": "Primary Button Text",
-      "default": "ORDER NOW ($1,495)"
-    },
-    {
-      "type": "text",
-      "id": "phone_number",
-      "label": "Phone Number",
-      "default": "(213) 335-2121"
+      "default": "Order your generator"
     },
     {
       "type": "text",
       "id": "btn_secondary_text",
       "label": "Secondary Button Text",
-      "default": "HOW IT WORKS"
+      "default": "Talk to an expert"
+    },
+    {
+      "type": "text",
+      "id": "btn_tertiary_text",
+      "label": "Tertiary Button Text",
+      "default": "Read lab report"
     }
   ],
   "blocks": [
@@ -202,38 +236,10 @@
     {
       "name": "Hero Banner",
       "blocks": [
-        {
-          "type": "feature",
-          "settings": {
-            "icon": "droplets",
-            "title": "30-95% Humidity",
-            "description": "Consistent generation in diverse climates"
-          }
-        },
-        {
-          "type": "feature",
-          "settings": {
-            "icon": "shield-check",
-            "title": "100% Pure",
-            "description": "UV-C sterilization & mineral enrichment"
-          }
-        },
-        {
-          "type": "feature",
-          "settings": {
-            "icon": "zap",
-            "title": "Plug & Produce",
-            "description": "No plumbing pipes or drain lines needed"
-          }
-        },
-        {
-          "type": "feature",
-          "settings": {
-            "icon": "badge-dollar-sign",
-            "title": "Save $1,200+/yr",
-            "description": "Eliminate 5-gal jug delivery & bottles"
-          }
-        }
+        { "type": "feature", "settings": { "icon": "droplets", "title": "30–95% humidity", "description": "Consistent generation in diverse climates" } },
+        { "type": "feature", "settings": { "icon": "shield-check", "title": "Multi-stage purified", "description": "UV-C sterilization and mineral enrichment" } },
+        { "type": "feature", "settings": { "icon": "zap", "title": "Plug and produce", "description": "No plumbing or drain lines needed" } },
+        { "type": "feature", "settings": { "icon": "badge-dollar-sign", "title": "Save $1,200+/yr", "description": "Eliminate jug delivery and bottles" } }
       ]
     }
   ]

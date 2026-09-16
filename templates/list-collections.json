@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-list-collections",
+      "settings": {}
+    },
+    "lead_selector": {
+      "type": "lead-selector",
+      "settings": {}
+    },
+    "faq": {
+      "type": "faq-accordion",
+      "settings": {}
+    },
+    "cta": {
+      "type": "cta-banner",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "lead_selector",
+    "faq",
+    "cta"
+  ]
+}

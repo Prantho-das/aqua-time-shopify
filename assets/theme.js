@@ -140,22 +140,38 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 7. FAQ Accordion
-  document.querySelectorAll('.faq-toggle').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const content = btn.nextElementSibling;
-      const icon = btn.querySelector('.faq-icon');
-      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
-      
-      document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
-      document.querySelectorAll('.faq-toggle').forEach(b => b.setAttribute('aria-expanded', 'false'));
-      document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('rotate-180'));
-
-      if (!isExpanded) {
-        content.classList.remove('hidden');
-        btn.setAttribute('aria-expanded', 'true');
-        if (icon) icon.classList.add('rotate-180');
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.faq-toggle');
+    if (!btn) return;
+    
+    e.preventDefault();
+    const item = btn.closest('.faq-item');
+    const content = item ? item.querySelector('.faq-content') : btn.nextElementSibling;
+    const icon = btn.querySelector('.faq-icon');
+    const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+    
+    // Close other FAQ items in same section/container
+    const container = btn.closest('.space-y-3') || document;
+    container.querySelectorAll('.faq-toggle').forEach(otherBtn => {
+      if (otherBtn !== btn) {
+        otherBtn.setAttribute('aria-expanded', 'false');
+        const otherItem = otherBtn.closest('.faq-item');
+        const otherContent = otherItem ? otherItem.querySelector('.faq-content') : otherBtn.nextElementSibling;
+        const otherIcon = otherBtn.querySelector('.faq-icon');
+        if (otherContent) otherContent.classList.add('hidden');
+        if (otherIcon) otherIcon.classList.remove('rotate-180');
       }
     });
+
+    if (isExpanded) {
+      btn.setAttribute('aria-expanded', 'false');
+      if (content) content.classList.add('hidden');
+      if (icon) icon.classList.remove('rotate-180');
+    } else {
+      btn.setAttribute('aria-expanded', 'true');
+      if (content) content.classList.remove('hidden');
+      if (icon) icon.classList.add('rotate-180');
+    }
   });
 
   // 8. Order Modal & Quote Logic

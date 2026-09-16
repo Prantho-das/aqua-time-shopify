@@ -1,54 +1,54 @@
-<section id="system-selector" class="py-16 sm:py-20 lg:py-24 bg-[#f8fcfd] border-t border-[#e1eff8]">
+<section id="system-selector" class="py-16 sm:py-20 lg:py-24 bg-[#f8fcfd] border-t border-[#d9f1fc]">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <div class="text-center mb-12">
-      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold tracking-widest text-[#0084d6] bg-[#e0f2fe] uppercase mb-3">
-        {{ section.settings.badge | default: 'System Selector & Recommendation' }}
+      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold tracking-widest text-[#088ae3] bg-[#eff9fd] border border-[#d9f1fc] uppercase mb-3 shadow-sm">
+        {{ section.settings.badge | default: 'System Selector & Sizing' }}
       </span>
-      <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-[#0e1c36] tracking-tight">
+      <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#173b57] tracking-tight">
         {{ section.settings.heading | default: 'How Much Water Do You Need?' }}
       </h2>
-      <p class="mt-4 text-sm sm:text-base text-[#596780] leading-relaxed">
-        {{ section.settings.description | default: 'The best atmospheric water generator depends on your environment, humidity, daily consumption, and intended use. Answer 4 quick questions to find your optimal setup.' }}
+      <p class="mt-4 text-sm sm:text-base text-[#4a6177] leading-relaxed max-w-2xl mx-auto">
+        {{ section.settings.description | default: 'The optimal atmospheric water generator depends on your environment, humidity, daily consumption, and intended use. Select your criteria below.' }}
       </p>
     </div>
 
     <!-- Quiz Card -->
-    <div class="bg-white rounded-3xl border border-[#e1eff8] p-6 sm:p-10 shadow-sm">
+    <div class="bg-white rounded-3xl border border-[#d9f1fc] p-6 sm:p-10 shadow-sm">
       <form id="selector-form" class="space-y-8" onsubmit="event.preventDefault(); return false;">
         
         <!-- Step 1: Location -->
         <div>
-          <label class="block font-heading font-bold text-base text-[#0e1c36] mb-3">
+          <label class="block font-heading font-bold text-base text-[#173b57] mb-3">
             1. Where will the system operate?
           </label>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <label class="selector-option cursor-pointer">
               <input type="radio" name="location" value="home" checked class="sr-only peer">
-              <div class="p-4 rounded-xl border border-[#e1eff8] peer-checked:border-[#0084d6] peer-checked:bg-[#f0f9ff] text-center transition-all hover:bg-slate-50">
-                <span class="block text-xl mb-1">🏠</span>
-                <span class="font-bold text-xs text-[#0e1c36]">Home / Kitchen</span>
+              <div class="p-4 rounded-2xl border border-[#d9f1fc] peer-checked:border-[#088ae3] peer-checked:bg-[#eff9fd] peer-checked:ring-1 peer-checked:ring-[#088ae3] text-center transition-all hover:bg-[#f8fcfd]">
+                <span class="block text-2xl mb-1.5">🏠</span>
+                <span class="font-bold text-xs text-[#173b57]">Home / Kitchen</span>
               </div>
             </label>
             <label class="selector-option cursor-pointer">
               <input type="radio" name="location" value="office" class="sr-only peer">
-              <div class="p-4 rounded-xl border border-[#e1eff8] peer-checked:border-[#0084d6] peer-checked:bg-[#f0f9ff] text-center transition-all hover:bg-slate-50">
-                <span class="block text-xl mb-1">🏢</span>
-                <span class="font-bold text-xs text-[#0e1c36]">Office / Workplace</span>
+              <div class="p-4 rounded-2xl border border-[#d9f1fc] peer-checked:border-[#088ae3] peer-checked:bg-[#eff9fd] peer-checked:ring-1 peer-checked:ring-[#088ae3] text-center transition-all hover:bg-[#f8fcfd]">
+                <span class="block text-2xl mb-1.5">🏢</span>
+                <span class="font-bold text-xs text-[#173b57]">Office / Workspace</span>
               </div>
             </label>
             <label class="selector-option cursor-pointer">
               <input type="radio" name="location" value="industrial" class="sr-only peer">
-              <div class="p-4 rounded-xl border border-[#e1eff8] peer-checked:border-[#0084d6] peer-checked:bg-[#f0f9ff] text-center transition-all hover:bg-slate-50">
-                <span class="block text-xl mb-1">🏭</span>
-                <span class="font-bold text-xs text-[#0e1c36]">Industrial Facility</span>
+              <div class="p-4 rounded-2xl border border-[#d9f1fc] peer-checked:border-[#088ae3] peer-checked:bg-[#eff9fd] peer-checked:ring-1 peer-checked:ring-[#088ae3] text-center transition-all hover:bg-[#f8fcfd]">
+                <span class="block text-2xl mb-1.5">🏭</span>
+                <span class="font-bold text-xs text-[#173b57]">Commercial Facility</span>
               </div>
             </label>
             <label class="selector-option cursor-pointer">
               <input type="radio" name="location" value="offgrid" class="sr-only peer">
-              <div class="p-4 rounded-xl border border-[#e1eff8] peer-checked:border-[#0084d6] peer-checked:bg-[#f0f9ff] text-center transition-all hover:bg-slate-50">
-                <span class="block text-xl mb-1">🏕️</span>
-                <span class="font-bold text-xs text-[#0e1c36]">Off-Grid / Remote</span>
+              <div class="p-4 rounded-2xl border border-[#d9f1fc] peer-checked:border-[#088ae3] peer-checked:bg-[#eff9fd] peer-checked:ring-1 peer-checked:ring-[#088ae3] text-center transition-all hover:bg-[#f8fcfd]">
+                <span class="block text-2xl mb-1.5">🏕️</span>
+                <span class="font-bold text-xs text-[#173b57]">Off-Grid / Remote</span>
               </div>
             </label>
           </div>
@@ -56,50 +56,50 @@
 
         <!-- Step 2: Demand -->
         <div>
-          <label class="block font-heading font-bold text-base text-[#0e1c36] mb-3">
+          <label class="block font-heading font-bold text-base text-[#173b57] mb-3">
             2. Estimated daily water demand?
           </label>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <label class="selector-option cursor-pointer">
               <input type="radio" name="demand" value="1-5" checked class="sr-only peer">
-              <div class="p-4 rounded-xl border border-[#e1eff8] peer-checked:border-[#0084d6] peer-checked:bg-[#f0f9ff] text-center transition-all hover:bg-slate-50">
-                <span class="font-heading font-black text-base text-[#0084d6] block">1–5 Gal</span>
-                <span class="text-[11px] text-[#596780]">Daily Family / Small Team</span>
+              <div class="p-4 rounded-2xl border border-[#d9f1fc] peer-checked:border-[#088ae3] peer-checked:bg-[#eff9fd] peer-checked:ring-1 peer-checked:ring-[#088ae3] text-center transition-all hover:bg-[#f8fcfd]">
+                <span class="font-heading font-extrabold text-base text-[#088ae3] block">1–5 Gal</span>
+                <span class="text-[11px] text-[#4a6177]">Daily Household</span>
               </div>
             </label>
             <label class="selector-option cursor-pointer">
               <input type="radio" name="demand" value="5-20" class="sr-only peer">
-              <div class="p-4 rounded-xl border border-[#e1eff8] peer-checked:border-[#0084d6] peer-checked:bg-[#f0f9ff] text-center transition-all hover:bg-slate-50">
-                <span class="font-heading font-black text-base text-[#0084d6] block">5–20 Gal</span>
-                <span class="text-[11px] text-[#596780]">Medium Office</span>
+              <div class="p-4 rounded-2xl border border-[#d9f1fc] peer-checked:border-[#088ae3] peer-checked:bg-[#eff9fd] peer-checked:ring-1 peer-checked:ring-[#088ae3] text-center transition-all hover:bg-[#f8fcfd]">
+                <span class="font-heading font-extrabold text-base text-[#088ae3] block">5–20 Gal</span>
+                <span class="text-[11px] text-[#4a6177]">Active Team / Office</span>
               </div>
             </label>
             <label class="selector-option cursor-pointer">
               <input type="radio" name="demand" value="20-100" class="sr-only peer">
-              <div class="p-4 rounded-xl border border-[#e1eff8] peer-checked:border-[#0084d6] peer-checked:bg-[#f0f9ff] text-center transition-all hover:bg-slate-50">
-                <span class="font-heading font-black text-base text-[#0084d6] block">20–100 Gal</span>
-                <span class="text-[11px] text-[#596780]">Commercial / Campus</span>
+              <div class="p-4 rounded-2xl border border-[#d9f1fc] peer-checked:border-[#088ae3] peer-checked:bg-[#eff9fd] peer-checked:ring-1 peer-checked:ring-[#088ae3] text-center transition-all hover:bg-[#f8fcfd]">
+                <span class="font-heading font-extrabold text-base text-[#088ae3] block">20–100 Gal</span>
+                <span class="text-[11px] text-[#4a6177]">Campus / Commercial</span>
               </div>
             </label>
             <label class="selector-option cursor-pointer">
               <input type="radio" name="demand" value="100+" class="sr-only peer">
-              <div class="p-4 rounded-xl border border-[#e1eff8] peer-checked:border-[#0084d6] peer-checked:bg-[#f0f9ff] text-center transition-all hover:bg-slate-50">
-                <span class="font-heading font-black text-base text-[#0084d6] block">100+ Gal</span>
-                <span class="text-[11px] text-[#596780]">Industrial Scale</span>
+              <div class="p-4 rounded-2xl border border-[#d9f1fc] peer-checked:border-[#088ae3] peer-checked:bg-[#eff9fd] peer-checked:ring-1 peer-checked:ring-[#088ae3] text-center transition-all hover:bg-[#f8fcfd]">
+                <span class="font-heading font-extrabold text-base text-[#088ae3] block">100+ Gal</span>
+                <span class="text-[11px] text-[#4a6177]">Industrial Skid</span>
               </div>
             </label>
           </div>
         </div>
 
         <!-- Recommendation Banner Result -->
-        <div id="recommendation-result" class="p-6 rounded-2xl bg-[#f0f9ff] border border-[#0084d6]/30 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div>
-            <span class="text-[11px] font-bold text-[#0084d6] uppercase tracking-wider block">Recommended Solution</span>
-            <h4 id="rec-title" class="font-heading font-bold text-xl text-[#0e1c36]">HydroCell™ STANDUP (Single Unit)</h4>
-            <p id="rec-desc" class="text-xs text-[#596780] mt-1">Generates up to 5.5 Gal/day. Perfectly sized for your requirements with hot/cold instant dispense.</p>
+        <div id="recommendation-result" class="p-6 rounded-2xl bg-[#eff9fd] border border-[#d9f1fc] flex flex-col sm:flex-row items-center justify-between gap-5">
+          <div class="space-y-1">
+            <span class="text-[11px] font-bold text-[#088ae3] uppercase tracking-wider block">Recommended Model</span>
+            <h4 id="rec-title" class="font-heading font-bold text-xl text-[#173b57]">HydroCell™ STANDUP (Single Unit)</h4>
+            <p id="rec-desc" class="text-xs text-[#4a6177]">Generates up to 5.5 Gal (20L)/day. Compact, zero-plumbing, hot/cold pure alkaline water.</p>
           </div>
-          <button class="open-quote-modal shrink-0 px-6 py-3 rounded-xl bg-[#0084d6] hover:bg-[#006bb0] text-white text-xs font-bold uppercase tracking-wider shadow">
-            GET SYSTEM QUOTE
+          <button class="open-quote-modal shrink-0 btn-primary py-3 px-6 text-xs font-bold" aria-haspopup="dialog">
+            ORDER NOW — $1,495
           </button>
         </div>
 

@@ -1,15 +1,11 @@
 {
   "sections": {
     "main": {
-      "type": "main-product",
+      "type": "main-collection",
       "settings": {}
     },
-    "purification": {
-      "type": "purification-8stage",
-      "settings": {}
-    },
-    "climate_chart": {
-      "type": "climate-production-chart",
+    "lead_selector": {
+      "type": "lead-selector",
       "settings": {}
     },
     "comparison": {
@@ -27,8 +23,7 @@
   },
   "order": [
     "main",
-    "purification",
-    "climate_chart",
+    "lead_selector",
     "comparison",
     "faq",
     "cta"

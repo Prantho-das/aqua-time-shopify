@@ -1,0 +1,93 @@
+{
+  "sections": {
+    "case_studies": {
+      "type": "case-studies-list",
+      "blocks": {
+        "case_1": {
+          "type": "featured_case",
+          "settings": {
+            "asset_image": "office-01.jpg",
+            "category": "Corporate Campus",
+            "location": "Austin, Texas",
+            "environment": "74°F · 68% Humidity",
+            "title": "Corporate Office Eliminates 5-Gallon Plastic Jug Deliveries",
+            "description": "High recurring monthly invoices, lifting 42lb jugs causing workplace safety hazards, and storage congestion from empty bottle stacks were replaced with on-site atmospheric water generators operating with zero incoming plumbing connections.",
+            "metric_1_label": "Daily Capacity",
+            "metric_1": "11 Gal/Day",
+            "metric_2_label": "Annual Savings",
+            "metric_2": "$2,400 Saved/Yr",
+            "cta_text": "Read the story",
+            "cta_link": "/pages/contact"
+          }
+        },
+        "case_2": {
+          "type": "featured_case",
+          "settings": {
+            "asset_image": "residence-01.jpg",
+            "category": "Residential Resilience",
+            "location": "Hill Country, Texas",
+            "environment": "82°F · 55% Humidity",
+            "title": "Hill Country Residence — water independent of contaminated wells",
+            "description": "In areas with high groundwater arsenic and heavy mineral scaling, residential AWG systems produce pure alkaline drinking water directly from air without complex reverse-osmosis wastewater.",
+            "metric_1_label": "Generation",
+            "metric_1": "5.5 Gal/Day",
+            "metric_2_label": "Water Purity",
+            "metric_2": "100% PFAS-Free",
+            "cta_text": "Read the story",
+            "cta_link": "/pages/contact"
+          }
+        },
+        "case_3": {
+          "type": "featured_case",
+          "settings": {
+            "asset_image": "residence-02.jpg",
+            "category": "Remote Living & Off-Grid",
+            "location": "West Texas Ranch",
+            "environment": "85°F · 45% Humidity",
+            "title": "Remote Ranch Facility — reliable water beyond the pipeline",
+            "description": "Off-grid solar-compatible AWG systems generating vital freshwater for staff and visitors where municipal water infrastructure is unavailable.",
+            "metric_1_label": "Power Setup",
+            "metric_1": "Solar / Grid",
+            "metric_2_label": "Autonomy",
+            "metric_2": "100% On-Site",
+            "cta_text": "Read the story",
+            "cta_link": "/pages/contact"
+          }
+        },
+        "grid_1": {
+          "type": "grid_case",
+          "settings": {
+            "asset_image": "emergency-response-01.jpg",
+            "category": "Disaster Response",
+            "title": "Hurricane Preparedness & Mobile Emergency Relief",
+            "description": "Providing guaranteed clean water access during municipal boil-water notices and utility pipe disruptions."
+          }
+        },
+        "grid_2": {
+          "type": "grid_case",
+          "settings": {
+            "asset_image": "office-02.jpg",
+            "category": "Hospitality & Healthcare",
+            "title": "Medical Center & Clinic Patient Hydration",
+            "description": "Ultra-purified, multi-stage filtered alkaline water delivered right at patient reception areas."
+          }
+        }
+      },
+      "block_order": [
+        "case_1",
+        "case_2",
+        "case_3",
+        "grid_1",
+        "grid_2"
+      ],
+      "settings": {
+        "eyebrow": "Case Studies",
+        "heading": "Water from air, in action.",
+        "subheading": "Deployments across five continents — aerospace launch sites, resorts, green campuses and relief operations that make their own drinking water."
+      }
+    }
+  },
+  "order": [
+    "case_studies"
+  ]
+}

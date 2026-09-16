@@ -1,0 +1,182 @@
+<div class="collections-page bg-white">
+  
+  <!-- Hero Section Header -->
+  <section class="relative bg-gradient-to-b from-[#eff9fd] via-[#f8fcfd] to-white pt-20 pb-12 sm:pt-28 sm:pb-16 text-center border-b border-[#d9f1fc]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#088ae3] bg-[#eff9fd] border border-[#d9f1fc] px-4 py-1.5 rounded-full mb-4 shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-[#088ae3] animate-pulse"></span>
+        Water Systems Portfolio
+      </span>
+      <h1 class="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#173b57] tracking-tight leading-[1.08]">
+        Atmospheric Water Systems
+      </h1>
+      <p class="mt-4 sm:mt-5 text-[15px] sm:text-lg text-[#4a6177] leading-relaxed max-w-2xl mx-auto">
+        Explore autonomous on-site water generators engineered for homes, modern workplaces, commercial facilities, and remote off-grid operations.
+      </p>
+    </div>
+  </section>
+
+  <!-- Quick Trust Highlights Bar -->
+  <div class="border-b border-[#d9f1fc] bg-[#f8fcfd]/80 py-5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        <div class="space-y-0.5">
+          <span class="font-heading font-extrabold text-sm sm:text-base text-[#173b57]">100% Plug-and-Play</span>
+          <p class="text-[11px] text-[#4a6177]">No plumbing or drain lines needed</p>
+        </div>
+        <div class="space-y-0.5">
+          <span class="font-heading font-extrabold text-sm sm:text-base text-[#173b57]">Zero PFAS & Heavy Metals</span>
+          <p class="text-[11px] text-[#4a6177]">ISO/IEC 17025 certified non-detect</p>
+        </div>
+        <div class="space-y-0.5">
+          <span class="font-heading font-extrabold text-sm sm:text-base text-[#173b57]">≈ $0.08 / Gallon</span>
+          <p class="text-[11px] text-[#4a6177]">Significant savings vs. bottled water</p>
+        </div>
+        <div class="space-y-0.5">
+          <span class="font-heading font-extrabold text-sm sm:text-base text-[#173b57]">1-Year US Warranty</span>
+          <p class="text-[11px] text-[#4a6177]">Direct technical phone support</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Collections 3-Card Showcase -->
+  <section class="py-14 sm:py-20 lg:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Card 1: HydroCell Standup -->
+        <div class="bg-white rounded-3xl border border-[#d9f1fc] overflow-hidden hover:border-[#088ae3]/60 hover:shadow-xl transition-all group flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="p-8 bg-gradient-to-b from-[#eff9fd] to-white border-b border-[#d9f1fc] flex items-center justify-center relative aspect-[4/3]">
+              <span class="absolute top-4 left-4 bg-[#088ae3] text-white text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">
+                FLAGSHIP RESIDENTIAL
+              </span>
+              <img src="{{ 'chatgpt-image.jpg' | asset_url }}" alt="HydroCell Standup" class="max-h-52 object-contain group-hover:scale-105 transition-transform duration-300">
+            </div>
+            
+            <div class="p-6 sm:p-7 space-y-4">
+              <div class="flex justify-between items-baseline gap-2">
+                <h2 class="font-heading font-bold text-xl sm:text-2xl text-[#173b57]">HydroCell™ STANDUP</h2>
+                <div class="text-right">
+                  <span class="font-heading font-extrabold text-2xl text-[#088ae3] block">$1,495</span>
+                  <span class="text-[10px] text-[#4a6177] line-through block">$1,995 List</span>
+                </div>
+              </div>
+
+              <p class="text-xs sm:text-sm text-[#4a6177] leading-relaxed">
+                Produces up to 5.5 gallons (20L) of pure mineralized water daily directly from room air. Includes hot & cold dispense and 19L reservoir.
+              </p>
+
+              <div class="flex flex-wrap gap-2 pt-2 text-[11px] font-bold text-[#173b57]">
+                <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">5.5 Gal/Day Max</span>
+                <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">19L Built-in Tank</span>
+                <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">8-Stage Purifier</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 sm:p-7 pt-0 flex gap-3">
+            <a href="/products/hydrocell-standup" class="flex-1 text-center btn-primary py-3 text-xs font-bold">
+              VIEW HYDROCELL™
+            </a>
+            <button class="open-quote-modal px-4 py-3 rounded-xl border border-[#d9f1fc] hover:border-[#088ae3] text-[#173b57] text-xs font-bold hover:text-[#088ae3] transition-colors" aria-haspopup="dialog" title="Quick Order">
+              {% render 'icon', name: 'zap', class: 'w-4 h-4' %}
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 2: Filter Kits -->
+        <div class="bg-white rounded-3xl border border-[#d9f1fc] overflow-hidden hover:border-[#088ae3]/60 hover:shadow-xl transition-all group flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="p-8 bg-gradient-to-b from-[#eff9fd] to-white border-b border-[#d9f1fc] flex items-center justify-center relative aspect-[4/3]">
+              <span class="absolute top-4 left-4 bg-emerald-600 text-white text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">
+                GENUINE OEM REFILLS
+              </span>
+              <div class="w-28 h-28 rounded-3xl bg-white border border-[#d9f1fc] shadow-sm flex items-center justify-center text-[#088ae3] group-hover:scale-105 transition-transform">
+                {% render 'icon', name: 'filter', class: 'w-12 h-12 text-[#088ae3]' %}
+              </div>
+            </div>
+
+            <div class="p-6 sm:p-7 space-y-4">
+              <div class="flex justify-between items-baseline gap-2">
+                <h2 class="font-heading font-bold text-xl sm:text-2xl text-[#173b57]">Filter Replacement Kits</h2>
+                <div class="text-right">
+                  <span class="font-heading font-extrabold text-2xl text-[#088ae3] block">$100</span>
+                  <span class="text-[10px] text-[#4a6177] block">Bundled Packs</span>
+                </div>
+              </div>
+
+              <p class="text-xs sm:text-sm text-[#4a6177] leading-relaxed">
+                Official OEM multi-barrier replacement sets. Pre-bundled 6, 12, 18, and 24-month filter cartridges with rapid 2-minute tool-free twist locks.
+              </p>
+
+              <div class="flex flex-wrap gap-2 pt-2 text-[11px] font-bold text-[#173b57]">
+                <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">2-Min Tool-Free</span>
+                <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">Air + Water Filters</span>
+                <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">Free Shipping</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 sm:p-7 pt-0">
+            <a href="/products/filter-replacement-kits" class="block w-full text-center btn-primary py-3 text-xs font-bold">
+              VIEW REFILL KITS ($100)
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3: Commercial & Custom Sizing -->
+        <div class="bg-white rounded-3xl border border-[#d9f1fc] overflow-hidden hover:border-[#088ae3]/60 hover:shadow-xl transition-all group flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="p-8 bg-gradient-to-b from-[#eff9fd] to-white border-b border-[#d9f1fc] flex items-center justify-center relative aspect-[4/3]">
+              <span class="absolute top-4 left-4 bg-[#173b57] text-white text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">
+                HIGH OUTPUT & OFF-GRID
+              </span>
+              <div class="w-28 h-28 rounded-3xl bg-[#eff9fd] border border-[#d9f1fc] shadow-sm flex items-center justify-center text-[#173b57] group-hover:scale-105 transition-transform">
+                {% render 'icon', name: 'building', class: 'w-12 h-12 text-[#088ae3]' %}
+              </div>
+            </div>
+
+            <div class="p-6 sm:p-7 space-y-4">
+              <div class="flex justify-between items-baseline gap-2">
+                <h2 class="font-heading font-bold text-xl sm:text-2xl text-[#173b57]">Commercial & Industrial</h2>
+                <span class="font-heading font-bold text-xs text-[#088ae3] bg-[#eff9fd] border border-[#d9f1fc] px-2.5 py-1 rounded-md uppercase">Custom Spec</span>
+              </div>
+
+              <p class="text-xs sm:text-sm text-[#4a6177] leading-relaxed">
+                Industrial and commercial skid installations scaling from 50 to 5,000+ liters daily. Optimized for business facilities, schools, and emergency relief.
+              </p>
+
+              <div class="flex flex-wrap gap-2 pt-2 text-[11px] font-bold text-[#173b57]">
+                <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">50–500+ Gal/Day</span>
+                <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">Solar Ready</span>
+                <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">Skid Mount</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 sm:p-7 pt-0">
+            <a href="/pages/contact" class="block w-full text-center px-6 py-3 rounded-xl border border-[#088ae3] text-[#088ae3] hover:bg-[#eff9fd] text-xs font-bold transition-all">
+              REQUEST COMMERCIAL SPEC
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</div>
+
+{% schema %}
+{
+  "name": "List Collections",
+  "settings": [],
+  "presets": [
+    {
+      "name": "List Collections"
+    }
+  ]
+}
+{% endschema %}

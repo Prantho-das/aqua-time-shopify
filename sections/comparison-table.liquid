@@ -1,125 +1,140 @@
-<section id="comparison" class="py-16 bg-[#f8fbfe] border-y border-slate-100 relative">
+{% unless page_title contains 'Filter' or product.title contains 'Filter' or canonical_url contains 'filter' or request.path contains 'filter' or product.handle contains 'filter' %}
+<section id="comparison" class="py-16 sm:py-20 lg:py-24 bg-[#f8fcfd] border-y border-[#d9f1fc]">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <div class="max-w-2xl space-y-3.5 mb-10 reveal-init">
-      <span class="text-[11px] font-extrabold tracking-widest text-brand-600 uppercase">{{ section.settings.badge | default: 'TECHNOLOGY COMPARISON' }}</span>
-      
-      <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-[#0e1c36] leading-tight">
-        {{ section.settings.heading_line1 | default: 'How AWG Outperforms' }}<br>
-        {{ section.settings.heading_line2 | default: 'Every Alternative.' }}
+    <div class="max-w-3xl mb-12">
+      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold tracking-widest text-[#088ae3] bg-[#eff9fd] border border-[#d9f1fc] uppercase mb-3 shadow-sm">
+        Objective Evaluation
+      </span>
+      <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#173b57] tracking-tight">
+        {{ section.settings.heading | default: 'An honest comparison' }}
       </h2>
-
-      <p class="text-[#596780] text-sm leading-relaxed">
-        {{ section.settings.description | default: 'See why atmospheric water generation delivers superior purity, lower operating costs, and true resilience compared to conventional drinking water sources.' }}
-      </p>
+      {% if section.settings.description != blank %}
+        <p class="text-[#4a6177] text-sm sm:text-base mt-3 leading-relaxed max-w-2xl">
+          {{ section.settings.description }}
+        </p>
+      {% endif %}
     </div>
 
-    <div class="bg-white rounded-2xl border border-slate-200/90 shadow-md overflow-hidden reveal-init delay-100 p-1 sm:p-0">
-      <div class="sm:hidden px-3 pt-3 pb-1 flex items-center justify-between text-[11px] text-brand-600 font-bold bg-sky-50/70 border-b border-slate-100 rounded-t-xl">
-        <span class="flex items-center gap-1.5">
-          {% render 'icon', name: 'chevrons-left-right', class: 'w-3.5 h-3.5' %}
-          Swipe table to compare
-        </span>
-        <span class="text-slate-400 font-normal text-[10px]">5 Columns</span>
+    <div class="bg-white rounded-3xl border border-[#d9f1fc] overflow-hidden shadow-sm">
+      <div class="sm:hidden px-4 py-2 text-xs text-[#088ae3] font-semibold bg-[#eff9fd] border-b border-[#d9f1fc]">
+        Swipe horizontally to compare all water sources →
       </div>
+      
       <div class="overflow-x-auto">
-        <table class="w-full min-w-[640px] text-left border-collapse text-xs">
+        <table class="w-full min-w-[700px] text-left border-collapse text-xs sm:text-sm">
           <thead>
-            <tr class="bg-slate-50 border-b border-slate-200">
-              <th class="py-4 px-5 font-heading font-extrabold text-[#0e1c36] uppercase tracking-wider w-1/4">Key Feature</th>
-              <th class="py-4 px-5 font-heading font-extrabold text-brand-600 bg-sky-50/60 uppercase tracking-wider w-1/4 border-x border-sky-100">
-                <span class="flex items-center gap-1.5">
-                  {% render 'icon', name: 'droplet', class: 'w-4 h-4 text-brand-600' %}
-                  AWG Technology
+            <tr class="bg-[#f8fcfd] border-b border-[#d9f1fc]">
+              <th class="py-4 px-6 font-heading font-bold text-[#173b57] w-1/4">Feature / Requirement</th>
+              <th class="py-4 px-6 font-heading font-bold text-[#088ae3] bg-[#eff9fd] border-x border-[#d9f1fc] w-1/4">
+                <span class="flex items-center gap-2">
+                  {% render 'icon', name: 'droplet', class: 'w-4 h-4 text-[#088ae3]' %}
+                  AWG (HydroCell™)
                 </span>
               </th>
-              <th class="py-4 px-4 font-heading font-bold text-slate-700 uppercase tracking-wider w-1/6">5-Gal Jug Delivery</th>
-              <th class="py-4 px-4 font-heading font-bold text-slate-700 uppercase tracking-wider w-1/6">Reverse Osmosis</th>
-              <th class="py-4 px-4 font-heading font-bold text-slate-700 uppercase tracking-wider w-1/6">Tap Water</th>
+              <th class="py-4 px-6 font-heading font-semibold text-[#173b57] w-1/6">Municipal Tap</th>
+              <th class="py-4 px-6 font-heading font-semibold text-[#173b57] w-1/6">Well Water</th>
+              <th class="py-4 px-6 font-heading font-semibold text-[#173b57] w-1/6">Bottled Water</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-slate-100 text-slate-600">
-            {% for block in section.blocks %}
-              <tr class="hover:bg-slate-50/50" {{ block.shopify_attributes }}>
-                <td class="py-3.5 px-5 font-bold text-[#0e1c36]">{{ block.settings.feature }}</td>
-                <td class="py-3.5 px-5 font-semibold text-brand-600 bg-sky-50/30 border-x border-sky-100">{{ block.settings.awg }}</td>
-                <td class="py-3.5 px-4">{{ block.settings.jug }}</td>
-                <td class="py-3.5 px-4">{{ block.settings.ro }}</td>
-                <td class="py-3.5 px-4">{{ block.settings.tap }}</td>
+          <tbody class="divide-y divide-[#d9f1fc] text-[#4a6177]">
+            {% if section.blocks.size > 0 %}
+              {% for block in section.blocks %}
+                <tr class="hover:bg-[#eff9fd]/40 transition-colors" {{ block.shopify_attributes }}>
+                  <td class="py-4 px-6 font-bold text-[#173b57]">{{ block.settings.feature }}</td>
+                  <td class="py-4 px-6 font-bold text-[#088ae3] bg-[#eff9fd]/60 border-x border-[#d9f1fc]">{{ block.settings.awg }}</td>
+                  <td class="py-4 px-6">{{ block.settings.municipal }}</td>
+                  <td class="py-4 px-6">{{ block.settings.well }}</td>
+                  <td class="py-4 px-6">{{ block.settings.bottled }}</td>
+                </tr>
+              {% endfor %}
+            {% else %}
+              <tr class="hover:bg-[#eff9fd]/40 transition-colors">
+                <td class="py-4 px-6 font-bold text-[#173b57]">Water Source</td>
+                <td class="py-4 px-6 font-bold text-[#088ae3] bg-[#eff9fd]/60 border-x border-[#d9f1fc]">Ambient Air Humidity</td>
+                <td class="py-4 px-6">Surface / River Water</td>
+                <td class="py-4 px-6">Groundwater Aquifer</td>
+                <td class="py-4 px-6">Bottling Plant (Varies)</td>
               </tr>
-            {% endfor %}
+              <tr class="hover:bg-[#eff9fd]/40 transition-colors">
+                <td class="py-4 px-6 font-bold text-[#173b57]">PFAS & Microplastics</td>
+                <td class="py-4 px-6 font-bold text-[#088ae3] bg-[#eff9fd]/60 border-x border-[#d9f1fc]">0.0 (Not Detected)</td>
+                <td class="py-4 px-6 text-[#173b57]">Frequently Detected</td>
+                <td class="py-4 px-6">Varies (Runoff Risk)</td>
+                <td class="py-4 px-6 text-[#173b57]">325 particles/L avg</td>
+              </tr>
+              <tr class="hover:bg-[#eff9fd]/40 transition-colors">
+                <td class="py-4 px-6 font-bold text-[#173b57]">Requires Plumbing / Drain</td>
+                <td class="py-4 px-6 font-bold text-[#088ae3] bg-[#eff9fd]/60 border-x border-[#d9f1fc]">No (100% Plug & Play)</td>
+                <td class="py-4 px-6">Yes (Permanent line)</td>
+                <td class="py-4 px-6">Yes (Pump & piping)</td>
+                <td class="py-4 px-6">No</td>
+              </tr>
+              <tr class="hover:bg-[#eff9fd]/40 transition-colors">
+                <td class="py-4 px-6 font-bold text-[#173b57]">Cost per Gallon</td>
+                <td class="py-4 px-6 font-bold text-[#088ae3] bg-[#eff9fd]/60 border-x border-[#d9f1fc]">≈ $0.08 – $0.15</td>
+                <td class="py-4 px-6">≈ $0.01 (Low quality)</td>
+                <td class="py-4 px-6">Varies (Well upkeep)</td>
+                <td class="py-4 px-6 text-[#173b57] font-semibold">$1.50 – $3.00+</td>
+              </tr>
+              <tr class="hover:bg-[#eff9fd]/40 transition-colors">
+                <td class="py-4 px-6 font-bold text-[#173b57]">Purification Method</td>
+                <td class="py-4 px-6 font-bold text-[#088ae3] bg-[#eff9fd]/60 border-x border-[#d9f1fc]">8-Stage + Dual UV-C</td>
+                <td class="py-4 px-6">Chlorination Disinfectant</td>
+                <td class="py-4 px-6">None / Basic filter</td>
+                <td class="py-4 px-6">Industrial RO / Ozone</td>
+              </tr>
+              <tr class="hover:bg-[#eff9fd]/40 transition-colors">
+                <td class="py-4 px-6 font-bold text-[#173b57]">Taste Profile</td>
+                <td class="py-4 px-6 font-bold text-[#088ae3] bg-[#eff9fd]/60 border-x border-[#d9f1fc]">Smooth 7.4 pH Mineralized</td>
+                <td class="py-4 px-6">Chemical / Chlorine</td>
+                <td class="py-4 px-6">Metallic / Hard</td>
+                <td class="py-4 px-6">Flat / Acidic (RO)</td>
+              </tr>
+              <tr class="hover:bg-[#eff9fd]/40 transition-colors">
+                <td class="py-4 px-6 font-bold text-[#173b57]">Supply Independence</td>
+                <td class="py-4 px-6 font-bold text-[#088ae3] bg-[#eff9fd]/60 border-x border-[#d9f1fc]">100% Autonomous</td>
+                <td class="py-4 px-6">Grid / Utility Dependent</td>
+                <td class="py-4 px-6">Aquifer Dependent</td>
+                <td class="py-4 px-6">Delivery Truck Dependent</td>
+              </tr>
+            {% endif %}
           </tbody>
         </table>
       </div>
     </div>
 
+    <div class="mt-8 p-6 rounded-3xl bg-white border border-[#d9f1fc] shadow-sm flex items-start gap-4">
+      <div class="w-10 h-10 rounded-2xl bg-[#eff9fd] text-[#088ae3] flex items-center justify-center shrink-0 mt-0.5 font-bold">
+        {% render 'icon', name: 'info', class: 'w-5 h-5' %}
+      </div>
+      <p class="text-xs sm:text-sm text-[#4a6177] leading-relaxed max-w-4xl">
+        {{ section.settings.conclusion_note | default: 'No single water source is best for every situation. Municipal systems remain practical where reliable infrastructure exists, while wells can be appropriate where groundwater is safe. Atmospheric water generation provides true water independence, pure PFAS-free hydration, and zero plastic bottle reliance.' }}
+      </p>
+    </div>
+
   </div>
 </section>
+{% endunless %}
 
 {% schema %}
 {
   "name": "Comparison Table",
   "settings": [
-    {
-      "type": "text",
-      "id": "badge",
-      "label": "Badge",
-      "default": "TECHNOLOGY COMPARISON"
-    },
-    {
-      "type": "text",
-      "id": "heading_line1",
-      "label": "Heading Line 1",
-      "default": "How AWG Outperforms"
-    },
-    {
-      "type": "text",
-      "id": "heading_line2",
-      "label": "Heading Line 2",
-      "default": "Every Alternative."
-    },
-    {
-      "type": "textarea",
-      "id": "description",
-      "label": "Description",
-      "default": "See why atmospheric water generation delivers superior purity, lower operating costs, and true resilience compared to conventional drinking water sources."
-    }
+    { "type": "text", "id": "heading", "label": "Heading", "default": "An honest comparison" },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "How atmospheric water generation compares with conventional water sources across critical operational criteria." },
+    { "type": "textarea", "id": "conclusion_note", "label": "Conclusion Note", "default": "No single water source is best for every situation. Municipal systems remain highly practical where reliable infrastructure exists, while wells can be appropriate where suitable groundwater is available. Atmospheric water generation becomes especially interesting when water independence, distributed production, resilience, remote access, or reduced dependence on delivered water becomes a priority." }
   ],
   "blocks": [
     {
       "type": "row",
       "name": "Table Row",
       "settings": [
-        {
-          "type": "text",
-          "id": "feature",
-          "label": "Feature Name",
-          "default": "Water Source"
-        },
-        {
-          "type": "text",
-          "id": "awg",
-          "label": "AWG Value",
-          "default": "100% Atmospheric Air"
-        },
-        {
-          "type": "text",
-          "id": "jug",
-          "label": "5-Gal Jug Value",
-          "default": "Municipal / Well Trucks"
-        },
-        {
-          "type": "text",
-          "id": "ro",
-          "label": "Reverse Osmosis Value",
-          "default": "Municipal Plumbing"
-        },
-        {
-          "type": "text",
-          "id": "tap",
-          "label": "Tap Water Value",
-          "default": "Aging Pipe Grid"
-        }
+        { "type": "text", "id": "feature", "label": "Feature Name", "default": "Source" },
+        { "type": "text", "id": "awg", "label": "AWG Value", "default": "Ambient air" },
+        { "type": "text", "id": "municipal", "label": "Municipal", "default": "Surface/groundwater" },
+        { "type": "text", "id": "well", "label": "Well", "default": "Groundwater" },
+        { "type": "text", "id": "bottled", "label": "Bottled", "default": "Varies" }
       ]
     }
   ],
@@ -127,66 +142,13 @@
     {
       "name": "Comparison Table",
       "blocks": [
-        {
-          "type": "row",
-          "settings": {
-            "feature": "Water Source",
-            "awg": "100% Atmospheric Air",
-            "jug": "Municipal / Well Trucks",
-            "ro": "Municipal Plumbing",
-            "tap": "Aging Pipe Grid"
-          }
-        },
-        {
-          "type": "row",
-          "settings": {
-            "feature": "Purity & Treatment",
-            "awg": "HEPA + UV-C + Alkaline Minerals",
-            "jug": "Microplastic Leaching Risk",
-            "ro": "Acidic / Mineral Stripped",
-            "tap": "Chlorine, Lead, PFAS Risk"
-          }
-        },
-        {
-          "type": "row",
-          "settings": {
-            "feature": "Cost Per Gallon",
-            "awg": "~$0.08 / Gal (Electric)",
-            "jug": "$1.20 - $2.50 / Gal",
-            "ro": "$0.25 - $0.50 + Wastewater",
-            "tap": "Low direct ($0.01)"
-          }
-        },
-        {
-          "type": "row",
-          "settings": {
-            "feature": "Environmental Footprint",
-            "awg": "Zero plastic, zero water wasted",
-            "jug": "Plastic jugs, trucking emissions",
-            "ro": "Wastes 3-4 gallons per gallon produced",
-            "tap": "Chemical water processing"
-          }
-        },
-        {
-          "type": "row",
-          "settings": {
-            "feature": "Disaster Independence",
-            "awg": "100% Self-Sustaining (Solar/Gen)",
-            "jug": "Disrupted by road closures",
-            "ro": "Fails without water line pressure",
-            "tap": "Fails during boil notices & cuts"
-          }
-        },
-        {
-          "type": "row",
-          "settings": {
-            "feature": "Installation Required",
-            "awg": "None (Plug & Play)",
-            "jug": "Heavy 42 lb lifting each week",
-            "ro": "Under-sink plumbing required",
-            "tap": "Municipal connection"
-          }
-        }
+        { "type": "row", "settings": { "feature": "Source", "awg": "Ambient air", "municipal": "Surface / groundwater", "well": "Groundwater", "bottled": "Varies (bottling plant)" } },
+        { "type": "row", "settings": { "feature": "Produced on-site", "awg": "Yes", "municipal": "No", "well": "Yes", "bottled": "No" } },
+        { "type": "row", "settings": { "feature": "Requires plumbing", "awg": "None for standup model", "municipal": "Yes", "well": "Yes", "bottled": "No" } },
+        { "type": "row", "settings": { "feature": "Climate dependent", "awg": "Yes (humidity and temp)", "municipal": "Generally no", "well": "Generally no", "bottled": "No" } },
+        { "type": "row", "settings": { "feature": "Requires electricity", "awg": "Yes (≈5–9 kWh/gal)", "municipal": "Infrastructure dependent", "well": "Usually (pump)", "bottled": "No at point of use" } },
+        { "type": "row", "settings": { "feature": "Treatment", "awg": "Multi-barrier (system dependent)", "municipal": "Utility managed", "well": "Property dependent", "bottled": "Supplier managed" } },
+        { "type": "row", "settings": { "feature": "Storage", "awg": "Yes (internal and external)", "municipal": "Yes", "well": "Yes", "bottled": "Yes" } }
       ]
     }
   ]

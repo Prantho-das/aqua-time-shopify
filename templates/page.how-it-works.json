@@ -22,6 +22,10 @@
       "type": "lead-selector",
       "settings": {}
     },
+    "faq": {
+      "type": "faq-accordion",
+      "settings": {}
+    },
     "cta": {
       "type": "cta-banner",
       "settings": {}
@@ -32,6 +36,7 @@
     "purification",
     "climate_chart",
     "lead_selector",
+    "faq",
     "cta"
   ]
 }

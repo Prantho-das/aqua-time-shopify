@@ -1,0 +1,38 @@
+{% layout none %}
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ shop.name }} Gift Card</title>
+    {{ content_for_header }}
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
+  </head>
+  <body class="bg-slate-50 flex items-center justify-center min-h-screen p-4 font-sans text-[#173b57]">
+    <div class="max-w-md w-full bg-white rounded-3xl shadow-xl p-8 text-center border border-[#d9f1fc] space-y-6">
+      <h1 class="font-heading text-2xl font-bold text-[#173b57]">{{ shop.name }}</h1>
+      <p class="text-sm text-[#4a6177]">Your Gift Card Balance</p>
+      
+      <div class="p-6 bg-[#f8fcfd] rounded-2xl border border-[#d9f1fc]">
+        <span class="font-heading text-3xl sm:text-4xl font-extrabold text-[#088ae3]">
+          {{ gift_card.balance | money }}
+        </span>
+      </div>
+
+      <div class="space-y-2">
+        <p class="text-xs text-[#4a6177]">Use this code at checkout:</p>
+        <input type="text" readonly value="{{ gift_card.code }}" class="w-full text-center font-mono font-bold text-base p-3 bg-slate-100 rounded-xl border border-slate-200 select-all focus:outline-none" onclick="this.select()">
+      </div>
+
+      {% if gift_card.expires_on %}
+        <p class="text-xs text-slate-400">Expires on {{ gift_card.expires_on | date: format: 'date' }}</p>
+      {% endif %}
+
+      <div class="pt-2">
+        <a href="{{ shop.url }}" class="btn-primary w-full block py-3 text-xs tracking-wider uppercase font-bold">
+          Start Shopping
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

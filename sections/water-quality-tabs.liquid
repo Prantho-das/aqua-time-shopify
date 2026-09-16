@@ -1,31 +1,33 @@
-<section id="water-quality-tabs" class="py-16 sm:py-20 lg:py-24 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
-      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold tracking-widest text-[#0084d6] bg-[#e0f2fe] uppercase mb-3">
-        {{ section.settings.badge | default: "What's In The Water?" }}
+<section id="water-quality-tabs" class="py-16 sm:py-20 lg:py-24 bg-[#f8fcfd] border-t border-[#d9f1fc]">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+      <span class="inline-block text-xs font-bold tracking-widest text-[#088ae3] uppercase bg-[#eff9fd] px-3.5 py-1.5 rounded-full mb-3">
+        {{ section.settings.badge | default: "Deep Contaminant Analysis" }}
       </span>
-      <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-[#0e1c36] tracking-tight">
+      <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#173b57] tracking-tight">
         {{ section.settings.heading | default: 'What Texas & Tap Water Looks Like' }}
       </h2>
-      <p class="mt-4 text-sm sm:text-base text-[#596780] leading-relaxed">
+      <p class="mt-4 text-sm sm:text-base text-[#4a6177] leading-relaxed max-w-2xl mx-auto">
         {{ section.settings.description | default: 'Communities face growing water quality challenges from aging pipes, industrial runoff, and groundwater contamination. See how conventional water compares to HydroCell™ pure air-extracted water.' }}
       </p>
     </div>
 
     <!-- Interactive Contaminant Tabs -->
-    <div class="bg-[#f8fcfd] rounded-2xl border border-[#e1eff8] p-6 sm:p-8 lg:p-10 shadow-sm">
+    <div class="bg-white rounded-3xl border border-[#d9f1fc] p-6 sm:p-8 lg:p-10 shadow-sm">
+      
       <!-- Tab Buttons -->
-      <div class="flex flex-wrap gap-2.5 sm:gap-3 border-b border-[#e1eff8] pb-6 mb-8 justify-center sm:justify-start" id="contaminant-tab-buttons">
-        <button class="wq-tab-btn active px-5 py-2.5 rounded-xl font-heading font-bold text-xs sm:text-sm transition-all bg-[#0084d6] text-white shadow-sm" data-tab="pfas">
+      <div class="flex flex-wrap gap-2.5 sm:gap-3 border-b border-[#d9f1fc] pb-6 mb-8 justify-center sm:justify-start" id="contaminant-tab-buttons">
+        <button class="wq-tab-btn active px-5 py-2.5 rounded-xl font-heading font-bold text-xs sm:text-sm transition-all bg-[#088ae3] text-white shadow-sm" data-tab="pfas">
           PFAS (Forever Chemicals)
         </button>
-        <button class="wq-tab-btn px-5 py-2.5 rounded-xl font-heading font-bold text-xs sm:text-sm transition-all bg-white text-[#596780] hover:text-[#0084d6] border border-[#e1eff8]" data-tab="arsenic">
+        <button class="wq-tab-btn px-5 py-2.5 rounded-xl font-heading font-bold text-xs sm:text-sm transition-all bg-white text-[#4a6177] hover:text-[#088ae3] border border-[#d9f1fc]" data-tab="arsenic">
           Arsenic
         </button>
-        <button class="wq-tab-btn px-5 py-2.5 rounded-xl font-heading font-bold text-xs sm:text-sm transition-all bg-white text-[#596780] hover:text-[#0084d6] border border-[#e1eff8]" data-tab="nitrates">
+        <button class="wq-tab-btn px-5 py-2.5 rounded-xl font-heading font-bold text-xs sm:text-sm transition-all bg-white text-[#4a6177] hover:text-[#088ae3] border border-[#d9f1fc]" data-tab="nitrates">
           Nitrates
         </button>
-        <button class="wq-tab-btn px-5 py-2.5 rounded-xl font-heading font-bold text-xs sm:text-sm transition-all bg-white text-[#596780] hover:text-[#0084d6] border border-[#e1eff8]" data-tab="microplastics">
+        <button class="wq-tab-btn px-5 py-2.5 rounded-xl font-heading font-bold text-xs sm:text-sm transition-all bg-white text-[#4a6177] hover:text-[#088ae3] border border-[#d9f1fc]" data-tab="microplastics">
           Microplastics
         </button>
       </div>
@@ -34,54 +36,50 @@
       <div class="wq-tab-pane block" id="pane-pfas">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div class="lg:col-span-7 space-y-5">
-            <div class="flex items-center gap-2 text-rose-600 bg-rose-50 px-3 py-1 rounded-lg w-fit text-xs font-bold uppercase tracking-wider">
-              <span>⚠️ High Risk Contaminant</span>
-            </div>
-            <h3 class="font-heading text-2xl font-bold text-[#0e1c36]">Per- and Polyfluoroalkyl Substances (PFAS)</h3>
+            <span class="inline-block text-[11px] font-bold uppercase tracking-wider text-[#173b57] bg-[#eff9fd] px-3 py-1 rounded-md">
+              High Risk Contaminant
+            </span>
+            <h3 class="font-heading text-2xl font-bold text-[#173b57]">Per- and Polyfluoroalkyl Substances (PFAS)</h3>
             <div class="space-y-4">
-              <div class="bg-white p-4 sm:p-5 rounded-xl border border-[#e1eff8]">
-                <h4 class="font-bold text-sm text-[#0e1c36] mb-1.5 flex items-center gap-2">
-                  <span class="w-2 h-2 rounded-full bg-rose-500"></span> Why It Matters:
+              <div class="bg-[#f8fcfd] p-4 sm:p-5 rounded-2xl border border-[#d9f1fc]">
+                <h4 class="font-bold text-sm text-[#173b57] mb-1.5 flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-[#088ae3]"></span> Why It Matters:
                 </h4>
-                <p class="text-xs sm:text-sm text-[#596780] leading-relaxed">
+                <p class="text-xs sm:text-sm text-[#4a6177] leading-relaxed">
                   PFAS exposure is associated with severe long-term health risks, including immune suppression, endocrine disruption, thyroid disease, and certain cancers.
                 </p>
               </div>
-              <div class="bg-white p-4 sm:p-5 rounded-xl border border-[#e1eff8]">
-                <h4 class="font-bold text-sm text-[#0e1c36] mb-1.5 flex items-center gap-2">
-                  <span class="w-2 h-2 rounded-full bg-amber-500"></span> Where It's Found:
+              <div class="bg-[#f8fcfd] p-4 sm:p-5 rounded-2xl border border-[#d9f1fc]">
+                <h4 class="font-bold text-sm text-[#173b57] mb-1.5 flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-[#173b57]"></span> Where It's Found:
                 </h4>
-                <p class="text-xs sm:text-sm text-[#596780] leading-relaxed">
-                  Detected in municipal water supplies and groundwater across 30+ Texas counties (2025 Water Stress Index). Both public utility customers and private well users are affected.
+                <p class="text-xs sm:text-sm text-[#4a6177] leading-relaxed">
+                  Detected in municipal water supplies and groundwater across 30+ Texas counties. Both public utility customers and private well users are affected.
                 </p>
               </div>
             </div>
           </div>
           <div class="lg:col-span-5">
-            <div class="bg-white rounded-2xl p-6 border border-[#e1eff8] shadow-sm">
-              <span class="text-[11px] font-extrabold text-[#0084d6] uppercase tracking-wider block mb-2">SimpleLab Independent Testing</span>
-              <div class="space-y-4 pt-2">
+            <div class="bg-[#f8fcfd] rounded-2xl p-6 border border-[#d9f1fc] shadow-sm space-y-4">
+              <span class="text-[11px] font-bold text-[#088ae3] uppercase tracking-wider block">Lab Test Comparison</span>
+              <div class="space-y-4">
                 <div>
-                  <div class="flex justify-between text-xs font-bold mb-1">
-                    <span class="text-slate-600">Typical Texas Tap Water:</span>
-                    <span class="text-rose-600">~0.025 PPB (Detected)</span>
+                  <div class="flex justify-between text-xs font-bold mb-1.5">
+                    <span class="text-[#4a6177]">Typical Texas Tap Water:</span>
+                    <span class="text-[#173b57]">~25.0 ng/L (Detected)</span>
                   </div>
-                  <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-rose-500 h-2.5 rounded-full" style="width: 75%"></div>
+                  <div class="w-full bg-[#e2f0f9] rounded-full h-2.5 overflow-hidden">
+                    <div class="bg-[#173b57] h-2.5 rounded-full" style="width: 75%"></div>
                   </div>
                 </div>
                 <div>
-                  <div class="flex justify-between text-xs font-bold mb-1">
-                    <span class="text-slate-600">HydroCell™ Generated Water:</span>
-                    <span class="text-emerald-600">0.000 (NOT DETECTED)</span>
+                  <div class="flex justify-between text-xs font-bold mb-1.5">
+                    <span class="text-[#4a6177]">HydroCell™ Generated Water:</span>
+                    <span class="text-[#088ae3] font-extrabold">0.0 ng/L (Not Detected)</span>
                   </div>
-                  <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-emerald-500 h-2.5 rounded-full" style="width: 0%"></div>
+                  <div class="w-full bg-[#e2f0f9] rounded-full h-2.5 overflow-hidden">
+                    <div class="bg-[#088ae3] h-2.5 rounded-full" style="width: 100%"></div>
                   </div>
-                </div>
-                <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-[#596780]">
-                  <span>EPA Standard: Meets / Exceeds</span>
-                  <span class="font-bold text-emerald-600">100% PURE</span>
                 </div>
               </div>
             </div>
@@ -93,54 +91,50 @@
       <div class="wq-tab-pane hidden" id="pane-arsenic">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div class="lg:col-span-7 space-y-5">
-            <div class="flex items-center gap-2 text-rose-600 bg-rose-50 px-3 py-1 rounded-lg w-fit text-xs font-bold uppercase tracking-wider">
-              <span>⚠️ Toxic Heavy Metal</span>
-            </div>
-            <h3 class="font-heading text-2xl font-bold text-[#0e1c36]">Naturally Occurring Arsenic</h3>
+            <span class="inline-block text-[11px] font-bold uppercase tracking-wider text-[#173b57] bg-[#eff9fd] px-3 py-1 rounded-md">
+              Toxic Heavy Metal
+            </span>
+            <h3 class="font-heading text-2xl font-bold text-[#173b57]">Arsenic Contamination</h3>
             <div class="space-y-4">
-              <div class="bg-white p-4 sm:p-5 rounded-xl border border-[#e1eff8]">
-                <h4 class="font-bold text-sm text-[#0e1c36] mb-1.5 flex items-center gap-2">
-                  <span class="w-2 h-2 rounded-full bg-rose-500"></span> Why It Matters:
+              <div class="bg-[#f8fcfd] p-4 sm:p-5 rounded-2xl border border-[#d9f1fc]">
+                <h4 class="font-bold text-sm text-[#173b57] mb-1.5 flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-[#088ae3]"></span> Why It Matters:
                 </h4>
-                <p class="text-xs sm:text-sm text-[#596780] leading-relaxed">
-                  Long-term exposure to elevated arsenic levels significantly increases the risk of bladder, lung, and skin cancer, alongside cardiovascular issues.
+                <p class="text-xs sm:text-sm text-[#4a6177] leading-relaxed">
+                  Inorganic arsenic is a recognized human carcinogen. Chronic low-level consumption causes skin lesions, circulatory disorders, and increased diabetes risk.
                 </p>
               </div>
-              <div class="bg-white p-4 sm:p-5 rounded-xl border border-[#e1eff8]">
-                <h4 class="font-bold text-sm text-[#0e1c36] mb-1.5 flex items-center gap-2">
-                  <span class="w-2 h-2 rounded-full bg-amber-500"></span> Where It's Found:
+              <div class="bg-[#f8fcfd] p-4 sm:p-5 rounded-2xl border border-[#d9f1fc]">
+                <h4 class="font-bold text-sm text-[#173b57] mb-1.5 flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-[#173b57]"></span> Where It's Found:
                 </h4>
-                <p class="text-xs sm:text-sm text-[#596780] leading-relaxed">
-                  Naturally leaches into groundwater. High concentrations are prevalent in Central & West Texas wells exceeding the EPA threshold of 10 µg/L.
+                <p class="text-xs sm:text-sm text-[#4a6177] leading-relaxed">
+                  Naturally occurring in Texas rock formations and deep groundwater aquifers, often exceeding the 10 ppb EPA standard in rural wells.
                 </p>
               </div>
             </div>
           </div>
           <div class="lg:col-span-5">
-            <div class="bg-white rounded-2xl p-6 border border-[#e1eff8] shadow-sm">
-              <span class="text-[11px] font-extrabold text-[#0084d6] uppercase tracking-wider block mb-2">SimpleLab Independent Testing</span>
-              <div class="space-y-4 pt-2">
+            <div class="bg-[#f8fcfd] rounded-2xl p-6 border border-[#d9f1fc] shadow-sm space-y-4">
+              <span class="text-[11px] font-bold text-[#088ae3] uppercase tracking-wider block">Lab Test Comparison</span>
+              <div class="space-y-4">
                 <div>
-                  <div class="flex justify-between text-xs font-bold mb-1">
-                    <span class="text-slate-600">Typical Texas Tap Water:</span>
-                    <span class="text-rose-600">~0.0075 PPM (Detected)</span>
+                  <div class="flex justify-between text-xs font-bold mb-1.5">
+                    <span class="text-[#4a6177]">Groundwater Well Average:</span>
+                    <span class="text-[#173b57]">7.5 µg/L (Detected)</span>
                   </div>
-                  <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-rose-500 h-2.5 rounded-full" style="width: 70%"></div>
+                  <div class="w-full bg-[#e2f0f9] rounded-full h-2.5 overflow-hidden">
+                    <div class="bg-[#173b57] h-2.5 rounded-full" style="width: 70%"></div>
                   </div>
                 </div>
                 <div>
-                  <div class="flex justify-between text-xs font-bold mb-1">
-                    <span class="text-slate-600">HydroCell™ Generated Water:</span>
-                    <span class="text-emerald-600">0.000 (NOT DETECTED)</span>
+                  <div class="flex justify-between text-xs font-bold mb-1.5">
+                    <span class="text-[#4a6177]">HydroCell™ Air Water:</span>
+                    <span class="text-[#088ae3] font-extrabold">&lt; 0.2 µg/L (Not Detected)</span>
                   </div>
-                  <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-emerald-500 h-2.5 rounded-full" style="width: 0%"></div>
+                  <div class="w-full bg-[#e2f0f9] rounded-full h-2.5 overflow-hidden">
+                    <div class="bg-[#088ae3] h-2.5 rounded-full" style="width: 100%"></div>
                   </div>
-                </div>
-                <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-[#596780]">
-                  <span>USGS / EPA Limit: < 10 µg/L</span>
-                  <span class="font-bold text-emerald-600">PASSED</span>
                 </div>
               </div>
             </div>
@@ -152,54 +146,50 @@
       <div class="wq-tab-pane hidden" id="pane-nitrates">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div class="lg:col-span-7 space-y-5">
-            <div class="flex items-center gap-2 text-rose-600 bg-rose-50 px-3 py-1 rounded-lg w-fit text-xs font-bold uppercase tracking-wider">
-              <span>⚠️ Agricultural Runoff</span>
-            </div>
-            <h3 class="font-heading text-2xl font-bold text-[#0e1c36]">Nitrates & Fertilizer Byproducts</h3>
+            <span class="inline-block text-[11px] font-bold uppercase tracking-wider text-[#173b57] bg-[#eff9fd] px-3 py-1 rounded-md">
+              Agricultural Compound
+            </span>
+            <h3 class="font-heading text-2xl font-bold text-[#173b57]">Nitrates (NO3-N)</h3>
             <div class="space-y-4">
-              <div class="bg-white p-4 sm:p-5 rounded-xl border border-[#e1eff8]">
-                <h4 class="font-bold text-sm text-[#0e1c36] mb-1.5 flex items-center gap-2">
-                  <span class="w-2 h-2 rounded-full bg-rose-500"></span> Why It Matters:
+              <div class="bg-[#f8fcfd] p-4 sm:p-5 rounded-2xl border border-[#d9f1fc]">
+                <h4 class="font-bold text-sm text-[#173b57] mb-1.5 flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-[#088ae3]"></span> Why It Matters:
                 </h4>
-                <p class="text-xs sm:text-sm text-[#596780] leading-relaxed">
-                  Elevated nitrate levels pose acute health dangers for infants (blue baby syndrome) and pregnant mothers, interfering with blood oxygen capacity.
+                <p class="text-xs sm:text-sm text-[#4a6177] leading-relaxed">
+                  High nitrate levels interfere with blood oxygen transport and pose particular hazards to infants, pregnant women, and thyroid health.
                 </p>
               </div>
-              <div class="bg-white p-4 sm:p-5 rounded-xl border border-[#e1eff8]">
-                <h4 class="font-bold text-sm text-[#0e1c36] mb-1.5 flex items-center gap-2">
-                  <span class="w-2 h-2 rounded-full bg-amber-500"></span> Where It's Found:
+              <div class="bg-[#f8fcfd] p-4 sm:p-5 rounded-2xl border border-[#d9f1fc]">
+                <h4 class="font-bold text-sm text-[#173b57] mb-1.5 flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-[#173b57]"></span> Where It's Found:
                 </h4>
-                <p class="text-xs sm:text-sm text-[#596780] leading-relaxed">
-                  Common in agricultural & rural regions. Agricultural operations account for 24% of active Texas groundwater contamination events.
+                <p class="text-xs sm:text-sm text-[#4a6177] leading-relaxed">
+                  Fertilizer runoff, feedlots, and septic tank drainage leaching into surface waterways and shallow groundwater wells.
                 </p>
               </div>
             </div>
           </div>
           <div class="lg:col-span-5">
-            <div class="bg-white rounded-2xl p-6 border border-[#e1eff8] shadow-sm">
-              <span class="text-[11px] font-extrabold text-[#0084d6] uppercase tracking-wider block mb-2">SimpleLab Independent Testing</span>
-              <div class="space-y-4 pt-2">
+            <div class="bg-[#f8fcfd] rounded-2xl p-6 border border-[#d9f1fc] shadow-sm space-y-4">
+              <span class="text-[11px] font-bold text-[#088ae3] uppercase tracking-wider block">Lab Test Comparison</span>
+              <div class="space-y-4">
                 <div>
-                  <div class="flex justify-between text-xs font-bold mb-1">
-                    <span class="text-slate-600">Typical Texas Tap Water:</span>
-                    <span class="text-rose-600">~0.73 PPM (Detected)</span>
+                  <div class="flex justify-between text-xs font-bold mb-1.5">
+                    <span class="text-[#4a6177]">Agricultural Basin Tap:</span>
+                    <span class="text-[#173b57]">0.73 mg/L (Detected)</span>
                   </div>
-                  <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-rose-500 h-2.5 rounded-full" style="width: 65%"></div>
+                  <div class="w-full bg-[#e2f0f9] rounded-full h-2.5 overflow-hidden">
+                    <div class="bg-[#173b57] h-2.5 rounded-full" style="width: 65%"></div>
                   </div>
                 </div>
                 <div>
-                  <div class="flex justify-between text-xs font-bold mb-1">
-                    <span class="text-slate-600">HydroCell™ Generated Water:</span>
-                    <span class="text-emerald-600">0.000 (NOT DETECTED)</span>
+                  <div class="flex justify-between text-xs font-bold mb-1.5">
+                    <span class="text-[#4a6177]">HydroCell™ Air Water:</span>
+                    <span class="text-[#088ae3] font-extrabold">&lt; 0.05 mg/L (Not Detected)</span>
                   </div>
-                  <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-emerald-500 h-2.5 rounded-full" style="width: 0%"></div>
+                  <div class="w-full bg-[#e2f0f9] rounded-full h-2.5 overflow-hidden">
+                    <div class="bg-[#088ae3] h-2.5 rounded-full" style="width: 100%"></div>
                   </div>
-                </div>
-                <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-[#596780]">
-                  <span>WHO / EPA Quality Standard</span>
-                  <span class="font-bold text-emerald-600">NON-DETECT</span>
                 </div>
               </div>
             </div>
@@ -211,54 +201,50 @@
       <div class="wq-tab-pane hidden" id="pane-microplastics">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div class="lg:col-span-7 space-y-5">
-            <div class="flex items-center gap-2 text-rose-600 bg-rose-50 px-3 py-1 rounded-lg w-fit text-xs font-bold uppercase tracking-wider">
-              <span>⚠️ Polymer Contamination</span>
-            </div>
-            <h3 class="font-heading text-2xl font-bold text-[#0e1c36]">Microplastics & Nanoparticles</h3>
+            <span class="inline-block text-[11px] font-bold uppercase tracking-wider text-[#173b57] bg-[#eff9fd] px-3 py-1 rounded-md">
+              Synthetic Particulates
+            </span>
+            <h3 class="font-heading text-2xl font-bold text-[#173b57]">Microplastics & Nanoplastics</h3>
             <div class="space-y-4">
-              <div class="bg-white p-4 sm:p-5 rounded-xl border border-[#e1eff8]">
-                <h4 class="font-bold text-sm text-[#0e1c36] mb-1.5 flex items-center gap-2">
-                  <span class="w-2 h-2 rounded-full bg-rose-500"></span> Why It Matters:
+              <div class="bg-[#f8fcfd] p-4 sm:p-5 rounded-2xl border border-[#d9f1fc]">
+                <h4 class="font-bold text-sm text-[#173b57] mb-1.5 flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-[#088ae3]"></span> Why It Matters:
                 </h4>
-                <p class="text-xs sm:text-sm text-[#596780] leading-relaxed">
-                  Plastic particles under 5mm accumulate in human tissue, causing cellular inflammation, hormone imbalance, and vascular stress.
+                <p class="text-xs sm:text-sm text-[#4a6177] leading-relaxed">
+                  Microscopic plastic particles can cross cell membranes, accumulate in tissue, and leach plasticizer chemicals directly into the body.
                 </p>
               </div>
-              <div class="bg-white p-4 sm:p-5 rounded-xl border border-[#e1eff8]">
-                <h4 class="font-bold text-sm text-[#0e1c36] mb-1.5 flex items-center gap-2">
-                  <span class="w-2 h-2 rounded-full bg-amber-500"></span> Where It's Found:
+              <div class="bg-[#f8fcfd] p-4 sm:p-5 rounded-2xl border border-[#d9f1fc]">
+                <h4 class="font-bold text-sm text-[#173b57] mb-1.5 flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-[#173b57]"></span> Where It's Found:
                 </h4>
-                <p class="text-xs sm:text-sm text-[#596780] leading-relaxed">
-                  Found in 93% of commercial bottled water and municipal supplies due to plastic degradation, packaging friction, and pipe leaching.
+                <p class="text-xs sm:text-sm text-[#4a6177] leading-relaxed">
+                  Found in 93% of commercial bottled water brands due to bottle shedding and factory bottling lines.
                 </p>
               </div>
             </div>
           </div>
           <div class="lg:col-span-5">
-            <div class="bg-white rounded-2xl p-6 border border-[#e1eff8] shadow-sm">
-              <span class="text-[11px] font-extrabold text-[#0084d6] uppercase tracking-wider block mb-2">SimpleLab Independent Testing</span>
-              <div class="space-y-4 pt-2">
+            <div class="bg-[#f8fcfd] rounded-2xl p-6 border border-[#d9f1fc] shadow-sm space-y-4">
+              <span class="text-[11px] font-bold text-[#088ae3] uppercase tracking-wider block">Lab Test Comparison</span>
+              <div class="space-y-4">
                 <div>
-                  <div class="flex justify-between text-xs font-bold mb-1">
-                    <span class="text-slate-600">Bottled & Tap Water Average:</span>
-                    <span class="text-rose-600">325 Particles/Liter</span>
+                  <div class="flex justify-between text-xs font-bold mb-1.5">
+                    <span class="text-[#4a6177]">Average Bottled Water:</span>
+                    <span class="text-[#173b57]">325 particles/L</span>
                   </div>
-                  <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-rose-500 h-2.5 rounded-full" style="width: 85%"></div>
+                  <div class="w-full bg-[#e2f0f9] rounded-full h-2.5 overflow-hidden">
+                    <div class="bg-[#173b57] h-2.5 rounded-full" style="width: 85%"></div>
                   </div>
                 </div>
                 <div>
-                  <div class="flex justify-between text-xs font-bold mb-1">
-                    <span class="text-slate-600">HydroCell™ Generated Water:</span>
-                    <span class="text-emerald-600">0.000 (0 Particles/L)</span>
+                  <div class="flex justify-between text-xs font-bold mb-1.5">
+                    <span class="text-[#4a6177]">HydroCell™ Air Water:</span>
+                    <span class="text-[#088ae3] font-extrabold">0 particles/L (Zero)</span>
                   </div>
-                  <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
-                    <div class="bg-emerald-500 h-2.5 rounded-full" style="width: 0%"></div>
+                  <div class="w-full bg-[#e2f0f9] rounded-full h-2.5 overflow-hidden">
+                    <div class="bg-[#088ae3] h-2.5 rounded-full" style="width: 100%"></div>
                   </div>
-                </div>
-                <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-[#596780]">
-                  <span>0.01µ Ultrafiltration Barrier</span>
-                  <span class="font-bold text-emerald-600">ZERO PARTICLES</span>
                 </div>
               </div>
             </div>
@@ -267,31 +253,39 @@
       </div>
 
     </div>
+
   </div>
 </section>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const btns = document.querySelectorAll('.wq-tab-btn');
-    const panes = document.querySelectorAll('.wq-tab-pane');
-    
-    btns.forEach(btn => {
+  (function() {
+    var btns = document.querySelectorAll('#contaminant-tab-buttons .wq-tab-btn');
+    var panes = document.querySelectorAll('.wq-tab-pane');
+
+    btns.forEach(function(btn) {
       btn.addEventListener('click', function() {
-        const tab = this.getAttribute('data-tab');
+        var targetTab = this.getAttribute('data-tab');
         
-        btns.forEach(b => {
-          b.classList.remove('active', 'bg-[#0084d6]', 'text-white');
-          b.classList.add('bg-white', 'text-[#596780]');
+        btns.forEach(function(b) {
+          b.classList.remove('active', 'bg-[#088ae3]', 'text-white', 'shadow-sm');
+          b.classList.add('bg-white', 'text-[#4a6177]', 'border', 'border-[#d9f1fc]');
         });
-        this.classList.add('active', 'bg-[#0084d6]', 'text-white');
-        this.classList.remove('bg-white', 'text-[#596780]');
         
-        panes.forEach(p => p.classList.add('hidden'));
-        const activePane = document.getElementById('pane-' + tab);
-        if (activePane) activePane.classList.remove('hidden');
+        this.classList.add('active', 'bg-[#088ae3]', 'text-white', 'shadow-sm');
+        this.classList.remove('bg-white', 'text-[#4a6177]', 'border', 'border-[#d9f1fc]');
+
+        panes.forEach(function(pane) {
+          if (pane.id === 'pane-' + targetTab) {
+            pane.classList.remove('hidden');
+            pane.classList.add('block');
+          } else {
+            pane.classList.add('hidden');
+            pane.classList.remove('block');
+          }
+        });
       });
     });
-  });
+  })();
 </script>
 
 {% schema %}
@@ -302,7 +296,7 @@
       "type": "text",
       "id": "badge",
       "label": "Badge",
-      "default": "What's In The Water?"
+      "default": "Deep Contaminant Analysis"
     },
     {
       "type": "text",

@@ -1,13 +1,13 @@
-<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 relative z-20">
-  <div class="bg-[#f2f8fd] border border-[#e1eff8] rounded-2xl shadow-sm py-6 px-8 reveal-init hover-lift">
-    <h3 class="text-center font-bold text-[11px] sm:text-[12px] tracking-widest text-[#1e293b] uppercase mb-6">
-      {{ section.settings.title | default: 'CERTIFIED PURITY & SUSTAINABILITY STANDARDS' }}
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 relative z-20">
+  <div class="bg-[#f8fcfd] border border-[#d9f1fc] rounded-2xl shadow-sm py-6 px-8">
+    <h3 class="text-center font-bold text-[11px] sm:text-[12px] tracking-wider text-[#173b57] uppercase mb-6">
+      {{ section.settings.title | default: 'Certified purity & sustainability standards' }}
     </h3>
 
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 items-center justify-items-center">
       {% for block in section.blocks %}
-        <div class="flex flex-col items-center gap-2 group cursor-pointer text-center" {{ block.shopify_attributes }}>
-          <div class="text-[#0084d6] group-hover:scale-110 transition-transform">
+        <div class="flex flex-col items-center gap-2.5 group cursor-pointer text-center" {{ block.shopify_attributes }}>
+          <div class="text-[#088ae3] group-hover:scale-110 transition-transform">
             {% case block.settings.icon_type %}
               {% when 'epa' %}
                 <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -49,7 +49,7 @@
                 </svg>
             {% endcase %}
           </div>
-          <span class="text-[12px] font-medium text-[#1e293b] group-hover:text-[#0084d6] transition-colors">{{ block.settings.title }}</span>
+          <span class="text-[12px] font-medium text-[#173b57] group-hover:text-[#088ae3] transition-colors">{{ block.settings.title }}</span>
         </div>
       {% endfor %}
     </div>

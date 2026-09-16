@@ -1,131 +1,107 @@
-<section id="how-it-works" class="py-20 lg:py-24 bg-white relative">
+<section id="how-it-works" class="py-16 sm:py-20 lg:py-24 bg-[#f8fcfd] border-t border-[#d9f1fc]">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-      
-      <!-- Left Info Column -->
-      <div class="lg:col-span-4 space-y-4 reveal-init">
-        <span class="text-[11px] font-extrabold tracking-widest text-[#0084d6] uppercase">{{ section.settings.badge | default: 'HOW IT WORKS' }}</span>
-        
-        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-[#0e1c36] leading-tight">
-          {{ section.settings.heading_line1 | default: 'From Air' }}<br>
-          {{ section.settings.heading_line2 | default: 'to Water.' }}<br>
-          <span class="text-[#0084d6]">{{ section.settings.heading_highlight | default: 'Pure & Simple.' }}</span>
-        </h2>
-
-        <p class="text-[#596780] text-sm leading-relaxed">
-          {{ section.settings.description | default: 'Ambient air passes through medical-grade filtration, condenses on food-grade coils, and completes 4-stage purification with essential remineralization.' }}
+    
+    <div class="max-w-3xl mx-auto text-center mb-14 sm:mb-16">
+      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold tracking-widest text-[#088ae3] bg-[#eff9fd] border border-[#d9f1fc] uppercase mb-3 shadow-sm">
+        Atmospheric Water Extraction
+      </span>
+      <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#173b57] tracking-tight">
+        {{ section.settings.heading | default: 'Air in. Pure water out.' }}
+      </h2>
+      {% if section.settings.description != blank %}
+        <p class="text-[#4a6177] text-sm sm:text-base mt-4 leading-relaxed max-w-2xl mx-auto">
+          {{ section.settings.description }}
         </p>
+      {% endif %}
+    </div>
 
-        <div class="pt-2">
-          <a href="{{ section.settings.link_url | default: '#what-is-awg' }}" class="inline-flex items-center gap-1.5 text-[11px] font-bold tracking-wider text-[#0084d6] hover:text-[#006bb0] uppercase group">
-            {{ section.settings.link_text | default: 'LEARN MORE ABOUT THE PROCESS' }}
-            {% render 'icon', name: 'arrow-right', class: 'w-3.5 h-3.5 group-hover:translate-x-1 transition-transform' %}
-          </a>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      
+      <!-- Step 1 -->
+      <div class="bg-white rounded-3xl p-6 sm:p-7 border border-[#d9f1fc] shadow-sm hover:shadow-md hover:border-[#088ae3]/50 transition-all space-y-4 relative group">
+        <div class="flex items-center justify-between">
+          <div class="w-12 h-12 rounded-2xl bg-[#eff9fd] text-[#088ae3] group-hover:bg-[#088ae3] group-hover:text-white transition-colors flex items-center justify-center font-bold">
+            {% render 'icon', name: 'wind', class: 'w-6 h-6' %}
+          </div>
+          <span class="text-xs font-bold uppercase tracking-wider text-[#088ae3] bg-[#eff9fd] px-3 py-1 rounded-full">Step 01</span>
         </div>
+        <h3 class="font-heading font-bold text-lg text-[#173b57] pt-1">
+          {{ section.settings.step1_title | default: 'Air enters the system' }}
+        </h3>
+        <p class="text-xs sm:text-sm text-[#4a6177] leading-relaxed">
+          {{ section.settings.step1_desc | default: 'The system pulls in ambient air and filters out dust, pollen, and airborne particles before moisture extraction.' }}
+        </p>
       </div>
 
-      <!-- Right 4-step Cards -->
-      <div class="lg:col-span-8 reveal-init delay-200">
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3.5 relative">
-          
-          <!-- Step 1 -->
-          <div class="process-step-card bg-white hover:bg-sky-50/40 rounded-2xl p-4 border border-slate-100/90 shadow-xs flex flex-col items-center text-center transition-all cursor-pointer hover-lift relative">
-            <div class="w-full h-32 rounded-2xl bg-[#f2f8fe] flex items-center justify-center p-3 mb-3">
-              <svg class="w-20 h-20" viewBox="0 0 100 100" fill="none">
-                <path d="M15,35 C35,35 45,28 65,28 C75,28 85,32 85,35" stroke="#7dd3fc" stroke-width="2.5" stroke-linecap="round"/>
-                <path d="M10,48 C30,48 45,42 60,42 C75,42 88,48 88,50" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
-                <path d="M18,62 C38,62 48,56 68,56 C78,56 86,60 86,63" stroke="#0ea5e9" stroke-width="2.5" stroke-linecap="round"/>
-                <path d="M12,75 C32,75 42,70 62,70 C72,70 82,74 82,76" stroke="#7dd3fc" stroke-width="2.5" stroke-linecap="round"/>
-                <circle cx="88" cy="32" r="1.5" fill="#38bdf8"/>
-                <circle cx="92" cy="45" r="2" fill="#0284c7"/>
-                <circle cx="90" cy="58" r="1.5" fill="#38bdf8"/>
-                <circle cx="85" cy="68" r="1.5" fill="#0284c7"/>
-              </svg>
-            </div>
-            <h4 class="font-bold text-[13px] text-[#0084d6] mb-1">{{ section.settings.step1_title | default: '1. Air Intake' }}</h4>
-            <p class="text-[11px] text-[#596780] leading-snug">{{ section.settings.step1_desc | default: 'HEPA air filter strips airborne dust, pollen, and PM2.5 particulates.' }}</p>
-
-            <div class="hidden lg:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-white border border-[#cbe4f9] text-[#0084d6] items-center justify-center shadow-xs">
-              {% render 'icon', name: 'chevron-right', class: 'w-3.5 h-3.5' %}
-            </div>
+      <!-- Step 2 -->
+      <div class="bg-white rounded-3xl p-6 sm:p-7 border border-[#d9f1fc] shadow-sm hover:shadow-md hover:border-[#088ae3]/50 transition-all space-y-4 relative group">
+        <div class="flex items-center justify-between">
+          <div class="w-12 h-12 rounded-2xl bg-[#eff9fd] text-[#088ae3] group-hover:bg-[#088ae3] group-hover:text-white transition-colors flex items-center justify-center font-bold">
+            {% render 'icon', name: 'droplet', class: 'w-6 h-6' %}
           </div>
-
-          <!-- Step 2 -->
-          <div class="process-step-card bg-white hover:bg-sky-50/40 rounded-2xl p-4 border border-slate-100/90 shadow-xs flex flex-col items-center text-center transition-all cursor-pointer hover-lift relative">
-            <div class="w-full h-32 rounded-2xl bg-[#f2f8fe] flex items-center justify-center p-3 mb-3">
-              <svg class="w-20 h-20" viewBox="0 0 100 100" fill="none">
-                <defs>
-                  <linearGradient id="coilGradShopify" x1="0" y1="0" x2="100" y2="0" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#cbd5e1"/>
-                    <stop offset="0.5" stop-color="#f1f5f9"/>
-                    <stop offset="1" stop-color="#94a3b8"/>
-                  </linearGradient>
-                </defs>
-                <path d="M20,22 Q80,18 80,28 Q80,38 20,38 Q80,38 80,48 Q80,58 20,58 Q80,58 80,68 Q80,78 20,78" stroke="url(#coilGradShopify)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="82" cy="30" r="2" fill="#38bdf8"/>
-                <circle cx="82" cy="50" r="2.5" fill="#0284c7"/>
-                <circle cx="50" cy="85" r="3" fill="#0284c7"/>
-                <circle cx="50" cy="93" r="2" fill="#38bdf8"/>
-              </svg>
-            </div>
-            <h4 class="font-bold text-[13px] text-[#0084d6] mb-1">{{ section.settings.step2_title | default: '2. Condensation' }}</h4>
-            <p class="text-[11px] text-[#596780] leading-snug">{{ section.settings.step2_desc | default: 'Proprietary cooling coils condense atmospheric vapor into pure moisture.' }}</p>
-
-            <div class="hidden lg:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-white border border-[#cbe4f9] text-[#0084d6] items-center justify-center shadow-xs">
-              {% render 'icon', name: 'chevron-right', class: 'w-3.5 h-3.5' %}
-            </div>
-          </div>
-
-          <!-- Step 3 -->
-          <div class="process-step-card bg-white hover:bg-sky-50/40 rounded-2xl p-4 border border-slate-100/90 shadow-xs flex flex-col items-center text-center transition-all cursor-pointer hover-lift relative">
-            <div class="w-full h-32 rounded-2xl bg-[#f2f8fe] flex items-center justify-center p-3 mb-3">
-              <svg class="w-20 h-20" viewBox="0 0 100 100" fill="none">
-                <circle cx="50" cy="10" r="2.5" fill="#0284c7"/>
-                <polygon points="50,18 82,30 50,42 18,30" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
-                <polygon points="18,30 50,42 50,46 18,34" fill="#94a3b8"/>
-                <polygon points="82,30 50,42 50,46 82,34" fill="#64748b"/>
-                <polygon points="50,38 82,50 50,62 18,50" fill="#1e293b"/>
-                <polygon points="18,50 50,62 50,66 18,54" fill="#0f172a"/>
-                <polygon points="82,50 50,62 50,66 82,54" fill="#334155"/>
-                <polygon points="50,58 82,70 50,82 18,70" fill="#38bdf8"/>
-                <polygon points="18,70 50,82 50,86 18,74" fill="#0284c7"/>
-                <polygon points="82,70 50,82 50,86 82,74" fill="#0369a1"/>
-                <circle cx="46" cy="92" r="2" fill="#0284c7"/>
-                <circle cx="54" cy="94" r="2.5" fill="#0284c7"/>
-              </svg>
-            </div>
-            <h4 class="font-bold text-[13px] text-[#0084d6] mb-1">{{ section.settings.step3_title | default: '3. UV-C & Filtration' }}</h4>
-            <p class="text-[11px] text-[#596780] leading-snug">{{ section.settings.step3_desc | default: 'Carbon block & UV-C light destroy 99.9% of bacteria, viruses, and VOCs.' }}</p>
-
-            <div class="hidden lg:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-white border border-[#cbe4f9] text-[#0084d6] items-center justify-center shadow-xs">
-              {% render 'icon', name: 'chevron-right', class: 'w-3.5 h-3.5' %}
-            </div>
-          </div>
-
-          <!-- Step 4 -->
-          <div class="process-step-card bg-white hover:bg-sky-50/40 rounded-2xl p-4 border border-slate-100/90 shadow-xs flex flex-col items-center text-center transition-all cursor-pointer hover-lift">
-            <div class="w-full h-32 rounded-2xl bg-[#f2f8fe] flex items-center justify-center p-3 mb-3">
-              <svg class="w-18 h-20" viewBox="0 0 100 120" fill="none">
-                <path d="M22,12 L78,12 L68,108 C68,112 62,116 50,116 C38,116 32,112 32,108 Z" stroke="#cbd5e1" stroke-width="2.5" fill="none"/>
-                <path d="M26,38 Q50,33 74,38 L67,106 C67,110 59,113 50,113 C41,113 33,110 33,106 Z" fill="url(#glassWaterGradShopify)"/>
-                <path d="M30,22 L27,98" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
-                <defs>
-                  <linearGradient id="glassWaterGradShopify" x1="50" y1="35" x2="50" y2="115" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#7dd3fc"/>
-                    <stop offset="0.6" stop-color="#0284c7"/>
-                    <stop offset="1" stop-color="#0369a1"/>
-                  </linearGradient>
-                </defs>
-              </svg>
-            </div>
-            <h4 class="font-bold text-[13px] text-[#0084d6] mb-1">{{ section.settings.step4_title | default: '4. Mineralized Pure Water' }}</h4>
-            <p class="text-[11px] text-[#596780] leading-snug">{{ section.settings.step4_desc | default: 'Calcium, magnesium, and electrolytes added for crisp, refreshing alkaline taste.' }}</p>
-          </div>
-
+          <span class="text-xs font-bold uppercase tracking-wider text-[#088ae3] bg-[#eff9fd] px-3 py-1 rounded-full">Step 02</span>
         </div>
+        <h3 class="font-heading font-bold text-lg text-[#173b57] pt-1">
+          {{ section.settings.step2_title | default: 'Moisture is condensed' }}
+        </h3>
+        <p class="text-xs sm:text-sm text-[#4a6177] leading-relaxed">
+          {{ section.settings.step2_desc | default: 'Specialized food-grade condensing modules cool humid air to the dew point, transforming vapor into liquid droplets.' }}
+        </p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="bg-white rounded-3xl p-6 sm:p-7 border border-[#d9f1fc] shadow-sm hover:shadow-md hover:border-[#088ae3]/50 transition-all space-y-4 relative group">
+        <div class="flex items-center justify-between">
+          <div class="w-12 h-12 rounded-2xl bg-[#eff9fd] text-[#088ae3] group-hover:bg-[#088ae3] group-hover:text-white transition-colors flex items-center justify-center font-bold">
+            {% render 'icon', name: 'shield-check', class: 'w-6 h-6' %}
+          </div>
+          <span class="text-xs font-bold uppercase tracking-wider text-[#088ae3] bg-[#eff9fd] px-3 py-1 rounded-full">Step 03</span>
+        </div>
+        <h3 class="font-heading font-bold text-lg text-[#173b57] pt-1">
+          {{ section.settings.step3_title | default: '8-Stage Purification' }}
+        </h3>
+        <p class="text-xs sm:text-sm text-[#4a6177] leading-relaxed">
+          {{ section.settings.step3_desc | default: 'Collected water circulates through sediment, carbon, ultrafiltration membranes, and continuous UV-C sterilization.' }}
+        </p>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="bg-white rounded-3xl p-6 sm:p-7 border border-[#d9f1fc] shadow-sm hover:shadow-md hover:border-[#088ae3]/50 transition-all space-y-4 relative group">
+        <div class="flex items-center justify-between">
+          <div class="w-12 h-12 rounded-2xl bg-[#eff9fd] text-[#088ae3] group-hover:bg-[#088ae3] group-hover:text-white transition-colors flex items-center justify-center font-bold">
+            {% render 'icon', name: 'glass-water', class: 'w-6 h-6' %}
+          </div>
+          <span class="text-xs font-bold uppercase tracking-wider text-[#088ae3] bg-[#eff9fd] px-3 py-1 rounded-full">Step 04</span>
+        </div>
+        <h3 class="font-heading font-bold text-lg text-[#173b57] pt-1">
+          {{ section.settings.step4_title | default: 'Mineralized & Ready' }}
+        </h3>
+        <p class="text-xs sm:text-sm text-[#4a6177] leading-relaxed">
+          {{ section.settings.step4_desc | default: 'Enriched with calcium and magnesium at 7.4 pH, dispensed crisp cold or hot on demand from the internal tank.' }}
+        </p>
       </div>
 
     </div>
+
+    <!-- EPA validation banner -->
+    <div class="mt-12 p-6 sm:p-8 rounded-3xl bg-white border border-[#d9f1fc] shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div class="flex items-start gap-4">
+        <div class="w-11 h-11 rounded-2xl bg-[#eff9fd] text-[#088ae3] flex items-center justify-center shrink-0 font-bold mt-0.5">
+          {% render 'icon', name: 'shield-check', class: 'w-6 h-6' %}
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-[#088ae3] block mb-0.5">EPA Assessed Standard</span>
+          <p class="text-xs sm:text-sm text-[#4a6177] leading-relaxed max-w-2xl">
+            {{ section.settings.epa_note | default: "The EPA's assessment of AWGs documents systems using combinations of air filtration, condensation, storage, carbon filtration, sediment filtration, UV treatment, mineralization, and other treatment methods." }}
+          </p>
+        </div>
+      </div>
+
+      <a href="{{ section.settings.cta_link | default: '#purification-process' }}" class="shrink-0 btn-primary py-3 px-6 text-xs font-bold">
+        {{ section.settings.cta_text | default: 'Explore 8-Stage Purification ↓' }}
+      </a>
+    </div>
+
   </div>
 </section>
 
@@ -133,100 +109,20 @@
 {
   "name": "How It Works",
   "settings": [
-    {
-      "type": "text",
-      "id": "badge",
-      "label": "Badge",
-      "default": "HOW IT WORKS"
-    },
-    {
-      "type": "text",
-      "id": "heading_line1",
-      "label": "Heading Line 1",
-      "default": "From Air"
-    },
-    {
-      "type": "text",
-      "id": "heading_line2",
-      "label": "Heading Line 2",
-      "default": "to Water."
-    },
-    {
-      "type": "text",
-      "id": "heading_highlight",
-      "label": "Heading Highlight",
-      "default": "Pure & Simple."
-    },
-    {
-      "type": "textarea",
-      "id": "description",
-      "label": "Description",
-      "default": "Ambient air passes through medical-grade filtration, condenses on food-grade coils, and completes 4-stage purification with essential remineralization."
-    },
-    {
-      "type": "text",
-      "id": "link_text",
-      "label": "Link Text",
-      "default": "LEARN MORE ABOUT THE PROCESS"
-    },
-    {
-      "type": "url",
-      "id": "link_url",
-      "label": "Link URL"
-    },
-    {
-      "type": "text",
-      "id": "step1_title",
-      "label": "Step 1 Title",
-      "default": "1. Air Intake"
-    },
-    {
-      "type": "text",
-      "id": "step1_desc",
-      "label": "Step 1 Description",
-      "default": "HEPA air filter strips airborne dust, pollen, and PM2.5 particulates."
-    },
-    {
-      "type": "text",
-      "id": "step2_title",
-      "label": "Step 2 Title",
-      "default": "2. Condensation"
-    },
-    {
-      "type": "text",
-      "id": "step2_desc",
-      "label": "Step 2 Description",
-      "default": "Proprietary cooling coils condense atmospheric vapor into pure moisture."
-    },
-    {
-      "type": "text",
-      "id": "step3_title",
-      "label": "Step 3 Title",
-      "default": "3. UV-C & Filtration"
-    },
-    {
-      "type": "text",
-      "id": "step3_desc",
-      "label": "Step 3 Description",
-      "default": "Carbon block & UV-C light destroy 99.9% of bacteria, viruses, and VOCs."
-    },
-    {
-      "type": "text",
-      "id": "step4_title",
-      "label": "Step 4 Title",
-      "default": "4. Mineralized Pure Water"
-    },
-    {
-      "type": "text",
-      "id": "step4_desc",
-      "label": "Step 4 Description",
-      "default": "Calcium, magnesium, and electrolytes added for crisp, refreshing alkaline taste."
-    }
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Air in. Water out." },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "Atmospheric water generation condenses airborne moisture and purifies it through multiple barrier stages into crisp, fresh water." },
+    { "type": "text", "id": "step1_title", "label": "Step 1 Title", "default": "Air enters the system" },
+    { "type": "textarea", "id": "step1_desc", "label": "Step 1 Description", "default": "The system pulls in outside air and filters out dust and other particles before collecting moisture." },
+    { "type": "text", "id": "step2_title", "label": "Step 2 Title", "default": "Moisture is condensed" },
+    { "type": "textarea", "id": "step2_desc", "label": "Step 2 Description", "default": "The system cools humid air until the moisture turns into liquid water that can be collected." },
+    { "type": "text", "id": "step3_title", "label": "Step 3 Title", "default": "Water is treated" },
+    { "type": "textarea", "id": "step3_desc", "label": "Step 3 Description", "default": "The collected water goes through filtration and treatment processes designed to improve its quality." },
+    { "type": "text", "id": "step4_title", "label": "Step 4 Title", "default": "Ready to drink" },
+    { "type": "textarea", "id": "step4_desc", "label": "Step 4 Description", "default": "The treated water is stored in a tank, dispensed for use, or connected to another water system." },
+    { "type": "textarea", "id": "epa_note", "label": "EPA Note", "default": "The EPA's assessment of AWGs documents systems using combinations of air filtration, condensation, storage, carbon filtration, sediment filtration, UV treatment, mineralization, and other treatment methods." },
+    { "type": "text", "id": "cta_text", "label": "CTA Button Text", "default": "Explore the technology" },
+    { "type": "url", "id": "cta_link", "label": "CTA Link" }
   ],
-  "presets": [
-    {
-      "name": "How It Works"
-    }
-  ]
+  "presets": [{ "name": "How It Works" }]
 }
 {% endschema %}

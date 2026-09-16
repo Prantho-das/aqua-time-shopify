@@ -3,59 +3,27 @@
     "hero_banner": {
       "type": "hero-banner",
       "blocks": {
-        "feature_1": {
-          "type": "feature",
-          "settings": {
-            "icon": "droplets",
-            "title": "30-95% Humidity",
-            "description": "Consistent generation in diverse climates"
-          }
-        },
-        "feature_2": {
-          "type": "feature",
-          "settings": {
-            "icon": "shield-check",
-            "title": "100% Pure",
-            "description": "UV-C sterilization & mineral enrichment"
-          }
-        },
-        "feature_3": {
-          "type": "feature",
-          "settings": {
-            "icon": "zap",
-            "title": "Plug & Produce",
-            "description": "No plumbing pipes or drain lines needed"
-          }
-        },
-        "feature_4": {
-          "type": "feature",
-          "settings": {
-            "icon": "badge-dollar-sign",
-            "title": "Save $1,200+/yr",
-            "description": "Eliminate 5-gal jug delivery & bottles"
-          }
-        }
+        "feature_1": { "type": "feature", "settings": { "icon": "droplets", "title": "30–95% humidity", "description": "Consistent generation in diverse climates" } },
+        "feature_2": { "type": "feature", "settings": { "icon": "shield-check", "title": "Multi-stage purified", "description": "UV-C sterilization and mineral enrichment" } },
+        "feature_3": { "type": "feature", "settings": { "icon": "zap", "title": "Plug and produce", "description": "No plumbing or drain lines needed" } },
+        "feature_4": { "type": "feature", "settings": { "icon": "badge-dollar-sign", "title": "Save $1,200+/yr", "description": "Eliminate jug delivery and bottles" } }
       },
-      "block_order": [
-        "feature_1",
-        "feature_2",
-        "feature_3",
-        "feature_4"
-      ],
+      "block_order": ["feature_1", "feature_2", "feature_3", "feature_4"],
       "settings": {
-        "badge_tag": "ATMOSPHERIC WATER GENERATOR (AWG)",
-        "stock_tag": "IN STOCK • SHIPS IMMEDIATELY",
-        "heading_line1": "Generate Water",
-        "heading_line2": "From the Air in Your",
+        "badge_tag": "Atmospheric Water Machine",
+        "stock_tag": "In stock · Ships immediately",
+        "pre_heading": "Air to Water Generators",
+        "heading_line1": "Generate Water From the Air in Your",
         "rotating_words": "Home, Office, Kitchen, Shop, Cabin, Factory, Break Room",
-        "description": "Extract clean, pure, mineral-balanced drinking water directly from ambient air humidity. Zero groundwater depletion, no microplastics, and no plumbing required. Plug in and drink.",
+        "tagline": "No plumbing. No plastic bottles. No problem.",
+        "sub_tagline": "Up to 5.5 gallons a day from the air",
         "price": "$1,495",
         "compare_price": "$1,995",
-        "save_tag": "SAVE $500",
-        "shipping_note": "Free Insured Shipping",
-        "btn_primary_text": "ORDER NOW ($1,495)",
-        "phone_number": "(213) 335-2121",
-        "btn_secondary_text": "HOW IT WORKS"
+        "save_tag": "$500 off",
+        "shipping_note": "Ships immediately",
+        "btn_primary_text": "Order your generator",
+        "btn_secondary_text": "Talk to an expert",
+        "btn_tertiary_text": "Read lab report"
       }
     },
     "trust_badges": {
@@ -68,391 +36,119 @@
         "badge_5": { "type": "badge", "settings": { "icon_type": "solar", "title": "Solar / Grid Ready" } },
         "badge_6": { "type": "badge", "settings": { "icon_type": "warranty", "title": "1-Year Warranty" } }
       },
-      "block_order": [
-        "badge_1",
-        "badge_2",
-        "badge_3",
-        "badge_4",
-        "badge_5",
-        "badge_6"
-      ],
+      "block_order": ["badge_1", "badge_2", "badge_3", "badge_4", "badge_5", "badge_6"],
       "settings": {
-        "title": "CERTIFIED PURITY & SUSTAINABILITY STANDARDS"
+        "title": "Certified purity and sustainability standards"
       }
     },
     "how_it_works": {
       "type": "how-it-works",
       "settings": {
-        "badge": "HOW IT WORKS",
-        "heading_line1": "From Air",
-        "heading_line2": "to Water.",
-        "heading_highlight": "Pure & Simple.",
-        "description": "Ambient air passes through medical-grade filtration, condenses on food-grade coils, and completes 4-stage purification with essential remineralization.",
-        "link_text": "LEARN MORE ABOUT THE PROCESS",
-        "step1_title": "1. Air Intake",
-        "step1_desc": "HEPA air filter strips airborne dust, pollen, and PM2.5 particulates.",
-        "step2_title": "2. Condensation",
-        "step2_desc": "Proprietary cooling coils condense atmospheric vapor into pure moisture.",
-        "step3_title": "3. UV-C & Filtration",
-        "step3_desc": "Carbon block & UV-C light destroy 99.9% of bacteria, viruses, and VOCs.",
-        "step4_title": "4. Mineralized Pure Water",
-        "step4_desc": "Calcium, magnesium, and electrolytes added for crisp, refreshing alkaline taste."
+        "heading": "Air in. Water out.",
+        "description": "Atmospheric water generation condenses airborne moisture and purifies it through multiple barrier stages into crisp, fresh water.",
+        "step1_title": "Air enters the system",
+        "step1_desc": "The system pulls in outside air and filters out dust and other particles before collecting moisture.",
+        "step2_title": "Moisture is condensed",
+        "step2_desc": "The system cools humid air until the moisture turns into liquid water that can be collected.",
+        "step3_title": "Water is treated",
+        "step3_desc": "The collected water goes through filtration and treatment processes designed to improve its quality.",
+        "step4_title": "Ready to drink",
+        "step4_desc": "The treated water is stored in a tank, dispensed for use, or connected to another water system.",
+        "epa_note": "The EPA's assessment of AWGs documents systems using combinations of air filtration, condensation, storage, carbon filtration, sediment filtration, UV treatment, mineralization, and other treatment methods.",
+        "cta_text": "Explore the technology",
+        "cta_link": "/pages/how-it-works"
       }
     },
     "what_is_awg": {
       "type": "what-is-awg",
-      "blocks": {
-        "point_1": { "type": "point", "settings": { "text": "Taps into 3.1 quadrillion gallons of atmospheric moisture" } },
-        "point_2": { "type": "point", "settings": { "text": "Effective across 30% to 95% relative humidity" } },
-        "point_3": { "type": "point", "settings": { "text": "Zero dependence on municipal water grids or wells" } },
-        "point_4": { "type": "point", "settings": { "text": "Completely eliminates microplastics, lead, chlorine, and PFAS" } },
-        "point_5": { "type": "point", "settings": { "text": "Continuous remineralization for optimal pH balance (7.2 - 7.6)" } }
-      },
-      "block_order": [
-        "point_1",
-        "point_2",
-        "point_3",
-        "point_4",
-        "point_5"
-      ],
       "settings": {
-        "badge": "WHAT IS AN AWG?",
-        "heading_line1": "The Atmosphere Holds",
-        "heading_line2": "3.1 Quadrillion Gallons.",
-        "heading_highlight": "Tap Into It.",
-        "description": "An Atmospheric Water Generator (AWG) captures the humidity naturally present in ambient air and converts it into pure, medical-grade drinking water. No dependency on aging municipal infrastructure, groundwater contamination, or plastic deliveries.",
-        "btn_text": "ORDER YOUR UNIT - $1,495"
+        "heading": "What is an atmospheric water generator?",
+        "paragraph_1": "An atmospheric water generator (AWG) captures ambient humidity from surrounding air, condenses it into pure liquid water, and filters it through multi-stage purification — creating continuous fresh drinking water right where you need it.",
+        "epa_note": "EPA research validates condensation-based AWG technology as a reliable method to produce water directly from atmospheric vapor without municipal grid connections.",
+        "cta_text": "Learn how water from air works",
+        "cta_link": "#how-it-works"
       }
-    },
-    "stats_counter": {
-      "type": "stats-counter",
-      "blocks": {
-        "stat_1": {
-          "type": "stat",
-          "settings": {
-            "icon": "cloud-rain",
-            "target": "3",
-            "suffix": ".1Q Gal",
-            "title": "Atmospheric Water",
-            "subtitle": "Renewable Earth Reservoir"
-          }
-        },
-        "stat_2": {
-          "type": "stat",
-          "settings": {
-            "icon": "trash-2",
-            "target": "4000",
-            "suffix": "+",
-            "title": "Plastic Bottles Diverted",
-            "subtitle": "Per Unit Annually"
-          }
-        },
-        "stat_3": {
-          "type": "stat",
-          "settings": {
-            "icon": "shield-check",
-            "target": "99",
-            "suffix": ".9%",
-            "title": "Pathogen Elimination",
-            "subtitle": "UV-C & HEPA Purity"
-          }
-        },
-        "stat_4": {
-          "type": "stat",
-          "settings": {
-            "icon": "dollar-sign",
-            "target": "8",
-            "suffix": "¢ / Gal",
-            "title": "Generation Cost",
-            "subtitle": "vs $1.50+ Bottled Jugs"
-          }
-        }
-      },
-      "block_order": [
-        "stat_1",
-        "stat_2",
-        "stat_3",
-        "stat_4"
-      ],
-      "settings": {}
     },
     "applications_grid": {
       "type": "applications-grid",
       "blocks": {
-        "app_1": {
-          "type": "card",
-          "settings": {
-            "asset_image": "residence-01.jpg",
-            "icon": "home",
-            "title": "Residential & Kitchens",
-            "description": "Pure drinking & cooking water for the whole family."
-          }
-        },
-        "app_2": {
-          "type": "card",
-          "settings": {
-            "asset_image": "office-01.jpg",
-            "icon": "briefcase",
-            "title": "Commercial & Break Rooms",
-            "description": "End 5-gallon jug deliveries and clutter in the office."
-          }
-        },
-        "app_3": {
-          "type": "card",
-          "settings": {
-            "asset_image": "emergency-response-01.jpg",
-            "icon": "shield-alert",
-            "title": "Emergency & Disaster Relief",
-            "description": "Immediate pure water lifeline when municipal grids fail."
-          }
-        },
-        "app_4": {
-          "type": "card",
-          "settings": {
-            "asset_image": "residence-02.jpg",
-            "icon": "compass",
-            "title": "Off-Grid Cabins & Tiny Homes",
-            "description": "Complete autonomy without water hookups or wells."
-          }
-        }
+        "app_1": { "type": "card", "settings": { "asset_image": "residence-01.jpg", "tag": "For daily living", "title": "Water for the home", "description": "Use it for drinking, meals, coffee, and other everyday needs without relying on bottled water." } },
+        "app_2": { "type": "card", "settings": { "asset_image": "office-01.jpg", "tag": "For the workplace", "title": "Water for offices", "description": "Provide convenient on-site water while reducing the need for bottled deliveries and disposable containers." } },
+        "app_3": { "type": "card", "settings": { "asset_image": "emergency-response-01.jpg", "tag": "For added security", "title": "Backup water supply", "description": "Maintain access to another water source during service interruptions, emergencies, or unexpected disruptions." } },
+        "app_4": { "type": "card", "settings": { "asset_image": "residence-02.jpg", "tag": "For remote locations", "title": "Water beyond the water line", "description": "Produce water in RVs, remote properties, job sites, and other locations where electricity is available." } }
       },
-      "block_order": [
-        "app_1",
-        "app_2",
-        "app_3",
-        "app_4"
-      ],
+      "block_order": ["app_1", "app_2", "app_3", "app_4"],
       "settings": {
-        "badge": "APPLICATIONS",
-        "heading_line1": "Water Independence",
-        "heading_line2": "For Any Need.",
-        "description": "From home kitchens and corporate break rooms to off-grid cabins and disaster relief, our AWG units deliver pure water wherever you need it.",
-        "link_text": "DISCOVER WHERE AWG FITS"
+        "heading": "Built for the home first",
+        "description_1": "Atmospheric water generators offer a new approach to water production by capturing moisture already present in the air."
       }
     },
     "why_awg": {
       "type": "why-awg",
       "blocks": {
-        "why_1": {
-          "type": "feature_card",
-          "settings": {
-            "asset_image": "office-02.jpg",
-            "tag": "ON-SITE PRODUCTION",
-            "title": "Zero Supply Chain Reliance",
-            "description": "Produce your own water continuously. Never worry about grocery store shortages, delivery delays, boil alerts, or supply interruptions."
-          }
-        },
-        "why_2": {
-          "type": "feature_card",
-          "settings": {
-            "asset_image": "emergency-response-02.jpg",
-            "tag": "WATER RESILIENCE",
-            "title": "Emergency Climate Readiness",
-            "description": "Plug into standard 110V power, solar banks, or portable backup generators. Keep pure drinking water available through any natural disaster."
-          }
-        },
-        "why_3": {
-          "type": "feature_card",
-          "settings": {
-            "asset_image": "environment-01.jpg",
-            "tag": "PLASTIC-FREE PLANET",
-            "title": "Eliminate 4,000+ Bottles / Year",
-            "description": "Stop ingesting microplastics leached from plastic jugs. Each AWG prevents thousands of single-use plastic bottles from entering our oceans."
-          }
-        }
+        "why_1": { "type": "feature_card", "settings": { "asset_image": "office-02.jpg", "title": "Produce water on-site", "description": "Reduce dependence on transporting every gallon of water from somewhere else." } },
+        "why_2": { "type": "feature_card", "settings": { "asset_image": "emergency-response-02.jpg", "title": "Build water resilience", "description": "Add another potential water source where interruptions, shortages, or remote locations make water availability more difficult." } },
+        "why_3": { "type": "feature_card", "settings": { "asset_image": "environment-01.jpg", "title": "Reduce bottled water dependence", "description": "For appropriate applications, on-site generation may help decrease dependence on recurring bottled-water purchases and deliveries." } }
       },
-      "block_order": [
-        "why_1",
-        "why_2",
-        "why_3"
-      ],
+      "block_order": ["why_1", "why_2", "why_3"],
       "settings": {
-        "badge": "WHY AWG TECHNOLOGY?",
-        "heading": "Proven Resilience & Sustainability",
-        "description": "Discover why homeowners, enterprises, and remote facilities are transitioning to atmospheric water generators for unconditional water security.",
-        "pill_badge": "Pure Alkaline Hydration"
+        "heading": "Why atmospheric water generation?",
+        "subheading": "A different way to think about where water comes from",
+        "paragraph_1": "Most water systems begin with a remote source. Water may travel through wells, treatment plants, pipelines, trucks, bottles, storage tanks, or distribution infrastructure before reaching the people who use it.",
+        "paragraph_2": "Atmospheric water generation introduces another possibility: produce water closer to the point of use by utilizing moisture already present in the surrounding air."
       }
     },
     "savings_calculator": {
       "type": "savings-calculator",
       "settings": {
-        "badge": "SAVINGS CALCULATOR",
-        "heading_line1": "See How Much You Save",
-        "heading_line2": "With Atmospheric Water.",
-        "description": "Compare your current bottled water and delivery costs against AWG on-site generation at only ~$0.08 per gallon.",
-        "btn_text": "CLAIM YOUR AWG UNIT - $1,495"
+        "heading": "Do the math",
+        "description": "Compare your current bottled water and delivery costs against AWG on-site generation at only ≈5 to 9 kWh per gallon plus filters.",
+        "btn_text": "Claim your AWG unit — $1,495"
       }
     },
     "comparison_table": {
       "type": "comparison-table",
       "blocks": {
-        "row_1": {
-          "type": "row",
-          "settings": {
-            "feature": "Water Source",
-            "awg": "100% Atmospheric Air",
-            "jug": "Municipal / Well Trucks",
-            "ro": "Municipal Plumbing",
-            "tap": "Aging Pipe Grid"
-          }
-        },
-        "row_2": {
-          "type": "row",
-          "settings": {
-            "feature": "Purity & Treatment",
-            "awg": "HEPA + UV-C + Alkaline Minerals",
-            "jug": "Microplastic Leaching Risk",
-            "ro": "Acidic / Mineral Stripped",
-            "tap": "Chlorine, Lead, PFAS Risk"
-          }
-        },
-        "row_3": {
-          "type": "row",
-          "settings": {
-            "feature": "Cost Per Gallon",
-            "awg": "~$0.08 / Gal (Electric)",
-            "jug": "$1.20 - $2.50 / Gal",
-            "ro": "$0.25 - $0.50 + Wastewater",
-            "tap": "Low direct ($0.01)"
-          }
-        },
-        "row_4": {
-          "type": "row",
-          "settings": {
-            "feature": "Environmental Footprint",
-            "awg": "Zero plastic, zero water wasted",
-            "jug": "Plastic jugs, trucking emissions",
-            "ro": "Wastes 3-4 gallons per gallon produced",
-            "tap": "Chemical water processing"
-          }
-        },
-        "row_5": {
-          "type": "row",
-          "settings": {
-            "feature": "Disaster Independence",
-            "awg": "100% Self-Sustaining (Solar/Gen)",
-            "jug": "Disrupted by road closures",
-            "ro": "Fails without water line pressure",
-            "tap": "Fails during boil notices & cuts"
-          }
-        },
-        "row_6": {
-          "type": "row",
-          "settings": {
-            "feature": "Installation Required",
-            "awg": "None (Plug & Play)",
-            "jug": "Heavy 42 lb lifting each week",
-            "ro": "Under-sink plumbing required",
-            "tap": "Municipal connection"
-          }
-        }
+        "row_1": { "type": "row", "settings": { "feature": "Source", "awg": "Ambient air", "municipal": "Surface / groundwater", "well": "Groundwater", "bottled": "Varies (bottling plant)" } },
+        "row_2": { "type": "row", "settings": { "feature": "Produced on-site", "awg": "Yes", "municipal": "No", "well": "Yes", "bottled": "No" } },
+        "row_3": { "type": "row", "settings": { "feature": "Requires plumbing", "awg": "None for standup model", "municipal": "Yes", "well": "Yes", "bottled": "No" } },
+        "row_4": { "type": "row", "settings": { "feature": "Climate dependent", "awg": "Yes (humidity and temp)", "municipal": "Generally no", "well": "Generally no", "bottled": "No" } },
+        "row_5": { "type": "row", "settings": { "feature": "Requires electricity", "awg": "Yes (≈5–9 kWh/gal)", "municipal": "Infrastructure dependent", "well": "Usually (pump)", "bottled": "No at point of use" } },
+        "row_6": { "type": "row", "settings": { "feature": "Treatment", "awg": "Multi-barrier (system dependent)", "municipal": "Utility managed", "well": "Property dependent", "bottled": "Supplier managed" } },
+        "row_7": { "type": "row", "settings": { "feature": "Storage", "awg": "Yes (internal and external)", "municipal": "Yes", "well": "Yes", "bottled": "Yes" } }
       },
-      "block_order": [
-        "row_1",
-        "row_2",
-        "row_3",
-        "row_4",
-        "row_5",
-        "row_6"
-      ],
+      "block_order": ["row_1", "row_2", "row_3", "row_4", "row_5", "row_6", "row_7"],
       "settings": {
-        "badge": "TECHNOLOGY COMPARISON",
-        "heading_line1": "How AWG Outperforms",
-        "heading_line2": "Every Alternative.",
-        "description": "See why atmospheric water generation delivers superior purity, lower operating costs, and true resilience compared to conventional drinking water sources."
+        "heading": "An honest comparison",
+        "description": "How atmospheric water generation compares with conventional water sources across critical operational criteria.",
+        "conclusion_note": "No single water source is best for every situation. Municipal systems remain highly practical where reliable infrastructure exists, while wells can be appropriate where suitable groundwater is available. Atmospheric water generation becomes especially interesting when water independence, distributed production, resilience, remote access, or reduced dependence on delivered water becomes a priority."
       }
     },
     "faq_accordion": {
       "type": "faq-accordion",
       "blocks": {
-        "faq_1": {
-          "type": "faq_item",
-          "settings": {
-            "question": "How much water does an AWG generate each day?",
-            "answer": "Output depends on ambient humidity and temperature. Under average indoor conditions (50-70% relative humidity, 70-85°F), the residential countertop/freestanding unit produces between 4 to 8 gallons (15 to 30 liters) of pure water daily—plenty for a family or office break room."
-          }
-        },
-        "faq_2": {
-          "type": "faq_item",
-          "settings": {
-            "question": "What relative humidity level is required for operation?",
-            "answer": "Our systems operate effectively between 30% and 95% relative humidity. In very dry desert conditions (below 25-30% humidity), output decreases, while in typical humid climates and coastal areas, production runs at maximum peak efficiency."
-          }
-        },
-        "faq_3": {
-          "type": "faq_item",
-          "settings": {
-            "question": "How loud is the unit during active condensation?",
-            "answer": "Sound levels range between 42 and 48 dB during active cooling, similar to a quiet household refrigerator or premium air purifier. Once the internal holding tank is full, the unit automatically switches into silent standby mode."
-          }
-        },
-        "faq_4": {
-          "type": "faq_item",
-          "settings": {
-            "question": "How much electricity does it consume?",
-            "answer": "The unit operates on standard 110V/120V household outlets (consuming ~350-450W during active condensation). Average cost of electrical power per gallon produced is approximately $0.08 to $0.12—a 90%+ discount compared to purchasing bottled water."
-          }
-        },
-        "faq_5": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Does the machine generate heat in the room?",
-            "answer": "Like any refrigeration system, the compressor exhausts mildly warm air from the back vents while extracting moisture. In rooms with ordinary ventilation or air conditioning, temperature variation is barely noticeable."
-          }
-        },
-        "faq_6": {
-          "type": "faq_item",
-          "settings": {
-            "question": "How often do filters need to be changed?",
-            "answer": "The external HEPA air mesh is easily rinsed under a faucet every 2-3 months. Internal carbon block and remineralization cartridges last 6 to 12 months, and the UV-C LED sterilization lamp is rated for 30,000+ operating hours."
-          }
-        },
-        "faq_7": {
-          "type": "faq_item",
-          "settings": {
-            "question": "What is the warranty and return policy?",
-            "answer": "Every unit includes a comprehensive 1-Year Manufacturer Warranty covering parts and labor, plus a 30-Day In-Home Satisfaction Guarantee. If you are not completely satisfied with water purity and performance, contact us for an easy return."
-          }
-        },
-        "faq_8": {
-          "type": "faq_item",
-          "settings": {
-            "question": "How does AWG water taste compared to bottled water?",
-            "answer": "Exceptionally crisp, sweet, and pure. Unlike distilled or reverse osmosis water which tastes flat and acidic, our remineralization cartridge infuses natural calcium and magnesium ions to yield an ideal alkaline pH of 7.2 to 7.6."
-          }
-        }
+        "faq_1": { "type": "faq_item", "settings": { "question": "How much water will I get?", "answer": "Up to 5.5 gal/day depending on your climate. Most owners pour 1 to 3 pitchers." } },
+        "faq_2": { "type": "faq_item", "settings": { "question": "How loud is it?", "answer": "You'll hear it in the room, not the next room. Many owners run it overnight." } },
+        "faq_3": { "type": "faq_item", "settings": { "question": "What does it cost to run?", "answer": "≈5 to 9 kWh per gallon plus filters. Your rate sets the price; see the math above." } },
+        "faq_4": { "type": "faq_item", "settings": { "question": "Does it heat the room?", "answer": "It vents warm air like a large dehumidifier. Summer: run overnight. Winter: free heat." } },
+        "faq_5": { "type": "faq_item", "settings": { "question": "What are the filters?", "answer": "Two, swapped every 3 months, under 2 minutes, no tools. $99 per 6-month box." } },
+        "faq_6": { "type": "faq_item", "settings": { "question": "What if it breaks?", "answer": "1-year warranty, real phone support: (213) 335-2121. Terms on the product page." } },
+        "faq_7": { "type": "faq_item", "settings": { "question": "Can I return it?", "answer": "30-day money-back guarantee from the day it arrives." } },
+        "faq_8": { "type": "faq_item", "settings": { "question": "What does it taste like?", "answer": "Alkaline, mineralized. 93% of surveyed owners rate the taste good or excellent." } }
       },
-      "block_order": [
-        "faq_1",
-        "faq_2",
-        "faq_3",
-        "faq_4",
-        "faq_5",
-        "faq_6",
-        "faq_7",
-        "faq_8"
-      ],
+      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4", "faq_5", "faq_6", "faq_7", "faq_8"],
       "settings": {
-        "badge": "FREQUENTLY ASKED QUESTIONS",
-        "heading": "Everything You Need to Know.",
-        "description": "Clear answers about operation, climate requirements, filtration, and warranties."
+        "heading": "Frequently asked questions",
+        "description": "Everything you need to know about generating pure drinking water from ambient air."
       }
-    },
-    "purification_8stage": {
-      "type": "purification-8stage",
-      "settings": {}
-    },
-    "lead_selector": {
-      "type": "lead-selector",
-      "settings": {}
     },
     "cta_banner": {
       "type": "cta-banner",
       "settings": {
-        "badge": "LIMITED TIME OFFER • SAVE $500",
-        "heading": "Ready to Generate Pure Water From Your Own Air?",
-        "description": "Special Launch Pricing: $1,495 (Original $1,995). Units in stock and ship immediately with 1-Year Warranty.",
-        "btn_text": "ORDER NOW - $1,495",
+        "badge": "In stock · Ships immediately",
+        "heading": "Order an air to water generator",
+        "description": "$1,495 — $500 below the $1,995 list price. Ships immediately. 1-year warranty.",
+        "btn_text": "Order now",
         "phone_number": "(213) 335-2121"
       }
     }
@@ -462,13 +158,10 @@
     "trust_badges",
     "how_it_works",
     "what_is_awg",
-    "stats_counter",
     "applications_grid",
     "why_awg",
-    "purification_8stage",
     "savings_calculator",
     "comparison_table",
-    "lead_selector",
     "faq_accordion",
     "cta_banner"
   ]
