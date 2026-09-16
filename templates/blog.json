@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-blog",
+      "settings": {}
+    },
+    "cta": {
+      "type": "cta-banner",
+      "settings": {
+        "heading": "Ready to Generate Pure Water from Air?"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "cta"
+  ]
+}

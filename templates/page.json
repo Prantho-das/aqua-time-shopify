@@ -1,5 +1,12 @@
 {
   "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "badge": "Aqua-Time Official",
+        "subtitle": "Official resources, verified documentation, and guidelines for atmospheric water generation."
+      }
+    },
     "cta": {
       "type": "cta-banner",
       "settings": {
@@ -8,6 +15,7 @@
     }
   },
   "order": [
+    "main",
     "cta"
   ]
 }

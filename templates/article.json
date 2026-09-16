@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-article",
+      "settings": {}
+    },
+    "cta": {
+      "type": "cta-banner",
+      "settings": {
+        "heading": "Experience Atmospheric Water Generation"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "cta"
+  ]
+}
