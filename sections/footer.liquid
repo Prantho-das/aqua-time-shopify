@@ -87,11 +87,11 @@
           </li>
           <li class="flex items-center gap-2">
             {% render 'icon', name: 'phone', class: 'w-3.5 h-3.5 text-[#43a5ff] shrink-0' %}
-            <a href="tel:{{ section.settings.phone | replace: ' ', '' | replace: '(', '' | replace: ')', '' | replace: '-', '' }}" class="hover:text-white transition-colors">{{ section.settings.phone | default: '(213) 335-2121' }}</a>
+            <a href="tel:{{ section.settings.phone | replace: ' ', '' | replace: '(', '' | replace: ')', '' | replace: '-', '' }}" class="hover:text-white transition-colors">{{ section.settings.phone | default: '(123) 456-7890' }}</a>
           </li>
           <li class="flex items-center gap-2">
             {% render 'icon', name: 'mail', class: 'w-3.5 h-3.5 text-[#43a5ff] shrink-0' %}
-            <a href="mailto:{{ section.settings.email | default: 'contactus@watergen.com' }}" class="hover:text-white transition-colors break-all">{{ section.settings.email | default: 'contactus@watergen.com' }}</a>
+            <a href="mailto:{{ section.settings.email | default: 'contact@airtowatergenerators.com' }}" class="hover:text-white transition-colors break-all">{{ section.settings.email | default: 'contact@airtowatergenerators.com' }}</a>
           </li>
         </ul>
       </div>
@@ -190,13 +190,13 @@
       "type": "text",
       "id": "phone",
       "label": "Phone",
-      "default": "(213) 335-2121"
+      "default": "(123) 456-7890"
     },
     {
       "type": "text",
       "id": "email",
       "label": "Email",
-      "default": "orders@airtowatergenerators.com"
+      "default": "contact@airtowatergenerators.com"
     }
   ]
 }
