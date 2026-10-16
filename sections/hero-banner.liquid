@@ -38,28 +38,45 @@
           {{ section.settings.tagline | default: 'No plumbing. No plastic bottles. No problem.' }}
         </p>
         <p class="text-[#088ae3] text-sm font-semibold">
-          {{ section.settings.sub_tagline | default: 'Up to 5.5 gallons a day from the air' }}
+          {{ section.settings.sub_tagline | default: 'Up to 5 gallons a day from the air' }}
         </p>
       </div>
 
+      {%- assign hero_product = all_products['hydrocell-standup'] -%}
       <div class="inline-flex flex-wrap items-center gap-3 bg-white border border-[#e2f0f9] px-4 py-2.5 rounded-xl">
         <div class="flex items-baseline gap-2">
-          <span class="text-2xl font-extrabold text-[#173b57] font-heading">{{ section.settings.price | default: '$1,495' }}</span>
-          <span class="line-through text-slate-400 text-sm font-medium">{{ section.settings.compare_price | default: '$1,995' }}</span>
+          <span class="text-2xl font-extrabold text-[#173b57] font-heading">
+            {%- if hero_product != blank -%}
+              {{ hero_product.price | money_without_trailing_zeros }}
+            {%- else -%}
+              {{ section.settings.price | default: '$1,495' }}
+            {%- endif -%}
+          </span>
+          <span class="line-through text-slate-400 text-sm font-medium">
+            {%- if hero_product != blank and hero_product.compare_at_price > hero_product.price -%}
+              {{ hero_product.compare_at_price | money_without_trailing_zeros }}
+            {%- else -%}
+              {{ section.settings.compare_price | default: '$1,995' }}
+            {%- endif -%}
+          </span>
         </div>
         <span class="bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide">
-          {{ section.settings.save_tag | default: '$500 off' }}
+          {%- if hero_product != blank and hero_product.compare_at_price > hero_product.price -%}
+            {{ hero_product.compare_at_price | minus: hero_product.price | money_without_trailing_zeros }} off
+          {%- else -%}
+            {{ section.settings.save_tag | default: '$500 off' }}
+          {%- endif -%}
         </span>
       </div>
 
       <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
         <button class="open-quote-modal btn-primary">
-          {{ section.settings.btn_primary_text | default: 'Order your generator' }}
+          {{ section.settings.btn_primary_text | default: 'Order now' }}
         </button>
         
-        <a href="/pages/contact" class="btn-secondary">
-          {% render 'icon', name: 'phone-call', class: 'w-4 h-4 text-[#088ae3]' %}
-          {{ section.settings.btn_secondary_text | default: 'Talk to an expert' }}
+        <a href="/pages/contact?interest=demo" class="btn-secondary">
+          {% render 'icon', name: 'calendar', class: 'w-4 h-4 text-[#088ae3]' %}
+          {{ section.settings.btn_secondary_text | default: 'Book a demo' }}
         </a>
 
         <a href="/pages/lab-report" class="text-[#4a6177] hover:text-[#088ae3] text-[13px] font-semibold px-2 py-3 transition-colors">
@@ -161,7 +178,7 @@
       "type": "text",
       "id": "sub_tagline",
       "label": "Sub Tagline",
-      "default": "Up to 5.5 gallons a day from the air"
+      "default": "Up to 5 gallons a day from the air"
     },
     {
       "type": "text",
@@ -236,8 +253,8 @@
     {
       "name": "Hero Banner",
       "blocks": [
-        { "type": "feature", "settings": { "icon": "droplets", "title": "30–95% humidity", "description": "Consistent generation in diverse climates" } },
-        { "type": "feature", "settings": { "icon": "shield-check", "title": "Multi-stage purified", "description": "UV-C sterilization and mineral enrichment" } },
+        { "type": "feature", "settings": { "icon": "droplets", "title": "25% humidity and up", "description": "Consistent generation in diverse climates" } },
+        { "type": "feature", "settings": { "icon": "shield-check", "title": "Multi-stage purified", "description": "UV treated and mineral enrichment" } },
         { "type": "feature", "settings": { "icon": "zap", "title": "Plug and produce", "description": "No plumbing or drain lines needed" } },
         { "type": "feature", "settings": { "icon": "badge-dollar-sign", "title": "Save $1,200+/yr", "description": "Eliminate jug delivery and bottles" } }
       ]

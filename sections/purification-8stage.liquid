@@ -9,13 +9,12 @@
         {{ section.settings.heading | default: 'From Air To Glass: The Purification Process' }}
       </h2>
       <p class="mt-4 text-sm sm:text-base text-[#4a6177] leading-relaxed max-w-2xl mx-auto">
-        {{ section.settings.description | default: 'Every drop produced by our Atmospheric Water Generators undergoes an advanced 8-stage physical, molecular, and ultraviolet purification cycle for ultra-clean, mineralized alkaline water.' }}
+        {{ section.settings.description | default: 'Every drop produced by our Atmospheric Water Generators undergoes an advanced cycle: 8 stages of filtration and UV light, then light mineralization for taste.' }}
       </p>
     </div>
 
-    <!-- 8 Stages Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      {%- assign default_stages = "01|Air Filter|Traps dust, pollen, and large atmospheric particulates before moisture collection.|wind|Dust & Airborne Particulates,02|Softening Filter|Removes excess hardness minerals to optimize internal efficiency and mouthfeel.|sparkles|Hardness & Scale Reduction,03|Sediment Filter|Multi-layer physical micro-filtration removing particles down to 5 microns.|filter|Micro-particulates (>5µm),04|Ultrafiltration Membrane|Medical-grade capillary membrane blocking sub-micron suspended matter.|shield-check|Sub-micron solids (>0.01µm),05|Pre-Carbon Filter|High-density activated carbon block absorbs chlorine, pesticides, odors, and VOCs.|activity|Chlorine, VOCs & Taste,06|Electropositive Matrix|Advanced charged nanofiber matrix capturing viruses, bacteria, and pharmaceuticals.|zap|Microbial & Trace Organics,07|LED-UV (Lower Tank)|Continuous germicidal UV-C sterilization preventing any biofilm in storage.|sun|Tank Biofilm Protection,08|LED-UV (Dispense)|Final UV-C sterilization barrier ensuring pristine, fresh water at point of pour.|droplets|Instant Dispense Purity" | split: "," -%}
+      {%- assign default_stages = "01|Air Filter|Traps dust, pollen, and large atmospheric particulates before moisture collection.|wind|Dust & Airborne Particulates,02|UV Light (Lower)|UV light treats collected water before filtration.|sun|Lower Tank Treatment,03|Softening Filter|Removes excess hardness minerals to optimize internal efficiency and mouthfeel.|sparkles|Hardness & Scale Reduction,04|Sediment Filter|Multi-layer physical micro-filtration removing particles down to 5 microns.|filter|Micro-particulates (>5µm),05|Ultrafiltration Membrane|Ultra-fine membrane that blocks sub-micron particles.|shield-check|Sub-micron solids (>0.01µm),06|Pre-Carbon Filter|High-density activated carbon block absorbs chlorine, pesticides, odors, and VOCs.|activity|Chlorine, VOCs & Taste,07|Electropositive Matrix|Advanced charged membrane capturing fine particles and trace organics.|zap|Microbial & Trace Organics,08|UV Light (Upper)|UV light treats the water again before dispensing.|droplets|Instant Dispense Purity" | split: "," -%}
 
       {% if section.blocks.size > 0 %}
         {% for block in section.blocks %}
@@ -71,25 +70,17 @@
       {% endif %}
     </div>
 
-    <!-- Summary Box -->
-    <div class="mt-12 bg-white rounded-3xl p-6 sm:p-8 border border-[#d9f1fc] shadow-sm flex flex-col lg:flex-row items-center justify-between gap-6">
-      <div class="flex items-center gap-4">
-        <div class="w-12 h-12 rounded-2xl bg-[#eff9fd] text-[#088ae3] shrink-0 flex items-center justify-center font-bold text-xl">
-          {% render 'icon', name: 'check-circle', class: 'w-6 h-6' %}
-        </div>
-        <div>
-          <h4 class="font-heading text-base font-bold text-[#173b57]">EPA Assessed Multi-Barrier Methodology</h4>
-          <p class="text-xs sm:text-sm text-[#4a6177]">Complete barrier design combines physical HEPA air filtration, condensation, high-grade carbon, UV-C disinfection, and remineralization.</p>
-        </div>
-      </div>
-      <div class="flex items-center gap-3 shrink-0 w-full sm:w-auto">
-        <a href="/pages/water-quality" class="w-full sm:w-auto text-center px-5 py-2.5 rounded-xl border border-[#088ae3] text-[#088ae3] hover:bg-[#eff9fd] text-xs font-bold transition-all">
-          VIEW LAB REPORTS
-        </a>
-        <button class="open-quote-modal w-full sm:w-auto text-center px-6 py-2.5 rounded-xl btn-primary text-xs font-bold transition-all" aria-haspopup="dialog">
-          ORDER HYDROCELL™
-        </button>
-      </div>
+    <div class="mt-6 text-center text-xs sm:text-sm font-semibold text-[#173b57] bg-white rounded-2xl py-3.5 px-6 border border-[#d9f1fc] shadow-xs max-w-2xl mx-auto">
+      After filtration, water is lightly mineralized with sodium and potassium (about 50 TDS).
+    </div>
+
+    <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+      <a href="/pages/water-quality" class="text-center px-6 py-3 rounded-xl border border-[#088ae3] text-[#088ae3] hover:bg-[#eff9fd] text-xs font-bold transition-all">
+        VIEW LAB REPORTS
+      </a>
+      <button class="open-quote-modal text-center px-7 py-3 rounded-xl btn-primary text-xs font-bold transition-all" aria-haspopup="dialog">
+        ORDER HYDROCELL™
+      </button>
     </div>
   </div>
 </section>

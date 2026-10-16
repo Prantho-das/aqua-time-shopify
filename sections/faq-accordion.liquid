@@ -31,64 +31,63 @@
           </div>
         {% endfor %}
       {% else %}
-        <!-- Default Built-in Questions when blocks not yet assigned -->
         <div class="faq-item border border-[#d9f1fc] rounded-2xl overflow-hidden bg-[#f8fcfd] hover:border-[#088ae3]/40 transition-colors">
           <button class="faq-toggle w-full flex items-center justify-between p-4 sm:p-5 text-left font-heading font-bold text-[15px] text-[#173b57]" aria-expanded="false" aria-controls="faq-def-1">
-            <span>How much water does an atmospheric water generator produce daily?</span>
+            <span>How much water does it make per day?</span>
             <span class="faq-icon transition-transform duration-200 text-[#088ae3] shrink-0 ml-3">
               {% render 'icon', name: 'chevron-down', class: 'w-4 h-4' %}
             </span>
           </button>
           <div id="faq-def-1" class="faq-content hidden px-5 pb-5 text-sm text-[#4a6177] leading-relaxed border-t border-[#d9f1fc] pt-3 bg-white">
-            Standard residential standalone units generate up to 5.5 gallons (20 liters) per day depending on ambient humidity and temperature. Commercial units scale from 50 to 5,000+ liters daily.
+            Up to about 5 gallons per day at 80% RH and 86°F. RH 80 to 90%, 77 to 86°F: about 4.0 to 6.7 gal/day. RH 50 to 80%, 68 to 86°F: about 1.8 to 5.3 gal/day. RH 30 to 50%, 68 to 86°F: about 1.0 to 2.4 gal/day. For best results, run overnight and place where indoor humidity is highest.
           </div>
         </div>
 
         <div class="faq-item border border-[#d9f1fc] rounded-2xl overflow-hidden bg-[#f8fcfd] hover:border-[#088ae3]/40 transition-colors">
           <button class="faq-toggle w-full flex items-center justify-between p-4 sm:p-5 text-left font-heading font-bold text-[15px] text-[#173b57]" aria-expanded="false" aria-controls="faq-def-2">
-            <span>Does it require plumbing or drain line installation?</span>
+            <span>Is the water safe?</span>
             <span class="faq-icon transition-transform duration-200 text-[#088ae3] shrink-0 ml-3">
               {% render 'icon', name: 'chevron-down', class: 'w-4 h-4' %}
             </span>
           </button>
           <div id="faq-def-2" class="faq-content hidden px-5 pb-5 text-sm text-[#4a6177] leading-relaxed border-t border-[#d9f1fc] pt-3 bg-white">
-            No. Our standalone and countertop machines are 100% plug-and-produce. Simply plug into a standard 110V electrical wall outlet and the machine begins extracting atmospheric humidity.
+            Yes. Independent lab testing shows HydroCell water meets U.S. EPA standards, with PFAS, lead and microplastics not detected, and the unit is CE and IEC tested. Water is condensed from the air, run through 8-stage filtration with dual UV, and lightly mineralized.
           </div>
         </div>
 
         <div class="faq-item border border-[#d9f1fc] rounded-2xl overflow-hidden bg-[#f8fcfd] hover:border-[#088ae3]/40 transition-colors">
           <button class="faq-toggle w-full flex items-center justify-between p-4 sm:p-5 text-left font-heading font-bold text-[15px] text-[#173b57]" aria-expanded="false" aria-controls="faq-def-3">
-            <span>What are the operating costs and electrical consumption?</span>
+            <span>What maintenance is required?</span>
             <span class="faq-icon transition-transform duration-200 text-[#088ae3] shrink-0 ml-3">
               {% render 'icon', name: 'chevron-down', class: 'w-4 h-4' %}
             </span>
           </button>
           <div id="faq-def-3" class="faq-content hidden px-5 pb-5 text-sm text-[#4a6177] leading-relaxed border-t border-[#d9f1fc] pt-3 bg-white">
-            Electricity consumption averages ≈5 to 9 kWh per gallon of water generated. At typical US electricity rates ($0.14/kWh), cost is approximately $0.08 to $0.15 per gallon — far less than delivered bottled water.
+            Wipe dust from the air intake. Replace the filter kits roughly every 6 months. Routine cleaning. The unit reminds you when to replace filters; resets are on-screen.
           </div>
         </div>
 
         <div class="faq-item border border-[#d9f1fc] rounded-2xl overflow-hidden bg-[#f8fcfd] hover:border-[#088ae3]/40 transition-colors">
           <button class="faq-toggle w-full flex items-center justify-between p-4 sm:p-5 text-left font-heading font-bold text-[15px] text-[#173b57]" aria-expanded="false" aria-controls="faq-def-4">
-            <span>Is the air-generated water safe and purified?</span>
+            <span>How much power does it use?</span>
             <span class="faq-icon transition-transform duration-200 text-[#088ae3] shrink-0 ml-3">
               {% render 'icon', name: 'chevron-down', class: 'w-4 h-4' %}
             </span>
           </button>
           <div id="faq-def-4" class="faq-content hidden px-5 pb-5 text-sm text-[#4a6177] leading-relaxed border-t border-[#d9f1fc] pt-3 bg-white">
-            Yes. Every drop undergoes an 8-stage physical, molecular, and ultraviolet purification cycle including HEPA air filtration, carbon blocks, UV-C sterilization, and alkaline mineralization. Third-party testing confirms zero detectable PFAS or heavy metals.
+            Water production about 300W; hot tank about 500W when heating. That's about 1.6 kWh per gallon, roughly $0.29 a gallon at the U.S. average electricity rate, plus two filter kits a year. Cold-only operation for more efficient power use.
           </div>
         </div>
 
         <div class="faq-item border border-[#d9f1fc] rounded-2xl overflow-hidden bg-[#f8fcfd] hover:border-[#088ae3]/40 transition-colors">
           <button class="faq-toggle w-full flex items-center justify-between p-4 sm:p-5 text-left font-heading font-bold text-[15px] text-[#173b57]" aria-expanded="false" aria-controls="faq-def-5">
-            <span>What maintenance and filter changes are required?</span>
+            <span>Shipping, financing and warranty?</span>
             <span class="faq-icon transition-transform duration-200 text-[#088ae3] shrink-0 ml-3">
               {% render 'icon', name: 'chevron-down', class: 'w-4 h-4' %}
             </span>
           </button>
           <div id="faq-def-5" class="faq-content hidden px-5 pb-5 text-sm text-[#4a6177] leading-relaxed border-t border-[#d9f1fc] pt-3 bg-white">
-            Filter cartridges are easily swapped in under 2 minutes with no tools required. Air filters are replaced every 6 months, and water mineralizing cartridges annually.
+            Ships directly from our certified partner facilities. Typical delivery 7 to 10 days with tracking. Financing from about $100/month via Shop Pay and Affirm (subject to approval). Warranty: 1-Year Warranty · 3-Year Core Parts (compressor, condenser, evaporator, water tanks, fans). Defective components are replaced free of charge; labor is not included. Unopened units can be returned within 7 days of delivery. See our Warranty & Refund Policy.
           </div>
         </div>
       {% endif %}
@@ -111,8 +110,8 @@
       "type": "faq_item",
       "name": "FAQ Item",
       "settings": [
-        { "type": "text", "id": "question", "label": "Question", "default": "How much water will I get?" },
-        { "type": "textarea", "id": "answer", "label": "Answer", "default": "Up to 5.5 gal/day depending on your climate. Most owners pour 1 to 3 pitchers." }
+        { "type": "text", "id": "question", "label": "Question", "default": "How much water does it make per day?" },
+        { "type": "textarea", "id": "answer", "label": "Answer", "default": "Up to about 5 gallons per day at 80% RH and 86°F." }
       ]
     }
   ],
@@ -120,14 +119,15 @@
     {
       "name": "FAQ Accordion",
       "blocks": [
-        { "type": "faq_item", "settings": { "question": "How much water will I get?", "answer": "Up to 5.5 gal/day depending on your climate. Most owners pour 1 to 3 pitchers." } },
-        { "type": "faq_item", "settings": { "question": "How loud is it?", "answer": "You'll hear it in the room, not the next room. Many owners run it overnight." } },
-        { "type": "faq_item", "settings": { "question": "What does it cost to run?", "answer": "≈5 to 9 kWh per gallon plus filters. Your rate sets the price; see the math above." } },
-        { "type": "faq_item", "settings": { "question": "Does it heat the room?", "answer": "It vents warm air like a large dehumidifier. Summer: run overnight. Winter: free heat." } },
-        { "type": "faq_item", "settings": { "question": "What are the filters?", "answer": "Two, swapped every 3 months, under 2 minutes, no tools. $99 per 6-month box." } },
-        { "type": "faq_item", "settings": { "question": "What if it breaks?", "answer": "1-year warranty, real phone support: (123) 456-7890. Terms on the product page." } },
-        { "type": "faq_item", "settings": { "question": "Can I return it?", "answer": "30-day money-back guarantee from the day it arrives." } },
-        { "type": "faq_item", "settings": { "question": "What does it taste like?", "answer": "Alkaline, mineralized. 93% of surveyed owners rate the taste good or excellent." } }
+        { "type": "faq_item", "settings": { "question": "How do I set it up?", "answer": "Plug into a standard outlet. Power on and let it fill. No plumbing. Setup time about 5 minutes. Depending on location, takes up to 24 hours to fill completely (about 5 gallons of storage). Optional first-use flush: fill, let it reach three-quarters full, then drain the two rear outlets once." } },
+        { "type": "faq_item", "settings": { "question": "How much water does it make per day?", "answer": "Up to about 5 gallons per day at 80% RH and 86°F. RH 80 to 90%, 77 to 86°F: about 4.0 to 6.7 gal/day. RH 50 to 80%, 68 to 86°F: about 1.8 to 5.3 gal/day. RH 30 to 50%, 68 to 86°F: about 1.0 to 2.4 gal/day. For best results, run overnight and place where indoor humidity is highest." } },
+        { "type": "faq_item", "settings": { "question": "What does the water taste like?", "answer": "Clean, fresh, lightly mineralized. Cold or hot on demand. \"This is the best water I've ever tasted.\" Kansas City customer." } },
+        { "type": "faq_item", "settings": { "question": "Is the water safe?", "answer": "Yes. Independent lab testing shows HydroCell water meets U.S. EPA standards, with PFAS, lead and microplastics not detected, and the unit is CE and IEC tested. Water is condensed from the air, run through 8-stage filtration with dual UV, and lightly mineralized." } },
+        { "type": "faq_item", "settings": { "question": "What maintenance is required?", "answer": "Wipe dust from the air intake. Replace the filter kits roughly every 6 months. Routine cleaning. The unit reminds you when to replace filters; resets are on-screen." } },
+        { "type": "faq_item", "settings": { "question": "How much power does it use?", "answer": "Water production about 300W; hot tank about 500W when heating. That's about 1.6 kWh per gallon, roughly $0.29 a gallon at the U.S. average electricity rate, plus two filter kits a year. Cold-only operation for more efficient power use." } },
+        { "type": "faq_item", "settings": { "question": "How loud is it?", "answer": "Indoor-appliance quiet. Fan and compressor sounds similar to a modern refrigerator in cooling mode. Place on a level surface." } },
+        { "type": "faq_item", "settings": { "question": "Shipping, financing and warranty?", "answer": "Ships directly from our certified partner facilities. Typical delivery 7 to 10 days with tracking. Financing from about $100/month via Shop Pay and Affirm (subject to approval). Warranty: 1-Year Warranty · 3-Year Core Parts (compressor, condenser, evaporator, water tanks, fans). Defective components are replaced free of charge; labor is not included. Unopened units can be returned within 7 days of delivery. See our Warranty & Refund Policy." } },
+        { "type": "faq_item", "settings": { "question": "Manufacturing tests and certifications?", "answer": "Proven manufacturing (CE and IEC). Built to leading international standards and third-party verified by CGS Test and BST Labs. Water you can trust: independent testing shows HydroCell water meets U.S. EPA standards; PFAS, lead and microplastics were not detected. Performance as advertised: output is tested, validated and published in the temperature and humidity table. Everyday safeguards: closed stainless tanks, multi-stage filtration with dual UV, automatic recirculation, on-screen maintenance reminders." } }
       ]
     }
   ]

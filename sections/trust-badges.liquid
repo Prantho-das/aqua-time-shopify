@@ -20,7 +20,7 @@
                   <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
                   <path d="M2 12h20"/>
                 </svg>
-              {% when 'hepa' %}
+              {% when 'filter' %}
                 <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
                 </svg>
@@ -78,9 +78,9 @@
           "label": "Icon Type",
           "options": [
             { "value": "epa", "label": "EPA Shield" },
-            { "value": "who", "label": "WHO Globe" },
-            { "value": "hepa", "label": "HEPA Cloud" },
-            { "value": "uvc", "label": "UV-C Rays" },
+            { "value": "who", "label": "Testing / Standards" },
+            { "value": "filter", "label": "8-Stage Filtration" },
+            { "value": "uvc", "label": "UV Treated" },
             { "value": "solar", "label": "Solar Sun" },
             { "value": "warranty", "label": "Warranty Star" }
           ],
@@ -90,7 +90,7 @@
           "type": "text",
           "id": "title",
           "label": "Badge Text",
-          "default": "EPA Standards"
+          "default": "Meets EPA Standards"
         }
       ]
     }
@@ -99,10 +99,10 @@
     {
       "name": "Trust Badges",
       "blocks": [
-        { "type": "badge", "settings": { "icon_type": "epa", "title": "EPA Standards" } },
-        { "type": "badge", "settings": { "icon_type": "who", "title": "WHO Compliant" } },
-        { "type": "badge", "settings": { "icon_type": "hepa", "title": "HEPA Air Filter" } },
-        { "type": "badge", "settings": { "icon_type": "uvc", "title": "UV-C Sterilized" } },
+        { "type": "badge", "settings": { "icon_type": "epa", "title": "Meets EPA Standards" } },
+        { "type": "badge", "settings": { "icon_type": "who", "title": "CE & IEC Tested" } },
+        { "type": "badge", "settings": { "icon_type": "filter", "title": "8-Stage Filtration" } },
+        { "type": "badge", "settings": { "icon_type": "uvc", "title": "UV Treated" } },
         { "type": "badge", "settings": { "icon_type": "solar", "title": "Solar / Grid Ready" } },
         { "type": "badge", "settings": { "icon_type": "warranty", "title": "1-Year Warranty" } }
       ]

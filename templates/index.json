@@ -3,8 +3,8 @@
     "hero_banner": {
       "type": "hero-banner",
       "blocks": {
-        "feature_1": { "type": "feature", "settings": { "icon": "droplets", "title": "30–95% humidity", "description": "Consistent generation in diverse climates" } },
-        "feature_2": { "type": "feature", "settings": { "icon": "shield-check", "title": "Multi-stage purified", "description": "UV-C sterilization and mineral enrichment" } },
+        "feature_1": { "type": "feature", "settings": { "icon": "droplets", "title": "25% humidity and up", "description": "Consistent generation in diverse climates" } },
+        "feature_2": { "type": "feature", "settings": { "icon": "shield-check", "title": "Multi-stage purified", "description": "UV treated and mineral enrichment" } },
         "feature_3": { "type": "feature", "settings": { "icon": "zap", "title": "Plug and produce", "description": "No plumbing or drain lines needed" } },
         "feature_4": { "type": "feature", "settings": { "icon": "badge-dollar-sign", "title": "Save $1,200+/yr", "description": "Eliminate jug delivery and bottles" } }
       },
@@ -16,23 +16,23 @@
         "heading_line1": "Generate Water From the Air in Your",
         "rotating_words": "Home, Office, Kitchen, Shop, Cabin, Factory, Break Room",
         "tagline": "No plumbing. No plastic bottles. No problem.",
-        "sub_tagline": "Up to 5.5 gallons a day from the air",
+        "sub_tagline": "Up to 5 gallons a day from the air",
         "price": "$1,495",
         "compare_price": "$1,995",
         "save_tag": "$500 off",
         "shipping_note": "Ships immediately",
-        "btn_primary_text": "Order your generator",
-        "btn_secondary_text": "Talk to an expert",
+        "btn_primary_text": "Order now",
+        "btn_secondary_text": "Book a demo",
         "btn_tertiary_text": "Read lab report"
       }
     },
     "trust_badges": {
       "type": "trust-badges",
       "blocks": {
-        "badge_1": { "type": "badge", "settings": { "icon_type": "epa", "title": "EPA Standards" } },
-        "badge_2": { "type": "badge", "settings": { "icon_type": "who", "title": "WHO Compliant" } },
-        "badge_3": { "type": "badge", "settings": { "icon_type": "hepa", "title": "HEPA Air Filter" } },
-        "badge_4": { "type": "badge", "settings": { "icon_type": "uvc", "title": "UV-C Sterilized" } },
+        "badge_1": { "type": "badge", "settings": { "icon_type": "epa", "title": "Meets EPA Standards" } },
+        "badge_2": { "type": "badge", "settings": { "icon_type": "who", "title": "CE & IEC Tested" } },
+        "badge_3": { "type": "badge", "settings": { "icon_type": "filter", "title": "8-Stage Filtration" } },
+        "badge_4": { "type": "badge", "settings": { "icon_type": "uvc", "title": "UV Treated" } },
         "badge_5": { "type": "badge", "settings": { "icon_type": "solar", "title": "Solar / Grid Ready" } },
         "badge_6": { "type": "badge", "settings": { "icon_type": "warranty", "title": "1-Year Warranty" } }
       },
@@ -47,16 +47,15 @@
         "heading": "Air in. Water out.",
         "description": "Atmospheric water generation condenses airborne moisture and purifies it through multiple barrier stages into crisp, fresh water.",
         "step1_title": "Air enters the system",
-        "step1_desc": "The system pulls in outside air and filters out dust and other particles before collecting moisture.",
+        "step1_desc": "The system pulls in ambient air and filters out dust before collecting moisture.",
         "step2_title": "Moisture is condensed",
         "step2_desc": "The system cools humid air until the moisture turns into liquid water that can be collected.",
         "step3_title": "Water is treated",
-        "step3_desc": "The collected water goes through filtration and treatment processes designed to improve its quality.",
+        "step3_desc": "The water goes through 8 stages of filtration and UV, then light mineralization for taste.",
         "step4_title": "Ready to drink",
-        "step4_desc": "The treated water is stored in a tank, dispensed for use, or connected to another water system.",
-        "epa_note": "The EPA's assessment of AWGs documents systems using combinations of air filtration, condensation, storage, carbon filtration, sediment filtration, UV treatment, mineralization, and other treatment methods.",
-        "cta_text": "Explore the technology",
-        "cta_link": "/pages/how-it-works"
+        "step4_desc": "The water is stored in the unit and dispensed hot or cold.",
+        "cta_text": "Explore 8-Stage Purification",
+        "cta_link": "#purification-process"
       }
     },
     "what_is_awg": {
@@ -64,7 +63,6 @@
       "settings": {
         "heading": "What is an atmospheric water generator?",
         "paragraph_1": "An atmospheric water generator (AWG) captures ambient humidity from surrounding air, condenses it into pure liquid water, and filters it through multi-stage purification — creating continuous fresh drinking water right where you need it.",
-        "epa_note": "EPA research validates condensation-based AWG technology as a reliable method to produce water directly from atmospheric vapor without municipal grid connections.",
         "cta_text": "Learn how water from air works",
         "cta_link": "#how-it-works"
       }
@@ -102,8 +100,8 @@
       "type": "savings-calculator",
       "settings": {
         "heading": "Do the math",
-        "description": "Compare your current bottled water and delivery costs against AWG on-site generation at only ≈5 to 9 kWh per gallon plus filters.",
-        "btn_text": "Claim your AWG unit — $1,495"
+        "description": "Compare what you pay for bottled or delivered water with what it costs to make it at home.",
+        "btn_text": "Order now, $1,495"
       }
     },
     "comparison_table": {
@@ -127,16 +125,17 @@
     "faq_accordion": {
       "type": "faq-accordion",
       "blocks": {
-        "faq_1": { "type": "faq_item", "settings": { "question": "How much water will I get?", "answer": "Up to 5.5 gal/day depending on your climate. Most owners pour 1 to 3 pitchers." } },
-        "faq_2": { "type": "faq_item", "settings": { "question": "How loud is it?", "answer": "You'll hear it in the room, not the next room. Many owners run it overnight." } },
-        "faq_3": { "type": "faq_item", "settings": { "question": "What does it cost to run?", "answer": "≈5 to 9 kWh per gallon plus filters. Your rate sets the price; see the math above." } },
-        "faq_4": { "type": "faq_item", "settings": { "question": "Does it heat the room?", "answer": "It vents warm air like a large dehumidifier. Summer: run overnight. Winter: free heat." } },
-        "faq_5": { "type": "faq_item", "settings": { "question": "What are the filters?", "answer": "Two, swapped every 3 months, under 2 minutes, no tools. $99 per 6-month box." } },
-        "faq_6": { "type": "faq_item", "settings": { "question": "What if it breaks?", "answer": "1-year warranty, real phone support: (123) 456-7890. Terms on the product page." } },
-        "faq_7": { "type": "faq_item", "settings": { "question": "Can I return it?", "answer": "30-day money-back guarantee from the day it arrives." } },
-        "faq_8": { "type": "faq_item", "settings": { "question": "What does it taste like?", "answer": "Alkaline, mineralized. 93% of surveyed owners rate the taste good or excellent." } }
+        "faq_1": { "type": "faq_item", "settings": { "question": "How do I set it up?", "answer": "Plug into a standard outlet. Power on and let it fill. No plumbing. Setup time about 5 minutes. Depending on location, takes up to 24 hours to fill completely (about 5 gallons of storage). Optional first-use flush: fill, let it reach three-quarters full, then drain the two rear outlets once." } },
+        "faq_2": { "type": "faq_item", "settings": { "question": "How much water does it make per day?", "answer": "Up to about 5 gallons per day at 80% RH and 86°F. RH 80 to 90%, 77 to 86°F: about 4.0 to 6.7 gal/day. RH 50 to 80%, 68 to 86°F: about 1.8 to 5.3 gal/day. RH 30 to 50%, 68 to 86°F: about 1.0 to 2.4 gal/day. For best results, run overnight and place where indoor humidity is highest." } },
+        "faq_3": { "type": "faq_item", "settings": { "question": "What does it taste like?", "answer": "Clean, fresh, lightly mineralized. Cold or hot on demand. \"This is the best water I've ever tasted.\" Kansas City customer." } },
+        "faq_4": { "type": "faq_item", "settings": { "question": "Is the water safe?", "answer": "Yes. Independent lab testing shows HydroCell water meets U.S. EPA standards, with PFAS, lead and microplastics not detected, and the unit is CE and IEC tested. Water is condensed from the air, run through 8-stage filtration with dual UV, and lightly mineralized." } },
+        "faq_5": { "type": "faq_item", "settings": { "question": "What maintenance is required?", "answer": "Wipe dust from the air intake. Replace the filter kits roughly every 6 months. Routine cleaning. The unit reminds you when to replace filters; resets are on-screen." } },
+        "faq_6": { "type": "faq_item", "settings": { "question": "How much power does it use?", "answer": "Water production about 300W; hot tank about 500W when heating. That's about 1.6 kWh per gallon, roughly $0.29 a gallon at the U.S. average electricity rate, plus two filter kits a year. Cold-only operation for more efficient power use." } },
+        "faq_7": { "type": "faq_item", "settings": { "question": "How loud is it?", "answer": "Indoor-appliance quiet. Fan and compressor sounds similar to a modern refrigerator in cooling mode. Place on a level surface." } },
+        "faq_8": { "type": "faq_item", "settings": { "question": "Shipping, financing and warranty?", "answer": "Ships directly from our certified partner facilities. Typical delivery 7 to 10 days with tracking. Financing from about $100/month via Shop Pay and Affirm (subject to approval). Warranty: 1-Year Warranty · 3-Year Core Parts (compressor, condenser, evaporator, water tanks, fans). Defective components are replaced free of charge; labor is not included. Unopened units can be returned within 7 days of delivery. See our Warranty & Refund Policy." } },
+        "faq_9": { "type": "faq_item", "settings": { "question": "Manufacturing tests and certifications?", "answer": "Proven manufacturing (CE and IEC). Built to leading international standards and third-party verified by CGS Test and BST Labs. Water you can trust: independent testing shows HydroCell water meets U.S. EPA standards; PFAS, lead and microplastics were not detected. Performance as advertised: output is tested, validated and published in the temperature and humidity table. Everyday safeguards: closed stainless tanks, multi-stage filtration with dual UV, automatic recirculation, on-screen maintenance reminders." } }
       },
-      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4", "faq_5", "faq_6", "faq_7", "faq_8"],
+      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4", "faq_5", "faq_6", "faq_7", "faq_8", "faq_9"],
       "settings": {
         "heading": "Frequently asked questions",
         "description": "Everything you need to know about generating pure drinking water from ambient air."
@@ -148,8 +147,7 @@
         "badge": "In stock · Ships immediately",
         "heading": "Order an air to water generator",
         "description": "$1,495 — $500 below the $1,995 list price. Ships immediately. 1-year warranty.",
-        "btn_text": "Order now",
-        "phone_number": "(123) 456-7890"
+        "btn_text": "Order now"
       }
     }
   },

@@ -1,6 +1,5 @@
 <div class="contact-page bg-white">
   
-  <!-- Hero Section Header matching Case Studies & Lab Report -->
   <section class="relative bg-gradient-to-b from-[#eff9fd] via-[#f8fcfd] to-white pt-20 pb-12 sm:pt-28 sm:pb-16 text-center border-b border-[#d9f1fc]/60">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="inline-block text-xs font-bold uppercase tracking-[0.22em] text-[#088ae3] bg-[#eff9fd] px-4 py-1.5 rounded-full mb-3">
@@ -15,12 +14,10 @@
     </div>
   </section>
 
-  <!-- Main 2-Column Contact Suite -->
   <section class="py-12 sm:py-16 lg:py-20">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
         
-        <!-- Left Column: Direct Channels & Trust -->
         <div class="lg:col-span-5 space-y-6">
           
           <div class="space-y-4">
@@ -28,28 +25,12 @@
               Direct Contact Channels
             </h2>
             <p class="text-sm text-[#4a6177] leading-relaxed">
-              Reach our US-based atmospheric water specialists directly for quotes, system sizing, warranty assistance, or wholesale inquiries.
+              Submit the form or contact our team directly for product recommendations, demonstration requests, and order assistance.
             </p>
           </div>
 
-          <!-- Channel Cards -->
           <div class="space-y-4">
             
-            <!-- Phone Card -->
-            <div class="p-5 rounded-2xl bg-[#f8fcfd] border border-[#d9f1fc] flex items-start gap-4 hover:border-[#088ae3]/40 transition-colors">
-              <div class="w-11 h-11 rounded-xl bg-[#eff9fd] text-[#088ae3] flex items-center justify-center shrink-0 mt-0.5">
-                {% render 'icon', name: 'phone', class: 'w-5 h-5' %}
-              </div>
-              <div class="space-y-1">
-                <span class="text-[11px] font-bold text-[#4a6177] uppercase tracking-wider block">Direct Phone Support</span>
-                <a href="tel:1234567890" class="font-heading font-extrabold text-base sm:text-lg text-[#173b57] hover:text-[#088ae3] transition-colors block">
-                  (123) 456-7890
-                </a>
-                <p class="text-xs text-[#4a6177]">Mon–Fri: 8:00 AM – 6:00 PM CST · Immediate assistance</p>
-              </div>
-            </div>
-
-            <!-- Email Card -->
             <div class="p-5 rounded-2xl bg-[#f8fcfd] border border-[#d9f1fc] flex items-start gap-4 hover:border-[#088ae3]/40 transition-colors">
               <div class="w-11 h-11 rounded-xl bg-[#eff9fd] text-[#088ae3] flex items-center justify-center shrink-0 mt-0.5">
                 {% render 'icon', name: 'mail', class: 'w-5 h-5' %}
@@ -59,11 +40,10 @@
                 <a href="mailto:contact@airtowatergenerators.com" class="font-heading font-extrabold text-base text-[#173b57] hover:text-[#088ae3] transition-colors block break-all">
                   contact@airtowatergenerators.com
                 </a>
-                <p class="text-xs text-[#4a6177]">Guaranteed technical response within 2 business hours</p>
+                <p class="text-xs text-[#4a6177]">Personal response within 1 business day</p>
               </div>
             </div>
 
-            <!-- HQ Card -->
             <div class="p-5 rounded-2xl bg-[#f8fcfd] border border-[#d9f1fc] flex items-start gap-4 hover:border-[#088ae3]/40 transition-colors">
               <div class="w-11 h-11 rounded-xl bg-[#eff9fd] text-[#088ae3] flex items-center justify-center shrink-0 mt-0.5">
                 {% render 'icon', name: 'map-pin', class: 'w-5 h-5' %}
@@ -71,13 +51,12 @@
               <div class="space-y-1">
                 <span class="text-[11px] font-bold text-[#4a6177] uppercase tracking-wider block">Headquarters & Logistics</span>
                 <span class="font-heading font-extrabold text-base text-[#173b57] block">Air to Water Generators</span>
-                <p class="text-xs text-[#4a6177]">Houston, TX, USA · Nationwide Insured Freight Shipping</p>
+                <p class="text-xs text-[#4a6177]">Mailing Address: 1401 Lavaca St, Austin, TX 78703 · Nationwide Insured Freight Shipping</p>
               </div>
             </div>
 
           </div>
 
-          <!-- Social Verification Badges -->
           <div class="pt-4 border-t border-[#d9f1fc]">
             <span class="text-xs font-bold text-[#173b57] uppercase tracking-wider block mb-3">Official Verified Profiles</span>
             <div class="flex flex-wrap gap-2">
@@ -98,7 +77,6 @@
 
         </div>
 
-        <!-- Right Column: Interactive Assessment Form -->
         <div class="lg:col-span-7">
           <div class="bg-[#f8fcfd] rounded-3xl border border-[#d9f1fc] p-6 sm:p-10 shadow-sm space-y-6">
             
@@ -107,10 +85,10 @@
                 Fast Inquiry & Assessment
               </span>
               <h3 class="font-heading text-2xl sm:text-3xl font-extrabold text-[#173b57]">
-                Request a System Sizing Assessment
+                Connect With Our Team
               </h3>
               <p class="text-xs sm:text-sm text-[#4a6177]">
-                Fill out the quick form below. An engineer will analyze your location's humidity envelope and recommend the optimal model.
+                Fill out the form below. A member of our team will personally reach out within 1 business day.
               </p>
             </div>
 
@@ -118,7 +96,7 @@
               {% if form.posted_successfully? %}
                 <div class="p-4 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-2xl text-xs font-bold flex items-center gap-2">
                   <span>✓</span>
-                  <span>Thank you! Your assessment request has been received. An atmospheric water engineer will contact you within 2 business hours.</span>
+                  <span>Thank you! Your inquiry has been received. A member of our team will personally reach out within 1 business day.</span>
                 </div>
               {% endif %}
 
@@ -142,7 +120,7 @@
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label class="block text-xs font-bold text-[#173b57] mb-1.5">Phone Number</label>
-                  <input type="tel" name="contact[phone]" placeholder="(123) 456-7890" class="w-full bg-white border border-[#d9f1fc] rounded-xl px-4 py-3 text-xs text-[#173b57] focus:outline-none focus:border-[#088ae3] focus:ring-1 focus:ring-[#088ae3]">
+                  <input type="tel" name="contact[phone]" placeholder="(555) 000-0000" class="w-full bg-white border border-[#d9f1fc] rounded-xl px-4 py-3 text-xs text-[#173b57] focus:outline-none focus:border-[#088ae3] focus:ring-1 focus:ring-[#088ae3]">
                 </div>
                 <div>
                   <label class="block text-xs font-bold text-[#173b57] mb-1.5">Location / State *</label>
@@ -150,25 +128,16 @@
                 </div>
               </div>
 
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label class="block text-xs font-bold text-[#173b57] mb-1.5">Intended Application</label>
-                  <select name="contact[application]" class="w-full bg-white border border-[#d9f1fc] rounded-xl px-4 py-3 text-xs text-[#173b57] focus:outline-none focus:border-[#088ae3]">
-                    <option>Residential / Home Kitchen</option>
-                    <option>Office / Corporate Break Room</option>
-                    <option>Cabin / Off-Grid Property</option>
-                    <option>Emergency & Disaster Preparedness</option>
-                    <option>Commercial / Institutional Facility</option>
-                  </select>
-                </div>
-                <div>
-                  <label class="block text-xs font-bold text-[#173b57] mb-1.5">Estimated Daily Demand</label>
-                  <select name="contact[water_demand]" class="w-full bg-white border border-[#d9f1fc] rounded-xl px-4 py-3 text-xs text-[#173b57] focus:outline-none focus:border-[#088ae3]">
-                    <option>1–5 Gallons / Day (Standard Standalone)</option>
-                    <option>5–15 Gallons / Day (Multi-Unit Setup)</option>
-                    <option>20–50+ Gallons / Day (Commercial Facility)</option>
-                  </select>
-                </div>
+              <div>
+                <label for="contact-interest" class="block text-xs font-bold text-[#173b57] mb-1.5">I'm interested in</label>
+                <select id="contact-interest" name="contact[interest]" class="w-full bg-white border border-[#d9f1fc] rounded-xl px-4 py-3 text-xs text-[#173b57] focus:outline-none focus:border-[#088ae3]">
+                  <option value="Home">Home</option>
+                  <option value="Office">Office</option>
+                  <option value="Commercial">Commercial</option>
+                  <option value="Emergency & Mobile">Emergency & Mobile</option>
+                  <option value="Request a demo">Request a demo</option>
+                  <option value="Other">Other</option>
+                </select>
               </div>
 
               <div>
@@ -177,7 +146,7 @@
               </div>
 
               <button type="submit" class="w-full btn-primary py-3.5 text-xs font-bold uppercase tracking-wider shadow-lg shadow-[#088ae3]/20 flex items-center justify-center gap-2">
-                <span>Submit Water Assessment Request</span>
+                <span>Submit Request</span>
                 <span>→</span>
               </button>
 
@@ -186,7 +155,7 @@
                 <span>•</span>
                 <span>Zero Obligation</span>
                 <span>•</span>
-                <span>Free Sizing Report</span>
+                <span>Personal Response</span>
               </div>
             {% endform %}
 
@@ -195,23 +164,22 @@
 
       </div>
 
-      <!-- Bottom Trust Assurance Bar -->
       <div class="mt-16 pt-10 border-t border-[#d9f1fc] grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
         <div class="space-y-1">
           <span class="font-heading font-extrabold text-base text-[#173b57] block">1-Year Warranty</span>
-          <p class="text-xs text-[#4a6177]">Comprehensive parts and dedicated support</p>
+          <p class="text-xs text-[#4a6177]">Parts coverage and dedicated support</p>
         </div>
         <div class="space-y-1">
-          <span class="font-heading font-extrabold text-base text-[#088ae3] block">ISO 17025 Tested</span>
-          <p class="text-xs text-[#4a6177]">Certified PFAS-free & mineralized alkaline</p>
+          <span class="font-heading font-extrabold text-base text-[#088ae3] block">Lab Tested</span>
+          <p class="text-xs text-[#4a6177]">PFAS-free & mineralized alkaline</p>
         </div>
         <div class="space-y-1">
           <span class="font-heading font-extrabold text-base text-[#173b57] block">Nationwide Freight</span>
           <p class="text-xs text-[#4a6177]">Fast insured delivery to your location</p>
         </div>
         <div class="space-y-1">
-          <span class="font-heading font-extrabold text-base text-[#088ae3] block">Phone Support</span>
-          <p class="text-xs text-[#4a6177]">Real human assistance at (123) 456-7890</p>
+          <span class="font-heading font-extrabold text-base text-[#088ae3] block">Real Support</span>
+          <p class="text-xs text-[#4a6177]">Fill out the form and we'll call you, or email contact@airtowatergenerators.com</p>
         </div>
       </div>
 
@@ -219,6 +187,26 @@
   </section>
 
 </div>
+
+<script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var interestParam = params.get('interest') || params.get('topic') || params.get('category') || '';
+    if (interestParam) {
+      var select = document.getElementById('contact-interest');
+      if (select) {
+        var lower = decodeURIComponent(interestParam).toLowerCase();
+        for (var i = 0; i < select.options.length; i++) {
+          var val = select.options[i].value.toLowerCase();
+          if (val === lower || lower.indexOf(val) !== -1 || val.indexOf(lower) !== -1) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
+      }
+    }
+  })();
+</script>
 
 {% schema %}
 {

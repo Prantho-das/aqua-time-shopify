@@ -13,7 +13,7 @@
         </h2>
 
         <p class="text-sm sm:text-base text-[#4a6177] leading-relaxed">
-          {{ section.settings.description | default: 'Water output depends directly on ambient temperature and relative humidity. In warmer, more humid conditions, HydroCell™ captures more water vapor and maximizes daily output—up to 5.5 gallons (20 Liters) per day.' }}
+          {{ section.settings.description | default: 'Water output depends directly on ambient temperature and relative humidity. In warmer, more humid conditions, HydroCell™ captures more water vapor and maximizes daily output—up to 5 gallons (19 Liters) per day.' }}
         </p>
 
         <!-- Climate Slider Simulator -->
@@ -150,11 +150,10 @@
       displayRh.textContent = rh + '% RH';
       displayTemp.textContent = temp + '°F (' + Math.round((temp - 32) * 5 / 9) + '°C)';
 
-      // Base formula scaling to max ~5.5 gal at 95% RH, 95°F
-      const rhFactor = (rh - 25) / 70; // 0 to 1
-      const tempFactor = (temp - 55) / 45; // 0 to 1
-      let gallons = Math.max(0.8, 5.5 * Math.max(0.1, rhFactor * 0.7 + tempFactor * 0.3));
-      if (gallons > 5.5) gallons = 5.5;
+      const rhFactor = (rh - 25) / 70;
+      const tempFactor = (temp - 55) / 45;
+      let gallons = Math.max(0.8, 5.0 * Math.max(0.1, rhFactor * 0.7 + tempFactor * 0.3));
+      if (gallons > 5.0) gallons = 5.0;
 
       const liters = (gallons * 3.78541).toFixed(1);
       const galFixed = gallons.toFixed(1);
@@ -193,7 +192,7 @@
       "type": "textarea",
       "id": "description",
       "label": "Description",
-      "default": "Water output depends directly on ambient temperature and relative humidity. In warmer, more humid conditions, HydroCell™ captures more water vapor and maximizes daily output—up to 5.5 gallons (20 Liters) per day."
+      "default": "Water output depends directly on ambient temperature and relative humidity. In warmer, more humid conditions, HydroCell™ captures more water vapor and maximizes daily output—up to 5 gallons (19 Liters) per day."
     }
   ],
   "presets": [

@@ -3,7 +3,6 @@
     
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-12 gap-8 pb-10 border-b border-white/10">
       
-      <!-- Brand & About -->
       <div class="lg:col-span-4 space-y-4">
         <a href="{{ routes.root_url }}" class="flex items-center gap-3 group">
           <div class="w-9 h-9 text-[#43a5ff] group-hover:scale-105 transition-transform flex items-center justify-center">
@@ -19,7 +18,6 @@
           {{ section.settings.about_text | default: 'Innovative atmospheric water generators producing clean, sustainable, and reliable drinking water directly from air humidity.' }}
         </p>
 
-        <!-- Social Icons -->
         <div class="flex items-center space-x-2 pt-1">
           {% if section.settings.social_facebook_link != blank %}
             <a href="{{ section.settings.social_facebook_link }}" target="_blank" rel="noopener" class="w-6 h-6 rounded-full border border-white/20 hover:border-[#43a5ff] bg-white/5 text-slate-300 hover:text-[#43a5ff] flex items-center justify-center text-[10px] transition-all" aria-label="Facebook">
@@ -39,18 +37,16 @@
         </div>
       </div>
 
-      <!-- Links Column 1: Products -->
       <div class="lg:col-span-2 space-y-3">
         <h4 class="font-heading font-bold text-[11px] uppercase tracking-wider text-white">{{ section.settings.col1_title | default: 'PRODUCTS' }}</h4>
         <ul class="space-y-2 text-[11.5px]">
           <li><a href="/products/hydrocell-standup" class="hover:text-[#43a5ff] transition-colors">HydroCell™ STANDUP</a></li>
           <li><a href="/products/filter-replacement-kits" class="hover:text-[#43a5ff] transition-colors">Filter Replacement Kits</a></li>
-          <li><a href="/pages/how-it-works#system-selector" class="hover:text-[#43a5ff] transition-colors">Commercial Units</a></li>
-          <li><a href="/pages/how-it-works#system-selector" class="hover:text-[#43a5ff] transition-colors">Emergency & Mobile</a></li>
+          <li><a href="/pages/contact?interest=commercial" class="hover:text-[#43a5ff] transition-colors">Commercial Units</a></li>
+          <li><a href="/pages/contact?interest=emergency-mobile" class="hover:text-[#43a5ff] transition-colors">Emergency & Mobile</a></li>
         </ul>
       </div>
 
-      <!-- Links Column 2: Technology & Quality -->
       <div class="lg:col-span-2 space-y-3">
         <h4 class="font-heading font-bold text-[11px] uppercase tracking-wider text-white">{{ section.settings.col2_title | default: 'TECHNOLOGY' }}</h4>
         <ul class="space-y-2 text-[11.5px]">
@@ -62,48 +58,47 @@
         </ul>
       </div>
 
-      <!-- Links Column 3: Resources & Support -->
       <div class="lg:col-span-2 space-y-3">
         <h4 class="font-heading font-bold text-[11px] uppercase tracking-wider text-white">{{ section.settings.col3_title | default: 'RESOURCES' }}</h4>
         <ul class="space-y-2 text-[11.5px]">
-          <li><a href="/#faq-accordion" class="hover:text-[#43a5ff] transition-colors">Help Center & FAQ</a></li>
-          <li><a href="/products/hydrocell-standup#specifications" class="hover:text-[#43a5ff] transition-colors">1-Year Warranty</a></li>
+          <li><a href="/#faq" class="hover:text-[#43a5ff] transition-colors">Help Center & FAQ</a></li>
+          <li><a href="/pages/warranty" class="hover:text-[#43a5ff] transition-colors">Warranty & Returns</a></li>
           <li><a href="/products/filter-replacement-kits" class="hover:text-[#43a5ff] transition-colors">Filter Schedule</a></li>
           <li><a href="/pages/contact" class="hover:text-[#43a5ff] transition-colors">Financing Inquiries</a></li>
         </ul>
       </div>
 
-      <!-- Links Column 4: Contact -->
       <div class="lg:col-span-2 space-y-3">
         <h4 class="font-heading font-bold text-[11px] uppercase tracking-wider text-white">{{ section.settings.col4_title | default: 'CONTACT' }}</h4>
         <ul class="space-y-2.5 text-[11px]">
           <li class="flex items-start gap-2">
             {% render 'icon', name: 'map-pin', class: 'w-3.5 h-3.5 text-[#43a5ff] shrink-0 mt-0.5' %}
-            <span>{{ section.settings.address_line1 | default: 'Air to Water Generators' }}</span>
+            <span>{{ section.settings.address_line1 | default: 'Mailing Address: 1401 Lavaca St' }}</span>
           </li>
           <li class="flex items-start gap-2">
             {% render 'icon', name: 'building', class: 'w-3.5 h-3.5 text-[#43a5ff] shrink-0 mt-0.5' %}
-            <span>{{ section.settings.address_line2 | default: 'Houston, TX, USA' }}</span>
-          </li>
-          <li class="flex items-center gap-2">
-            {% render 'icon', name: 'phone', class: 'w-3.5 h-3.5 text-[#43a5ff] shrink-0' %}
-            <a href="tel:{{ section.settings.phone | replace: ' ', '' | replace: '(', '' | replace: ')', '' | replace: '-', '' }}" class="hover:text-white transition-colors">{{ section.settings.phone | default: '(123) 456-7890' }}</a>
+            <span>{{ section.settings.address_line2 | default: 'Austin, TX 78703' }}</span>
           </li>
           <li class="flex items-center gap-2">
             {% render 'icon', name: 'mail', class: 'w-3.5 h-3.5 text-[#43a5ff] shrink-0' %}
             <a href="mailto:{{ section.settings.email | default: 'contact@airtowatergenerators.com' }}" class="hover:text-white transition-colors break-all">{{ section.settings.email | default: 'contact@airtowatergenerators.com' }}</a>
+          </li>
+          <li class="flex items-center gap-2">
+            {% render 'icon', name: 'chat-bubble', class: 'w-3.5 h-3.5 text-[#43a5ff] shrink-0' %}
+            <a href="/pages/contact" class="hover:text-white transition-colors">Contact Support Form</a>
           </li>
         </ul>
       </div>
 
     </div>
 
-    <!-- Copyright & Sublinks -->
     <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#718aa8] gap-3">
       <div>
         © {{ 'now' | date: '%Y' }} Air to Water Generators. All rights reserved.
       </div>
       <div class="flex items-center space-x-3 text-[11px]">
+        <a href="/pages/warranty" class="hover:text-[#cbd5e1] transition-colors">Warranty & Refund Policy</a>
+        <span class="text-[#3b5980]">|</span>
         <a href="/pages/privacy-policy" class="hover:text-[#cbd5e1] transition-colors">Privacy Policy</a>
         <span class="text-[#3b5980]">|</span>
         <a href="/pages/terms" class="hover:text-[#cbd5e1] transition-colors">Terms & Conditions</a>
@@ -178,19 +173,13 @@
       "type": "text",
       "id": "address_line1",
       "label": "Address Line 1",
-      "default": "123 Water Street"
+      "default": "Mailing Address: 1401 Lavaca St"
     },
     {
       "type": "text",
       "id": "address_line2",
       "label": "Address Line 2",
-      "default": "Los Angeles, CA 90012"
-    },
-    {
-      "type": "text",
-      "id": "phone",
-      "label": "Phone",
-      "default": "(123) 456-7890"
+      "default": "Austin, TX 78703"
     },
     {
       "type": "text",

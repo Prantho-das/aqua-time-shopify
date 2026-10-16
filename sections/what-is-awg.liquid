@@ -13,10 +13,8 @@
   <div class="container relative z-10">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
       
-      <!-- Left side spacer to keep machine visible -->
       <div class="hidden lg:block lg:col-span-5"></div>
 
-      <!-- Right side: Content Glass Card -->
       <div class="lg:col-span-7 lg:ml-auto w-full max-w-2xl">
         <div class="bg-white/95 backdrop-blur-xl rounded-3xl p-7 sm:p-10 lg:p-11 border border-white/80 shadow-2xl space-y-6">
 
@@ -33,14 +31,13 @@
             {{ section.settings.paragraph_1 | default: 'An atmospheric water generator (AWG) captures ambient humidity from surrounding air, condenses it into pure liquid water, and filters it through multi-stage purification — creating continuous fresh drinking water right where you need it.' }}
           </p>
 
-          <!-- 3 Feature Points -->
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div class="p-3.5 rounded-xl bg-[#f8fcfd] border border-[#e2f0f9] space-y-1">
               <div class="w-7 h-7 rounded-lg bg-[#088ae3]/10 text-[#088ae3] flex items-center justify-center">
                 {% render 'icon', name: 'droplets', class: 'w-4 h-4' %}
               </div>
               <h4 class="font-heading font-bold text-xs text-[#173b57]">Pulls From Air</h4>
-              <p class="text-[11px] text-[#4a6177] leading-normal">Condenses moisture from 30–95% ambient humidity</p>
+              <p class="text-[11px] text-[#4a6177] leading-normal">25% humidity and up</p>
             </div>
 
             <div class="p-3.5 rounded-xl bg-[#f8fcfd] border border-[#e2f0f9] space-y-1">
@@ -48,7 +45,7 @@
                 {% render 'icon', name: 'shield-check', class: 'w-4 h-4' %}
               </div>
               <h4 class="font-heading font-bold text-xs text-[#173b57]">Multi-Stage Pure</h4>
-              <p class="text-[11px] text-[#4a6177] leading-normal">HEPA, carbon, UV-C & alkaline mineral enrichment</p>
+              <p class="text-[11px] text-[#4a6177] leading-normal">carbon, membranes, UV & alkaline mineral enrichment</p>
             </div>
 
             <div class="p-3.5 rounded-xl bg-[#f8fcfd] border border-[#e2f0f9] space-y-1">
@@ -60,23 +57,12 @@
             </div>
           </div>
 
-          <!-- EPA Note Callout -->
-          <div class="p-4 rounded-xl bg-[#088ae3]/5 border border-[#088ae3]/15 flex items-start gap-3">
-            <div class="w-7 h-7 rounded-lg bg-[#088ae3] text-white flex items-center justify-center shrink-0 mt-0.5">
-              {% render 'icon', name: 'check', class: 'w-4 h-4' %}
-            </div>
-            <p class="text-xs text-[#2a455e] leading-relaxed">
-              <strong class="font-semibold text-[#173b57]">EPA Verified:</strong> {{ section.settings.epa_note | default: 'EPA research validates condensation-based AWG technology as a reliable method to produce water directly from atmospheric vapor without municipal grid connections.' }}
-            </p>
-          </div>
-
-          <!-- CTA Row -->
           <div class="flex flex-wrap items-center gap-4 pt-1">
             <a href="{{ section.settings.cta_link | default: '#how-it-works' }}" class="btn-primary">
               {{ section.settings.cta_text | default: 'Learn how water from air works' }}
             </a>
             <span class="text-xs font-medium text-[#64748b]">
-              Up to 5.5 gal/day · Standard 110V plug
+              Up to 5 gal/day · Standard U.S. outlet
             </span>
           </div>
 

@@ -1,6 +1,5 @@
 <div class="collection-page bg-white">
   
-  <!-- Hero Section Header -->
   <section class="relative bg-gradient-to-b from-[#eff9fd] via-[#f8fcfd] to-white pt-20 pb-12 sm:pt-28 sm:pb-16 text-center border-b border-[#d9f1fc]">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#088ae3] bg-[#eff9fd] border border-[#d9f1fc] px-4 py-1.5 rounded-full mb-4 shadow-sm">
@@ -16,7 +15,11 @@
     </div>
   </section>
 
-  <!-- Quick Trust Highlights Bar -->
+{%- liquid
+  assign hydro_product = all_products['hydrocell-standup']
+  assign filter_product = all_products['filter-replacement-kits']
+-%}
+
   <div class="border-b border-[#d9f1fc] bg-[#f8fcfd]/80 py-5">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
@@ -24,28 +27,26 @@
           <span class="font-heading font-extrabold text-sm sm:text-base text-[#173b57]">100% Plug-and-Play</span>
           <p class="text-[11px] text-[#4a6177]">Zero plumbing required</p>
         </div>
+        <a href="/pages/lab-report" class="space-y-0.5 group block hover:text-[#088ae3] transition-colors">
+          <span class="font-heading font-extrabold text-sm sm:text-base text-[#173b57] group-hover:text-[#088ae3]">Zero PFAS & Heavy Metals</span>
+          <p class="text-[11px] text-[#4a6177] group-hover:text-[#088ae3]">Independently lab tested →</p>
+        </a>
         <div class="space-y-0.5">
-          <span class="font-heading font-extrabold text-sm sm:text-base text-[#173b57]">Zero PFAS & Heavy Metals</span>
-          <p class="text-[11px] text-[#4a6177]">ISO/IEC 17025 certified purity</p>
+          <span class="font-heading font-extrabold text-sm sm:text-base text-[#173b57]">≈ $0.50 / Gallon</span>
+          <p class="text-[11px] text-[#4a6177]">Electricity and filters</p>
         </div>
         <div class="space-y-0.5">
-          <span class="font-heading font-extrabold text-sm sm:text-base text-[#173b57]">≈ $0.08 / Gallon</span>
-          <p class="text-[11px] text-[#4a6177]">Lowest cost per gallon</p>
-        </div>
-        <div class="space-y-0.5">
-          <span class="font-heading font-extrabold text-sm sm:text-base text-[#173b57]">1-Year US Warranty</span>
-          <p class="text-[11px] text-[#4a6177]">Phone support: (123) 456-7890</p>
+          <span class="font-heading font-extrabold text-sm sm:text-base text-[#173b57]">1-Year Warranty</span>
+          <p class="text-[11px] text-[#4a6177]">Direct support</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Collection Products Grid -->
   <section class="py-14 sm:py-20 lg:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         
-        <!-- HydroCell Standup Product Card -->
         <div class="bg-white rounded-3xl border border-[#d9f1fc] overflow-hidden hover:border-[#088ae3]/60 hover:shadow-xl transition-all group flex flex-col justify-between shadow-sm">
           <div>
             <div class="p-8 bg-gradient-to-b from-[#eff9fd] to-white border-b border-[#d9f1fc] flex items-center justify-center relative aspect-[4/3]">
@@ -59,18 +60,30 @@
               <div class="flex justify-between items-baseline gap-2">
                 <h2 class="font-heading font-bold text-xl sm:text-2xl text-[#173b57]">HydroCell™ STANDUP</h2>
                 <div class="text-right">
-                  <span class="font-heading font-extrabold text-2xl text-[#088ae3] block">$1,495</span>
-                  <span class="text-[10px] text-[#4a6177] line-through block">$1,995 List</span>
+                  <span class="font-heading font-extrabold text-2xl text-[#088ae3] block">
+                    {%- if hydro_product != blank -%}
+                      {{ hydro_product.price | money_without_trailing_zeros }}
+                    {%- else -%}
+                      $1,495
+                    {%- endif -%}
+                  </span>
+                  <span class="text-[10px] text-[#4a6177] line-through block">
+                    {%- if hydro_product != blank and hydro_product.compare_at_price > hydro_product.price -%}
+                      {{ hydro_product.compare_at_price | money_without_trailing_zeros }} List
+                    {%- else -%}
+                      $1,995 List
+                    {%- endif -%}
+                  </span>
                 </div>
               </div>
 
               <p class="text-xs sm:text-sm text-[#4a6177] leading-relaxed">
-                Produces up to 5.5 gallons (20L) of pure water daily from air humidity. Includes 19L internal storage and instant hot & cold taps.
+                Up to 5 gallons a day of lightly mineralized water. 5-gallon storage capacity and instant hot & cold taps.
               </p>
 
               <div class="flex flex-wrap gap-2 pt-2 text-[11px] font-bold text-[#173b57]">
-                <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">5.5 Gal/Day</span>
-                <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">19L Tank</span>
+                <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">5 Gal/Day</span>
+                <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">5 Gal Tank</span>
                 <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">8-Stage Purifier</span>
               </div>
             </div>
@@ -86,7 +99,6 @@
           </div>
         </div>
 
-        <!-- Filter Kits Product Card -->
         <div class="bg-white rounded-3xl border border-[#d9f1fc] overflow-hidden hover:border-[#088ae3]/60 hover:shadow-xl transition-all group flex flex-col justify-between shadow-sm">
           <div>
             <div class="p-8 bg-gradient-to-b from-[#eff9fd] to-white border-b border-[#d9f1fc] flex items-center justify-center relative aspect-[4/3]">
@@ -102,18 +114,24 @@
               <div class="flex justify-between items-baseline gap-2">
                 <h2 class="font-heading font-bold text-xl sm:text-2xl text-[#173b57]">Filter Replacement Kits</h2>
                 <div class="text-right">
-                  <span class="font-heading font-extrabold text-2xl text-[#088ae3] block">$100</span>
+                  <span class="font-heading font-extrabold text-2xl text-[#088ae3] block">
+                    {%- if filter_product != blank -%}
+                      {{ filter_product.price | money_without_trailing_zeros }}
+                    {%- else -%}
+                      $100
+                    {%- endif -%}
+                  </span>
                   <span class="text-[10px] text-[#4a6177] block">Bundled Packs</span>
                 </div>
               </div>
 
               <p class="text-xs sm:text-sm text-[#4a6177] leading-relaxed">
-                Pre-bundled cartridges for Month 6, 12, 18, and 24 routine refresh. 2-minute tool-free twist locks for uninterrupted non-detect quality.
+                Replacement filter kits. Twist-on water filters, about every 6 months. The reusable air filter comes with the unit.
               </p>
 
               <div class="flex flex-wrap gap-2 pt-2 text-[11px] font-bold text-[#173b57]">
                 <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">2-Min Swap</span>
-                <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">24-Month Cycle</span>
+                <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">6-Month Service</span>
                 <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">Free Shipping</span>
               </div>
             </div>
@@ -121,12 +139,11 @@
 
           <div class="p-6 sm:p-7 pt-0">
             <a href="/products/filter-replacement-kits" class="block w-full text-center btn-primary py-3 text-xs font-bold">
-              ORDER REFILL KIT ($100)
+              ORDER REFILL KIT ({%- if filter_product != blank -%}{{ filter_product.price | money_without_trailing_zeros }}{%- else -%}$100{%- endif -%})
             </a>
           </div>
         </div>
 
-        <!-- Commercial Skid Card -->
         <div class="bg-white rounded-3xl border border-[#d9f1fc] overflow-hidden hover:border-[#088ae3]/60 hover:shadow-xl transition-all group flex flex-col justify-between shadow-sm">
           <div>
             <div class="p-8 bg-gradient-to-b from-[#eff9fd] to-white border-b border-[#d9f1fc] flex items-center justify-center relative aspect-[4/3]">
@@ -157,7 +174,7 @@
           </div>
 
           <div class="p-6 sm:p-7 pt-0">
-            <a href="/pages/contact" class="block w-full text-center px-6 py-3 rounded-xl border border-[#088ae3] text-[#088ae3] hover:bg-[#eff9fd] text-xs font-bold transition-all">
+            <a href="/pages/contact?interest=commercial" class="block w-full text-center px-6 py-3 rounded-xl border border-[#088ae3] text-[#088ae3] hover:bg-[#eff9fd] text-xs font-bold transition-all">
               TALK TO AN ENGINEER
             </a>
           </div>

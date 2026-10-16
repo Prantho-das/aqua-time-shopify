@@ -1,3 +1,12 @@
+{%- liquid
+  assign modal_product = section.settings.product | default: all_products['hydrocell-standup']
+  assign product_2_units = all_products['hydrocell-2-units']
+  assign product_3_units = all_products['hydrocell-3-units']
+  if modal_product != blank and modal_product.compare_at_price > modal_product.price
+    assign modal_diff = modal_product.compare_at_price | minus: modal_product.price
+  endif
+-%}
+
 <div id="quote-modal" class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-xs">
   <div class="modal-content bg-white w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl p-6 sm:p-7 relative border border-[#e2f0f9]">
     
@@ -7,13 +16,25 @@
 
     <div class="text-left mb-5">
       <span class="text-[11px] font-bold tracking-wider text-[#088ae3] uppercase">{{ section.settings.badge | default: 'OFFICIAL ORDER REQUEST' }}</span>
-      <h3 class="font-heading text-xl font-bold text-[#173b57] mt-1">{{ section.settings.title | default: 'Order AWG Unit — $1,495' }}</h3>
-      <p class="text-xs text-[#4a6177] mt-1">{{ section.settings.subtitle | default: 'Special promotion: $500 off MSRP ($1,995). Free insured shipping included.' }}</p>
+      <h3 class="font-heading text-xl font-bold text-[#173b57] mt-1">
+        {%- if modal_product != blank -%}
+          Order AWG Unit — {{ modal_product.price | money_without_trailing_zeros }}
+        {%- else -%}
+          {{ section.settings.title | default: 'Order AWG Unit — $1,495' }}
+        {%- endif -%}
+      </h3>
+      <p class="text-xs text-[#4a6177] mt-1">
+        {%- if modal_diff != blank -%}
+          Special promotion: {{ modal_diff | money_without_trailing_zeros }} off MSRP ({{ modal_product.compare_at_price | money_without_trailing_zeros }}). Free insured shipping included.
+        {%- else -%}
+          {{ section.settings.subtitle | default: 'Special promotion: $500 off MSRP ($1,995). Free insured shipping included.' }}
+        {%- endif -%}
+      </p>
     </div>
 
     <form id="quote-form" class="space-y-3.5" action="/cart/add" method="post">
-      {% if section.settings.product != blank %}
-        <input type="hidden" name="id" value="{{ section.settings.product.selected_or_first_available_variant.id }}">
+      {% if modal_product != blank %}
+        <input type="hidden" name="id" value="{{ modal_product.selected_or_first_available_variant.id }}">
       {% endif %}
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
@@ -30,14 +51,14 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
         <div>
           <label class="block text-xs font-semibold text-[#173b57] mb-1">Phone Number</label>
-          <input type="tel" name="phone" required placeholder="(123) 456-7890" class="w-full px-3 py-2 rounded-lg border border-[#e2f0f9] text-xs focus:outline-none focus:ring-2 focus:ring-[#088ae3]">
+          <input type="tel" name="phone" required placeholder="(555) 000-0000" class="w-full px-3 py-2 rounded-lg border border-[#e2f0f9] text-xs focus:outline-none focus:ring-2 focus:ring-[#088ae3]">
         </div>
         <div>
           <label class="block text-xs font-semibold text-[#173b57] mb-1">Quantity</label>
           <select name="quantity" class="w-full px-3 py-2 rounded-lg border border-[#e2f0f9] text-xs focus:outline-none focus:ring-2 focus:ring-[#088ae3] bg-white">
-            <option value="1">1 Unit ($1,495)</option>
-            <option value="2">2 Units ($2,890 - Extra Save $100)</option>
-            <option value="3">3+ Units (Commercial Bulk)</option>
+            <option value="1">1 Unit ({% if modal_product != blank %}{{ modal_product.price | money_without_trailing_zeros }}{% else %}$1,495{% endif %})</option>
+            <option value="2">2 Units ({% if product_2_units != blank %}{{ product_2_units.price | money_without_trailing_zeros }}{% else %}$2,890{% endif %} - Extra Save $100)</option>
+            <option value="3">3+ Units ({% if product_3_units != blank %}{{ product_3_units.price | money_without_trailing_zeros }}{% else %}Commercial Bulk{% endif %})</option>
           </select>
         </div>
       </div>
@@ -58,7 +79,11 @@
       </div>
 
       <button type="submit" class="w-full btn-primary py-3 rounded-lg text-xs tracking-wider uppercase mt-1">
-        {{ section.settings.btn_submit | default: 'Lock In $1,495 Price & Order' }}
+        {%- if modal_product != blank -%}
+          Lock In {{ modal_product.price | money_without_trailing_zeros }} Price & Order
+        {%- else -%}
+          {{ section.settings.btn_submit | default: 'Lock In $1,495 Price & Order' }}
+        {%- endif -%}
       </button>
     </form>
 
@@ -67,7 +92,7 @@
         {% render 'icon', name: 'check', class: 'w-7 h-7 stroke-[3]' %}
       </div>
       <h4 class="font-heading font-bold text-lg text-[#173b57]">Order Request Confirmed!</h4>
-      <p class="text-xs text-[#4a6177] max-w-xs mx-auto">Your promotion price ($1,495) has been secured. Our team will contact you directly within 2 hours to confirm delivery.</p>
+      <p class="text-xs text-[#4a6177] max-w-xs mx-auto">A member of our team will personally reach out within 1 business day to confirm your delivery.</p>
     </div>
 
   </div>

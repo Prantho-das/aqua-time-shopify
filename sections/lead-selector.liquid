@@ -13,11 +13,9 @@
       </p>
     </div>
 
-    <!-- Quiz Card -->
     <div class="bg-white rounded-3xl border border-[#d9f1fc] p-6 sm:p-10 shadow-sm">
       <form id="selector-form" class="space-y-8" onsubmit="event.preventDefault(); return false;">
         
-        <!-- Step 1: Location -->
         <div>
           <label class="block font-heading font-bold text-base text-[#173b57] mb-3">
             1. Where will the system operate?
@@ -54,7 +52,6 @@
           </div>
         </div>
 
-        <!-- Step 2: Demand -->
         <div>
           <label class="block font-heading font-bold text-base text-[#173b57] mb-3">
             2. Estimated daily water demand?
@@ -91,15 +88,14 @@
           </div>
         </div>
 
-        <!-- Recommendation Banner Result -->
         <div id="recommendation-result" class="p-6 rounded-2xl bg-[#eff9fd] border border-[#d9f1fc] flex flex-col sm:flex-row items-center justify-between gap-5">
           <div class="space-y-1">
             <span class="text-[11px] font-bold text-[#088ae3] uppercase tracking-wider block">Recommended Model</span>
             <h4 id="rec-title" class="font-heading font-bold text-xl text-[#173b57]">HydroCell™ STANDUP (Single Unit)</h4>
-            <p id="rec-desc" class="text-xs text-[#4a6177]">Generates up to 5.5 Gal (20L)/day. Compact, zero-plumbing, hot/cold pure alkaline water.</p>
+            <p id="rec-desc" class="text-xs text-[#4a6177]">Generates up to 5 Gal/day. Compact, zero-plumbing, hot/cold lightly mineralized water.</p>
           </div>
           <button class="open-quote-modal shrink-0 btn-primary py-3 px-6 text-xs font-bold" aria-haspopup="dialog">
-            ORDER NOW — $1,495
+            ORDER NOW
           </button>
         </div>
 
@@ -118,7 +114,7 @@
       input.addEventListener('change', function() {
         if (this.value === '1-5') {
           recTitle.textContent = 'HydroCell™ STANDUP (Single Unit)';
-          recDesc.textContent = 'Generates up to 5.5 Gal (20L)/day. Compact, zero-plumbing, hot/cold pure alkaline water.';
+          recDesc.textContent = 'Generates up to 5 Gal/day. Compact, zero-plumbing, hot/cold lightly mineralized water.';
         } else if (this.value === '5-20') {
           recTitle.textContent = 'HydroCell™ Multi-Unit Cluster (2-4 Units)';
           recDesc.textContent = 'Scalable modular setup delivering 10–20 Gal/day for active office floors and teams.';

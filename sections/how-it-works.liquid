@@ -17,7 +17,6 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       
-      <!-- Step 1 -->
       <div class="bg-white rounded-3xl p-6 sm:p-7 border border-[#d9f1fc] shadow-sm hover:shadow-md hover:border-[#088ae3]/50 transition-all space-y-4 relative group">
         <div class="flex items-center justify-between">
           <div class="w-12 h-12 rounded-2xl bg-[#eff9fd] text-[#088ae3] group-hover:bg-[#088ae3] group-hover:text-white transition-colors flex items-center justify-center font-bold">
@@ -29,11 +28,10 @@
           {{ section.settings.step1_title | default: 'Air enters the system' }}
         </h3>
         <p class="text-xs sm:text-sm text-[#4a6177] leading-relaxed">
-          {{ section.settings.step1_desc | default: 'The system pulls in ambient air and filters out dust, pollen, and airborne particles before moisture extraction.' }}
+          {{ section.settings.step1_desc | default: 'The system pulls in ambient air and filters out dust before collecting moisture.' }}
         </p>
       </div>
 
-      <!-- Step 2 -->
       <div class="bg-white rounded-3xl p-6 sm:p-7 border border-[#d9f1fc] shadow-sm hover:shadow-md hover:border-[#088ae3]/50 transition-all space-y-4 relative group">
         <div class="flex items-center justify-between">
           <div class="w-12 h-12 rounded-2xl bg-[#eff9fd] text-[#088ae3] group-hover:bg-[#088ae3] group-hover:text-white transition-colors flex items-center justify-center font-bold">
@@ -49,7 +47,6 @@
         </p>
       </div>
 
-      <!-- Step 3 -->
       <div class="bg-white rounded-3xl p-6 sm:p-7 border border-[#d9f1fc] shadow-sm hover:shadow-md hover:border-[#088ae3]/50 transition-all space-y-4 relative group">
         <div class="flex items-center justify-between">
           <div class="w-12 h-12 rounded-2xl bg-[#eff9fd] text-[#088ae3] group-hover:bg-[#088ae3] group-hover:text-white transition-colors flex items-center justify-center font-bold">
@@ -61,11 +58,10 @@
           {{ section.settings.step3_title | default: '8-Stage Purification' }}
         </h3>
         <p class="text-xs sm:text-sm text-[#4a6177] leading-relaxed">
-          {{ section.settings.step3_desc | default: 'Collected water circulates through sediment, carbon, ultrafiltration membranes, and continuous UV-C sterilization.' }}
+          {{ section.settings.step3_desc | default: 'The water goes through 8 stages of filtration and UV, then light mineralization for taste.' }}
         </p>
       </div>
 
-      <!-- Step 4 -->
       <div class="bg-white rounded-3xl p-6 sm:p-7 border border-[#d9f1fc] shadow-sm hover:shadow-md hover:border-[#088ae3]/50 transition-all space-y-4 relative group">
         <div class="flex items-center justify-between">
           <div class="w-12 h-12 rounded-2xl bg-[#eff9fd] text-[#088ae3] group-hover:bg-[#088ae3] group-hover:text-white transition-colors flex items-center justify-center font-bold">
@@ -74,32 +70,13 @@
           <span class="text-xs font-bold uppercase tracking-wider text-[#088ae3] bg-[#eff9fd] px-3 py-1 rounded-full">Step 04</span>
         </div>
         <h3 class="font-heading font-bold text-lg text-[#173b57] pt-1">
-          {{ section.settings.step4_title | default: 'Mineralized & Ready' }}
+          {{ section.settings.step4_title | default: 'Ready to drink' }}
         </h3>
         <p class="text-xs sm:text-sm text-[#4a6177] leading-relaxed">
-          {{ section.settings.step4_desc | default: 'Enriched with calcium and magnesium at 7.4 pH, dispensed crisp cold or hot on demand from the internal tank.' }}
+          {{ section.settings.step4_desc | default: 'The water is stored in the unit and dispensed hot or cold.' }}
         </p>
       </div>
 
-    </div>
-
-    <!-- EPA validation banner -->
-    <div class="mt-12 p-6 sm:p-8 rounded-3xl bg-white border border-[#d9f1fc] shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-      <div class="flex items-start gap-4">
-        <div class="w-11 h-11 rounded-2xl bg-[#eff9fd] text-[#088ae3] flex items-center justify-center shrink-0 font-bold mt-0.5">
-          {% render 'icon', name: 'shield-check', class: 'w-6 h-6' %}
-        </div>
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-[#088ae3] block mb-0.5">EPA Assessed Standard</span>
-          <p class="text-xs sm:text-sm text-[#4a6177] leading-relaxed max-w-2xl">
-            {{ section.settings.epa_note | default: "The EPA's assessment of AWGs documents systems using combinations of air filtration, condensation, storage, carbon filtration, sediment filtration, UV treatment, mineralization, and other treatment methods." }}
-          </p>
-        </div>
-      </div>
-
-      <a href="{{ section.settings.cta_link | default: '#purification-process' }}" class="shrink-0 btn-primary py-3 px-6 text-xs font-bold">
-        {{ section.settings.cta_text | default: 'Explore 8-Stage Purification ↓' }}
-      </a>
     </div>
 
   </div>

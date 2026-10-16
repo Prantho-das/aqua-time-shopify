@@ -1,0 +1,21 @@
+{
+  "sections": {
+    "main": {
+      "type": "warranty-policy",
+      "settings": {}
+    },
+    "faq": {
+      "type": "faq-accordion",
+      "settings": {}
+    },
+    "cta": {
+      "type": "cta-banner",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "faq",
+    "cta"
+  ]
+}

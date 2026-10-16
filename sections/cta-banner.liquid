@@ -1,3 +1,10 @@
+{%- liquid
+  assign prod = all_products['hydrocell-standup']
+  if prod != blank
+    assign diff = prod.compare_at_price | minus: prod.price
+  endif
+-%}
+
 <section class="container py-12 lg:py-16">
   <div class="relative rounded-2xl overflow-hidden cta-banner-gradient p-8 sm:p-12 lg:p-14 text-white">
 
@@ -12,7 +19,11 @@
           {{ section.settings.heading | default: 'Order an air to water generator' }}
         </h2>
         <p class="text-sky-100 text-[15px] mt-2 max-w-lg leading-relaxed">
-          {{ section.settings.description | default: '$1,495 — $500 below the $1,995 list price. Ships immediately. 1-year warranty.' }}
+          {%- if prod != blank and prod.compare_at_price > prod.price -%}
+            {{ prod.price | money_without_trailing_zeros }} — {{ diff | money_without_trailing_zeros }} below the {{ prod.compare_at_price | money_without_trailing_zeros }} list price. Ships immediately. 1-year warranty.
+          {%- else -%}
+            {{ section.settings.description | default: '$1,495 — $500 below the $1,995 list price. Ships immediately. 1-year warranty.' }}
+          {%- endif -%}
         </p>
       </div>
 
@@ -20,11 +31,9 @@
         <button class="open-quote-modal w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-sky-50 text-[#088ae3] text-sm font-bold px-8 py-3.5 rounded-xl shadow-lg transition-all" aria-haspopup="dialog">
           {{ section.settings.btn_text | default: 'Order now' }}
         </button>
-        {% if section.settings.phone_number != blank %}
-          <span class="text-xs text-sky-200 font-medium text-center sm:text-right">
-            Questions? <a href="tel:{{ section.settings.phone_number | replace: ' ', '' | replace: '(', '' | replace: ')', '' | replace: '-', '' }}" class="text-white font-semibold underline hover:text-sky-100">{{ section.settings.phone_number }}</a>
-          </span>
-        {% endif %}
+        <span class="text-xs text-sky-200 font-medium text-center sm:text-right">
+          Questions? <a href="/pages/contact?interest=request-call" class="text-white font-semibold underline hover:text-sky-100">Request a call</a>
+        </span>
       </div>
 
     </div>
@@ -38,8 +47,7 @@
     { "type": "text", "id": "badge", "label": "Badge", "default": "In stock · Ships immediately" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Order an air to water generator" },
     { "type": "textarea", "id": "description", "label": "Description", "default": "$1,495 — $500 below the $1,995 list price. Ships immediately. 1-year warranty." },
-    { "type": "text", "id": "btn_text", "label": "Button Text", "default": "Order now" },
-    { "type": "text", "id": "phone_number", "label": "Phone Number", "default": "(123) 456-7890" }
+    { "type": "text", "id": "btn_text", "label": "Button Text", "default": "Order now" }
   ],
   "presets": [{ "name": "CTA Banner" }]
 }
