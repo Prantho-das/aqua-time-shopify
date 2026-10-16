@@ -1,0 +1,102 @@
+{%- liquid
+  assign card_image = ''
+  if product.featured_image != blank
+    assign card_image = product.featured_image | image_url: width: 800
+  elsif product.handle contains 'filter'
+    assign card_image = 'filter-kit-product.jpg' | asset_url
+  elsif product.handle contains '2-unit'
+    assign card_image = 'hydrocell-2-units.jpg' | asset_url
+  elsif product.handle contains '3-unit'
+    assign card_image = 'hydrocell-3-units.jpg' | asset_url
+  else
+    assign card_image = 'chatgpt-image.jpg' | asset_url
+  endif
+
+  assign has_discount = false
+  if product.compare_at_price > product.price
+    assign has_discount = true
+    assign savings_amount = product.compare_at_price | minus: product.price
+  endif
+-%}
+
+<div class="bg-white rounded-3xl border border-[#d9f1fc] overflow-hidden hover:border-[#088ae3]/60 hover:shadow-xl transition-all group flex flex-col justify-between shadow-sm">
+  <div>
+    <div class="p-8 bg-gradient-to-b from-[#eff9fd] to-white border-b border-[#d9f1fc] flex items-center justify-center relative aspect-[4/3]">
+      {%- if has_discount -%}
+        <span class="absolute top-4 left-4 bg-emerald-600 text-white text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">
+          SAVE {{ savings_amount | money_without_trailing_zeros }}
+        </span>
+      {%- else -%}
+        <span class="absolute top-4 left-4 bg-[#088ae3] text-white text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">
+          IN STOCK
+        </span>
+      {%- endif -%}
+      <a href="{{ product.url }}" class="flex items-center justify-center w-full h-full">
+        <img src="{{ card_image }}" alt="{{ product.title | escape }}" class="max-h-52 object-contain group-hover:scale-105 transition-transform duration-300" loading="lazy">
+      </a>
+    </div>
+    
+    <div class="p-6 sm:p-7 space-y-4">
+      <div class="flex justify-between items-baseline gap-2">
+        <h2 class="font-heading font-bold text-xl sm:text-2xl text-[#173b57]">
+          <a href="{{ product.url }}" class="hover:text-[#088ae3] transition-colors">
+            {{ product.title }}
+          </a>
+        </h2>
+        <div class="text-right shrink-0">
+          <span class="font-heading font-extrabold text-2xl text-[#088ae3] block">
+            {{ product.price | money_without_trailing_zeros }}
+          </span>
+          {%- if has_discount -%}
+            <span class="text-[10px] text-[#4a6177] line-through block">
+              {{ product.compare_at_price | money_without_trailing_zeros }} List
+            </span>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <p class="text-xs sm:text-sm text-[#4a6177] leading-relaxed line-clamp-2">
+        {%- if product.description != blank -%}
+          {{ product.description | strip_html | truncatewords: 22 }}
+        {%- elsif product.handle contains 'filter' -%}
+          Replacement filter kits. Twist-on water filters, about every 6 months. The reusable air filter comes with the unit.
+        {%- elsif product.handle contains '2-unit' -%}
+          Dual HydroCell™ setup for larger residences, guest houses, and multi-room clinics. Up to 10 gallons daily combined.
+        {%- elsif product.handle contains '3-unit' -%}
+          Three HydroCell™ units package for offices, gyms, studios, and staff rooms. Up to 15 gallons daily combined.
+        {%- else -%}
+          Up to 5 gallons a day of lightly mineralized water. 5-gallon storage capacity and instant hot & cold taps.
+        {%- endif -%}
+      </p>
+
+      <div class="flex flex-wrap gap-2 pt-2 text-[11px] font-bold text-[#173b57]">
+        {%- if product.handle contains 'filter' -%}
+          <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">2-Min Tool-Free</span>
+          <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">6-Month Service</span>
+          <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">Free Shipping</span>
+        {%- elsif product.handle contains '2-unit' -%}
+          <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">10 Gal/Day</span>
+          <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">2 Independent Tanks</span>
+          <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">Save $100</span>
+        {%- elsif product.handle contains '3-unit' -%}
+          <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">15 Gal/Day</span>
+          <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">Multi-Room Setup</span>
+          <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">Bulk Savings</span>
+        {%- else -%}
+          <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">5 Gal/Day</span>
+          <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">5 Gal Tank</span>
+          <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">8-Stage Purifier</span>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+
+  <div class="p-6 sm:p-7 pt-0 flex gap-3">
+    <a href="{{ product.url }}" class="flex-1 text-center btn-primary py-3 text-xs font-bold">
+      VIEW {{ product.title | upcase }}
+    </a>
+    <button class="open-quote-modal px-4 py-3 rounded-xl border border-[#d9f1fc] hover:border-[#088ae3] text-[#173b57] text-xs font-bold hover:text-[#088ae3] transition-colors" aria-haspopup="dialog" title="Quick Order">
+      {% render 'icon', name: 'zap', class: 'w-4 h-4' %}
+    </button>
+  </div>
+</div>

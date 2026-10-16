@@ -15,13 +15,6 @@
     </div>
   </section>
 
-{%- liquid
-  assign hydro_product = all_products['hydrocell-standup']
-  assign product_2_units = all_products['hydrocell-2-units']
-  assign product_3_units = all_products['hydrocell-3-units']
-  assign filter_product = all_products['filter-replacement-kits']
--%}
-
   <div class="border-b border-[#d9f1fc] bg-[#f8fcfd]/80 py-5">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
@@ -48,207 +41,25 @@
   <section class="py-14 sm:py-20 lg:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        
-        <div class="bg-white rounded-3xl border border-[#d9f1fc] overflow-hidden hover:border-[#088ae3]/60 hover:shadow-xl transition-all group flex flex-col justify-between shadow-sm">
-          <div>
-            <div class="p-8 bg-gradient-to-b from-[#eff9fd] to-white border-b border-[#d9f1fc] flex items-center justify-center relative aspect-[4/3]">
-              <span class="absolute top-4 left-4 bg-[#088ae3] text-white text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">
-                FLAGSHIP RESIDENTIAL
-              </span>
-              <img src="{{ 'chatgpt-image.jpg' | asset_url }}" alt="HydroCell Standup" class="max-h-52 object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            
-            <div class="p-6 sm:p-7 space-y-4">
-              <div class="flex justify-between items-baseline gap-2">
-                <h2 class="font-heading font-bold text-xl sm:text-2xl text-[#173b57]">HydroCell™ STANDUP</h2>
-                <div class="text-right">
-                  <span class="font-heading font-extrabold text-2xl text-[#088ae3] block">
-                    {%- if hydro_product != blank -%}
-                      {{ hydro_product.price | money_without_trailing_zeros }}
-                    {%- else -%}
-                      $1,495
-                    {%- endif -%}
-                  </span>
-                  <span class="text-[10px] text-[#4a6177] line-through block">
-                    {%- if hydro_product != blank and hydro_product.compare_at_price > hydro_product.price -%}
-                      {{ hydro_product.compare_at_price | money_without_trailing_zeros }} List
-                    {%- else -%}
-                      $1,995 List
-                    {%- endif -%}
-                  </span>
-                </div>
-              </div>
-
-              <p class="text-xs sm:text-sm text-[#4a6177] leading-relaxed">
-                Up to 5 gallons a day of lightly mineralized water. 5-gallon storage capacity and instant hot & cold taps.
-              </p>
-
-              <div class="flex flex-wrap gap-2 pt-2 text-[11px] font-bold text-[#173b57]">
-                <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">5 Gal/Day</span>
-                <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">5 Gal Tank</span>
-                <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">8-Stage Purifier</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="p-6 sm:p-7 pt-0 flex gap-3">
-            <a href="/products/hydrocell-standup" class="flex-1 text-center btn-primary py-3 text-xs font-bold">
-              VIEW HYDROCELL™
-            </a>
-            <button class="open-quote-modal px-4 py-3 rounded-xl border border-[#d9f1fc] hover:border-[#088ae3] text-[#173b57] text-xs font-bold hover:text-[#088ae3] transition-colors" aria-haspopup="dialog" title="Quick Order">
-              {% render 'icon', name: 'zap', class: 'w-4 h-4' %}
-            </button>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-3xl border border-[#d9f1fc] overflow-hidden hover:border-[#088ae3]/60 hover:shadow-xl transition-all group flex flex-col justify-between shadow-sm">
-          <div>
-            <div class="p-8 bg-gradient-to-b from-[#eff9fd] to-white border-b border-[#d9f1fc] flex items-center justify-center relative aspect-[4/3]">
-              <span class="absolute top-4 left-4 bg-emerald-600 text-white text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">
-                EXTRA SAVE $100
-              </span>
-              <img src="{{ 'chatgpt-image.jpg' | asset_url }}" alt="HydroCell 2 Units Bundle" class="max-h-52 object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            
-            <div class="p-6 sm:p-7 space-y-4">
-              <div class="flex justify-between items-baseline gap-2">
-                <h2 class="font-heading font-bold text-xl sm:text-2xl text-[#173b57]">HydroCell™ 2 Units Bundle</h2>
-                <div class="text-right">
-                  <span class="font-heading font-extrabold text-2xl text-[#088ae3] block">
-                    {%- if product_2_units != blank -%}
-                      {{ product_2_units.price | money_without_trailing_zeros }}
-                    {%- else -%}
-                      $2,890
-                    {%- endif -%}
-                  </span>
-                  <span class="text-[10px] text-[#4a6177] line-through block">
-                    {%- if product_2_units != blank and product_2_units.compare_at_price > product_2_units.price -%}
-                      {{ product_2_units.compare_at_price | money_without_trailing_zeros }} List
-                    {%- else -%}
-                      $3,990 List
-                    {%- endif -%}
-                  </span>
-                </div>
-              </div>
-
-              <p class="text-xs sm:text-sm text-[#4a6177] leading-relaxed">
-                Dual HydroCell™ setup for larger residences, guest houses, and multi-room clinics. Up to 10 gallons daily combined.
-              </p>
-
-              <div class="flex flex-wrap gap-2 pt-2 text-[11px] font-bold text-[#173b57]">
-                <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">10 Gal/Day</span>
-                <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">2 Independent Tanks</span>
-                <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">Save $100</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="p-6 sm:p-7 pt-0 flex gap-3">
-            <a href="/products/hydrocell-2-units" class="flex-1 text-center btn-primary py-3 text-xs font-bold">
-              VIEW 2-UNIT BUNDLE
-            </a>
-            <button class="open-quote-modal px-4 py-3 rounded-xl border border-[#d9f1fc] hover:border-[#088ae3] text-[#173b57] text-xs font-bold hover:text-[#088ae3] transition-colors" aria-haspopup="dialog" title="Quick Order">
-              {% render 'icon', name: 'zap', class: 'w-4 h-4' %}
-            </button>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-3xl border border-[#d9f1fc] overflow-hidden hover:border-[#088ae3]/60 hover:shadow-xl transition-all group flex flex-col justify-between shadow-sm">
-          <div>
-            <div class="p-8 bg-gradient-to-b from-[#eff9fd] to-white border-b border-[#d9f1fc] flex items-center justify-center relative aspect-[4/3]">
-              <span class="absolute top-4 left-4 bg-[#173b57] text-white text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">
-                COMMERCIAL BULK
-              </span>
-              <img src="{{ 'chatgpt-image.jpg' | asset_url }}" alt="HydroCell 3 Units Bulk" class="max-h-52 object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            
-            <div class="p-6 sm:p-7 space-y-4">
-              <div class="flex justify-between items-baseline gap-2">
-                <h2 class="font-heading font-bold text-xl sm:text-2xl text-[#173b57]">HydroCell™ 3 Units Bulk</h2>
-                <div class="text-right">
-                  <span class="font-heading font-extrabold text-2xl text-[#088ae3] block">
-                    {%- if product_3_units != blank -%}
-                      {{ product_3_units.price | money_without_trailing_zeros }}
-                    {%- else -%}
-                      $4,185
-                    {%- endif -%}
-                  </span>
-                  <span class="text-[10px] text-[#4a6177] line-through block">
-                    {%- if product_3_units != blank and product_3_units.compare_at_price > product_3_units.price -%}
-                      {{ product_3_units.compare_at_price | money_without_trailing_zeros }} List
-                    {%- else -%}
-                      $5,985 List
-                    {%- endif -%}
-                  </span>
-                </div>
-              </div>
-
-              <p class="text-xs sm:text-sm text-[#4a6177] leading-relaxed">
-                Three HydroCell™ units package for offices, gyms, studios, and staff rooms. Up to 15 gallons daily combined.
-              </p>
-
-              <div class="flex flex-wrap gap-2 pt-2 text-[11px] font-bold text-[#173b57]">
-                <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">15 Gal/Day</span>
-                <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">Multi-Room Setup</span>
-                <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">Bulk Savings</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="p-6 sm:p-7 pt-0 flex gap-3">
-            <a href="/products/hydrocell-3-units" class="flex-1 text-center btn-primary py-3 text-xs font-bold">
-              VIEW 3-UNIT BULK
-            </a>
-            <button class="open-quote-modal px-4 py-3 rounded-xl border border-[#d9f1fc] hover:border-[#088ae3] text-[#173b57] text-xs font-bold hover:text-[#088ae3] transition-colors" aria-haspopup="dialog" title="Quick Order">
-              {% render 'icon', name: 'zap', class: 'w-4 h-4' %}
-            </button>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-3xl border border-[#d9f1fc] overflow-hidden hover:border-[#088ae3]/60 hover:shadow-xl transition-all group flex flex-col justify-between shadow-sm">
-          <div>
-            <div class="p-8 bg-gradient-to-b from-[#eff9fd] to-white border-b border-[#d9f1fc] flex items-center justify-center relative aspect-[4/3]">
-              <span class="absolute top-4 left-4 bg-emerald-600 text-white text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">
-                GENUINE OEM REFILLS
-              </span>
-              <div class="w-28 h-28 rounded-3xl bg-white border border-[#d9f1fc] shadow-sm flex items-center justify-center text-[#088ae3] group-hover:scale-105 transition-transform">
-                {% render 'icon', name: 'filter', class: 'w-12 h-12 text-[#088ae3]' %}
-              </div>
-            </div>
-
-            <div class="p-6 sm:p-7 space-y-4">
-              <div class="flex justify-between items-baseline gap-2">
-                <h2 class="font-heading font-bold text-xl sm:text-2xl text-[#173b57]">Filter Replacement Kits</h2>
-                <div class="text-right">
-                  <span class="font-heading font-extrabold text-2xl text-[#088ae3] block">
-                    {%- if filter_product != blank -%}
-                      {{ filter_product.price | money_without_trailing_zeros }}
-                    {%- else -%}
-                      $100
-                    {%- endif -%}
-                  </span>
-                  <span class="text-[10px] text-[#4a6177] block">Bundled Packs</span>
-                </div>
-              </div>
-
-              <p class="text-xs sm:text-sm text-[#4a6177] leading-relaxed">
-                Replacement filter kits. Twist-on water filters, about every 6 months. The reusable air filter comes with the unit.
-              </p>
-
-              <div class="flex flex-wrap gap-2 pt-2 text-[11px] font-bold text-[#173b57]">
-                <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">2-Min Tool-Free</span>
-                <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">6-Month Service</span>
-                <span class="bg-[#eff9fd] border border-[#d9f1fc] px-3 py-1 rounded-full text-[#088ae3]">Free Shipping</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="p-6 sm:p-7 pt-0">
-            <a href="/products/filter-replacement-kits" class="block w-full text-center btn-primary py-3 text-xs font-bold">
-              VIEW REFILL KITS ({%- if filter_product != blank -%}{{ filter_product.price | money_without_trailing_zeros }}{%- else -%}$100{%- endif -%})
-            </a>
-          </div>
-        </div>
+        {%- assign all_prods = collections['all'].products -%}
+        {%- if all_prods.size > 0 -%}
+          {%- for product in all_prods -%}
+            {% render 'product-card', product: product %}
+          {%- endfor -%}
+        {%- else -%}
+          {%- if all_products['hydrocell-standup'] != blank -%}
+            {% render 'product-card', product: all_products['hydrocell-standup'] %}
+          {%- endif -%}
+          {%- if all_products['hydrocell-2-units'] != blank -%}
+            {% render 'product-card', product: all_products['hydrocell-2-units'] %}
+          {%- endif -%}
+          {%- if all_products['hydrocell-3-units'] != blank -%}
+            {% render 'product-card', product: all_products['hydrocell-3-units'] %}
+          {%- endif -%}
+          {%- if all_products['filter-replacement-kits'] != blank -%}
+            {% render 'product-card', product: all_products['filter-replacement-kits'] %}
+          {%- endif -%}
+        {%- endif -%}
 
         <div class="bg-white rounded-3xl border border-[#d9f1fc] overflow-hidden hover:border-[#088ae3]/60 hover:shadow-xl transition-all group flex flex-col justify-between shadow-sm">
           <div>
@@ -285,7 +96,6 @@
             </a>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -294,11 +104,11 @@
 
 {% schema %}
 {
-  "name": "List Collections",
+  "name": "Collections List",
   "settings": [],
   "presets": [
     {
-      "name": "List Collections"
+      "name": "Collections List"
     }
   ]
 }
