@@ -1,13 +1,18 @@
 {
   "sections": {
+    "main": {
+      "type": "main-cart",
+      "settings": {}
+    },
     "cta": {
       "type": "cta-banner",
       "settings": {
-        "heading": "Ready to checkout your AWG Unit?"
+        "heading": "Ready to bring fresh water from air to your home?"
       }
     }
   },
   "order": [
+    "main",
     "cta"
   ]
 }

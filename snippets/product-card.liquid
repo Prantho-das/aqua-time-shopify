@@ -95,7 +95,12 @@
     <a href="{{ product.url }}" class="flex-1 text-center btn-primary py-3 text-xs font-bold">
       VIEW {{ product.title | upcase }}
     </a>
-    <button class="open-quote-modal px-4 py-3 rounded-xl border border-[#d9f1fc] hover:border-[#088ae3] text-[#173b57] text-xs font-bold hover:text-[#088ae3] transition-colors" aria-haspopup="dialog" title="Quick Order">
+    <button class="open-quote-modal px-4 py-3 rounded-xl border border-[#d9f1fc] hover:border-[#088ae3] text-[#173b57] text-xs font-bold hover:text-[#088ae3] transition-colors"
+      data-product-title="{{ product.title | escape }}"
+      data-product-price="{{ product.price | money }}"
+      data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+      data-product-handle="{{ product.handle }}"
+      aria-haspopup="dialog" title="Quick Order">
       {% render 'icon', name: 'zap', class: 'w-4 h-4' %}
     </button>
   </div>

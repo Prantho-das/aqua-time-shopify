@@ -2,10 +2,49 @@
   assign modal_product = section.settings.product | default: all_products['hydrocell-standup']
   assign product_2_units = all_products['hydrocell-2-units']
   assign product_3_units = all_products['hydrocell-3-units']
+  assign filter_kit_product = all_products['filter-replacement-kits']
   if modal_product != blank and modal_product.compare_at_price > modal_product.price
     assign modal_diff = modal_product.compare_at_price | minus: modal_product.price
   endif
 -%}
+
+<script type="application/json" id="theme-products-json">
+{
+  "hydrocell": {
+    "title": "HydroCell™ Standup AWG",
+    "price": "{{ modal_product.price | default: 149500 | money_without_trailing_zeros }}",
+    "compare": "{{ modal_product.compare_at_price | default: 239500 | money_without_trailing_zeros }}",
+    "variantId": "{{ modal_product.selected_or_first_available_variant.id }}",
+    "badge": "OFFICIAL ORDER REQUEST",
+    "subtitle": "Special promotion: $500 off MSRP ($1,995). Free insured shipping included.",
+    "type": "unit"
+  },
+  "filter-kit": {
+    "title": "HydroCell™ Filter Replacement Kit",
+    "price": "{{ filter_kit_product.price | default: 10000 | money }}",
+    "variantId": "{{ filter_kit_product.selected_or_first_available_variant.id }}",
+    "badge": "FILTER REPLACEMENT ORDER",
+    "subtitle": "Certified OEM replacement cartridges for continuous pure filtration. Free US priority shipping.",
+    "type": "filter"
+  },
+  "hydrocell-2-units": {
+    "title": "HydroCell™ Dual Pack (2 Units)",
+    "price": "{{ product_2_units.price | default: 289000 | money_without_trailing_zeros }}",
+    "variantId": "{{ product_2_units.selected_or_first_available_variant.id }}",
+    "badge": "MULTI-UNIT BUNDLE",
+    "subtitle": "Dual unit package for homes and clinics. Includes additional $100 multi-unit bundle savings.",
+    "type": "bundle"
+  },
+  "hydrocell-3-units": {
+    "title": "HydroCell™ Commercial Pack (3 Units)",
+    "price": "{{ product_3_units.price | default: 428500 | money_without_trailing_zeros }}",
+    "variantId": "{{ product_3_units.selected_or_first_available_variant.id }}",
+    "badge": "COMMERCIAL BUNDLE",
+    "subtitle": "Three HydroCell™ units package for offices, gyms, studios, and staff rooms.",
+    "type": "bundle"
+  }
+}
+</script>
 
 <div id="quote-modal" class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-xs">
   <div class="modal-content bg-white w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl p-6 sm:p-7 relative border border-[#e2f0f9]">
@@ -15,15 +54,15 @@
     </button>
 
     <div class="text-left mb-5">
-      <span class="text-[11px] font-bold tracking-wider text-[#088ae3] uppercase">{{ section.settings.badge | default: 'OFFICIAL ORDER REQUEST' }}</span>
-      <h3 class="font-heading text-xl font-bold text-[#173b57] mt-1">
+      <span id="modal-badge" class="text-[11px] font-bold tracking-wider text-[#088ae3] uppercase">{{ section.settings.badge | default: 'OFFICIAL ORDER REQUEST' }}</span>
+      <h3 id="modal-title" class="font-heading text-xl font-bold text-[#173b57] mt-1">
         {%- if modal_product != blank -%}
           Order AWG Unit — {{ modal_product.price | money_without_trailing_zeros }}
         {%- else -%}
           {{ section.settings.title | default: 'Order AWG Unit — $1,495' }}
         {%- endif -%}
       </h3>
-      <p class="text-xs text-[#4a6177] mt-1">
+      <p id="modal-subtitle" class="text-xs text-[#4a6177] mt-1">
         {%- if modal_diff != blank -%}
           Special promotion: {{ modal_diff | money_without_trailing_zeros }} off MSRP ({{ modal_product.compare_at_price | money_without_trailing_zeros }}). Free insured shipping included.
         {%- else -%}
@@ -33,9 +72,7 @@
     </div>
 
     <form id="quote-form" class="space-y-3.5" action="/cart/add" method="post">
-      {% if modal_product != blank %}
-        <input type="hidden" name="id" value="{{ modal_product.selected_or_first_available_variant.id }}">
-      {% endif %}
+      <input type="hidden" name="id" id="modal-variant-id" value="{{ modal_product.selected_or_first_available_variant.id }}">
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
         <div>
@@ -55,7 +92,7 @@
         </div>
         <div>
           <label class="block text-xs font-semibold text-[#173b57] mb-1">Quantity</label>
-          <select name="quantity" class="w-full px-3 py-2 rounded-lg border border-[#e2f0f9] text-xs focus:outline-none focus:ring-2 focus:ring-[#088ae3] bg-white">
+          <select name="quantity" id="modal-quantity" class="w-full px-3 py-2 rounded-lg border border-[#e2f0f9] text-xs focus:outline-none focus:ring-2 focus:ring-[#088ae3] bg-white">
             <option value="1">1 Unit ({% if modal_product != blank %}{{ modal_product.price | money_without_trailing_zeros }}{% else %}$1,495{% endif %})</option>
             <option value="2">2 Units ({% if product_2_units != blank %}{{ product_2_units.price | money_without_trailing_zeros }}{% else %}$2,890{% endif %} - Extra Save $100)</option>
             <option value="3">3+ Units ({% if product_3_units != blank %}{{ product_3_units.price | money_without_trailing_zeros }}{% else %}Commercial Bulk{% endif %})</option>
@@ -78,7 +115,7 @@
         </select>
       </div>
 
-      <button type="submit" class="w-full btn-primary py-3 rounded-lg text-xs tracking-wider uppercase mt-1">
+      <button type="submit" id="modal-submit-btn" class="w-full btn-primary py-3 rounded-lg text-xs tracking-wider uppercase mt-1">
         {%- if modal_product != blank -%}
           Lock In {{ modal_product.price | money_without_trailing_zeros }} Price & Order
         {%- else -%}

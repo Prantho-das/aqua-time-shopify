@@ -3,7 +3,7 @@
     "main": {
       "type": "main-page",
       "settings": {
-        "badge": "Aqua-Time Official",
+        "badge": "Official Documentation",
         "subtitle": "Official resources, verified documentation, and guidelines for atmospheric water generation."
       }
     },

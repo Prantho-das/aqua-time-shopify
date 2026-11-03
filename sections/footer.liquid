@@ -54,17 +54,15 @@
           <li><a href="/pages/how-it-works#purification-process" class="hover:text-[#43a5ff] transition-colors">8-Stage Purification</a></li>
           <li><a href="/pages/water-quality" class="hover:text-[#43a5ff] transition-colors">Water Quality & PFAS</a></li>
           <li><a href="/pages/lab-report" class="hover:text-[#43a5ff] transition-colors">Lab Reports</a></li>
-          <li><a href="/pages/case-studies" class="hover:text-[#43a5ff] transition-colors">Case Studies</a></li>
         </ul>
       </div>
 
       <div class="lg:col-span-2 space-y-3">
         <h4 class="font-heading font-bold text-[11px] uppercase tracking-wider text-white">{{ section.settings.col3_title | default: 'RESOURCES' }}</h4>
         <ul class="space-y-2 text-[11.5px]">
-          <li><a href="/#faq" class="hover:text-[#43a5ff] transition-colors">Help Center & FAQ</a></li>
           <li><a href="/pages/warranty" class="hover:text-[#43a5ff] transition-colors">Warranty & Returns</a></li>
           <li><a href="/products/filter-replacement-kits" class="hover:text-[#43a5ff] transition-colors">Filter Schedule</a></li>
-          <li><a href="/pages/contact" class="hover:text-[#43a5ff] transition-colors">Financing Inquiries</a></li>
+          <li><a href="/pages/contact" class="hover:text-[#43a5ff] transition-colors">Contact Support</a></li>
         </ul>
       </div>
 
@@ -99,9 +97,9 @@
       <div class="flex items-center space-x-3 text-[11px]">
         <a href="/pages/warranty" class="hover:text-[#cbd5e1] transition-colors">Warranty & Refund Policy</a>
         <span class="text-[#3b5980]">|</span>
-        <a href="/pages/privacy-policy" class="hover:text-[#cbd5e1] transition-colors">Privacy Policy</a>
+        <a href="{{ shop.privacy_policy.url | default: '/policies/privacy-policy' }}" class="hover:text-[#cbd5e1] transition-colors">Privacy Policy</a>
         <span class="text-[#3b5980]">|</span>
-        <a href="/pages/terms" class="hover:text-[#cbd5e1] transition-colors">Terms & Conditions</a>
+        <a href="{{ shop.terms_of_service.url | default: '/policies/terms-of-service' }}" class="hover:text-[#cbd5e1] transition-colors">Terms & Conditions</a>
       </div>
     </div>
 

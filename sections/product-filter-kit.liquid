@@ -113,7 +113,13 @@
           </div>
 
           <div class="flex flex-col sm:flex-row gap-3 pt-2">
-            <button id="order-kit-btn" class="open-quote-modal flex-1 btn-primary py-4 text-xs font-bold tracking-wider uppercase shadow hover:shadow-lg transition-all flex items-center justify-center gap-2" aria-haspopup="dialog">
+            <button id="order-kit-btn" class="open-quote-modal flex-1 btn-primary py-4 text-xs font-bold tracking-wider uppercase shadow hover:shadow-lg transition-all flex items-center justify-center gap-2"
+              data-product-key="filter-kit"
+              data-product-title="Month 6 Refill Kit"
+              data-product-price="$100.00"
+              data-product-type="filter"
+              data-variant-id="{{ all_products['filter-replacement-kits'].selected_or_first_available_variant.id }}"
+              aria-haspopup="dialog">
               <span>BUY NOW — $100.00</span>
               {% render 'icon', name: 'arrow-right', class: 'w-4 h-4 text-white' %}
             </button>
@@ -277,6 +283,8 @@
         if (tagEl) tagEl.textContent = tag;
         if (orderBtn) {
           orderBtn.querySelector('span').textContent = 'BUY NOW — ' + price;
+          orderBtn.setAttribute('data-product-title', name);
+          orderBtn.setAttribute('data-product-price', price);
         }
 
         if (listEl && cartMap[m]) {

@@ -1,0 +1,164 @@
+<section class="py-12 sm:py-16 lg:py-20 bg-[#f8fcfd] min-h-[60vh] border-b border-[#d9f1fc]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="mb-8 sm:mb-12 text-center sm:text-left">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold tracking-widest text-[#088ae3] bg-[#eff9fd] border border-[#d9f1fc] uppercase mb-2">
+        Shopping Cart
+      </span>
+      <h1 class="font-heading text-3xl sm:text-4xl font-extrabold text-[#173b57] tracking-tight">
+        Your Order {% if cart.item_count > 0 %}<span class="text-base sm:text-lg font-normal text-[#4a6177]">({{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }})</span>{% endif %}
+      </h1>
+    </div>
+
+    {% if cart.item_count > 0 %}
+      <form action="{{ routes.cart_url }}" method="post" id="cart-form" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <div class="lg:col-span-8 space-y-4">
+          <div class="bg-white rounded-3xl border border-[#d9f1fc] shadow-sm overflow-hidden divide-y divide-[#d9f1fc]">
+            {% for item in cart.items %}
+              <div class="p-5 sm:p-6 flex flex-col sm:flex-row gap-5 items-start sm:items-center justify-between hover:bg-[#eff9fd]/30 transition-colors">
+                
+                <div class="flex items-center gap-4 sm:gap-5 flex-1 min-w-0">
+                  <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#eff9fd] border border-[#d9f1fc] overflow-hidden shrink-0 flex items-center justify-center p-2">
+                    {% if item.image %}
+                      <img src="{{ item.image | image_url: width: 240 }}" alt="{{ item.title | escape }}" class="w-full h-full object-contain" loading="lazy">
+                    {% else %}
+                      {% render 'icon', name: 'droplets', class: 'w-8 h-8 text-[#088ae3]' %}
+                    {% endif %}
+                  </div>
+
+                  <div class="space-y-1 min-w-0">
+                    <a href="{{ item.url }}" class="font-heading font-bold text-base sm:text-lg text-[#173b57] hover:text-[#088ae3] transition-colors block truncate">
+                      {{ item.product.title }}
+                    </a>
+                    {% unless item.variant.title contains 'Default' %}
+                      <span class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#eff9fd] text-[#088ae3] border border-[#d9f1fc]">
+                        {{ item.variant.title }}
+                      </span>
+                    {% endunless %}
+                    <div class="text-xs font-semibold text-[#4a6177]">
+                      Price: {{ item.final_price | money }}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex sm:flex-col items-center sm:items-end justify-between w-full sm:w-auto gap-3 pt-3 sm:pt-0 border-t sm:border-t-0 border-[#d9f1fc]">
+                  <div class="flex items-center border border-[#d9f1fc] rounded-xl bg-[#eff9fd]/60 overflow-hidden">
+                    <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity={{ item.quantity | minus: 1 }}" class="w-8 h-8 flex items-center justify-center text-[#173b57] hover:bg-[#088ae3] hover:text-white transition-colors font-bold text-sm" aria-label="Decrease quantity">
+                      &minus;
+                    </a>
+                    <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0" class="w-12 text-center bg-transparent border-0 text-xs font-bold text-[#173b57] focus:outline-none" aria-label="Quantity">
+                    <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity={{ item.quantity | plus: 1 }}" class="w-8 h-8 flex items-center justify-center text-[#173b57] hover:bg-[#088ae3] hover:text-white transition-colors font-bold text-sm" aria-label="Increase quantity">
+                      &#43;
+                    </a>
+                  </div>
+
+                  <div class="text-right">
+                    <div class="font-heading font-extrabold text-base text-[#173b57]">
+                      {{ item.final_line_price | money }}
+                    </div>
+                    <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0" class="text-[11px] font-semibold text-rose-600 hover:text-rose-800 transition-colors inline-block mt-0.5">
+                      Remove
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+            {% endfor %}
+          </div>
+
+          <div class="flex items-center justify-between text-xs text-[#4a6177] px-2">
+            <a href="/collections/all" class="font-bold text-[#088ae3] hover:underline flex items-center gap-1.5">
+              &larr; Continue Shopping
+            </a>
+            <button type="submit" name="update" class="px-4 py-2 rounded-xl border border-[#d9f1fc] bg-white hover:bg-[#eff9fd] text-[#173b57] font-semibold transition-colors">
+              Update Quantities
+            </button>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4">
+          <div class="bg-white rounded-3xl border border-[#d9f1fc] p-6 sm:p-7 shadow-sm space-y-6 sticky top-24">
+            <h2 class="font-heading font-bold text-lg text-[#173b57] pb-3 border-b border-[#d9f1fc]">
+              Order Summary
+            </h2>
+
+            <div class="space-y-3 text-xs sm:text-sm text-[#4a6177]">
+              <div class="flex items-center justify-between">
+                <span>Subtotal</span>
+                <span class="font-heading font-bold text-lg text-[#173b57]">{{ cart.total_price | money }}</span>
+              </div>
+              <div class="flex items-center justify-between text-xs">
+                <span>Shipping</span>
+                <span class="font-bold text-emerald-600">FREE US Shipping</span>
+              </div>
+              <div class="flex items-center justify-between text-xs">
+                <span>Estimated Taxes</span>
+                <span>Calculated at checkout</span>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-[#d9f1fc]">
+              <label for="cart-note" class="block text-xs font-semibold text-[#173b57] mb-1.5">Special Delivery Instructions (Optional)</label>
+              <textarea id="cart-note" name="note" rows="2" placeholder="e.g. Leave by side gate, ring bell..." class="w-full px-3 py-2 text-xs rounded-xl border border-[#d9f1fc] focus:outline-none focus:ring-2 focus:ring-[#088ae3]">{{ cart.note }}</textarea>
+            </div>
+
+            <div class="pt-2 space-y-3">
+              <button type="submit" name="checkout" class="w-full btn-primary py-4 rounded-xl text-xs sm:text-sm font-bold tracking-wider uppercase shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                <span>Proceed to Checkout</span>
+                {% render 'icon', name: 'arrow-right', class: 'w-4 h-4 text-white' %}
+              </button>
+
+              <div class="space-y-2 pt-3 border-t border-[#d9f1fc] text-[11px] text-[#4a6177]">
+                <div class="flex items-center gap-2">
+                  {% render 'icon', name: 'shield-check', class: 'w-4 h-4 text-[#088ae3] shrink-0' %}
+                  <span>1-Year Comprehensive Warranty</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  {% render 'icon', name: 'check-circle', class: 'w-4 h-4 text-emerald-600 shrink-0' %}
+                  <span>7-Day Return Window on Unopened Units</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  {% render 'icon', name: 'zap', class: 'w-4 h-4 text-[#088ae3] shrink-0' %}
+                  <span>Encrypted 256-Bit SSL Checkout</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </form>
+    {% else %}
+      <div class="bg-white rounded-3xl border border-[#d9f1fc] p-10 sm:p-16 text-center max-w-2xl mx-auto shadow-sm space-y-5">
+        <div class="w-16 h-16 rounded-3xl bg-[#eff9fd] text-[#088ae3] flex items-center justify-center mx-auto">
+          {% render 'icon', name: 'droplets', class: 'w-8 h-8' %}
+        </div>
+        <div class="space-y-2">
+          <h2 class="font-heading text-2xl sm:text-3xl font-extrabold text-[#173b57]">
+            Your cart is currently empty
+          </h2>
+          <p class="text-xs sm:text-sm text-[#4a6177] max-w-md mx-auto leading-relaxed">
+            You haven’t added any Atmospheric Water Generators or filter replacement packs yet.
+          </p>
+        </div>
+        <div class="pt-4 flex flex-wrap items-center justify-center gap-3">
+          <a href="/products/hydrocell-standup" class="btn-primary py-3 px-6 text-xs font-bold uppercase tracking-wider">
+            Order HydroCell™ Unit
+          </a>
+          <a href="/collections/all" class="px-6 py-3 rounded-xl border border-[#d9f1fc] text-[#173b57] hover:border-[#088ae3] text-xs font-bold uppercase tracking-wider transition-colors">
+            View All Products
+          </a>
+        </div>
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Cart Page",
+  "settings": []
+}
+{% endschema %}

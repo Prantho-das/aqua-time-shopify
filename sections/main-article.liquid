@@ -20,7 +20,7 @@
       {{ article.title }}
     </h1>
     <div class="flex items-center justify-center gap-4 text-xs text-[#4a6177] pt-2">
-      <span class="font-bold text-[#173b57]">By {{ article.author | default: 'Aqua-Time Team' }}</span>
+      <span class="font-bold text-[#173b57]">By {{ article.author | default: 'Air to Water Generators Team' }}</span>
       <span>•</span>
       <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%B %d, %Y' }}</time>
     </div>

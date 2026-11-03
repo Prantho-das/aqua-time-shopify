@@ -104,7 +104,13 @@
             </div>
 
             <div class="space-y-3 pt-2">
-              <button class="open-quote-modal w-full btn-primary py-4 text-sm font-bold tracking-wider uppercase shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2" aria-haspopup="dialog">
+              <button class="open-quote-modal w-full btn-primary py-4 text-sm font-bold tracking-wider uppercase shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
+                data-product-key="hydrocell"
+                data-product-title="{{ product.title | default: 'HydroCell™ Standup AWG' | escape }}"
+                data-product-price="{{ product.price | default: 149500 | money }}"
+                data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+                data-product-type="unit"
+                aria-haspopup="dialog">
                 <span>BUY NOW — {{ product.price | default: 149500 | money }}</span>
                 {% render 'icon', name: 'arrow-right', class: 'w-4 h-4 text-white' %}
               </button>
@@ -422,7 +428,13 @@
             </div>
 
             <div class="flex flex-col sm:flex-row gap-3 pt-2">
-              <button id="order-kit-btn" class="open-quote-modal flex-1 btn-primary py-4 text-xs font-bold tracking-wider uppercase shadow hover:shadow-lg transition-all flex items-center justify-center gap-2" aria-haspopup="dialog">
+              <button id="order-kit-btn" class="open-quote-modal flex-1 btn-primary py-4 text-xs font-bold tracking-wider uppercase shadow hover:shadow-lg transition-all flex items-center justify-center gap-2"
+                data-product-key="filter-kit"
+                data-product-title="Month 6 Refill Kit"
+                data-product-price="$100.00"
+                data-product-type="filter"
+                data-variant-id="{{ all_products['filter-replacement-kits'].selected_or_first_available_variant.id }}"
+                aria-haspopup="dialog">
                 <span>BUY NOW — $100.00</span>
                 {% render 'icon', name: 'arrow-right', class: 'w-4 h-4 text-white' %}
               </button>
@@ -539,7 +551,7 @@
         if (filterView) filterView.style.display = 'block';
         if (climateSection) climateSection.style.display = 'none';
         if (compSection) compSection.style.display = 'none';
-        document.title = 'Filter Replacement Kits – aqua-time';
+        document.title = 'Filter Replacement Kits – ' + (window.themeShopName || 'Air to Water Generators');
       } else {
         if (hydroView) hydroView.style.display = 'block';
         if (filterView) filterView.style.display = 'none';
@@ -615,6 +627,8 @@
         if (tagEl) tagEl.textContent = tag;
         if (orderBtn) {
           orderBtn.querySelector('span').textContent = 'BUY NOW — ' + price;
+          orderBtn.setAttribute('data-product-title', name);
+          orderBtn.setAttribute('data-product-price', price);
         }
 
         if (listEl && cartMap[m]) {
