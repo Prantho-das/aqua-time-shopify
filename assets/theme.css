@@ -269,3 +269,215 @@ img, svg {
   outline: 2px solid var(--blue-500);
   outline-offset: 2px;
 }
+
+.shopify-policy-page {
+  background-color: #f8fcfd;
+}
+
+.shopify-policy__container {
+  max-width: 54rem;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 5rem;
+}
+
+@media (min-width: 768px) {
+  .shopify-policy__container {
+    padding: 4rem 1.5rem 6rem;
+  }
+}
+
+.shopify-policy__title {
+  text-align: center;
+  margin-bottom: 2.25rem;
+}
+
+.shopify-policy__title h1 {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+@media (min-width: 768px) {
+  .shopify-policy__title h1 {
+    font-size: 2.75rem;
+  }
+}
+
+.shopify-policy__body {
+  background: #ffffff;
+  border: 1px solid var(--blue-100);
+  border-radius: 1.5rem;
+  padding: 2.25rem 1.5rem;
+  box-shadow: 0 4px 20px -2px rgba(8, 138, 227, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+@media (min-width: 768px) {
+  .shopify-policy__body {
+    padding: 3.5rem 3.5rem;
+    border-radius: 1.75rem;
+  }
+}
+
+.shopify-policy__body .rte {
+  font-family: var(--font-body);
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.8;
+}
+
+@media (min-width: 768px) {
+  .shopify-policy__body .rte {
+    font-size: 1rem;
+    line-height: 1.85;
+  }
+}
+
+.shopify-policy__body .rte h1,
+.shopify-policy__body .rte h2,
+.shopify-policy__body .rte h3,
+.shopify-policy__body .rte h4 {
+  font-family: var(--font-heading);
+  color: var(--navy);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+}
+
+.shopify-policy__body .rte h2 {
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.875rem;
+  border-bottom: 2px solid var(--blue-50);
+}
+
+@media (min-width: 768px) {
+  .shopify-policy__body .rte h2 {
+    font-size: 1.75rem;
+  }
+}
+
+.shopify-policy__body .rte h3 {
+  font-size: 1.15rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .shopify-policy__body .rte h3 {
+    font-size: 1.25rem;
+  }
+}
+
+.shopify-policy__body .rte h4 {
+  font-size: 1.05rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.shopify-policy__body .rte p {
+  margin-bottom: 1.15rem;
+  color: var(--text-secondary);
+}
+
+.shopify-policy__body .rte strong,
+.shopify-policy__body .rte b {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.shopify-policy__body .rte ul,
+.shopify-policy__body .rte ol {
+  margin: 1.25rem 0 1.5rem 0;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.shopify-policy__body .rte ul > li,
+.shopify-policy__body .rte ol > li {
+  position: relative;
+  padding-left: 1.65rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.shopify-policy__body .rte ul > li::before {
+  content: "";
+  position: absolute;
+  left: 0.25rem;
+  top: 0.65rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--blue-500);
+}
+
+.shopify-policy__body .rte ol {
+  counter-reset: policy-counter;
+}
+
+.shopify-policy__body .rte ol > li {
+  counter-increment: policy-counter;
+}
+
+.shopify-policy__body .rte ol > li::before {
+  content: counter(policy-counter) ".";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 700;
+  color: var(--blue-500);
+}
+
+.shopify-policy__body .rte hr {
+  border: 0;
+  border-top: 1px solid var(--blue-100);
+  margin: 2rem 0;
+}
+
+.shopify-policy__body .rte a {
+  color: var(--blue-500);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+  transition: color 0.15s ease;
+}
+
+.shopify-policy__body .rte a:hover {
+  color: #0077c8;
+}
+
+.shopify-policy__body .rte table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+}
+
+.shopify-policy__body .rte th,
+.shopify-policy__body .rte td {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--blue-100);
+  text-align: left;
+}
+
+.shopify-policy__body .rte th {
+  background-color: var(--blue-50);
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.shopify-policy__body .rte blockquote {
+  border-left: 4px solid var(--blue-500);
+  background: var(--blue-50);
+  padding: 1rem 1.25rem;
+  border-radius: 0 0.75rem 0.75rem 0;
+  margin: 1.5rem 0;
+  color: var(--navy);
+}
