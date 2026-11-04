@@ -95,7 +95,7 @@
         © {{ 'now' | date: '%Y' }} Air to Water Generators. All rights reserved.
       </div>
       <div class="flex items-center space-x-3 text-[11px]">
-        <a href="/pages/warranty" class="hover:text-[#cbd5e1] transition-colors">Warranty & Refund Policy</a>
+        <a href="{{ shop.refund_policy.url | default: '/policies/refund-policy' }}" class="hover:text-[#cbd5e1] transition-colors">Warranty & Refund Policy</a>
         <span class="text-[#3b5980]">|</span>
         <a href="{{ shop.privacy_policy.url | default: '/policies/privacy-policy' }}" class="hover:text-[#cbd5e1] transition-colors">Privacy Policy</a>
         <span class="text-[#3b5980]">|</span>
